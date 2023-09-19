@@ -1,6 +1,7 @@
 import classes from "./styles.module.scss";
 import clsx from "classnames";
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 export const Accordion = ({ className, items, defaultActiveKey }) => {
   const [active, setActive] = useState(defaultActiveKey);
@@ -24,4 +25,15 @@ Accordion.defaultProps = {
   className: "",
   items: [],
   defaultActiveKey: 0,
+};
+
+Accordion.propTypes = {
+  className: PropTypes.string,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      body: PropTypes.string,
+    })
+  ),
+  defaultActiveKey: PropTypes.number,
 };
