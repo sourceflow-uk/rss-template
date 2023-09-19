@@ -1,0 +1,63 @@
+{
+  "name": "rss-template",
+  "private": true,
+  "scripts": {
+    "dev": "sourceflow reset && next dev",
+    "build": "next build && next-sitemap && next export",
+    "start": "next start",
+    "lint": "next lint",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "@next/env": "^12.3.2",
+    "@react-hook/media-query": "^1.1.1",
+    "@sourceflow-uk/job-search": "^2.0",
+    "@sourceflow-uk/sourceflow-head": "^0.0.7",
+    "@sourceflow-uk/sourceflow-sdk": "^0.10",
+    "@sourceflow-uk/sourceflowapplicationform": "^2.0",
+    "@sourceflow-uk/sourceflowform": "^1.5",
+    "@sourceflow-uk/sourceflowimage": "^0.2.3",
+    "@sourceflow-uk/sourceflowtext": "^0.1",
+    "bootstrap": "^5.2.3",
+    "classnames": "^2.3.2",
+    "date-fns": "^2.29.3",
+    "lodash": "^4.17.21",
+    "next": "13.2.4",
+    "next-compose-plugins": "^2.2.1",
+    "next-plugin-svgr": "^1.1.3",
+    "next-sitemap": "^3.1.32",
+    "prop-types": "^15.8.1",
+    "react": "18.2.0",
+    "react-bootstrap": "^2.7.2",
+    "react-dom": "18.2.0",
+    "react-helmet": "^6.1.0",
+    "react-slide-fade-in": "^1.0.9",
+    "react-visibility-sensor": "^5.1.1",
+    "sass": "^1.59.2",
+    "slug": "^8.2.2",
+    "unslug": "^0.1.0",
+    "xml2js": "^0.6.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.4.2",
+    "@storybook/addon-interactions": "^7.4.2",
+    "@storybook/addon-links": "^7.4.2",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.4.2",
+    "@storybook/nextjs": "^7.4.2",
+    "@storybook/react": "^7.4.2",
+    "@storybook/testing-library": "^0.2.1",
+    "eslint": "8.36.0",
+    "eslint-config-next": "13.2.4",
+    "eslint-plugin-storybook": "^0.6.13",
+    "file-loader": "^6.2.0",
+    "prettier": "^2.8.4",
+    "storybook": "^7.4.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
+  }
+}
