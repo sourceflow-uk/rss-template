@@ -1,13 +1,16 @@
 {
   "name": "rss-template",
   "private": true,
+  "homepage": "https://sourceflow-uk.github.io/rss-template",
   "scripts": {
     "dev": "sourceflow reset && next dev",
     "build": "next build && next-sitemap && next export",
     "start": "next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "predeploy": "npm run build-storybook",
+    "deploy-storybook": "gh-pages -d storybook-static"
   },
   "dependencies": {
     "@next/env": "^12.3.2",
@@ -52,6 +55,7 @@
     "eslint-config-next": "13.2.4",
     "eslint-plugin-storybook": "^0.6.13",
     "file-loader": "^6.2.0",
+    "gh-pages": "^6.0.0",
     "prettier": "^2.8.4",
     "storybook": "^7.4.2"
   },
