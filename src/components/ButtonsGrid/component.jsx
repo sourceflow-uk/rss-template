@@ -26,7 +26,7 @@ ButtonsGrid.defaultProps = {
   items: [],
 };
 
-ButtonsGrid.propsTypes = {
+ButtonsGrid.propTypes = {
   className: PropTypes.string,
   items: PropTypes.arrayOf(
     PropTypes.shape({

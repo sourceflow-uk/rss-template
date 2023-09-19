@@ -4,6 +4,7 @@
 
   &__button {
     display: block;
+    background-color: $secondary;
     background-position: center;
     background-size: cover;
     position: relative;
@@ -26,6 +27,7 @@
       text-align: center;
       color: $white;
       font-weight: $font-weight-base;
+      text-shadow: 0 0 5px $dark;
     }
   }
 
