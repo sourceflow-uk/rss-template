@@ -1,3 +1,3 @@
-export const ButtonsGridItem = () => {
-  return <div>ButtonsGridItem Component</div>;
+export const CaseStudies = () => {
+  return <div>CaseStudies Component</div>;
 };

@@ -1,8 +1,8 @@
-import { CaseStudies } from "./component";
+import { CaseStudy } from "./component";
 
 export default {
-  title: "Components/CaseStudies",
-  component: CaseStudies,
+  title: "Components/CaseStudy",
+  component: CaseStudy,
   parameters: {},
   tags: ["autodocs"],
   argTypes: {},
