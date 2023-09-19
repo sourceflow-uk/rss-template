@@ -1,8 +1,8 @@
-import { BlockQuote } from "./component";
+import { HeroGridButton } from "./component";
 
 export default {
-  title: "Components/BlockQuote",
-  component: BlockQuote,
+  title: "Components/HeroGridButton",
+  component: HeroGridButton,
   parameters: {},
   tags: ["autodocs"],
   argTypes: {},

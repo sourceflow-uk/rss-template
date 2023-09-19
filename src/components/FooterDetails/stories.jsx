@@ -1,8 +1,8 @@
-import { BlockQuote } from "./component";
+import { FooterDetails } from "./component";
 
 export default {
-  title: "Components/BlockQuote",
-  component: BlockQuote,
+  title: "Components/FooterDetails",
+  component: FooterDetails,
   parameters: {},
   tags: ["autodocs"],
   argTypes: {},

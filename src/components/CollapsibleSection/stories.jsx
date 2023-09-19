@@ -1,8 +1,8 @@
-import { BlockQuote } from "./component";
+import { CollapsibleSection } from "./component";
 
 export default {
-  title: "Components/BlockQuote",
-  component: BlockQuote,
+  title: "Components/CollapsibleSection",
+  component: CollapsibleSection,
   parameters: {},
   tags: ["autodocs"],
   argTypes: {},

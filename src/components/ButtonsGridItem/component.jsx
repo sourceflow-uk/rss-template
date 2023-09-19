@@ -1,3 +1,3 @@
-export const BreadcrumbNavigation = () => {
-  return <div>BreadcrumbNavigation Component</div>;
+export const ButtonsGridItem = () => {
+  return <div>ButtonsGridItem Component</div>;
 };

@@ -1,13 +1,13 @@
-import { BreadcrumbNavigation } from "./component";
+import { CaseStudies } from "./component";
 
 export default {
-  title: "Components/BreadcrumbNavigation",
-  component: BreadcrumbNavigation,
+  title: "Components/CaseStudies",
+  component: CaseStudies,
   parameters: {},
   tags: ["autodocs"],
   argTypes: {},
 };
 
-export const Default = {
-  args: {},
-};
+// export const Default = {
+//   args: {},
+// };

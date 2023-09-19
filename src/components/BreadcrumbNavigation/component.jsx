@@ -1,3 +1,3 @@
-export const CaseStudies = () => {
-  return <div>CaseStudies Component</div>;
+export const BreadcrumbNavigation = () => {
+  return <div>BreadcrumbNavigation Component</div>;
 };

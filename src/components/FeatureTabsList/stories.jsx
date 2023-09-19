@@ -1,8 +1,8 @@
-import { BlockQuote } from "./component";
+import { FeatureTabsList } from "./component";
 
 export default {
-  title: "Components/BlockQuote",
-  component: BlockQuote,
+  title: "Components/FeatureTabsList",
+  component: FeatureTabsList,
   parameters: {},
   tags: ["autodocs"],
   argTypes: {},

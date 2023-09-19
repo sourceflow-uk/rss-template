@@ -1,8 +1,8 @@
-import { BlockQuote } from "./component";
+import { HoverKeyTabListing } from "./component";
 
 export default {
-  title: "Components/BlockQuote",
-  component: BlockQuote,
+  title: "Components/HoverKeyTabListing",
+  component: HoverKeyTabListing,
   parameters: {},
   tags: ["autodocs"],
   argTypes: {},

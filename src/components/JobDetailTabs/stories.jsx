@@ -1,8 +1,8 @@
-import { BlockQuote } from "./component";
+import { JobDetailTabs } from "./component";
 
 export default {
-  title: "Components/BlockQuote",
-  component: BlockQuote,
+  title: "Components/JobDetailTabs",
+  component: JobDetailTabs,
   parameters: {},
   tags: ["autodocs"],
   argTypes: {},

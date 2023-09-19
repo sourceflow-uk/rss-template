@@ -1,13 +1,13 @@
-import { BreadcrumbNavigation } from "./component";
+import { ButtonsGridItem } from "./component";
 
 export default {
-  title: "Components/BreadcrumbNavigation",
-  component: BreadcrumbNavigation,
+  title: "Components/ButtonsGridItem",
+  component: ButtonsGridItem,
   parameters: {},
   tags: ["autodocs"],
   argTypes: {},
 };
 
-export const Default = {
-  args: {},
-};
+// export const Default = {
+//   args: {},
+// };

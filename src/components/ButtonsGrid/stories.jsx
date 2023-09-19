@@ -1,8 +1,8 @@
-import { BlockQuote } from "./component";
+import { ButtonsGrid } from "./component";
 
 export default {
-  title: "Components/BlockQuote",
-  component: BlockQuote,
+  title: "Components/ButtonsGrid",
+  component: ButtonsGrid,
   parameters: {},
   tags: ["autodocs"],
   argTypes: {},

@@ -1,8 +1,8 @@
-import { BlockQuote } from "./component";
+import { HorizontalListings } from "./component";
 
 export default {
-  title: "Components/BlockQuote",
-  component: BlockQuote,
+  title: "Components/HorizontalListings",
+  component: HorizontalListings,
   parameters: {},
   tags: ["autodocs"],
   argTypes: {},

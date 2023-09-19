@@ -1,8 +1,8 @@
-import { BlockQuote } from "./component";
+import { HeroCarousel } from "./component";
 
 export default {
-  title: "Components/BlockQuote",
-  component: BlockQuote,
+  title: "Components/HeroCarousel",
+  component: HeroCarousel,
   parameters: {},
   tags: ["autodocs"],
   argTypes: {},
