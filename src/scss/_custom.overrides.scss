@@ -1,6 +1,10 @@
 @import "module";
 
 
+h1, .h1 {
+  margin-bottom: $spacer * 2;
+}
+
 h2, .h2 {
   margin-bottom: $spacer * 2;
 }
