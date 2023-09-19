@@ -36,3 +36,11 @@ export const TitleOnly = {
     img: "https://picsum.photos/1440/300?random=1",
   },
 };
+
+export const Video = {
+  args: {
+    title: "Header Title",
+    img: "https://picsum.photos/1440/300?random=1",
+    video: "video_embed_url",
+  },
+};
