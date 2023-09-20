@@ -1,10 +1,38 @@
 @import "module";
 
-
-h1, .h1 {
+h1,
+.h1 {
   margin-bottom: $spacer * 2;
 }
 
-h2, .h2 {
+h2,
+.h2 {
   margin-bottom: $spacer * 2;
+}
+
+h3,
+.h3 {
+  margin-bottom: $spacer * 2;
+}
+
+.mw {
+  &-sm {
+    max-width: map-get($container-max-widths, "sm");
+  }
+
+  &-md {
+    max-width: map-get($container-max-widths, "md");
+  }
+
+  &-lg {
+    max-width: map-get($container-max-widths, "lg");
+  }
+
+  &-xl {
+    max-width: map-get($container-max-widths, "xl");
+  }
+
+  &-xxl {
+    max-width: map-get($container-max-widths, "xxl");
+  }
 }

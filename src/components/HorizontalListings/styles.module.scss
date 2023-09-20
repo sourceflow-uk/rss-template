@@ -1,0 +1,11 @@
+@import "src/scss/module";
+
+.listings {
+  text-align: center;
+
+  &__item {
+    text-align: left;
+    display: flex;
+    gap: $spacer;
+  }
+}

@@ -8,6 +8,28 @@ export default {
   argTypes: {},
 };
 
-// export const Default = {
-//   args: {},
-// };
+export const Default = {
+  args: {
+    title: "Title",
+    items: [
+      {
+        title: "Listing item title",
+        img: "https://picsum.photos/64/64?random=1",
+        description:
+          "Description. Lorem ipsum dolor sit amet consectetur. Pellentesque integer scelerisque amet mauris dolor aliquam.",
+      },
+      {
+        title: "Listing item title",
+        img: "https://picsum.photos/64/64?random=1",
+        description:
+          "Description. Lorem ipsum dolor sit amet consectetur. Pellentesque integer scelerisque amet mauris dolor aliquam.",
+      },
+      {
+        title: "Listing item title",
+        img: "https://picsum.photos/64/64?random=1",
+        description:
+          "Description. Lorem ipsum dolor sit amet consectetur. Pellentesque integer scelerisque amet mauris dolor aliquam.",
+      },
+    ],
+  },
+};
