@@ -1,0 +1,31 @@
+@import "src/scss/module";
+
+.card {
+  text-align: left;
+  border: 1px solid;
+  padding: $spacer;
+
+  &__body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    img {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    time {
+      display: block;
+      opacity: 0.5;
+      font-size: $font-size-sm;
+    }
+
+    dl {
+      margin-bottom: 0;
+      display: flex;
+      gap: $spacer * 0.5;
+    }
+  }
+}

@@ -20,7 +20,7 @@ export const LatestBlogs = ({ className, title, items, button }) => {
         {button && (
           <a className={classes.blogs__link} href={button.href}>
             {button.label}
-            <ChevronRight className="ms-2" />
+            <ChevronRight width="7" height="13" className="ms-2" />
           </a>
         )}
       </Container>

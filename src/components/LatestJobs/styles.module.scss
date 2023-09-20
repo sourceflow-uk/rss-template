@@ -1,0 +1,29 @@
+@import "src/scss/module";
+
+.jobs {
+  [class="carousel-control-prev"] {
+    left: initial;
+    right: 30px;
+    bottom: initial;
+    width: 30px;
+    top: -50px;
+  }
+
+  [class="carousel-control-next"] {
+    bottom: initial;
+    width: 30px;
+    top: -50px;
+  }
+
+  &__footer {
+    text-align: center;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    color: $dark;
+    text-decoration: none;
+    font-weight: $font-weight-semibold;
+  }
+}
