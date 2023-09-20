@@ -27,12 +27,12 @@ export const KeyTabListing = ({ className, items }) => {
   );
 };
 
-HoverKeyTabListing.defaultProps = {
+KeyTabListing.defaultProps = {
   className: "",
   items: [],
 };
 
-HoverKeyTabListing.propTypes = {
+KeyTabListing.propTypes = {
   className: PropTypes.string,
   items: PropTypes.arrayOf(
     PropTypes.shape({
