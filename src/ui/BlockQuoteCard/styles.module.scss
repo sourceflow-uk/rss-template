@@ -1,0 +1,16 @@
+@import "src/scss/module";
+
+.card {
+  border: 1px solid;
+  text-align: left;
+  margin-bottom: 0;
+
+  cite {
+    font-style: normal;
+    opacity: 0.75;
+
+    b {
+      font-weight: $font-weight-semibold;
+    }
+  }
+}

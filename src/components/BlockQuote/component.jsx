@@ -3,19 +3,13 @@ import { Carousel, Col, Container, Row } from "react-bootstrap";
 import { chunk } from "lodash";
 import classes from "./styles.module.scss";
 import clsx from "classnames";
+import { BlockQuoteCard } from "@/ui/BlockQuoteCard";
 
 const BlockQuoteCards = ({ className, items, visibleCount }) => (
   <Row className={clsx(className, { "px-4": visibleCount > 1 })}>
-    {items.map(({ quote, author }) => (
-      <Col>
-        <blockquote className={clsx(classes.blockquotes__card, "p-3")}>
-          <section className="mb-4" dangerouslySetInnerHTML={{ __html: quote }} />
-          <cite>
-            <b dangerouslySetInnerHTML={{ __html: author.name }} />
-            <br />
-            <span dangerouslySetInnerHTML={{ __html: author.position }} />
-          </cite>
-        </blockquote>
+    {items.map(({ quote, author }, k) => (
+      <Col key={k}>
+        <BlockQuoteCard quote={quote} author={author} />
       </Col>
     ))}
   </Row>
@@ -57,15 +51,7 @@ BlockQuote.defaultProps = {
 BlockQuote.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      quote: PropTypes.string,
-      author: PropTypes.shape({
-        name: PropTypes.string,
-        position: PropTypes.string,
-      }),
-    })
-  ),
+  items: PropTypes.arrayOf(PropTypes.shape(BlockQuoteCard.propTypes)),
   carousel: PropTypes.bool,
   visibleCount: PropTypes.number,
 };
