@@ -3,7 +3,7 @@ import clsx from "classnames";
 import classes from "./styles.module.scss";
 import { Container, Tab, Tabs } from "react-bootstrap";
 
-export const HoverKeyTabListing = ({ className, items }) => {
+export const KeyTabListing = ({ className, items }) => {
   return (
     <div className={clsx(className, classes.listings)}>
       <Container className="mw-lg">

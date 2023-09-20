@@ -1,8 +1,8 @@
-import { HoverKeyTabListing } from "./component";
+import { KeyTabListing } from "./component";
 
 export default {
-  title: "Components/HoverKeyTabListing",
-  component: HoverKeyTabListing,
+  title: "Components/KeyTabListing",
+  component: KeyTabListing,
   parameters: {},
   tags: ["autodocs"],
   argTypes: {},
