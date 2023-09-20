@@ -1,0 +1,24 @@
+@import "src/scss/module";
+
+.card {
+  display: block;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 100%;
+  text-decoration: none;
+  color: $dark;
+
+  &__body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: $spacer;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
