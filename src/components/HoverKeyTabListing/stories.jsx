@@ -18,17 +18,17 @@ export const Default = {
       },
       {
         title: "Tab 2",
-        icon: "https://picsum.photos/25/25?random=1",
+        icon: "https://picsum.photos/25/25?random=2",
         body: "<p>Tab 2 content</p>",
       },
       {
         title: "Tab 3",
-        icon: "https://picsum.photos/25/25?random=1",
+        icon: "https://picsum.photos/25/25?random=3",
         body: "<p>Tab 3 content</p>",
       },
       {
         title: "Tab 4",
-        icon: "https://picsum.photos/25/25?random=1",
+        icon: "https://picsum.photos/25/25?random=4",
         body: "<p>Tab 4 content</p>",
       },
     ],
