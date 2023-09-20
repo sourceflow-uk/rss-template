@@ -1,0 +1,9 @@
+@import "src/scss/module";
+
+.tag {
+  border: 1px solid $dark;
+  color: $dark;
+  text-decoration: none;
+  padding: 0 $spacer * 0.125;
+  font-size: 14px;
+}

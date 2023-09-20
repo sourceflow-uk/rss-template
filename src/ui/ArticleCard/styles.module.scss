@@ -1,0 +1,25 @@
+@import "src/scss/module";
+
+.card {
+  text-align: left;
+  border: 1px solid;
+
+  figure {
+    margin-bottom: 0;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  time {
+    display: block;
+    opacity: 0.5;
+    font-size: $font-size-sm;
+    margin-bottom: $spacer * 0.5;
+  }
+
+  &__body {
+    padding: $spacer;
+  }
+}

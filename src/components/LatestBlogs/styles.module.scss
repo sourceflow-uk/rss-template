@@ -1,0 +1,13 @@
+@import "src/scss/module";
+
+.blogs {
+  text-align: center;
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    color: $dark;
+    text-decoration: none;
+    font-weight: $font-weight-semibold;
+  }
+}

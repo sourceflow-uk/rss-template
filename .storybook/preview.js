@@ -1,5 +1,4 @@
 import markerSDK from "@marker.io/browser";
-
 import "../src/scss/styles.scss";
 
 const widget = await markerSDK.loadWidget({
