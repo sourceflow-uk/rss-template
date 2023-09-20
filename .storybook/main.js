@@ -1,11 +1,4 @@
 /** @type { import('@storybook/nextjs').StorybookConfig } */
-
-import markerSDK from "@marker.io/browser";
-
-const widget = await markerSDK.loadWidget({
-  project: "650adf0bd99272e001bce8bb",
-});
-
 const config = {
   stories: ["../src/**/docs.mdx", "../src/**/stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
