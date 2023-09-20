@@ -8,6 +8,29 @@ export default {
   argTypes: {},
 };
 
-// export const Default = {
-//   args: {},
-// };
+export const Default = {
+  args: {
+    items: [
+      {
+        title: "Tab 1",
+        icon: "https://picsum.photos/25/25?random=1",
+        body: "<p>Tab 1 content</p>",
+      },
+      {
+        title: "Tab 2",
+        icon: "https://picsum.photos/25/25?random=1",
+        body: "<p>Tab 2 content</p>",
+      },
+      {
+        title: "Tab 3",
+        icon: "https://picsum.photos/25/25?random=1",
+        body: "<p>Tab 3 content</p>",
+      },
+      {
+        title: "Tab 4",
+        icon: "https://picsum.photos/25/25?random=1",
+        body: "<p>Tab 4 content</p>",
+      },
+    ],
+  },
+};

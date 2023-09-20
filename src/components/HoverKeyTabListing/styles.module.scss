@@ -1,0 +1,29 @@
+@import "src/scss/module";
+
+.listings {
+  ul[role="tablist"] {
+    width: 100%;
+
+    li[role="presentation"] {
+      flex-grow: 1;
+
+      button[role="tab"] {
+        width: 100%;
+        border-radius: 0;
+        border: 0;
+        background-color: $gray-200;
+        color: $dark;
+        text-align: left;
+
+        &[aria-selected="true"] {
+          background-color: $gray-300;
+        }
+      }
+    }
+  }
+
+  div[class="tab-content"] {
+    background-color: $gray-300;
+    text-align: center;
+  }
+}
