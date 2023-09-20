@@ -13,6 +13,7 @@
     "deploy-storybook": "gh-pages -d storybook-static"
   },
   "dependencies": {
+    "@marker.io/browser": "^0.19.0",
     "@next/env": "^12.3.2",
     "@react-hook/media-query": "^1.1.1",
     "@sourceflow-uk/job-search": "^2.0",
