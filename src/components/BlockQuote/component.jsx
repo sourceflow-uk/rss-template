@@ -8,7 +8,7 @@ import { BlockQuoteCard } from "@/ui/BlockQuoteCard";
 const BlockQuoteCards = ({ className, items, visibleCount }) => (
   <Row className={clsx(className, { "h-100 px-4": visibleCount > 1 })}>
     {items.map(({ quote, author }, k) => (
-      <Col key={k} className="h-100">
+      <Col key={k}>
         <BlockQuoteCard className="h-100" quote={quote} author={author} />
       </Col>
     ))}
