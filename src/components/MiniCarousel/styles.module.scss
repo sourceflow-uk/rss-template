@@ -1,0 +1,60 @@
+@import "src/scss/module";
+
+.mini {
+  &__carousel {
+    display: flex;
+    height: 100%;
+
+    h2 {
+      text-transform: capitalize;
+    }
+
+    p {
+      text-transform: capitalize;
+    }
+
+    a[role="button"] {
+      text-transform: capitalize;
+    }
+
+    img {
+      clip-path: polygon(15% 0%, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    [class*="carousel-control-"] {
+      position: relative;
+      width: $spacer * 3;
+    }
+
+    [class="carousel-control-prev"] {
+      order: 1;
+
+      [class*="-icon"] {
+        width: 0;
+        height: 0;
+        border-right: 6px solid #000000;
+        border-bottom: 6px solid transparent;
+        border-top: 6px solid transparent;
+        background-image: none;
+      }
+    }
+
+    [class="carousel-inner"] {
+      border: 1px solid;
+      order: 2;
+    }
+
+    [class="carousel-control-next"] {
+      order: 3;
+
+      [class*="-icon"] {
+        width: 0;
+        height: 0;
+        border-left: 6px solid #000000;
+        border-bottom: 6px solid transparent;
+        border-top: 6px solid transparent;
+        background-image: none;
+      }
+    }
+  }
+}
