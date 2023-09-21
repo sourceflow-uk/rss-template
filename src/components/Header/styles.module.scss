@@ -6,6 +6,7 @@
   background-position: center;
   background-size: cover;
   background-color: $secondary;
+  color: $overlay-text-color;
 
   h1 {
     text-transform: capitalize;
@@ -23,7 +24,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    fill: $dark;
+    fill: $overlay-text-color;
     transform: translate(-50%, -50%);
   }
 }
