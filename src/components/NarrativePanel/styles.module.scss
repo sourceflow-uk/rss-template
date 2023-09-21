@@ -1,0 +1,28 @@
+@import "src/scss/module";
+
+.panel {
+  h2 {
+    text-transform: capitalize;
+  }
+
+  p {
+    text-transform: capitalize;
+  }
+
+  a[role="button"] {
+    text-transform: capitalize;
+  }
+
+  figure {
+    a {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      svg {
+        fill: $dark;
+      }
+    }
+  }
+}
