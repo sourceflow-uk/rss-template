@@ -1,6 +1,7 @@
 import clsx from "classnames";
 import { Col, Container, Row } from "react-bootstrap";
 import { MultiTileCard } from "@/ui/MultTileCard";
+import PropTypes from "prop-types";
 
 export const MultiTiles = ({ className, items }) => {
   return (
@@ -23,4 +24,14 @@ MultiTiles.defaultProps = {
   items: [],
 };
 
-MultiTiles.propTypes = {};
+MultiTiles.propTypes = {
+  className: PropTypes.string,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      className: PropTypes.string,
+      title: PropTypes.string,
+      img: PropTypes.string,
+      href: PropTypes.string,
+    })
+  ),
+};

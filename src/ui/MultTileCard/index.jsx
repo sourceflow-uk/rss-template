@@ -1,5 +1,6 @@
 import clsx from "classnames";
 import classes from "./styles.module.scss";
+import PropTypes from "prop-types";
 
 export const MultiTileCard = ({ className, title, img, href }) => {
   return (
@@ -9,4 +10,18 @@ export const MultiTileCard = ({ className, title, img, href }) => {
       </div>
     </a>
   );
+};
+
+MultiTileCard.defaultProps = {
+  className: "",
+  title: "",
+  img: "",
+  href: "",
+};
+
+MultiTileCard.propTypes = {
+  className: PropTypes.string,
+  title: PropTypes.string,
+  img: PropTypes.string,
+  href: PropTypes.string,
 };
