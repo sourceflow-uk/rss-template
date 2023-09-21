@@ -1,4 +1,13 @@
 import { Header } from "./component";
+import { fakerEN_GB as faker } from "@faker-js/faker";
+
+const generateItem = ({ description = false, video = false, cta = false } = {}) => ({
+  title: faker.lorem.words({ min: 1, max: 3 }),
+  img: faker.image.url({ width: 1440, height: 300 }),
+  description: description ? faker.lorem.words({ min: 4, max: 10 }) : undefined,
+  video: video ? "#" : undefined,
+  cta: cta ? { label: faker.lorem.words({ min: 1, max: 2 }), href: "#" } : undefined,
+});
 
 export default {
   title: "Components/Header",
@@ -9,38 +18,17 @@ export default {
 };
 
 export const Default = {
-  args: {
-    title: "Header Title",
-    img: "https://picsum.photos/1440/300?random=1",
-    description:
-      "Summary. Lorem ipsum dolor sit amet consectetur. Massa aliquet sed lorem ornare neque turpis aliquam dolor. Dui nisl sed mauris id morbi gravida. Risus sed hendrerit libero.",
-    cta: {
-      label: "CTA",
-      href: "#",
-    },
-  },
+  args: generateItem({ description: true, cta: true }),
 };
 
 export const NoCTA = {
-  args: {
-    title: "Header Title",
-    img: "https://picsum.photos/1440/300?random=1",
-    description:
-      "Summary. Lorem ipsum dolor sit amet consectetur. Massa aliquet sed lorem ornare neque turpis aliquam dolor. Dui nisl sed mauris id morbi gravida. Risus sed hendrerit libero.",
-  },
+  args: generateItem({ description: true }),
 };
 
 export const TitleOnly = {
-  args: {
-    title: "Header Title",
-    img: "https://picsum.photos/1440/300?random=1",
-  },
+  args: generateItem(),
 };
 
 export const Video = {
-  args: {
-    title: "Header Title",
-    img: "https://picsum.photos/1440/300?random=1",
-    video: "video_embed_url",
-  },
+  args: generateItem({ video: true }),
 };

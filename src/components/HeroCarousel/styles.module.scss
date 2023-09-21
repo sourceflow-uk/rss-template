@@ -2,7 +2,6 @@
 
 .hero {
   position: relative;
-  color: $white;
 
   [class*="carousel-control-"] {
     width: $spacer * 3;
@@ -33,18 +32,18 @@
     background-color: $secondary;
 
     h1 {
-      text-shadow: 0 0 5px rgba($dark, 0.5);
+      text-transform: capitalize;
     }
 
     p {
-      text-shadow: 0 0 5px $dark;
+      text-transform: capitalize;
     }
 
     svg {
       position: absolute;
       top: 50%;
       left: 50%;
-      fill: $white;
+      fill: $dark;
       transform: translate(-50%, -50%);
     }
   }

@@ -23,8 +23,9 @@ export const LatestJobs = ({ className, title, items, button, visibleCount }) =>
             <Carousel.Item>
               <Row className={clsx(className)}>
                 {items.map(({ title, sectors, location, logo, salary_package, role_type, published_at, href }, k) => (
-                  <Col key={k}>
+                  <Col key={k} xs={12} md={12 / visibleCount}>
                     <JobCard
+                      className="h-100"
                       title={title}
                       sectors={sectors}
                       location={location}

@@ -1,20 +1,19 @@
-import { CaseStudies } from "./component";
+import { HeroButtonsGrid } from "./component";
 import { fakerEN_GB as faker } from "@faker-js/faker";
 
 const generateItems = () =>
   faker.helpers.multiple(
     () => ({
       title: faker.lorem.words({ min: 1, max: 3 }),
-      img: faker.image.url({ width: 300, height: 300 }),
-      description: faker.lorem.words({ min: 2, max: 10 }),
+      img: faker.image.url({ width: 160, height: 160 }),
       href: "#",
     }),
-    { count: 6 }
+    { count: 8 }
   );
 
 export default {
-  title: "Components/CaseStudies",
-  component: CaseStudies,
+  title: "Components/HeroButtonsGrid",
+  component: HeroButtonsGrid,
   parameters: {},
   tags: ["autodocs"],
   argTypes: {},
@@ -22,6 +21,7 @@ export default {
 
 export const Default = {
   args: {
+    className: "",
     items: generateItems(),
   },
 };

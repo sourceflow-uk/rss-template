@@ -3,6 +3,8 @@
 .card {
   text-align: left;
   border: 1px solid;
+  display: flex;
+  flex-direction: column;
 
   figure {
     margin-bottom: 0;
@@ -20,6 +22,11 @@
   }
 
   &__body {
+    flex-grow: 1;
     padding: $spacer;
+
+    h4 {
+      min-height: 57.6px;
+    }
   }
 }

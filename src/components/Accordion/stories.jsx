@@ -1,4 +1,14 @@
 import { Accordion } from "./component";
+import { fakerEN_GB as faker } from "@faker-js/faker";
+
+const generateItems = () =>
+  faker.helpers.multiple(
+    () => ({
+      title: faker.lorem.words({ min: 4, max: 10 }),
+      body: faker.helpers.multiple(() => `<p>${faker.lorem.paragraph()}</p>`, { count: { min: 3, max: 10 } }).join(""),
+    }),
+    { count: 4 }
+  );
 
 export default {
   title: "Components/Accordion",
@@ -11,20 +21,7 @@ export default {
 export const Default = {
   args: {
     className: "",
-    items: [
-      {
-        title: "Lorem ipsum dolor sit amet consectetur?",
-        body: "<p>Lorem ipsum dolor sit amet consectetur. Fames orci non commodo egestas. Purus pretium aliquam posuere quam scelerisque volutpat. Gravida volutpat sollicitudin tortor massa curabitur facilisis. Consectetur in sapien morbi ac bibendum nisl ullamcorper. Sit eget aliquet mauris posuere. Nisl varius proin cras feugiat ultricies sem nec odio. Justo dignissim vitae justo etiam. Tincidunt ante pulvinar pulvinar lacus ut porta sed elementum fames. Adipiscing in ultricies tincidunt habitant ornare risus. Nunc pharetra senectus ac id. Enim nunc aliquam urna malesuada sit augue. Quam est varius egestas proin cras nec in. Iaculis praesent adipiscing vulputate posuere.</p>",
-      },
-      {
-        title: "Lorem ipsum dolor sit amet consectetur?",
-        body: "<p>Lorem ipsum dolor sit amet consectetur. Fames orci non commodo egestas. Purus pretium aliquam posuere quam scelerisque volutpat. Gravida volutpat sollicitudin tortor massa curabitur facilisis. Consectetur in sapien morbi ac bibendum nisl ullamcorper. Sit eget aliquet mauris posuere. Nisl varius proin cras feugiat ultricies sem nec odio. Justo dignissim vitae justo etiam. Tincidunt ante pulvinar pulvinar lacus ut porta sed elementum fames. Adipiscing in ultricies tincidunt habitant ornare risus. Nunc pharetra senectus ac id. Enim nunc aliquam urna malesuada sit augue. Quam est varius egestas proin cras nec in. Iaculis praesent adipiscing vulputate posuere.</p>",
-      },
-      {
-        title: "Lorem ipsum dolor sit amet consectetur?",
-        body: "<p>Lorem ipsum dolor sit amet consectetur. Fames orci non commodo egestas. Purus pretium aliquam posuere quam scelerisque volutpat. Gravida volutpat sollicitudin tortor massa curabitur facilisis. Consectetur in sapien morbi ac bibendum nisl ullamcorper. Sit eget aliquet mauris posuere. Nisl varius proin cras feugiat ultricies sem nec odio. Justo dignissim vitae justo etiam. Tincidunt ante pulvinar pulvinar lacus ut porta sed elementum fames. Adipiscing in ultricies tincidunt habitant ornare risus. Nunc pharetra senectus ac id. Enim nunc aliquam urna malesuada sit augue. Quam est varius egestas proin cras nec in. Iaculis praesent adipiscing vulputate posuere.</p>",
-      },
-    ],
+    items: generateItems(),
     defaultActiveKey: 0,
   },
 };

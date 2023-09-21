@@ -1,9 +1,13 @@
 @import "src/scss/module";
 
 .tag {
+  flex-grow: 0;
   border: 1px solid $dark;
   color: $dark;
   text-decoration: none;
   padding: 0 $spacer * 0.125;
   font-size: 14px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }

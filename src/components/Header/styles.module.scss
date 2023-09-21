@@ -6,21 +6,24 @@
   background-position: center;
   background-size: cover;
   background-color: $secondary;
-  color: $white;
 
   h1 {
-    text-shadow: 0 0 5px rgba($dark, .5);
+    text-transform: capitalize;
   }
 
   p {
-    text-shadow: 0 0 5px $dark;
+    text-transform: capitalize;
+  }
+
+  a[role="button"] {
+    text-transform: capitalize;
   }
 
   svg {
     position: absolute;
     top: 50%;
     left: 50%;
-    fill: $white;
+    fill: $dark;
     transform: translate(-50%, -50%);
   }
 }

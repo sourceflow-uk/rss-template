@@ -1,4 +1,16 @@
 import { HeroCarousel } from "./component";
+import { fakerEN_GB as faker } from "@faker-js/faker";
+
+const generateItems = ({ description = false, video = false } = {}) =>
+  faker.helpers.multiple(
+    () => ({
+      title: faker.lorem.words({ min: 1, max: 3 }),
+      img: faker.image.url({ width: 1440, height: 300 }),
+      description: description ? faker.lorem.words({ min: 2, max: 10 }) : undefined,
+      video: video ? "#" : undefined,
+    }),
+    { count: 6 }
+  );
 
 export default {
   title: "Components/HeroCarousel",
@@ -11,52 +23,21 @@ export default {
 export const Default = {
   args: {
     className: "",
-    items: [
-      {
-        title: "Hero Title",
-        img: "https://picsum.photos/1440/300?random=1",
-        description: "Hero description",
-      },
-      {
-        title: "Hero Title",
-        img: "https://picsum.photos/1440/300?random=1",
-        description: "Hero description",
-      },
-    ],
+    items: generateItems({ description: true }),
   },
 };
 
 export const TitleOnly = {
   args: {
     className: "",
-    items: [
-      {
-        title: "Hero Title",
-        img: "https://picsum.photos/1440/300?random=1",
-      },
-      {
-        title: "Hero Title",
-        img: "https://picsum.photos/1440/300?random=1",
-      },
-    ],
+    items: generateItems(),
   },
 };
 
 export const NoControls = {
   args: {
     className: "",
-    items: [
-      {
-        title: "Hero Title",
-        img: "https://picsum.photos/1440/300?random=1",
-        description: "Hero description",
-      },
-      {
-        title: "Hero Title",
-        img: "https://picsum.photos/1440/300?random=1",
-        description: "Hero description",
-      },
-    ],
+    items: generateItems({ description: true }),
     controls: false,
   },
 };
@@ -64,28 +45,14 @@ export const NoControls = {
 export const TitleOnlyNoControls = {
   args: {
     className: "",
-    items: [
-      {
-        title: "Hero Title",
-        img: "https://picsum.photos/1440/300?random=1",
-      },
-      {
-        title: "Hero Title",
-        img: "https://picsum.photos/1440/300?random=1",
-      },
-    ],
+    items: generateItems(),
     controls: false,
   },
 };
 
 export const Video = {
   args: {
-    items: [
-      {
-        img: "https://picsum.photos/1440/300?random=1",
-        video: "video_embed_url",
-      },
-    ],
+    items: generateItems({ video: true }),
     controls: false,
   },
 };

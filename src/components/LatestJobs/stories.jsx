@@ -1,81 +1,19 @@
 import { LatestJobs } from "./component";
+import { fakerEN_GB as faker } from "@faker-js/faker";
 
-const items = [
-  {
-    title: "Job Title",
-    sectors: ["Sector 1", "Sector 2", "Sector 3"],
-    location: "London",
-    salary_package: "£20,000",
-    role_type: "Permanent",
-    published_at: new Date(),
-    href: "#",
-  },
-  {
-    title: "Job Title",
-    sectors: ["Sector 1", "Sector 2", "Sector 3"],
-    location: "London",
-    img: "https://picsum.photos/54/40?random=1",
-    salary_package: "£20,000",
-    role_type: "Permanent",
-    published_at: new Date(),
-    href: "#",
-  },
-  {
-    title: "Job Title",
-    sectors: ["Sector 1", "Sector 2", "Sector 3"],
-    location: "London",
-    salary_package: "£20,000",
-    role_type: "Permanent",
-    published_at: new Date(),
-    href: "#",
-  },
-  {
-    title: "Job Title",
-    sectors: ["Sector 1", "Sector 2", "Sector 3"],
-    location: "London",
-    salary_package: "£20,000",
-    role_type: "Permanent",
-    published_at: new Date(),
-    href: "#",
-  },
-  {
-    title: "Job Title",
-    sectors: ["Sector 1", "Sector 2", "Sector 3"],
-    location: "London",
-    salary_package: "£20,000",
-    role_type: "Permanent",
-    published_at: new Date(),
-    href: "#",
-  },
-  {
-    title: "Job Title",
-    sectors: ["Sector 1", "Sector 2", "Sector 3"],
-    location: "London",
-    logo: "https://picsum.photos/54/40?random=1",
-    salary_package: "£20,000",
-    role_type: "Permanent",
-    published_at: new Date(),
-    href: "#",
-  },
-  {
-    title: "Job Title",
-    sectors: ["Sector 1", "Sector 2", "Sector 3"],
-    location: "London",
-    salary_package: "£20,000",
-    role_type: "Permanent",
-    published_at: new Date(),
-    href: "#",
-  },
-  {
-    title: "Job Title",
-    sectors: ["Sector 1", "Sector 2", "Sector 3"],
-    location: "London",
-    salary_package: "£20,000",
-    role_type: "Permanent",
-    published_at: new Date(),
-    href: "#",
-  },
-];
+const generateItems = () =>
+  faker.helpers.multiple(
+    () => ({
+      title: faker.lorem.words({ min: 2, max: 4 }),
+      sectors: faker.helpers.multiple(() => faker.lorem.words({ min: 1, max: 2 }), { count: { min: 1, max: 3 } }),
+      location: faker.location.city(),
+      salary_package: faker.finance.amount({ symbol: "£", min: 12000, max: 100000, dec: 0 }),
+      role_type: "Permanent",
+      published_at: faker.date.past(),
+      href: "#",
+    }),
+    { count: 10 }
+  );
 
 export default {
   title: "Components/LatestJobs",
@@ -87,13 +25,13 @@ export default {
 
 export const Default = {
   args: {
-    items: items.slice(0, 6),
+    items: generateItems(),
   },
 };
 
 export const FourJobs = {
   args: {
-    items: items.slice(0, 8),
+    items: generateItems(),
     visibleCount: 4,
   },
 };

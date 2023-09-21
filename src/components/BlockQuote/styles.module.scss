@@ -1,11 +1,11 @@
 @import "src/scss/module";
 
-
 .blockquotes {
   text-align: center;
 
   &__carousel {
     display: flex;
+    height: 100%;
 
     [class*="carousel-control-"] {
       position: relative;
@@ -15,7 +15,7 @@
     [class="carousel-control-prev"] {
       order: 1;
 
-      [class*=-icon] {
+      [class*="-icon"] {
         width: 0;
         height: 0;
         border-right: 6px solid #000000;
@@ -32,7 +32,7 @@
     [class="carousel-control-next"] {
       order: 3;
 
-      [class*=-icon] {
+      [class*="-icon"] {
         width: 0;
         height: 0;
         border-left: 6px solid #000000;
@@ -50,7 +50,7 @@
 
     cite {
       font-style: normal;
-      opacity: .75;
+      opacity: 0.75;
 
       b {
         font-weight: $font-weight-semibold;

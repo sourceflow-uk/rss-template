@@ -9,6 +9,12 @@
   padding-top: 100%;
   text-decoration: none;
   color: $dark;
+  transition: 0.3s;
+
+  &:hover {
+    scale: 1.05;
+    box-shadow: $box-shadow-sm;
+  }
 
   &__body {
     position: absolute;
@@ -17,8 +23,13 @@
     width: 100%;
     padding: $spacer;
 
+    h4 {
+      text-transform: capitalize;
+    }
+
     p {
       margin-bottom: 0;
+      text-transform: capitalize;
     }
   }
 }

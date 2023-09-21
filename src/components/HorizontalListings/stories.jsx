@@ -1,4 +1,15 @@
 import { HorizontalListings } from "./component";
+import { fakerEN_GB as faker } from "@faker-js/faker";
+
+const generateItems = () =>
+  faker.helpers.multiple(
+    () => ({
+      title: faker.lorem.words({ min: 1, max: 3 }),
+      img: faker.image.url({ width: 64, height: 64 }),
+      description: faker.lorem.paragraph(),
+    }),
+    { count: 3 }
+  );
 
 export default {
   title: "Components/HorizontalListings",
@@ -10,26 +21,7 @@ export default {
 
 export const Default = {
   args: {
-    title: "Title",
-    items: [
-      {
-        title: "Listing item title",
-        img: "https://picsum.photos/64/64?random=1",
-        description:
-          "Description. Lorem ipsum dolor sit amet consectetur. Pellentesque integer scelerisque amet mauris dolor aliquam.",
-      },
-      {
-        title: "Listing item title",
-        img: "https://picsum.photos/64/64?random=1",
-        description:
-          "Description. Lorem ipsum dolor sit amet consectetur. Pellentesque integer scelerisque amet mauris dolor aliquam.",
-      },
-      {
-        title: "Listing item title",
-        img: "https://picsum.photos/64/64?random=1",
-        description:
-          "Description. Lorem ipsum dolor sit amet consectetur. Pellentesque integer scelerisque amet mauris dolor aliquam.",
-      },
-    ],
+    title: faker.lorem.words(2),
+    items: generateItems(),
   },
 };

@@ -1,4 +1,17 @@
 import { LatestBlogs } from "./component";
+import { fakerEN_GB as faker } from "@faker-js/faker";
+
+const generateItems = () =>
+  faker.helpers.multiple(
+    () => ({
+      title: faker.lorem.words({ min: 3, max: 6 }),
+      description: faker.lorem.paragraph(),
+      img: faker.image.url({ width: 373, height: 220 }),
+      tags: [faker.lorem.words({ min: 1, max: 2 }), faker.lorem.words({ min: 1, max: 2 })],
+      published_at: faker.date.past(),
+    }),
+    { count: 3 }
+  );
 
 export default {
   title: "Components/LatestBlogs",
@@ -10,36 +23,6 @@ export default {
 
 export const Default = {
   args: {
-    title: "Latest Blogs",
-    items: [
-      {
-        title: "Article Title",
-        description:
-          "An excerpt of the article. Lorem ipsum dolor sit amet consectetur. Pellentesque integer scelerisque amet mauris dolor aliquam lobortis. Nisi magna.",
-        img: "https://picsum.photos/373/220?random=1",
-        tags: ["Tag 1", "Tag 2"],
-        published_at: new Date(),
-      },
-      {
-        title: "Article Title",
-        description:
-          "An excerpt of the article. Lorem ipsum dolor sit amet consectetur. Pellentesque integer scelerisque amet mauris dolor aliquam lobortis. Nisi magna.",
-        img: "https://picsum.photos/373/220?random=2",
-        tags: ["Tag 1", "Tag 2"],
-        published_at: new Date(),
-      },
-      {
-        title: "Article Title",
-        description:
-          "An excerpt of the article. Lorem ipsum dolor sit amet consectetur. Pellentesque integer scelerisque amet mauris dolor aliquam lobortis. Nisi magna.",
-        img: "https://picsum.photos/373/220?random=3",
-        tags: ["Tag 1", "Tag 2"],
-        published_at: new Date(),
-      },
-    ],
-    button: {
-      label: "View more blogs",
-      href: "#",
-    },
+    items: generateItems(),
   },
 };

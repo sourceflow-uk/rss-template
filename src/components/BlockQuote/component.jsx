@@ -6,10 +6,10 @@ import clsx from "classnames";
 import { BlockQuoteCard } from "@/ui/BlockQuoteCard";
 
 const BlockQuoteCards = ({ className, items, visibleCount }) => (
-  <Row className={clsx(className, { "px-4": visibleCount > 1 })}>
+  <Row className={clsx(className, { "h-100 px-4": visibleCount > 1 })}>
     {items.map(({ quote, author }, k) => (
-      <Col key={k}>
-        <BlockQuoteCard quote={quote} author={author} />
+      <Col key={k} className="h-100">
+        <BlockQuoteCard className="h-100" quote={quote} author={author} />
       </Col>
     ))}
   </Row>

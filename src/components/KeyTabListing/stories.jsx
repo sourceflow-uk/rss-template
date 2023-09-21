@@ -1,4 +1,15 @@
 import { KeyTabListing } from "./component";
+import { fakerEN_GB as faker } from "@faker-js/faker";
+
+const generateItems = () =>
+  faker.helpers.multiple(
+    () => ({
+      title: faker.lorem.words({ min: 1, max: 3 }),
+      icon: faker.image.url({ width: 25, height: 25 }),
+      body: faker.helpers.multiple(() => `<p>${faker.lorem.paragraph()}</p>`, { count: { min: 3, max: 10 } }).join(""),
+    }),
+    { count: { min: 3, max: 4 } }
+  );
 
 export default {
   title: "Components/KeyTabListing",
@@ -10,27 +21,6 @@ export default {
 
 export const Default = {
   args: {
-    items: [
-      {
-        title: "Tab 1",
-        icon: "https://picsum.photos/25/25?random=1",
-        body: "<p>Tab 1 content</p>",
-      },
-      {
-        title: "Tab 2",
-        icon: "https://picsum.photos/25/25?random=2",
-        body: "<p>Tab 2 content</p>",
-      },
-      {
-        title: "Tab 3",
-        icon: "https://picsum.photos/25/25?random=3",
-        body: "<p>Tab 3 content</p>",
-      },
-      {
-        title: "Tab 4",
-        icon: "https://picsum.photos/25/25?random=4",
-        body: "<p>Tab 4 content</p>",
-      },
-    ],
+    items: generateItems(),
   },
 };

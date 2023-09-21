@@ -22,7 +22,7 @@ export const JobCard = ({
       <div className={classes.card__body}>
         <time>{format(published_at, "dd/MM/yyyy")}</time>
         {logo && <img src={logo} alt="" />}
-        <h3 className="h4 my-3">{title}</h3>
+        <h3 className="h4 my-3 flex-grow-1">{title}</h3>
         <div className="d-flex gap-2 pb-3">
           {sectors.map((s) => (
             <Tag label={s} />

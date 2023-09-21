@@ -12,8 +12,15 @@ export const LatestBlogs = ({ className, title, items, button }) => {
         <h2>{title}</h2>
         <Row className="mb-4">
           {items.map(({ title, description, img, published_at, tags }, k) => (
-            <Col key={k} xs={12} md={4}>
-              <ArticleCard title={title} description={description} img={img} published_at={published_at} tags={tags} />
+            <Col key={k} xs={12} md={4} className="mb-4">
+              <ArticleCard
+                className="h-100"
+                title={title}
+                description={description}
+                img={img}
+                published_at={published_at}
+                tags={tags}
+              />
             </Col>
           ))}
         </Row>
@@ -30,15 +37,18 @@ export const LatestBlogs = ({ className, title, items, button }) => {
 
 LatestBlogs.defaultProps = {
   className: "",
-  title: "",
+  title: "Latest Blogs",
   items: [],
-  button: null,
+  button: {
+    label: "View more blogs",
+    href: "#",
+  },
 };
 
 LatestBlogs.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
-  items: PropTypes.arrayOf(PropTypes.shape(ArticleCard.propTypes)),
+  items: PropTypes.arrayOf(ArticleCard.propTypes),
   button: PropTypes.shape({
     label: PropTypes.string,
     href: PropTypes.string,
