@@ -2,7 +2,6 @@
 
 .card {
   text-align: left;
-  border: 1px solid;
   display: flex;
   flex-direction: column;
 
@@ -14,16 +13,10 @@
     }
   }
 
-  time {
-    display: block;
-    opacity: 0.5;
-    font-size: $font-size-sm;
-    margin-bottom: $spacer * 0.5;
-  }
-
   &__body {
     flex-grow: 1;
     padding: $spacer;
+    background-color: $light;
 
     h4 {
       min-height: 57.6px;
