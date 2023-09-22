@@ -1,4 +1,4 @@
-import { BrandPositioning } from "./component";
+import { BrandPositioning } from "./index";
 
 export default {
   title: "Components/BrandPositioning",

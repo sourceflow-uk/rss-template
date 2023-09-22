@@ -24,8 +24,8 @@ export const JobCard = ({
         {logo && <img src={logo} alt="" />}
         <h3 className="h4 my-3 flex-grow-1">{title}</h3>
         <div className="d-flex gap-2 pb-3">
-          {sectors.map((s) => (
-            <Tag label={s} />
+          {sectors.map(({ label, href }) => (
+            <Tag label={label} href={href} />
           ))}
         </div>
         <dl>

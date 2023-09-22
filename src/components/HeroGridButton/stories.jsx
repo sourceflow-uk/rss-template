@@ -1,4 +1,4 @@
-import { HeroGridButton } from "./component";
+import { HeroGridButton } from "./index";
 
 export default {
   title: "Components/HeroGridButton",

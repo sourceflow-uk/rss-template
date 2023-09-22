@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { Col, Container, Row } from "react-bootstrap";
 import clsx from "classnames";
 import classes from "./styles.module.scss";
-import { ArticleCard } from "@/ui/ArticleCard";
+import { BlogArticleCard } from "@/ui/BlogArticleCard";
 import ChevronRight from "@/assets/ChevronRight.svg";
 
 export const LatestBlogs = ({ className, title, items, button }) => {
@@ -13,7 +13,7 @@ export const LatestBlogs = ({ className, title, items, button }) => {
         <Row className="mb-4">
           {items.map(({ title, description, img, published_at, tags }, k) => (
             <Col key={k} xs={12} md={4} className="mb-4">
-              <ArticleCard
+              <BlogArticleCard
                 className="h-100"
                 title={title}
                 description={description}
@@ -48,7 +48,16 @@ LatestBlogs.defaultProps = {
 LatestBlogs.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
-  items: PropTypes.arrayOf(ArticleCard.propTypes),
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      className: PropTypes.string,
+      title: PropTypes.string,
+      description: PropTypes.string,
+      img: PropTypes.string,
+      published_at: PropTypes.instanceOf(Date),
+      tags: PropTypes.arrayOf(PropTypes.string),
+    })
+  ),
   button: PropTypes.shape({
     label: PropTypes.string,
     href: PropTypes.string,

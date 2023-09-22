@@ -1,0 +1,19 @@
+@import "src/scss/module";
+
+.card {
+  h2 {
+    text-transform: capitalize;
+  }
+
+  p {
+    text-transform: capitalize;
+  }
+
+  a[role="button"] {
+    text-transform: capitalize;
+  }
+
+  img {
+    clip-path: polygon(15% 0%, 100% 0, 100% 100%, 0% 100%);
+  }
+}

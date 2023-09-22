@@ -5,7 +5,7 @@ import classes from "./styles.module.scss";
 export const LogoCard = ({ className, logo, name, href }) => {
   return (
     <a className={clsx(className, classes.card)} href={href}>
-      <img className="mw-100" src={logo} alt={name} />
+      <img className="mw-100" src={logo} alt={name} title={name} />
     </a>
   );
 };

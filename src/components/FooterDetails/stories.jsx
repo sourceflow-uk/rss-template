@@ -1,4 +1,4 @@
-import { FooterDetails } from "./component";
+import { FooterDetails } from "./index";
 
 export default {
   title: "Components/FooterDetails",

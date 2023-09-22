@@ -1,4 +1,4 @@
-import { JobDetailTabs } from "./component";
+import { JobDetailTabs } from "./index";
 
 export default {
   title: "Components/JobDetailTabs",

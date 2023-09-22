@@ -1,4 +1,4 @@
-import { CollapsibleSection } from "./component";
+import { CollapsibleSection } from "./index";
 
 export default {
   title: "Components/CollapsibleSection",

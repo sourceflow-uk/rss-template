@@ -5,22 +5,6 @@
     display: flex;
     height: 100%;
 
-    h2 {
-      text-transform: capitalize;
-    }
-
-    p {
-      text-transform: capitalize;
-    }
-
-    a[role="button"] {
-      text-transform: capitalize;
-    }
-
-    img {
-      clip-path: polygon(15% 0%, 100% 0, 100% 100%, 0% 100%);
-    }
-
     [class*="carousel-control-"] {
       position: relative;
       width: $spacer * 3;

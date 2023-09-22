@@ -1,4 +1,4 @@
-import { FeatureTabsList } from "./component";
+import { FeatureTabsList } from "./index";
 
 export default {
   title: "Components/FeatureTabsList",

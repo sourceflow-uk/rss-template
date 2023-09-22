@@ -1,4 +1,4 @@
-import { ApplyThankYou } from "./component";
+import { ApplyThankYou } from "./index";
 
 export default {
   title: "Components/ApplyThankYou",

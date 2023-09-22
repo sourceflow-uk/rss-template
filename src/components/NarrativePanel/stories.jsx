@@ -1,14 +1,5 @@
-import { NarrativePanel } from "./component";
-import { fakerEN_GB as faker } from "@faker-js/faker";
-
-const generateItem = ({ video = false, reverse = false } = {}) => ({
-  title: faker.lorem.words({ min: 1, max: 3 }),
-  img: faker.image.url({ width: 540, height: 291 }),
-  description: faker.lorem.paragraphs({ min: 1, max: 3 }),
-  video: video ? "#" : undefined,
-  cta: { label: faker.lorem.words({ min: 1, max: 2 }), href: "#" },
-  reverse,
-});
+import { NarrativePanel } from "./index";
+import { generateNarrativePanel } from "@/faker/generateNarrativePanel";
 
 export default {
   title: "Components/NarrativePanel",
@@ -19,17 +10,17 @@ export default {
 };
 
 export const Default = {
-  args: generateItem(),
+  args: generateNarrativePanel(),
 };
 
 export const Video = {
-  args: generateItem({ video: true }),
+  args: generateNarrativePanel({ video: true }),
 };
 
 export const Reverse = {
-  args: generateItem({ reverse: true }),
+  args: generateNarrativePanel({ reverse: true }),
 };
 
 export const VideoReverse = {
-  args: generateItem({ video: true, reverse: true }),
+  args: generateNarrativePanel({ video: true, reverse: true }),
 };

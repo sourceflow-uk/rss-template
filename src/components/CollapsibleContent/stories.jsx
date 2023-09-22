@@ -1,4 +1,4 @@
-import { CollapsibleContent } from "./component";
+import { CollapsibleContent } from "./index";
 
 export default {
   title: "Components/CollapsibleContent",

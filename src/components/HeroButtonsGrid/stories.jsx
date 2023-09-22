@@ -1,15 +1,6 @@
-import { HeroButtonsGrid } from "./component";
-import { fakerEN_GB as faker } from "@faker-js/faker";
-
-const generateItems = () =>
-  faker.helpers.multiple(
-    () => ({
-      title: faker.lorem.words({ min: 1, max: 3 }),
-      img: faker.image.url({ width: 160, height: 160 }),
-      href: "#",
-    }),
-    { count: 8 }
-  );
+import { HeroButtonsGrid } from "./index";
+import { generateArrayOf } from "@/faker/generateArrayOf";
+import { generateHeroButton } from "@/faker/generateHeroButton";
 
 export default {
   title: "Components/HeroButtonsGrid",
@@ -22,6 +13,6 @@ export default {
 export const Default = {
   args: {
     className: "",
-    items: generateItems(),
+    items: generateArrayOf(generateHeroButton, { count: 8 }),
   },
 };

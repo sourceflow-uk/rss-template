@@ -1,15 +1,6 @@
-import { LogoCarousel } from "./component";
-import { fakerEN_GB as faker } from "@faker-js/faker";
-
-const generateItems = () =>
-  faker.helpers.multiple(
-    () => ({
-      name: faker.lorem.words({ min: 3, max: 6 }),
-      logo: faker.image.url({ width: 120, height: 120 }),
-      href: "#",
-    }),
-    { count: 15 }
-  );
+import { LogoCarousel } from "./index";
+import { generateArrayOf } from "@/faker/generateArrayOf";
+import { generateLogoCard } from "@/faker/generateLogoCard";
 
 export default {
   title: "Components/LogoCarousel",
@@ -21,6 +12,6 @@ export default {
 
 export const Default = {
   args: {
-    items: generateItems(),
+    items: generateArrayOf(generateLogoCard, { count: 15 }),
   },
 };

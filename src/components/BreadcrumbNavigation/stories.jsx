@@ -1,4 +1,4 @@
-import { BreadcrumbNavigation } from "./component";
+import { BreadcrumbNavigation } from "./index";
 
 export default {
   title: "Components/BreadcrumbNavigation",

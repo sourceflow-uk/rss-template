@@ -1,17 +1,6 @@
-import { BlockQuote } from "./component";
-import { fakerEN_GB as faker } from "@faker-js/faker";
-
-const generateItems = ({ count = 6 } = {}) =>
-  faker.helpers.multiple(
-    () => ({
-      quote: `“${faker.lorem.paragraphs({ min: 2, max: 4 })}”`,
-      author: {
-        name: faker.person.fullName(),
-        position: faker.person.jobTitle(),
-      },
-    }),
-    { count }
-  );
+import { BlockQuote } from "./index";
+import { generateArrayOf } from "@/faker/generateArrayOf";
+import { generateBlockQuoteCard } from "@/faker/generateBlockQuoteCard";
 
 export default {
   title: "Components/BlockQuote",
@@ -24,7 +13,7 @@ export default {
 export const Carousel = {
   args: {
     title: "Block quote title",
-    items: generateItems({ count: 3 }),
+    items: generateArrayOf(generateBlockQuoteCard, { count: 3 }),
     carousel: true,
     visibleCount: 1,
   },
@@ -33,7 +22,7 @@ export const Carousel = {
 export const Static = {
   args: {
     title: "Block quote title",
-    items: generateItems({ count: 1 }),
+    items: generateArrayOf(generateBlockQuoteCard, { count: 1 }),
     carousel: false,
     visibleCount: 1,
   },
@@ -42,7 +31,7 @@ export const Static = {
 export const CarouselThreeCards = {
   args: {
     title: "Block quote title",
-    items: generateItems({ count: 9 }),
+    items: generateArrayOf(generateBlockQuoteCard, { count: 9 }),
     carousel: true,
     visibleCount: 3,
   },
@@ -51,7 +40,7 @@ export const CarouselThreeCards = {
 export const StaticThreeCards = {
   args: {
     title: "Block quote title",
-    items: generateItems({ count: 3 }),
+    items: generateArrayOf(generateBlockQuoteCard, { count: 3 }),
     carousel: false,
     visibleCount: 3,
   },

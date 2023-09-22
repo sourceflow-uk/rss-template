@@ -1,19 +1,6 @@
-import { MiniCarousel } from "./component";
-import { fakerEN_GB as faker } from "@faker-js/faker";
-
-const generateItems = () =>
-  faker.helpers.multiple(
-    () => ({
-      title: faker.lorem.words({ min: 3, max: 6 }),
-      description: faker.lorem.sentence(),
-      img: faker.image.url({ width: 703, height: 352 }),
-      cta: {
-        label: faker.lorem.words({ min: 1, max: 2 }),
-        href: "#",
-      },
-    }),
-    { count: 3 }
-  );
+import { MiniCarousel } from "./index";
+import { generateArrayOf } from "@/faker/generateArrayOf";
+import { generateMiniCarouselCard } from "@/faker/generateMiniCarouselCard";
 
 export default {
   title: "Components/MiniCarousel",
@@ -25,6 +12,6 @@ export default {
 
 export const Default = {
   args: {
-    items: generateItems(),
+    items: generateArrayOf(generateMiniCarouselCard, { count: 3 }),
   },
 };

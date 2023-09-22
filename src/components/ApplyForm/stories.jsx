@@ -1,4 +1,4 @@
-import { ApplyForm } from "./component";
+import { ApplyForm } from "./index";
 
 export default {
   title: "Components/ApplyForm",

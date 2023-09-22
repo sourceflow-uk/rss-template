@@ -1,4 +1,4 @@
-import { HeroCarousel } from "./component";
+import { HeroCarousel } from "./index";
 import { fakerEN_GB as faker } from "@faker-js/faker";
 
 const generateItems = ({ description = false, video = false } = {}) =>

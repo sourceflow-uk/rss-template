@@ -1,15 +1,6 @@
-import { MultiTiles } from "./component";
-import { fakerEN_GB as faker } from "@faker-js/faker";
-
-const generateItems = () =>
-  faker.helpers.multiple(
-    () => ({
-      title: faker.lorem.words({ min: 1, max: 3 }),
-      img: faker.image.url({ width: 200, height: 200 }),
-      href: "#",
-    }),
-    { count: 12 }
-  );
+import { MultiTiles } from "./index";
+import { generateArrayOf } from "@/faker/generateArrayOf";
+import { generateMultiTileCard } from "@/faker/generateMultiTileCard";
 
 export default {
   title: "Components/MultiTiles",
@@ -21,6 +12,6 @@ export default {
 
 export const Default = {
   args: {
-    items: generateItems(),
+    items: generateArrayOf(generateMultiTileCard, { count: 12 }),
   },
 };

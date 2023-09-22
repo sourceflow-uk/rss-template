@@ -1,4 +1,4 @@
-import { ConsultantMetaListContact } from "./component";
+import { ConsultantMetaListContact } from "./index";
 
 export default {
   title: "Components/ConsultantMetaListContact",

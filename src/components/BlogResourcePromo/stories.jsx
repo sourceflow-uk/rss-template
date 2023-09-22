@@ -1,4 +1,4 @@
-import { BlogResourcePromo } from "./component";
+import { BlogResourcePromo } from "./index";
 
 export default {
   title: "Components/BlogResourcePromo",

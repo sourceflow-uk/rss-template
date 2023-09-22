@@ -1,17 +1,6 @@
-import { LatestBlogs } from "./component";
-import { fakerEN_GB as faker } from "@faker-js/faker";
-
-const generateItems = () =>
-  faker.helpers.multiple(
-    () => ({
-      title: faker.lorem.words({ min: 3, max: 6 }),
-      description: faker.lorem.paragraph(),
-      img: faker.image.url({ width: 373, height: 220 }),
-      tags: [faker.lorem.words({ min: 1, max: 2 }), faker.lorem.words({ min: 1, max: 2 })],
-      published_at: faker.date.past(),
-    }),
-    { count: 3 }
-  );
+import { LatestBlogs } from "./index";
+import { generateArrayOf } from "@/faker/generateArrayOf";
+import { generateBlogArticleCard } from "@/faker/generateBlogArticleCard";
 
 export default {
   title: "Components/LatestBlogs",
@@ -23,6 +12,6 @@ export default {
 
 export const Default = {
   args: {
-    items: generateItems(),
+    items: generateArrayOf(generateBlogArticleCard, { count: 3 }),
   },
 };

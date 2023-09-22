@@ -1,19 +1,6 @@
-import { LatestJobs } from "./component";
-import { fakerEN_GB as faker } from "@faker-js/faker";
-
-const generateItems = () =>
-  faker.helpers.multiple(
-    () => ({
-      title: faker.lorem.words({ min: 2, max: 4 }),
-      sectors: faker.helpers.multiple(() => faker.lorem.words({ min: 1, max: 2 }), { count: { min: 1, max: 3 } }),
-      location: faker.location.city(),
-      salary_package: faker.finance.amount({ symbol: "£", min: 12000, max: 100000, dec: 0 }),
-      role_type: "Permanent",
-      published_at: faker.date.past(),
-      href: "#",
-    }),
-    { count: 10 }
-  );
+import { LatestJobs } from "./index";
+import { generateArrayOf } from "@/faker/generateArrayOf";
+import { generateJobCard } from "@/faker/generateJobCard";
 
 export default {
   title: "Components/LatestJobs",
@@ -25,13 +12,13 @@ export default {
 
 export const Default = {
   args: {
-    items: generateItems(),
+    items: generateArrayOf(generateJobCard, { count: 10 }),
   },
 };
 
 export const FourJobs = {
   args: {
-    items: generateItems(),
+    items: generateArrayOf(generateJobCard, { count: 10 }),
     visibleCount: 4,
   },
 };
