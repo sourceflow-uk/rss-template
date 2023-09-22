@@ -1,0 +1,59 @@
+@import "src/scss/module";
+
+.item {
+  border-bottom: 1px solid;
+
+  header {
+    cursor: pointer;
+
+    h4 {
+      text-transform: capitalize;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+
+      &:before {
+        content: "More";
+      }
+
+      &:after {
+        content: "";
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 6px solid #000;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  section {
+    max-height: 0vh;
+    overflow: hidden;
+    transition: 0.4s;
+  }
+
+  &--active {
+    header {
+      a {
+        &:before {
+          content: "Less";
+        }
+        &:after {
+          border-top: initial;
+          border-bottom: 6px solid #000;
+        }
+      }
+    }
+
+    section {
+      max-height: 100vh;
+      overflow: hidden;
+    }
+  }
+}

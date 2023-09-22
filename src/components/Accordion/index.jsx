@@ -3,6 +3,7 @@ import clsx from "classnames";
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { Container } from "react-bootstrap";
+import { AccordionItem } from "@/ui/AccordionItem";
 
 export const Accordion = ({ className, items, defaultActiveKey }) => {
   const [active, setActive] = useState(defaultActiveKey);
@@ -11,13 +12,14 @@ export const Accordion = ({ className, items, defaultActiveKey }) => {
     <div className={clsx(className, classes.accordion)}>
       <Container className="mw-lg">
         {items.map(({ title, body }, k) => (
-          <article className={clsx(classes.accordion__item, k === active && classes["accordion__item--active"])}>
-            <header onClick={() => setActive(k === active ? null : k)} className="py-3">
-              <h4>{title}</h4>
-              <a id={`accordion-item-${k}`} />
-            </header>
-            <section dangerouslySetInnerHTML={{ __html: body }} />
-          </article>
+          <AccordionItem
+            key={k}
+            eventKey={k}
+            title={title}
+            body={body}
+            active={k === active}
+            onClick={() => setActive(k === active ? null : k)}
+          />
         ))}
       </Container>
     </div>
