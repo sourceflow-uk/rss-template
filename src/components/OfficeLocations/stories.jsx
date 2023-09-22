@@ -1,7 +1,7 @@
 import { OfficeLocations } from "./component";
 import { fakerEN_GB as faker } from "@faker-js/faker";
 
-const generateItems = ({ video = false, reverse = false } = {}) =>
+const generateItems = () =>
   faker.helpers.multiple(
     () => ({
       address: `${faker.location.streetAddress()}<br/>${faker.location.city()}<br/>${faker.location.county()}<br/>${faker.location.zipCode()}`,
