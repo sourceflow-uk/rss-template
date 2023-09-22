@@ -1,0 +1,26 @@
+@import "src/scss/module";
+
+.card {
+  padding: $spacer * 0.5;
+
+  &__map {
+    flex-basis: 240px;
+    height: 240px;
+    overflow: hidden;
+    pointer-events: none;
+
+    iframe {
+      transform: translate(-25%, -25%);
+    }
+  }
+
+  &__body {
+    padding-top: $spacer;
+
+    dl {
+      dd {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
