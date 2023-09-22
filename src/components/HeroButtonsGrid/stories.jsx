@@ -6,7 +6,7 @@ export default {
   title: "Components/HeroButtonsGrid",
   component: HeroButtonsGrid,
   parameters: {},
-  tags: ["autodocs"],
+  tags: [],
   argTypes: {},
 };
 

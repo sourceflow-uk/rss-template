@@ -6,7 +6,7 @@ export default {
   title: "Components/BlockQuote",
   component: BlockQuote,
   parameters: {},
-  tags: ["autodocs"],
+  tags: [],
   argTypes: {},
 };
 

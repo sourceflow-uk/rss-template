@@ -32,14 +32,5 @@ OfficeLocations.defaultProps = {
 
 OfficeLocations.propTypes = {
   className: PropTypes.string,
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      className: PropTypes.string,
-      address: PropTypes.string,
-      phone: PropTypes.string,
-      email: PropTypes.string,
-      map_embed_url: PropTypes.string,
-      opening_hours: PropTypes.string,
-    })
-  ),
+  items: PropTypes.arrayOf(PropTypes.shape(OfficeLocationCard.propTypes)),
 };

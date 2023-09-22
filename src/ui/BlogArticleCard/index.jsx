@@ -30,5 +30,5 @@ BlogArticleCard.propTypes = {
   description: PropTypes.string,
   img: PropTypes.string,
   published_at: PropTypes.instanceOf(Date),
-  tags: PropTypes.arrayOf(PropTypes.string),
+  tags: PropTypes.arrayOf(PropTypes.shape(Tag.propTypes)),
 };

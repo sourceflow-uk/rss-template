@@ -5,7 +5,7 @@ export default {
   title: "Components/NarrativePanel",
   component: NarrativePanel,
   parameters: {},
-  tags: ["autodocs"],
+  tags: [],
   argTypes: {},
 };
 

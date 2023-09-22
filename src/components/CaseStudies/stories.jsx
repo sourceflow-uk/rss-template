@@ -6,7 +6,7 @@ export default {
   title: "Components/CaseStudies",
   component: CaseStudies,
   parameters: {},
-  tags: ["autodocs"],
+  tags: [],
   argTypes: {},
 };
 

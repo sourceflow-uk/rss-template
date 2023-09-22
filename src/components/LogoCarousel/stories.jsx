@@ -6,7 +6,7 @@ export default {
   title: "Components/LogoCarousel",
   component: LogoCarousel,
   parameters: {},
-  tags: ["autodocs"],
+  tags: [],
   argTypes: {},
 };
 

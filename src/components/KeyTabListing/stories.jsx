@@ -6,7 +6,7 @@ export default {
   title: "Components/KeyTabListing",
   component: KeyTabListing,
   parameters: {},
-  tags: ["autodocs"],
+  tags: [],
   argTypes: {},
 };
 

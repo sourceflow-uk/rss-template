@@ -1,6 +1,8 @@
 import clsx from "classnames";
 import { Button } from "react-bootstrap";
 import classes from "./styles.module.scss";
+import PropTypes from "prop-types";
+import { CTA } from "@/ui/CTA";
 
 export const PromotionalPanelCard = ({ className, title, description, cta }) => {
   return (
@@ -18,4 +20,18 @@ export const PromotionalPanelCard = ({ className, title, description, cta }) => 
       </div>
     </div>
   );
+};
+
+PromotionalPanelCard.defaultProps = {
+  className: "",
+  title: "",
+  description: "",
+  cta: null,
+};
+
+PromotionalPanelCard.propTypes = {
+  className: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  cta: PropTypes.shape(CTA.propTypes),
 };

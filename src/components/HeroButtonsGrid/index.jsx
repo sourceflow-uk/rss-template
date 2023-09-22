@@ -27,11 +27,5 @@ HeroButtonsGrid.defaultProps = {
 
 HeroButtonsGrid.propTypes = {
   className: PropTypes.string,
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      img: PropTypes.string,
-      href: PropTypes.string,
-    })
-  ),
+  items: PropTypes.arrayOf(PropTypes.shape(HeroButton.propTypes)),
 };

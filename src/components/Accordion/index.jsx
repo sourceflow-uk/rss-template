@@ -34,11 +34,6 @@ Accordion.defaultProps = {
 
 Accordion.propTypes = {
   className: PropTypes.string,
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      body: PropTypes.string,
-    })
-  ),
+  items: PropTypes.arrayOf(PropTypes.shape(AccordionItem.propTypes)),
   defaultActiveKey: PropTypes.number,
 };

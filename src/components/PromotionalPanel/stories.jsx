@@ -6,7 +6,7 @@ export default {
   title: "Components/PromotionalPanel",
   component: PromotionalPanel,
   parameters: {},
-  tags: ["autodocs"],
+  tags: [],
   argTypes: {},
 };
 

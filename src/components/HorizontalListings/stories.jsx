@@ -7,7 +7,7 @@ export default {
   title: "Components/HorizontalListings",
   component: HorizontalListings,
   parameters: {},
-  tags: ["autodocs"],
+  tags: [],
   argTypes: {},
 };
 

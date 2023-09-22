@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
 import classes from "./styles.module.scss";
 import clsx from "classnames";
-import { Button, Col, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import Play from "@/assets/Play.svg";
+import { CTA } from "@/ui/CTA";
 
 export const Header = ({ className, title, img, description, cta, video }) => {
   return (
@@ -11,13 +12,7 @@ export const Header = ({ className, title, img, description, cta, video }) => {
         <Col xs={5} className="d-flex flex-column justify-content-center h-100">
           <h1>{title}</h1>
           {description && <p>{description}</p>}
-          {cta && (
-            <div>
-              <Button variant="dark" href={cta.href}>
-                {cta.label}
-              </Button>
-            </div>
-          )}
+          {cta && <CTA label={cta.label} href={cta.href} variant={cta.variant} />}
         </Col>
       </Row>
       {video && (
@@ -42,9 +37,6 @@ Header.propTypes = {
   title: PropTypes.string,
   img: PropTypes.string,
   description: PropTypes.string,
-  cta: PropTypes.shape({
-    label: PropTypes.string,
-    href: PropTypes.string,
-  }),
+  cta: PropTypes.shape(CTA.propTypes),
   video: PropTypes.string,
 };

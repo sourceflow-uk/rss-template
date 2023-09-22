@@ -6,7 +6,7 @@ export default {
   title: "Components/Accordion",
   component: Accordion,
   parameters: {},
-  tags: ["autodocs"],
+  tags: [],
   argTypes: {},
 };
 

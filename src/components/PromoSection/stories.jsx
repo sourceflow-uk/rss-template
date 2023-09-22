@@ -6,7 +6,7 @@ export default {
   title: "Components/PromoSection",
   component: PromoSection,
   parameters: {},
-  tags: ["autodocs"],
+  tags: [],
   argTypes: {},
 };
 

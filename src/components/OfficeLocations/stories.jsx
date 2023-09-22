@@ -6,7 +6,7 @@ export default {
   title: "Components/OfficeLocations",
   component: OfficeLocations,
   parameters: {},
-  tags: ["autodocs"],
+  tags: [],
   argTypes: {},
 };
 

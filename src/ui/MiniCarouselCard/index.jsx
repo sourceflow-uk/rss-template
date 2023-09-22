@@ -1,7 +1,8 @@
 import clsx from "classnames";
-import { Button, Col, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import classes from "./styles.module.scss";
 import PropTypes from "prop-types";
+import { CTA } from "@/ui/CTA";
 
 export const MiniCarouselCard = ({ className, title, description, cta, img }) => {
   return (
@@ -10,13 +11,7 @@ export const MiniCarouselCard = ({ className, title, description, cta, img }) =>
         <Col xs={5} className="px-5 d-flex flex-column justify-content-center">
           <h2 className="mb-3">{title}</h2>
           <p>{description}</p>
-          {cta && (
-            <div>
-              <Button variant="dark" href={cta.href}>
-                {cta.label}
-              </Button>
-            </div>
-          )}
+          {cta && <CTA label={cta.label} href={cta.href} variant={cta.variant} />}
         </Col>
         <Col xs={7} className="p-0">
           <img src={img} alt="" />
@@ -37,8 +32,5 @@ MiniCarouselCard.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   img: PropTypes.string,
-  cta: PropTypes.shape({
-    label: PropTypes.string,
-    href: PropTypes.string,
-  }),
+  cta: PropTypes.shape(CTA.propTypes),
 };

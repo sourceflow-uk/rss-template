@@ -3,6 +3,7 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import PropTypes from "prop-types";
 import classes from "./styles.module.scss";
 import Play from "@/assets/Play.svg";
+import { CTA } from "@/ui/CTA";
 
 export const NarrativePanel = ({ className, title, description, img, cta, video, reverse }) => {
   return (
@@ -13,13 +14,7 @@ export const NarrativePanel = ({ className, title, description, img, cta, video,
             <div>
               <h2 className="mb-3">{title}</h2>
               <p>{description}</p>
-              {cta && (
-                <div>
-                  <Button variant="dark" href={cta.href}>
-                    {cta.label}
-                  </Button>
-                </div>
-              )}
+              {cta && <CTA label={cta.label} href={cta.href} variant={cta.variant} />}
             </div>
           </Col>
           <Col xs={12} md={6} className="d-flex flex-column justify-content-center">
@@ -56,10 +51,7 @@ NarrativePanel.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   img: PropTypes.string,
-  cta: PropTypes.shape({
-    label: PropTypes.string,
-    href: PropTypes.string,
-  }),
+  cta: PropTypes.shape(CTA.propTypes),
   video: PropTypes.string,
   reverse: PropTypes.bool,
 };

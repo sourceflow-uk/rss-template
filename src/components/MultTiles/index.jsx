@@ -26,12 +26,5 @@ MultiTiles.defaultProps = {
 
 MultiTiles.propTypes = {
   className: PropTypes.string,
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      className: PropTypes.string,
-      title: PropTypes.string,
-      img: PropTypes.string,
-      href: PropTypes.string,
-    })
-  ),
+  items: PropTypes.arrayOf(PropTypes.shape(MultiTileCard.propTypes)),
 };

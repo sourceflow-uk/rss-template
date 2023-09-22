@@ -6,7 +6,7 @@ export default {
   title: "Components/MultiTiles",
   component: MultiTiles,
   parameters: {},
-  tags: ["autodocs"],
+  tags: [],
   argTypes: {},
 };
 

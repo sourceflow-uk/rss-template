@@ -48,16 +48,7 @@ LatestBlogs.defaultProps = {
 LatestBlogs.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      className: PropTypes.string,
-      title: PropTypes.string,
-      description: PropTypes.string,
-      img: PropTypes.string,
-      published_at: PropTypes.instanceOf(Date),
-      tags: PropTypes.arrayOf(PropTypes.string),
-    })
-  ),
+  items: PropTypes.arrayOf(PropTypes.shape(BlogArticleCard.propTypes)),
   button: PropTypes.shape({
     label: PropTypes.string,
     href: PropTypes.string,

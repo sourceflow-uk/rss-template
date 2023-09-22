@@ -70,7 +70,7 @@ JobCard.defaultProps = {
 
 JobCard.propTypes = {
   title: PropTypes.string,
-  sectors: PropTypes.arrayOf(PropTypes.string),
+  sectors: PropTypes.arrayOf(PropTypes.shape(Tag.propTypes)),
   location: PropTypes.string,
   logo: PropTypes.string,
   salary_package: PropTypes.string,

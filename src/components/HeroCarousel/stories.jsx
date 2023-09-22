@@ -16,7 +16,7 @@ export default {
   title: "Components/HeroCarousel",
   component: HeroCarousel,
   parameters: {},
-  tags: ["autodocs"],
+  tags: [],
   argTypes: {},
 };
 

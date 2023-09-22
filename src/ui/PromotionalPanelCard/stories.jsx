@@ -14,7 +14,7 @@ export default {
     </Container>
   ),
   parameters: {},
-  tags: ["autodocs"],
+  tags: [],
   argTypes: {},
 };
 

@@ -1,14 +1,14 @@
-import { CaseStudyCard } from "./index";
+import { CTA } from "./index";
 import { Col, Container, Row } from "react-bootstrap";
-import { generateCaseStudy } from "@/faker/generateCaseStudy";
+import { generateCTA } from "@/faker/generateCTA";
 
 export default {
-  title: "UI/CaseStudyCard",
+  title: "UI/CTA",
   component: (props) => (
     <Container>
       <Row>
         <Col xs={4}>
-          <CaseStudyCard {...props} />
+          <CTA {...props} />
         </Col>
       </Row>
     </Container>
@@ -19,5 +19,5 @@ export default {
 };
 
 export const Default = {
-  args: generateCaseStudy(),
+  args: generateCTA(),
 };

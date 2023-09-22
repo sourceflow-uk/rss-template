@@ -6,7 +6,7 @@ export default {
   title: "Components/LatestBlogs",
   component: LatestBlogs,
   parameters: {},
-  tags: ["autodocs"],
+  tags: [],
   argTypes: {},
 };
 

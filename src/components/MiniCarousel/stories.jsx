@@ -6,7 +6,7 @@ export default {
   title: "Components/MiniCarousel",
   component: MiniCarousel,
   parameters: {},
-  tags: ["autodocs"],
+  tags: [],
   argTypes: {},
 };
 

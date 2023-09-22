@@ -5,7 +5,7 @@ export default {
   title: "Components/Header",
   component: Header,
   parameters: {},
-  tags: ["autodocs"],
+  tags: [],
   argTypes: {},
 };
 

@@ -42,12 +42,6 @@ LogoCarousel.defaultProps = {
 
 LogoCarousel.propTypes = {
   className: PropTypes.string,
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string,
-      logo: PropTypes.string,
-      href: PropTypes.string,
-    })
-  ),
+  items: PropTypes.arrayOf(PropTypes.shape(LogoCard.propTypes)),
   visibleCount: PropTypes.number,
 };
