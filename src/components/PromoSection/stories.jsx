@@ -1,6 +1,6 @@
 import { PromoSection } from "./index";
 import { generateArrayOf } from "@/faker/generateArrayOf";
-import { generatePromoCard } from "@/faker/generatePromoCard";
+import { generatePromoItem } from "@/faker/generatePromoItem";
 
 export default {
   title: "Components/PromoSection",
@@ -12,12 +12,12 @@ export default {
 
 export const Default = {
   args: {
-    items: generateArrayOf(generatePromoCard, { count: 3 }),
+    items: generateArrayOf(generatePromoItem, { count: 3 }),
   },
 };
 
 export const FourCards = {
   args: {
-    items: generateArrayOf(generatePromoCard, { count: 4 }),
+    items: generateArrayOf(generatePromoItem, { count: 4 }),
   },
 };

@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import clsx from "classnames";
 import classes from "./styles.module.scss";
 
-export const PromoCard = ({ className, title, img, description }) => {
+export const PromoItem = ({ className, title, img, description }) => {
   return (
     <div className={clsx(className, classes.card)}>
       <figure>
@@ -16,13 +16,13 @@ export const PromoCard = ({ className, title, img, description }) => {
   );
 };
 
-PromoCard.defaultProps = {
+PromoItem.defaultProps = {
   className: "",
   title: "",
   description: "",
 };
 
-PromoCard.propTypes = {
+PromoItem.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,

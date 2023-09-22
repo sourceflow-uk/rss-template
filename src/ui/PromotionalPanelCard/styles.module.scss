@@ -1,0 +1,17 @@
+@import "src/scss/module";
+
+.card {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid $dark;
+  padding: $spacer;
+  min-height: 484px;
+
+  &__body {
+    h4 {
+      text-transform: capitalize;
+    }
+  }
+}

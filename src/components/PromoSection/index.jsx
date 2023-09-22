@@ -1,6 +1,6 @@
 import clsx from "classnames";
 import { Col, Container, Row } from "react-bootstrap";
-import { PromoCard } from "@/ui/PromoCard";
+import { PromoItem } from "@/ui/PromoItem";
 import PropTypes from "prop-types";
 import classes from "./styles.module.scss";
 
@@ -11,7 +11,7 @@ export const PromoSection = ({ className, items }) => {
         <Row>
           {items.map(({ title, description, img }, k) => (
             <Col key={k}>
-              <PromoCard className="h-100" title={title} description={description} img={img} />
+              <PromoItem className="h-100" title={title} description={description} img={img} />
             </Col>
           ))}
         </Row>

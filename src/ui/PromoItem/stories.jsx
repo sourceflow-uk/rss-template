@@ -1,14 +1,14 @@
-import { PromoCard } from "./index";
+import { PromoItem } from "./index";
 import { Col, Container, Row } from "react-bootstrap";
-import { generatePromoCard } from "@/faker/generatePromoCard";
+import { generatePromoItem } from "@/faker/generatePromoItem";
 
 export default {
-  title: "UI/PromoCard",
+  title: "UI/PromoItem",
   component: (props) => (
     <Container>
       <Row>
         <Col xs={4}>
-          <PromoCard {...props} />
+          <PromoItem {...props} />
         </Col>
       </Row>
     </Container>
@@ -19,5 +19,5 @@ export default {
 };
 
 export const Default = {
-  args: generatePromoCard(),
+  args: generatePromoItem(),
 };
