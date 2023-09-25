@@ -1,0 +1,21 @@
+@import "src/scss/module";
+
+.sidebar {
+  h3 {
+    text-transform: capitalize;
+  }
+
+  &__nav {
+    flex-direction: column;
+    border: 1px solid $dark;
+
+    [class="nav-item"]:not(:last-of-type) {
+      border-bottom: 1px solid $dark;
+    }
+
+    a {
+      color: $text-color;
+      text-transform: capitalize;
+    }
+  }
+}
