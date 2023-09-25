@@ -1,0 +1,35 @@
+@import "src/scss/module";
+
+.video {
+  &__button {
+    background-position: center;
+    background-size: cover;
+    background-color: $light;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: $transition-base;
+    max-height: 500px;
+
+    svg {
+      transition: $transition-base;
+    }
+
+    &:hover {
+      scale: 1.05;
+
+      svg {
+        opacity: 0.65;
+      }
+    }
+  }
+
+  &__modal {
+    overflow: hidden;
+
+    [class*="modal-content"] {
+      border: 0;
+    }
+  }
+}

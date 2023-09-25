@@ -22,7 +22,7 @@ export const NarrativePanel = ({ className, title, description, img, cta, video,
               <img className="mw-100" src={img} alt="" />
               {video && (
                 <a href={video}>
-                  <Play />
+                  <Play width={30} height={31} />
                 </a>
               )}
             </figure>

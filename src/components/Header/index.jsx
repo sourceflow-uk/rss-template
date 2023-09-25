@@ -17,7 +17,7 @@ export const Header = ({ className, title, img, description, cta, video }) => {
       </Row>
       {video && (
         <a href={video}>
-          <Play />
+          <Play width={30} height={31} />
         </a>
       )}
     </div>
