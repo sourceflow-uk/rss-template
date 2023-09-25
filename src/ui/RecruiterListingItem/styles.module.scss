@@ -1,0 +1,22 @@
+@import "src/scss/module";
+
+.item {
+  img {
+    border-radius: 100px;
+  }
+
+  h4 {
+    text-transform: capitalize;
+  }
+
+  dl {
+    dd {
+      text-transform: capitalize;
+    }
+  }
+
+  a {
+    color: $text-color;
+    text-decoration: none;
+  }
+}
