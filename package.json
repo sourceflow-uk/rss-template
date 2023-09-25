@@ -37,6 +37,7 @@
     "react-bootstrap": "^2.7.2",
     "react-dom": "18.2.0",
     "react-helmet": "^6.1.0",
+    "react-share": "^4.4.1",
     "react-slide-fade-in": "^1.0.9",
     "react-visibility-sensor": "^5.1.1",
     "sass": "^1.59.2",
