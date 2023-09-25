@@ -1,0 +1,13 @@
+@import "src/scss/module";
+
+.socials {
+  width: 68px;
+  padding: $spacer;
+  border: 1px solid $dark;
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
