@@ -1,0 +1,9 @@
+@import "src/scss/module";
+
+.heading {
+  h2 {
+    text-transform: capitalize;
+    padding-bottom: $spacer * 2;
+    border-bottom: 1px solid $dark;
+  }
+}
