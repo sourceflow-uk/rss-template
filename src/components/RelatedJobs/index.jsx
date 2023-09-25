@@ -3,14 +3,14 @@ import { Col, Container, Row } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { RelatedJobCard } from "@/ui/RelatedJobCard";
 
-export const RelatedJobs = ({ className, title, items }) => {
+export const RelatedJobs = ({ className, title, items, direction }) => {
   return (
     <div className={clsx(className)}>
-      <Container>
+      <Container className="mw-lg">
         <h2>{title}</h2>
         <Row>
           {items.map(({ title, sectors, location, salary_package, role_type, published_at, href }) => (
-            <Col xs={12} md={3}>
+            <Col className="mb-3" xs={12} md={{ row: 3, column: 12 }[direction]}>
               <RelatedJobCard
                 className="h-100"
                 title={title}
@@ -33,10 +33,12 @@ RelatedJobs.defaultProps = {
   className: "",
   title: "Related Jobs",
   items: [],
+  direction: "row",
 };
 
 RelatedJobs.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
   items: PropTypes.arrayOf(RelatedJobCard.propTypes),
+  direction: PropTypes.oneOf(["row", "column"]),
 };

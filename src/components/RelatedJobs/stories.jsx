@@ -15,3 +15,10 @@ export const Default = {
     items: generateArrayOf(generateRelatedJob, { count: 4 }),
   },
 };
+
+export const Column = {
+  args: {
+    items: generateArrayOf(generateRelatedJob, { count: 4 }),
+    direction: "column",
+  },
+};
