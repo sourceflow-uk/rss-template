@@ -75,8 +75,26 @@ export const Recruiter = ({
 
 Recruiter.defaultProps = {
   className: "",
+  name: "",
+  title: "",
+  email: "",
+  location: "",
+  linkedIn: "",
+  sectors: [],
+  phone: "",
+  profile_pic: "",
+  description: "",
 };
 
 Recruiter.propTypes = {
   className: PropTypes.string,
+  name: PropTypes.string,
+  title: PropTypes.string,
+  email: PropTypes.string,
+  location: PropTypes.string,
+  linkedIn: PropTypes.string,
+  sectors: PropTypes.arrayOf(Tag.propTypes),
+  phone: PropTypes.string,
+  profile_pic: PropTypes.string,
+  description: PropTypes.string,
 };
