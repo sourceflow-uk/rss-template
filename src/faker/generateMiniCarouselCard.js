@@ -4,6 +4,6 @@ import { generateCTA } from "@/faker/generateCTA";
 export const generateMiniCarouselCard = () => ({
   title: faker.lorem.words({ min: 3, max: 6 }),
   description: faker.lorem.sentence(),
-  img: faker.image.url({ width: 703, height: 352 }),
+  img: faker.image.urlPicsumPhotos({ width: 703, height: 352 }),
   cta: generateCTA(),
 });

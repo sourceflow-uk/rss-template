@@ -6,6 +6,6 @@ export const generateRecruiterListingItem = () => ({
   email: faker.internet.email(),
   linkedIn: "https://www.linkedin.com",
   phone: faker.phone.number(),
-  profile_pic: faker.image.url({ width: 167, height: 167 }),
+  profile_pic: faker.image.urlPicsumPhotos({ width: 167, height: 167 }),
   description: faker.lorem.paragraph({ min: 3, max: 6 }),
 });

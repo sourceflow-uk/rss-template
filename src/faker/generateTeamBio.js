@@ -6,6 +6,6 @@ export const generateTeamBio = () => ({
   email: faker.internet.email(),
   linkedIn: "https://www.linkedin.com",
   qualification: faker.lorem.words({ min: 2, max: 3 }),
-  photo: faker.image.url({ width: 291, height: 291 }),
+  photo: faker.image.urlPicsumPhotos({ width: 291, height: 291 }),
   description: faker.lorem.paragraphs({ min: 1, max: 2 }),
 });
