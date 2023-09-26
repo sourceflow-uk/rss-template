@@ -1,6 +1,9 @@
 @import "src/scss/module";
 
 .card {
+  @include img-overlay__container;
+  height: 300px;
+
   &__img {
     @include img-overlay__img;
   }

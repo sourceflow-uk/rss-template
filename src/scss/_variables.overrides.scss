@@ -10,6 +10,11 @@ $overlay-text-color: $black;
 $card-img-overlay-color: $black;
 $card-text-color: $white;
 
+@mixin img-overlay__container {
+  position: relative;
+  overflow: hidden;
+}
+
 @mixin img-overlay__img {
   position: absolute;
   top: 0;

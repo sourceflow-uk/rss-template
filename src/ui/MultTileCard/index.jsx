@@ -4,7 +4,8 @@ import PropTypes from "prop-types";
 
 export const MultiTileCard = ({ className, title, img, href }) => {
   return (
-    <a href={href} className={clsx(className, classes.card)} style={{ backgroundImage: `url(${img})` }}>
+    <a href={href} className={clsx(className, classes.card)}>
+      <img className={classes.card__img} src={img} alt="" />
       <div className={classes.card__body}>
         <h4 className="h6">{title}</h4>
       </div>

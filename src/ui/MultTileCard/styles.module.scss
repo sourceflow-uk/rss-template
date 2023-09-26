@@ -1,19 +1,22 @@
 @import "src/scss/module";
 
 .card {
+  @include img-overlay__container;
   margin: 1px;
-  position: relative;
   display: block;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
   padding-top: 100%;
-  color: $overlay-text-color;
+
+  &__img {
+    @include img-overlay__img;
+  }
+
+  &:hover &__img {
+    scale: 1.05;
+  }
 
   &__body {
-    position: absolute;
-    top: 0;
-    left: 0;
+    @include img-overlay__body;
+    background: linear-gradient(180deg, rgba($card-img-overlay-color, 0.5) 0%, rgba($card-img-overlay-color, 0) 100%);
     padding: $spacer;
 
     h4 {

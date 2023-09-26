@@ -1,13 +1,12 @@
 @import "src/scss/module";
 
 .button {
+  @include img-overlay__container;
   display: block;
-  position: relative;
   padding-top: 100%;
   flex-basis: 160px;
   border: 0;
   transition: 0.3s;
-  overflow: hidden;
 
   &:hover {
     scale: 1.025;
