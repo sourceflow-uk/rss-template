@@ -36,3 +36,12 @@ $card-text-color: $white;
   color: $card-text-color;
   z-index: 2;
 }
+
+@mixin card-hover-rise {
+  transition: 0.3s;
+
+  &:hover {
+    transform: translateY(-0.5em);
+    box-shadow: $box-shadow-sm;
+  }
+}

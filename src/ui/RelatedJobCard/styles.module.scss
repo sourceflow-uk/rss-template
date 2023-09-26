@@ -6,6 +6,7 @@
   border: 1px solid $dark;
   text-decoration: none;
   padding-top: $spacer;
+  @include card-hover-rise;
 
   &__body {
     height: 100%;

@@ -6,13 +6,8 @@
   flex-direction: column;
   text-decoration: none;
   color: $text-color;
-  transition: 0.3s;
   overflow: hidden;
-
-  &:hover {
-    transform: translateY(-0.5em);
-    box-shadow: $box-shadow-sm;
-  }
+  @include card-hover-rise;
 
   figure {
     margin-bottom: 0;

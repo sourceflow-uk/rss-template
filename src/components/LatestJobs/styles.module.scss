@@ -15,6 +15,10 @@
     top: -50px;
   }
 
+  [class="carousel-inner"] {
+    padding-top: $spacer * 0.5;
+  }
+
   &__footer {
     text-align: center;
   }

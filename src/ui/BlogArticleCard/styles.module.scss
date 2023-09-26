@@ -5,6 +5,7 @@
   border: 1px solid;
   display: flex;
   flex-direction: column;
+  @include card-hover-rise;
 
   figure {
     margin-bottom: 0;

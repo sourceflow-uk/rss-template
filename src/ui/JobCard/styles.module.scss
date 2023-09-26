@@ -4,6 +4,7 @@
   text-align: left;
   border: 1px solid;
   padding: $spacer;
+  @include card-hover-rise;
 
   &__body {
     height: 100%;
