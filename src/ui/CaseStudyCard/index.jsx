@@ -4,7 +4,8 @@ import PropTypes from "prop-types";
 
 export const CaseStudyCard = ({ className, title, description, img, href }) => {
   return (
-    <a className={clsx(className, classes.card)} href={href} style={{ backgroundImage: `url(${img})` }}>
+    <a className={clsx(className, classes.card)} href={href}>
+      <img className={classes.card__img} src={img} alt="" />
       <div className={classes.card__body}>
         <h4>{title}</h4>
         <p>{description}</p>
