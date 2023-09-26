@@ -9,6 +9,7 @@
   padding: $spacer;
   min-height: 484px;
   @include card-hover-rise;
+  @include darken-on-hover;
 
   &__body {
     h4 {

@@ -14,14 +14,22 @@
   }
 
   figure {
-    a {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    @include img-overlay__container;
+    padding-top: calc(9 / 16 * 100%);
+
+    img {
+      @include img-overlay__img;
+    }
+
+    div {
+      @include img-overlay__body;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
 
       svg {
-        fill: $dark;
+        fill: $card-text-color;
       }
     }
   }
