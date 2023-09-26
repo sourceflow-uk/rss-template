@@ -10,6 +10,7 @@
     align-items: center;
     padding: $spacer;
     transition: 0.3s;
+    @include darken-on-hover;
 
     svg {
       transition: 0.3s;
@@ -17,8 +18,6 @@
 
     &:hover,
     &:focus {
-      background-color: rgba($black, 0.05);
-
       svg {
         scale: 1.1;
       }

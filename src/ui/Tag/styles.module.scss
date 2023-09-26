@@ -11,4 +11,5 @@
   text-overflow: ellipsis;
   overflow: hidden;
   text-transform: capitalize;
+  @include darken-on-hover;
 }

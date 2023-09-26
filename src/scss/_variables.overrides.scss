@@ -45,3 +45,12 @@ $card-text-color: $white;
     box-shadow: $box-shadow-sm;
   }
 }
+
+@mixin darken-on-hover {
+  transition: 0.3s;
+
+  &:hover,
+  &:focus {
+    background-color: rgba($black, 0.05);
+  }
+}
