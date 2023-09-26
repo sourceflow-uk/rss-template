@@ -15,7 +15,7 @@ export const SocialNavigation = ({ className, linkedIn, twitter, facebook, whats
 
   return (
     <div className={clsx(className, classes.socials)}>
-      <Stack gap={4}>
+      <Stack>
         {linkedIn && (
           <a href={linkedIn}>
             <LinkedIn />
