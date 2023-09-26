@@ -1,11 +1,12 @@
 import clsx from "classnames";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import PropTypes from "prop-types";
 import classes from "./styles.module.scss";
 import Play from "@/assets/Play.svg";
 import { CTA } from "@/ui/CTA";
+import { VideoModal } from "@/ui/VideoModal";
 
-export const NarrativePanel = ({ className, title, description, img, cta, video, reverse }) => {
+export const NarrativePanel = ({ className, title, description, img, cta, video_embed_url, reverse }) => {
   return (
     <div className={clsx(className, classes.panel)}>
       <Container>
@@ -20,10 +21,10 @@ export const NarrativePanel = ({ className, title, description, img, cta, video,
           <Col xs={12} md={6} className="d-flex flex-column justify-content-center">
             <figure className="my-4 my-md-0 position-relative">
               <img className="mw-100" src={img} alt="" />
-              {video && (
-                <a href={video}>
+              {video_embed_url && (
+                <VideoModal video_embed_url={video_embed_url}>
                   <Play width={30} height={31} />
-                </a>
+                </VideoModal>
               )}
             </figure>
           </Col>

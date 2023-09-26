@@ -4,8 +4,9 @@ import clsx from "classnames";
 import { Col, Row } from "react-bootstrap";
 import Play from "@/assets/Play.svg";
 import { CTA } from "@/ui/CTA";
+import { VideoModal } from "@/ui/VideoModal";
 
-export const Header = ({ className, title, img, description, cta, video }) => {
+export const Header = ({ className, title, img, description, cta, video_embed_url }) => {
   return (
     <div className={clsx(className, classes.header, "p-5")} style={{ backgroundImage: `url(${img}` }}>
       <Row className="h-100">
@@ -15,10 +16,10 @@ export const Header = ({ className, title, img, description, cta, video }) => {
           {cta && <CTA label={cta.label} href={cta.href} variant={cta.variant} />}
         </Col>
       </Row>
-      {video && (
-        <a href={video}>
+      {video_embed_url && (
+        <VideoModal video_embed_url={video_embed_url}>
           <Play width={30} height={31} />
-        </a>
+        </VideoModal>
       )}
     </div>
   );
@@ -29,7 +30,7 @@ Header.defaultProps = {
   img: "",
   description: "",
   cta: null,
-  video: null,
+  video_embed_url: null,
 };
 
 Header.propTypes = {
@@ -38,5 +39,5 @@ Header.propTypes = {
   img: PropTypes.string,
   description: PropTypes.string,
   cta: PropTypes.shape(CTA.propTypes),
-  video: PropTypes.string,
+  video_embed_url: PropTypes.string,
 };
