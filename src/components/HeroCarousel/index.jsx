@@ -1,26 +1,15 @@
 import PropTypes from "prop-types";
 import classes from "./styles.module.scss";
 import clsx from "classnames";
-import { Carousel, Col, Row } from "react-bootstrap";
-import Play from "@/assets/Play.svg";
-import { VideoModal } from "@/ui/VideoModal";
+import { Carousel } from "react-bootstrap";
+import { HeroCarouselCard } from "@/ui/HeroCarouselCard";
 
 export const HeroCarousel = ({ className, items, controls }) => {
   return (
     <Carousel className={clsx(className, classes.hero)} controls={controls} indicators={false}>
-      {items.map(({ title, description, img, video_embed_url }) => (
-        <Carousel.Item className="p-5" style={{ backgroundImage: `url(${img}` }}>
-          <Row className="h-100">
-            <Col xs={5} className="d-flex flex-column justify-content-center h-100">
-              <h1>{title}</h1>
-              {description && <p>{description}</p>}
-            </Col>
-          </Row>
-          {video_embed_url && (
-            <VideoModal video_embed_url={video_embed_url}>
-              <Play width={30} height={31} />
-            </VideoModal>
-          )}
+      {items.map(({ title, description, img, video_embed_url }, k) => (
+        <Carousel.Item key={k}>
+          <HeroCarouselCard title={title} description={description} img={img} video_embed_url={video_embed_url} />
         </Carousel.Item>
       ))}
     </Carousel>

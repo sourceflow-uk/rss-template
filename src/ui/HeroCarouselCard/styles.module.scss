@@ -1,0 +1,31 @@
+@import "src/scss/module";
+
+.card {
+  &__img {
+    @include img-overlay__img;
+  }
+
+  &:hover &__img {
+    scale: 1.05;
+  }
+
+  &__body {
+    @include img-overlay__body;
+
+    h1 {
+      text-transform: capitalize;
+    }
+
+    p {
+      text-transform: capitalize;
+    }
+
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      fill: $card-text-color;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
