@@ -11,7 +11,7 @@ export const SocialVideo = ({ className, video_embed_url, img }) => {
       <Container>
         <div className="ratio ratio-21x9 overflow-hidden">
           <VideoModal
-            embed_url={video_embed_url}
+            video_embed_url={video_embed_url}
             className={classes.video__button}
             style={{ backgroundImage: `url(${img})` }}
           >
