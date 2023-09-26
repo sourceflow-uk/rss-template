@@ -16,6 +16,14 @@
     a {
       color: $text-color;
       text-transform: capitalize;
+      transition: 0.3s;
+
+      &:hover,
+      &:focus {
+        text-indent: 0.5em;
+        color: $text-color;
+        background-color: rgba($black, 0.05);
+      }
     }
   }
 }
