@@ -3,9 +3,21 @@
 .listings {
   text-align: center;
 
+  h3 {
+    text-transform: capitalize;
+  }
+
   &__item {
     text-align: left;
     display: flex;
     gap: $spacer;
+
+    h4 {
+      text-transform: capitalize;
+    }
+
+    p {
+      text-transform: capitalize;
+    }
   }
 }
