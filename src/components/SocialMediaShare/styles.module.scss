@@ -1,0 +1,11 @@
+@import "src/scss/module";
+
+.share {
+  button {
+    transition: 0.3s;
+
+    &:hover {
+      transform: translateY(-0.25em);
+    }
+  }
+}
