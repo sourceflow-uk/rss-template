@@ -9,9 +9,9 @@ export const PromoSection = ({ className, items }) => {
     <div className={clsx(className, classes.section)}>
       <Container>
         <Row>
-          {items.map(({ title, description, img }, k) => (
+          {items.map(({ title, description, img, href }, k) => (
             <Col key={k}>
-              <PromoItem className="h-100" title={title} description={description} img={img} />
+              <PromoItem className="h-100" title={title} description={description} img={img} href={href} />
             </Col>
           ))}
         </Row>

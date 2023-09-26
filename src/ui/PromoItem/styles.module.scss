@@ -4,12 +4,22 @@
   text-align: left;
   display: flex;
   flex-direction: column;
+  text-decoration: none;
+  color: $text-color;
+  transition: 0.3s;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-0.5em);
+    box-shadow: $box-shadow-sm;
+  }
 
   figure {
     margin-bottom: 0;
 
     img {
       width: 100%;
+      transition: 0.3s;
     }
   }
 

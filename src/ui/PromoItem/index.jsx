@@ -2,9 +2,9 @@ import PropTypes from "prop-types";
 import clsx from "classnames";
 import classes from "./styles.module.scss";
 
-export const PromoItem = ({ className, title, img, description }) => {
+export const PromoItem = ({ className, title, img, description, href }) => {
   return (
-    <div className={clsx(className, classes.card)}>
+    <a href={href} className={clsx(className, classes.card)}>
       <figure>
         <img src={img} alt="" />
       </figure>
@@ -12,7 +12,7 @@ export const PromoItem = ({ className, title, img, description }) => {
         <h4>{title}</h4>
         <p>{description}</p>
       </div>
-    </div>
+    </a>
   );
 };
 
