@@ -47,7 +47,7 @@ export const Recruiter = ({
           <Col xs={12} md={4}>
             <dl className="mb-1">
               <dt className="visually-hidden">Email</dt>
-              <dd>
+              <dd className={classes.recruiter__email}>
                 <a href={`mailto:${email}`}>{email}</a>
               </dd>
             </dl>

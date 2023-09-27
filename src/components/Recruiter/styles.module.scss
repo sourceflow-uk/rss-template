@@ -19,6 +19,10 @@
     }
   }
 
+  &__email {
+    text-transform: none;
+  }
+
   a {
     color: $text-color;
     text-decoration: none;
