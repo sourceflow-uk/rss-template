@@ -36,3 +36,10 @@ h3,
     max-width: map-get($container-max-widths, "xxl");
   }
 }
+
+details {
+  summary {
+    font-weight: $font-weight-bold;
+    text-transform: capitalize;
+  }
+}
