@@ -19,11 +19,15 @@ export const PromoItem = ({ className, title, img, description, href }) => {
 PromoItem.defaultProps = {
   className: "",
   title: "",
+  img: "",
   description: "",
+  href: "",
 };
 
 PromoItem.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
+  img: PropTypes.string,
   description: PropTypes.string,
+  href: PropTypes.string,
 };
