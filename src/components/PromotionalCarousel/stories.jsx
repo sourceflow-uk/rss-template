@@ -1,4 +1,6 @@
 import { PromotionalCarousel } from "./index";
+import { generateArrayOf } from "@/faker/generateArrayOf";
+import { generatePromotionalCarouselItem } from "@/faker/generatePromotionalCarouselItem";
 
 export default {
   title: "Components/PromotionalCarousel",
@@ -11,6 +13,13 @@ export default {
 export const Default = {
   args: {
     className: "",
-    items: [],
+    items: generateArrayOf(generatePromotionalCarouselItem, { count: 3 }),
+  },
+};
+
+export const Video = {
+  args: {
+    className: "",
+    items: generateArrayOf(generatePromotionalCarouselItem, { count: 3 }, { video: true }),
   },
 };
