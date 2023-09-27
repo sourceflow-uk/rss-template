@@ -1,0 +1,16 @@
+@import "src/scss/module";
+
+.locator {
+  padding: $spacer;
+  border: 1px solid $dark;
+
+  label {
+    font-weight: $font-weight-bold;
+  }
+
+  input,
+  select {
+    border-radius: 0;
+    border: 1px solid $dark;
+  }
+}
