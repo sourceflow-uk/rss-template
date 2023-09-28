@@ -3,7 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { generateCollapsibleContent } from "@/faker/generateCollapsibleContent";
 
 export default {
-  title: "Components/CollapsibleContent",
+  title: "Components/New/CollapsibleContent",
   component: (props) => (
     <Container>
       <Row>
