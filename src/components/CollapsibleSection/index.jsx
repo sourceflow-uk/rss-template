@@ -3,12 +3,13 @@ import { Col, Container, Row } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { CollapsibleSectionItem } from "@/ui/CollapsibleSectionItem";
 import { useState } from "react";
+import classes from "./styles.module.scss";
 
 export const CollapsibleSection = ({ className, title, description, items, defaultActiveKey }) => {
   const [active, setActive] = useState(defaultActiveKey);
 
   return (
-    <div className={clsx(className)}>
+    <div className={clsx(className, classes.collapsible)}>
       <Container>
         <h2>{title}</h2>
         <div dangerouslySetInnerHTML={{ __html: description }} />
