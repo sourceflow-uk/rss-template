@@ -1,11 +1,17 @@
 @import "src/scss/module";
 
 .listings {
+  background-color: $light;
+
   ul[role="tablist"] {
     width: 100%;
 
     li[role="presentation"] {
       flex-grow: 1;
+
+      &:not(:last-child) {
+        border-right: 1px solid rgba($black, 0.1);
+      }
 
       button[role="tab"] {
         width: 100%;
@@ -14,9 +20,13 @@
         background-color: $gray-200;
         color: $dark;
         text-align: left;
+        margin: 0;
+        font-weight: $font-weight-semibold;
 
+        &:hover,
+        &:focus,
         &[aria-selected="true"] {
-          background-color: $gray-300;
+          background-color: rgba($black, 0.1);
         }
 
         figure {
@@ -29,11 +39,41 @@
             object-fit: cover;
           }
         }
+
+        span {
+          flex-grow: 1;
+          text-align: center;
+          text-transform: capitalize;
+        }
       }
     }
   }
 
   div[class="tab-content"] {
-    background-color: $gray-300;
+    background-color: rgba($black, 0.1);
+    text-align: center;
+    text-transform: capitalize;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      text-transform: uppercase;
+      font-weight: $font-weight-semibold;
+
+      strong {
+        font-weight: $font-weight-bold;
+      }
+    }
+
+    p {
+      text-transform: none;
+    }
+
+    *:last-child {
+      margin-bottom: 0;
+    }
   }
 }

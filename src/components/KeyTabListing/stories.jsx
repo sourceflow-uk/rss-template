@@ -12,6 +12,6 @@ export default {
 
 export const Default = {
   args: {
-    items: generateArrayOf(generateKeyTabListing, { count: { min: 3, max: 4 } }),
+    items: generateArrayOf(generateKeyTabListing, { count: 4 }),
   },
 };
