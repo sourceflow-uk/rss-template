@@ -39,7 +39,7 @@ export const OfficeLocationCard = ({ className, address, phone, email, map_embed
             <a href={`mailto:${email}`}>{trimText(email, 26)}</a>
           </dd>
         </dl>
-        <dl>
+        <dl className="d-block">
           <dt>Opening Times</dt>
           <dd dangerouslySetInnerHTML={{ __html: opening_hours }} />
         </dl>
