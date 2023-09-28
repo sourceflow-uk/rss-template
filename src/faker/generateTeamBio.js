@@ -6,6 +6,7 @@ export const generateTeamBio = () => ({
   role: faker.person.jobTitle(),
   email: faker.internet.email(),
   linkedIn: "https://www.linkedin.com",
+  phone: faker.phone.number(),
   qualification: faker.lorem.words({ min: 2, max: 3 }),
   photo: faker.image.urlPicsumPhotos({ width: 291, height: 291 }),
   description: generateDescription(),

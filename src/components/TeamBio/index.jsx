@@ -2,10 +2,22 @@ import { Col, Container, Row } from "react-bootstrap";
 import clsx from "classnames";
 import Email from "@/assets/Email.svg";
 import LinkedIn from "@/assets/LinkedIn.svg";
+import Phone from "@/assets/Phone.svg";
 import classes from "./styles.module.scss";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 
-export const TeamBio = ({ className, name, role, email, linkedIn, qualification, photo, description, reverse }) => {
+export const TeamBio = ({
+  className,
+  name,
+  role,
+  email,
+  linkedIn,
+  phone,
+  qualification,
+  photo,
+  description,
+  reverse,
+}) => {
   return (
     <div className={clsx(className, classes.bio)}>
       <Container>
@@ -21,28 +33,47 @@ export const TeamBio = ({ className, name, role, email, linkedIn, qualification,
               <dt className="visually-hidden">Role</dt>
               <dd className="fw-semibold">{role}</dd>
             </dl>
-            <dl className="mb-2">
-              <dt className="visually-hidden">Qualification</dt>
-              <dd>{qualification}</dd>
-            </dl>
-            <dl className="mb-2">
-              <dt>
-                <Email />
-                <span className="visually-hidden">Email</span>
-              </dt>
-              <dd className={classes.bio__email}>
-                <a href={`mailto:${email}`}>{email}</a>
-              </dd>
-            </dl>
-            <dl className="mb-3">
-              <dt>
-                <LinkedIn />
-                <span className="visually-hidden">LinkedIn</span>
-              </dt>
-              <dd>
-                <a href={linkedIn}>LinkedIn Profile</a>
-              </dd>
-            </dl>
+            <div className="mb-3">
+              {qualification && (
+                <dl className="mb-2">
+                  <dt className="visually-hidden">Qualification</dt>
+                  <dd>{qualification}</dd>
+                </dl>
+              )}
+              {email && (
+                <dl className="mb-2">
+                  <dt>
+                    <Email />
+                    <span className="visually-hidden">Email</span>
+                  </dt>
+                  <dd className={classes.bio__email}>
+                    <a href={`mailto:${email}`}>{email}</a>
+                  </dd>
+                </dl>
+              )}
+              {linkedIn && (
+                <dl className="mb-2">
+                  <dt>
+                    <LinkedIn />
+                    <span className="visually-hidden">LinkedIn</span>
+                  </dt>
+                  <dd>
+                    <a href={linkedIn}>LinkedIn Profile</a>
+                  </dd>
+                </dl>
+              )}
+              {phone && (
+                <dl className="mb-2">
+                  <dt>
+                    <Phone />
+                    <span className="visually-hidden">Phone</span>
+                  </dt>
+                  <dd>
+                    <a href={`tel:${phone}`}>{phone}</a>
+                  </dd>
+                </dl>
+              )}
+            </div>
             <p>{description}</p>
           </Col>
         </Row>
