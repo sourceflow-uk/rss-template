@@ -34,10 +34,10 @@ export const RecruiterListingItem = ({ className, name, title, email, linkedIn, 
               </dl>
               <dl className="mb-0">
                 <dt>
+                  <LinkedIn width={18} />
                   <span className="visually-hidden">LinkedIn</span>
                 </dt>
                 <dd>
-                  <LinkedIn width={18} />
                   <a href={linkedIn}>LinkedIn Profile</a>
                 </dd>
               </dl>
