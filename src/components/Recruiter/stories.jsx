@@ -2,7 +2,7 @@ import { Recruiter } from "./index";
 import { generateRecruiter } from "@/faker/generateRecruiter";
 
 export default {
-  title: "Components/Recruiter",
+  title: "Components/New/Recruiter",
   component: Recruiter,
   parameters: {},
   tags: [],
