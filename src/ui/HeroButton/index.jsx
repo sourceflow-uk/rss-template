@@ -8,7 +8,7 @@ export const HeroButton = ({ className, title, img, href }) => {
     <a className={clsx(className, classes.button)} href={href}>
       <SourceFlowImage className={classes.button__img} src={img} size="160x160" alt={title} />
       <div className={classes.button__body}>
-        <h5 className="py-4">{title}</h5>
+        <h5 className="p-4 mx-auto mb-0">{title}</h5>
       </div>
     </a>
   );
