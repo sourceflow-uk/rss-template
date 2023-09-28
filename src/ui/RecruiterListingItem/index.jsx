@@ -4,6 +4,9 @@ import { Col, Row, Stack } from "react-bootstrap";
 import classes from "./styles.module.scss";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 import { trimText } from "@/functions/trimText";
+import Email from "@/assets/Email.svg";
+import Phone from "@/assets/Phone.svg";
+import LinkedIn from "@/assets/LinkedIn.svg";
 
 export const RecruiterListingItem = ({ className, name, title, email, linkedIn, phone, profile_pic, description }) => {
   return (
@@ -21,21 +24,30 @@ export const RecruiterListingItem = ({ className, name, title, email, linkedIn, 
                 <dd>{title}</dd>
               </dl>
               <dl className="mb-0">
-                <dt className="visually-hidden">Email</dt>
+                <dt>
+                  <Email width={18} />
+                  <span className="visually-hidden">Email</span>
+                </dt>
                 <dd className={classes.item__email}>
                   <a href={`mailto:${email}`}>{email}</a>
                 </dd>
               </dl>
               <dl className="mb-0">
-                <dt className="visually-hidden">LinkedIn</dt>
+                <dt>
+                  <span className="visually-hidden">LinkedIn</span>
+                </dt>
                 <dd>
+                  <LinkedIn width={18} />
                   <a href={linkedIn}>LinkedIn Profile</a>
                 </dd>
               </dl>
               <dl className="mb-0">
-                <dt className="visually-hidden">Phone</dt>
+                <dt>
+                  <Phone width={18} />
+                  <span className="visually-hidden">Phone</span>
+                </dt>
                 <dd>
-                  <a href={`tel:${phone}`}>{phone}</a>
+                  <a href={`tel:${phone.replaceAll(" ", "")}`}>{phone}</a>
                 </dd>
               </dl>
             </div>

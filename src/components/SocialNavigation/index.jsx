@@ -18,27 +18,27 @@ export const SocialNavigation = ({ className, linkedIn, twitter, facebook, whats
       <Stack>
         {linkedIn && (
           <a href={linkedIn}>
-            <LinkedIn />
+            <LinkedIn width={25} height={25} />
           </a>
         )}
         {twitter && (
           <a href={twitter}>
-            <Twitter />
+            <Twitter width={25} height={25} />
           </a>
         )}
         {facebook && (
           <a href={facebook}>
-            <Facebook />
+            <Facebook width={25} height={25} />
           </a>
         )}
         {whatsapp && (
           <a href={whatsapp}>
-            <WhatsApp />
+            <WhatsApp width={25} height={25} />
           </a>
         )}
         {email && (
           <a href={email}>
-            <Email width={28} />
+            <Email width={25} height={25} />
           </a>
         )}
       </Stack>

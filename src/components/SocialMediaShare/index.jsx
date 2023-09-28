@@ -13,16 +13,16 @@ export const SocialMediaShare = ({ className }) => {
       <h4 className="h6 fw-semibold mb-3">Share this</h4>
       <Stack className="flex-row" gap={3}>
         <LinkedinShareButton url={window.location.href}>
-          <LinkedIn />
+          <LinkedIn width={25} height={25} />
         </LinkedinShareButton>
         <TwitterShareButton url={window.location.href}>
-          <Twitter />
+          <Twitter width={25} height={25} />
         </TwitterShareButton>
         <FacebookShareButton url={window.location.href}>
-          <Facebook />
+          <Facebook width={25} height={25} />
         </FacebookShareButton>
         <EmailShareButton url={window.location.href}>
-          <Email width={28} />
+          <Email width={25} height={25} />
         </EmailShareButton>
       </Stack>
     </div>
