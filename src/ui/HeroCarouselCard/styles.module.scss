@@ -3,9 +3,13 @@
 .card {
   @include img-overlay__container;
   height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &__img {
     @include img-overlay__img;
+    z-index: 1;
   }
 
   &:hover &__img {
@@ -14,6 +18,7 @@
 
   &__body {
     @include img-overlay__body;
+    z-index: 2;
 
     h1 {
       text-transform: capitalize;
@@ -22,13 +27,14 @@
     p {
       text-transform: capitalize;
     }
+  }
+
+  &__video {
+    position: relative;
+    z-index: 3;
 
     svg {
-      position: absolute;
-      top: 50%;
-      left: 50%;
       fill: $card-text-color;
-      transform: translate(-50%, -50%);
     }
   }
 }

@@ -17,12 +17,12 @@ export const HeroCarouselCard = ({ className, title, description, img, video_emb
             {description && <p>{trimText(description, 180)}</p>}
           </Col>
         </Row>
-        {video_embed_url && (
-          <VideoModal video_embed_url={video_embed_url}>
-            <Play width={30} height={31} />
-          </VideoModal>
-        )}
       </div>
+      {video_embed_url && (
+        <VideoModal className={classes.card__video} video_embed_url={video_embed_url}>
+          <Play width={30} height={31} />
+        </VideoModal>
+      )}
     </div>
   );
 };

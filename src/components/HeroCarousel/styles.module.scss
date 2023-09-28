@@ -6,22 +6,26 @@
   [class*="carousel-control-"] {
     width: $spacer * 3;
 
-    [class*="prev-icon"] {
-      width: 0;
-      height: 0;
-      border-right: 6px solid $card-text-color;
-      border-bottom: 6px solid transparent;
-      border-top: 6px solid transparent;
-      background-image: none;
+    svg {
+      fill: $card-text-color;
     }
 
-    [class*="next-icon"] {
-      width: 0;
-      height: 0;
-      border-left: 6px solid $card-text-color;
-      border-bottom: 6px solid transparent;
-      border-top: 6px solid transparent;
-      background-image: none;
-    }
+    //[class*="prev-icon"] {
+    //  width: 0;
+    //  height: 0;
+    //  border-right: 6px solid $card-text-color;
+    //  border-bottom: 6px solid transparent;
+    //  border-top: 6px solid transparent;
+    //  background-image: none;
+    //}
+    //
+    //[class*="next-icon"] {
+    //  width: 0;
+    //  height: 0;
+    //  border-left: 6px solid $card-text-color;
+    //  border-bottom: 6px solid transparent;
+    //  border-top: 6px solid transparent;
+    //  background-image: none;
+    //}
   }
 }
