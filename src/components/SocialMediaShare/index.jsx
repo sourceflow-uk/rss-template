@@ -22,7 +22,7 @@ export const SocialMediaShare = ({ className }) => {
           <Facebook />
         </FacebookShareButton>
         <EmailShareButton url={window.location.href}>
-          <Email />
+          <Email width={28} />
         </EmailShareButton>
       </Stack>
     </div>

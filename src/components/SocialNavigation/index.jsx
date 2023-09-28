@@ -38,7 +38,7 @@ export const SocialNavigation = ({ className, linkedIn, twitter, facebook, whats
         )}
         {email && (
           <a href={email}>
-            <Email />
+            <Email width={28} />
           </a>
         )}
       </Stack>

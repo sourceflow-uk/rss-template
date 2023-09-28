@@ -1,6 +1,9 @@
 import clsx from "classnames";
 import classes from "./styles.module.scss";
 import PropTypes from "prop-types";
+import Email from "@/assets/Email.svg";
+import Phone from "@/assets/Phone.svg";
+import { trimText } from "@/functions/trimText";
 
 export const OfficeLocationCard = ({ className, address, phone, email, map_embed_url, opening_hours }) => {
   return (
@@ -18,13 +21,23 @@ export const OfficeLocationCard = ({ className, address, phone, email, map_embed
       </div>
       <div className={classes.card__body}>
         <address dangerouslySetInnerHTML={{ __html: address }} />
-        <dl className="mb-0">
-          <dt className="visually-hidden">Phone</dt>
-          <dd dangerouslySetInnerHTML={{ __html: phone }} />
+        <dl className="mb-2">
+          <dt>
+            <Phone width={18} />
+            <span className="visually-hidden">Phone</span>
+          </dt>
+          <dd>
+            <a href={`tel:${phone.replaceAll(" ", "")}`}>{phone}</a>
+          </dd>
         </dl>
         <dl>
-          <dt className="visually-hidden">Email</dt>
-          <dd dangerouslySetInnerHTML={{ __html: email }} />
+          <dt>
+            <Email width={18} />
+            <span className="visually-hidden">Email</span>
+          </dt>
+          <dd>
+            <a href={`mailto:${email}`}>{trimText(email, 26)}</a>
+          </dd>
         </dl>
         <dl>
           <dt>Opening Times</dt>

@@ -18,8 +18,20 @@
     padding-top: $spacer;
 
     dl {
+      display: flex;
+      gap: $spacer * 0.5;
+
       dd {
         margin-bottom: 0;
+
+        a {
+          color: inherit;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
       }
     }
   }

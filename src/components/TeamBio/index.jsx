@@ -43,7 +43,7 @@ export const TeamBio = ({
               {email && (
                 <dl className="mb-2">
                   <dt>
-                    <Email />
+                    <Email width={28} />
                     <span className="visually-hidden">Email</span>
                   </dt>
                   <dd className={classes.bio__email}>
@@ -65,7 +65,7 @@ export const TeamBio = ({
               {phone && (
                 <dl className="mb-2">
                   <dt>
-                    <Phone />
+                    <Phone width={28} />
                     <span className="visually-hidden">Phone</span>
                   </dt>
                   <dd>
