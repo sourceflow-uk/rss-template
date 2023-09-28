@@ -1,5 +1,5 @@
 import clsx from "classnames";
-import { Container } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { CollapsibleSectionItem } from "@/ui/CollapsibleSectionItem";
 import { useState } from "react";
@@ -12,16 +12,18 @@ export const CollapsibleSection = ({ className, title, description, items, defau
       <Container>
         <h2>{title}</h2>
         <div dangerouslySetInnerHTML={{ __html: description }} />
-        <div>
-          {items.map(({ title, body }, k) => (
-            <CollapsibleSectionItem
-              title={title}
-              body={body}
-              active={k === active}
-              onClick={() => setActive(k === active ? null : k)}
-            />
-          ))}
-        </div>
+        <Row>
+          <Col xs={12} md={8}>
+            {items.map(({ title, body }, k) => (
+              <CollapsibleSectionItem
+                title={title}
+                body={body}
+                active={k === active}
+                onClick={() => setActive(k === active ? null : k)}
+              />
+            ))}
+          </Col>
+        </Row>
       </Container>
     </div>
   );

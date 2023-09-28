@@ -5,7 +5,7 @@ import { generateTitle } from "@/faker/generateTitle";
 import { generateDescription } from "@/faker/generateDescription";
 
 export default {
-  title: "Components/CollapsibleSection",
+  title: "Components/New/CollapsibleSection",
   component: CollapsibleSection,
   parameters: {},
   tags: [],

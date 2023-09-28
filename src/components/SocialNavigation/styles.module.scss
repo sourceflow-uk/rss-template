@@ -9,11 +9,10 @@
     justify-content: center;
     align-items: center;
     padding: $spacer;
-    transition: 0.3s;
     @include darken-on-hover;
 
     svg {
-      transition: 0.3s;
+      transition: $transition-base;
     }
 
     &:hover,
