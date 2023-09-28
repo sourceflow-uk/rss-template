@@ -4,4 +4,9 @@
   max-width: 120px;
   display: block;
   margin: auto;
+  transition: $transition-base;
+
+  &:hover {
+    scale: 1.05;
+  }
 }

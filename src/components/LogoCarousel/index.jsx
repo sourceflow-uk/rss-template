@@ -21,7 +21,7 @@ export const LogoCarousel = ({ className, items, visibleCount }) => {
             <Carousel.Item key={k}>
               <Row>
                 {items.map(({ logo, name, href }, k) => (
-                  <Col key={k}>
+                  <Col key={k} className="py-3">
                     <LogoCard logo={logo} name={name} href={href} />
                   </Col>
                 ))}
