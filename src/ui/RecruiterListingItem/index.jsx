@@ -2,6 +2,8 @@ import clsx from "classnames";
 import PropTypes from "prop-types";
 import { Col, Row, Stack } from "react-bootstrap";
 import classes from "./styles.module.scss";
+import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
+import { trimText } from "@/functions/trimText";
 
 export const RecruiterListingItem = ({ className, name, title, email, linkedIn, phone, profile_pic, description }) => {
   return (
@@ -10,7 +12,7 @@ export const RecruiterListingItem = ({ className, name, title, email, linkedIn, 
         <Col xs={12} md={6}>
           <Stack className="flex-row" gap={4}>
             <div>
-              <img src={profile_pic} alt="" />
+              <SourceFlowImage src={profile_pic} size="167x167" alt={name} />
             </div>
             <div>
               <h4 className="h6">{name}</h4>
@@ -20,7 +22,7 @@ export const RecruiterListingItem = ({ className, name, title, email, linkedIn, 
               </dl>
               <dl className="mb-0">
                 <dt className="visually-hidden">Email</dt>
-                <dd>
+                <dd className={classes.item__email}>
                   <a href={`mailto:${email}`}>{email}</a>
                 </dd>
               </dl>
@@ -40,7 +42,7 @@ export const RecruiterListingItem = ({ className, name, title, email, linkedIn, 
           </Stack>
         </Col>
         <Col xs={12} md={6}>
-          <div dangerouslySetInnerHTML={{ __html: description }} />
+          {trimText(description, 480)}
         </Col>
       </Row>
     </div>

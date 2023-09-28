@@ -18,6 +18,17 @@
         &[aria-selected="true"] {
           background-color: $gray-300;
         }
+
+        figure {
+          width: 25px;
+          max-width: 100%;
+          height: 25px;
+          margin: 0;
+
+          img {
+            object-fit: cover;
+          }
+        }
       }
     }
   }

@@ -5,6 +5,8 @@ import classes from "./styles.module.scss";
 import Play from "@/assets/Play.svg";
 import { CTA } from "@/ui/CTA";
 import { VideoModal } from "@/ui/VideoModal";
+import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
+import { trimText } from "@/functions/trimText";
 
 export const NarrativePanel = ({ className, title, description, img, cta, video_embed_url, reverse }) => {
   return (
@@ -13,14 +15,14 @@ export const NarrativePanel = ({ className, title, description, img, cta, video_
         <Row className={clsx("flex-column-reverse", { "flex-md-row-reverse": reverse, "flex-md-row": !reverse })}>
           <Col xs={12} md={6} className="d-flex flex-column justify-content-center">
             <div>
-              <h2 className="mb-3">{title}</h2>
-              <p>{description}</p>
+              <h2 className="mb-3">{trimText(title, 50)}</h2>
+              <p>{trimText(description, 180)}</p>
               {cta && <CTA label={cta.label} href={cta.href} variant={cta.variant} />}
             </div>
           </Col>
           <Col xs={12} md={6} className="d-flex flex-column justify-content-center">
             <figure className="my-4 my-md-0 position-relative">
-              <img className="mw-100" src={img} alt="" />
+              <SourceFlowImage className="mw-100" src={img} size="540x291" alt={title} />
               {video_embed_url && (
                 <VideoModal video_embed_url={video_embed_url}>
                   <Play width={30} height={31} />

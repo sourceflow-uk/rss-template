@@ -4,19 +4,19 @@ import classes from "./styles.module.scss";
 import Play from "@/assets/Play.svg";
 import { VideoModal } from "@/ui/VideoModal";
 import PropTypes from "prop-types";
+import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 
 export const SocialVideo = ({ className, video_embed_url, img }) => {
   return (
     <div className={clsx(className, classes.video)}>
       <Container>
         <div className="ratio ratio-21x9 overflow-hidden">
-          <VideoModal
-            video_embed_url={video_embed_url}
-            className={classes.video__button}
-            style={{ backgroundImage: `url(${img})` }}
-          >
-            <Play width={110} height={110} />
-          </VideoModal>
+          <SourceFlowImage className={classes.video__img} src={img} size="1440x300" alt="Cover image" />
+          <div className={classes.video__button}>
+            <VideoModal video_embed_url={video_embed_url}>
+              <Play width={110} height={110} />
+            </VideoModal>
+          </div>
         </div>
       </Container>
     </div>

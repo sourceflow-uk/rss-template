@@ -28,4 +28,10 @@
       }
     }
   }
+
+  &__email {
+    a {
+      text-transform: none;
+    }
+  }
 }

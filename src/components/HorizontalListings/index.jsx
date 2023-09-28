@@ -2,6 +2,8 @@ import PropTypes from "prop-types";
 import clsx from "classnames";
 import classes from "./styles.module.scss";
 import { Col, Container, Row } from "react-bootstrap";
+import { trimText } from "@/functions/trimText";
+import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 
 export const HorizontalListings = ({ className, title, items }) => {
   return (
@@ -13,11 +15,13 @@ export const HorizontalListings = ({ className, title, items }) => {
             <Col key={k} xs={12} md={4}>
               <div className={classes.listings__item}>
                 <div>
-                  <img src={img} alt="" />
+                  <figure className="ratio ratio-1x1">
+                    <SourceFlowImage src={img} alt={title} size="64x64" />
+                  </figure>
                 </div>
                 <div>
-                  <h4 className="h6">{title}</h4>
-                  <p>{description}</p>
+                  <h4 className="h6">{trimText(title, 50)}</h4>
+                  <p>{trimText(description, 180)}</p>
                 </div>
               </div>
             </Col>

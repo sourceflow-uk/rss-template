@@ -3,6 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import PropTypes from "prop-types";
 import classes from "./styles.module.scss";
 import { Tag } from "@/ui/Tag";
+import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 
 export const Recruiter = ({
   className,
@@ -21,7 +22,7 @@ export const Recruiter = ({
       <Container>
         <Row>
           <Col xs={12}>
-            <img className="mb-4" src={profile_pic} alt="" />
+            <SourceFlowImage className="mb-4" src={profile_pic} size="167x167" alt={name} />
             <h2>{name}</h2>
           </Col>
           <Col xs={12} md={8}>

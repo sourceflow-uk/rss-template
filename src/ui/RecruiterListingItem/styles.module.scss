@@ -19,4 +19,10 @@
     color: $text-color;
     text-decoration: none;
   }
+
+  &__email {
+    a {
+      text-transform: none;
+    }
+  }
 }

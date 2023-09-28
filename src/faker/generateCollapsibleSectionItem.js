@@ -1,7 +1,7 @@
 import { fakerEN_GB as faker } from "@faker-js/faker";
 import { generateTitle } from "@/faker/generateTitle";
 
-export const generateCollapsibleContent = () => ({
+export const generateCollapsibleSectionItem = () => ({
   title: generateTitle(),
   body: `<p>${faker.lorem.paragraph({
     min: 4,

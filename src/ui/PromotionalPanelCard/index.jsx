@@ -1,20 +1,18 @@
 import clsx from "classnames";
-import { Button } from "react-bootstrap";
 import classes from "./styles.module.scss";
 import PropTypes from "prop-types";
 import { CTA } from "@/ui/CTA";
+import { trimText } from "@/functions/trimText";
 
 export const PromotionalPanelCard = ({ className, title, description, cta }) => {
   return (
     <div className={clsx(className, classes.card)}>
       <div className={classes.card__body}>
-        <h4 className="mb-4">{title}</h4>
-        <p>{description}</p>
+        <h4 className="mb-4">{trimText(title, 50)}</h4>
+        <p>{trimText(description, 480)}</p>
         {cta && (
           <div>
-            <Button variant="dark" href={cta.href}>
-              {cta.label}
-            </Button>
+            <CTA label={cta.label} href={cta.href} />
           </div>
         )}
       </div>

@@ -2,6 +2,8 @@ import PropTypes from "prop-types";
 import clsx from "classnames";
 import classes from "./styles.module.scss";
 import { Container, Tab, Tabs } from "react-bootstrap";
+import { trimText } from "@/functions/trimText";
+import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 
 export const KeyTabListing = ({ className, items }) => {
   return (
@@ -12,8 +14,10 @@ export const KeyTabListing = ({ className, items }) => {
             <Tab
               title={
                 <div className="d-flex py-2 gap-2">
-                  <img src={icon} alt="" />
-                  <span>{title}</span>
+                  <figure className="ratio ratio-1x1">
+                    <SourceFlowImage src={icon} size="25x25" alt={title} />
+                  </figure>
+                  <span>{trimText(title, 30)}</span>
                 </div>
               }
               eventKey={k}

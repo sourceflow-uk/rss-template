@@ -1,9 +1,11 @@
 import { fakerEN_GB as faker } from "@faker-js/faker";
+import { generateTitle } from "@/faker/generateTitle";
+import { generateDescription } from "@/faker/generateDescription";
 
 export const generateHeroCarouselItem = ({ description = false, video = false } = {}) => ({
-  title: faker.lorem.words({ min: 1, max: 3 }),
+  title: generateTitle(),
   img: faker.image.urlPicsumPhotos({ width: 1440, height: 300 }),
-  description: description ? faker.lorem.words({ min: 2, max: 10 }) : undefined,
+  description: description ? generateDescription() : undefined,
   video_embed_url: video
     ? "https://www.youtube-nocookie.com/embed/gIL2wQUBjdA?si=Cfpp7oDgxQ-vFZbq&amp;controls=0"
     : undefined,

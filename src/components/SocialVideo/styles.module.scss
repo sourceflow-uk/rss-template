@@ -1,31 +1,22 @@
 @import "src/scss/module";
 
 .video {
-  &__button {
-    background-position: center;
-    background-size: cover;
-    background-color: $light;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+  &__img {
+    object-fit: cover;
     transition: $transition-base;
-    max-height: 500px;
-
-    svg {
-      transition: $transition-base;
-    }
-
-    &:hover {
-      scale: 1.05;
-    }
   }
 
-  &__modal {
-    overflow: hidden;
+  &:hover &__img {
+    scale: 1.05;
+  }
 
-    [class*="modal-content"] {
-      border: 0;
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      fill: $card-text-color;
     }
   }
 }

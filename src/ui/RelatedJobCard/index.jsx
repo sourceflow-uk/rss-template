@@ -4,6 +4,7 @@ import classes from "./styles.module.scss";
 import { formatDistanceToNowStrict } from "date-fns";
 import { Stack } from "react-bootstrap";
 import { Tag } from "@/ui/Tag";
+import { trimText } from "@/functions/trimText";
 
 export const RelatedJobCard = ({
   className,
@@ -18,10 +19,10 @@ export const RelatedJobCard = ({
   return (
     <a href={href} className={clsx(className, classes.card)}>
       <div className={classes.card__body}>
-        <h3 className="h6 mb-0">{title}</h3>
+        <h3 className="h6 mb-0">{trimText(title, 50)}</h3>
         <dl className="mb-2">
           <dt className="visually-hidden">Location</dt>
-          <dd>{location}</dd>
+          <dd>{trimText(location, 22)}</dd>
         </dl>
         <div className="flex-grow-1 mb-2">
           <Stack className="flex-row flex-wrap" gap={2}>

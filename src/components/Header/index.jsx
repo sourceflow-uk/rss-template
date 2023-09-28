@@ -5,25 +5,27 @@ import { Col, Row } from "react-bootstrap";
 import Play from "@/assets/Play.svg";
 import { CTA } from "@/ui/CTA";
 import { VideoModal } from "@/ui/VideoModal";
+import { trimText } from "@/functions/trimText";
+import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 
 export const Header = ({ className, title, img, description, cta, video_embed_url }) => {
   return (
     <div className={clsx(className, classes.header)}>
-      <img className={classes.header__img} src={img} alt="" />
+      <SourceFlowImage className={classes.header__img} src={img} size="1440x300" alt={title} />
       <div className={clsx(classes.header__body, "p-5")}>
         <Row className="h-100">
           <Col xs={5} className="d-flex flex-column justify-content-center h-100">
             <h1>{title}</h1>
-            {description && <p>{description}</p>}
+            {description && <p>{trimText(description, 180)}</p>}
             {cta && <CTA label={cta.label} href={cta.href} variant={cta.variant} />}
           </Col>
         </Row>
-        {video_embed_url && (
-          <VideoModal video_embed_url={video_embed_url}>
-            <Play width={30} height={31} />
-          </VideoModal>
-        )}
       </div>
+      {video_embed_url && (
+        <VideoModal className={classes.header__video} video_embed_url={video_embed_url}>
+          <Play width={30} height={31} />
+        </VideoModal>
+      )}
     </div>
   );
 };

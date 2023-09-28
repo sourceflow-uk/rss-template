@@ -1,8 +1,10 @@
 import { fakerEN_GB as faker } from "@faker-js/faker";
+import { generateTitle } from "@/faker/generateTitle";
+import { generateDescription } from "@/faker/generateDescription";
 
 export const generatePromoItem = () => ({
-  title: faker.lorem.words({ min: 3, max: 6 }),
+  title: generateTitle(),
   img: faker.image.urlPicsumPhotos({ width: 380, height: 220 }),
-  description: faker.lorem.paragraph(),
+  description: generateDescription(),
   href: "#",
 });

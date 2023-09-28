@@ -1,5 +1,5 @@
-import { fakerEN_GB as faker } from "@faker-js/faker";
+import { generateTitle } from "@/faker/generateTitle";
 
 export const generateSectionHeading = () => ({
-  title: faker.lorem.words({ min: 2, max: 3 }),
+  title: generateTitle(),
 });

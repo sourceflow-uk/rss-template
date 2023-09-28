@@ -5,6 +5,7 @@ import { Tag } from "@/ui/Tag";
 import { Button } from "react-bootstrap";
 import classes from "./styles.module.scss";
 import ChevronRight from "@/assets/ChevronRight.svg";
+import { trimText } from "@/functions/trimText";
 
 export const JobCard = ({
   className,
@@ -22,7 +23,7 @@ export const JobCard = ({
       <div className={classes.card__body}>
         <time>{format(published_at, "dd/MM/yyyy")}</time>
         {logo && <img src={logo} alt="" />}
-        <h3 className="h4 my-3 flex-grow-1">{title}</h3>
+        <h3 className="h4 my-3 flex-grow-1">{trimText(title, 35)}</h3>
         <div className="d-flex gap-2 pb-3">
           {sectors.map(({ label, href }) => (
             <Tag label={label} href={href} />

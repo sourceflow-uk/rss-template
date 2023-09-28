@@ -3,16 +3,18 @@ import { VideoModal } from "@/ui/VideoModal";
 import Play from "@/assets/Play.svg";
 import clsx from "classnames";
 import classes from "./styles.module.scss";
+import { trimText } from "@/functions/trimText";
+import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 
 export const HeroCarouselCard = ({ className, title, description, img, video_embed_url }) => {
   return (
     <div className={clsx(className, classes.card)}>
-      <img className={classes.card__img} src={img} alt="" />
+      <SourceFlowImage className={classes.card__img} src={img} size="1440x300" alt={title} />
       <div className={clsx(classes.card__body, "p-5")}>
         <Row className="h-100">
           <Col xs={5} className="d-flex flex-column justify-content-center h-100">
-            <h1>{title}</h1>
-            {description && <p>{description}</p>}
+            <h1>{trimText(title, 50)}</h1>
+            {description && <p>{trimText(description, 180)}</p>}
           </Col>
         </Row>
         {video_embed_url && (

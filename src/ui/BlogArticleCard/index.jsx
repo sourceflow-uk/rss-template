@@ -3,12 +3,14 @@ import classes from "./styles.module.scss";
 import PropTypes from "prop-types";
 import clsx from "classnames";
 import { format } from "date-fns";
+import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
+import { trimText } from "@/functions/trimText";
 
 export const BlogArticleCard = ({ className, title, description, img, published_at, tags }) => {
   return (
     <article className={clsx(className, classes.card)}>
-      <figure>
-        <img src={img} alt="" />
+      <figure className="ratio ratio-1x1">
+        <SourceFlowImage src={img} size="373x220" alt={title} />
       </figure>
       <div className={classes.card__body}>
         <div className="d-flex gap-2 pb-3">
@@ -16,9 +18,9 @@ export const BlogArticleCard = ({ className, title, description, img, published_
             <Tag label={label} href={href} />
           ))}
         </div>
-        <h4>{title}</h4>
+        <h4>{trimText(title, 50)}</h4>
         <time>{format(published_at, "dd/MM/yyyy")}</time>
-        <p>{description}</p>
+        <p>{trimText(description, 180)}</p>
       </div>
     </article>
   );
