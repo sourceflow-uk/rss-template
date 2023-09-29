@@ -15,7 +15,7 @@ export const FeatureTabsList = ({ className, items, defaultActiveKey, vertical }
               <Nav.Item className={clsx({ "flex-grow-1": !vertical })}>
                 <Nav.Link eventKey={k} className="p-3 gap-2">
                   <SourceFlowImage src={icon} size="75x75" alt={title} />
-                  <span>{trimText(title, 18)}</span>
+                  <span>{trimText(title, 24)}</span>
                 </Nav.Link>
               </Nav.Item>
             ))}
