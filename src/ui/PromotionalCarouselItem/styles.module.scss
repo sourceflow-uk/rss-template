@@ -7,10 +7,6 @@
     justify-content: center;
   }
 
-  h3 {
-    text-transform: capitalize;
-  }
-
   figure {
     @include img-overlay__container;
     padding-top: calc(9 / 16 * 100%);

@@ -1,10 +1,6 @@
 @import "src/scss/module";
 
 .sidebar {
-  h3 {
-    text-transform: capitalize;
-  }
-
   &__nav {
     flex-direction: column;
     border: 1px solid $dark;

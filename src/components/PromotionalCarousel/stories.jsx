@@ -3,7 +3,7 @@ import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generatePromotionalCarouselItem } from "@/faker/generatePromotionalCarouselItem";
 
 export default {
-  title: "Components/New/PromotionalCarousel",
+  title: "New/Components/PromotionalCarousel",
   component: PromotionalCarousel,
   parameters: {},
   tags: [],

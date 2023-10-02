@@ -1,10 +1,10 @@
-import { LatestBlogs } from "./index";
+import { Article } from "./index";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateArticle } from "@/faker/generateArticle";
 
 export default {
-  title: "Components/LatestBlogs",
-  component: LatestBlogs,
+  title: "New/Components/Article",
+  component: Article,
   parameters: {},
   tags: [],
   argTypes: {},
@@ -12,6 +12,7 @@ export default {
 
 export const Default = {
   args: {
-    items: generateArrayOf(generateArticle, { count: 3 }),
+    ...generateArticle(),
+    related: generateArrayOf(generateArticle, { count: 3 }),
   },
 };

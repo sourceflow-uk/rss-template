@@ -3,7 +3,7 @@ import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateFeaturedTabListItem } from "@/faker/generateFeaturedTabListItem";
 
 export default {
-  title: "Components/New/FeatureTabsList",
+  title: "New/Components/FeatureTabsList",
   component: FeatureTabsList,
   parameters: {},
   tags: [],

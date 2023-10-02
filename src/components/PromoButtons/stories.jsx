@@ -3,7 +3,7 @@ import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generatePromoButton } from "@/faker/generatePromoButton";
 
 export default {
-  title: "Components/New/PromoButtons",
+  title: "New/Components/PromoButtons",
   component: PromoButtons,
   parameters: {},
   tags: [],

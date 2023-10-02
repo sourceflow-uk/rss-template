@@ -1,0 +1,18 @@
+@import "src/scss/module";
+
+.article {
+  time {
+    font-size: $font-size-sm;
+    color: rgba($text-color, 0.66);
+  }
+
+  &__img {
+    width: 100%;
+    max-width: 785px;
+    height: 459px;
+    object-fit: cover;
+  }
+
+  &__body {
+  }
+}

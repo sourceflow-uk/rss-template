@@ -4,7 +4,7 @@ import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateOfficeLocatorLocations } from "@/faker/generateOfficeLocatorLocations";
 
 export default {
-  title: "Components/New/OfficeLocator",
+  title: "New/Components/OfficeLocator",
   component: (props) => (
     <Container>
       <Row>

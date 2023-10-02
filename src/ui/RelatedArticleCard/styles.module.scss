@@ -3,19 +3,25 @@
 .card {
   display: block;
   color: $text-color;
-  border: 1px solid $dark;
+  border-bottom: 1px solid $dark;
   text-decoration: none;
   padding-top: $spacer;
-  @include card-hover-rise;
+  max-width: 384px;
+
+  &__img {
+    width: 100%;
+    max-width: 384px;
+    height: 179px;
+    object-fit: cover;
+  }
 
   &__body {
-    height: 100%;
-    padding: $spacer;
     display: flex;
     flex-direction: column;
 
     time {
       font-size: $font-size-sm;
+      color: rgba($text-color, 0.66);
     }
   }
 }

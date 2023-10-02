@@ -18,9 +18,5 @@
     @include img-overlay__body;
     background: linear-gradient(180deg, rgba($card-img-overlay-color, 0.5) 0%, rgba($card-img-overlay-color, 0) 100%);
     padding: $spacer;
-
-    h4 {
-      text-transform: capitalize;
-    }
   }
 }

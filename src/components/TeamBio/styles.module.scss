@@ -1,10 +1,6 @@
 @import "src/scss/module";
 
 .bio {
-  h3 {
-    text-transform: capitalize;
-  }
-
   dl {
     display: flex;
     gap: $spacer * 0.5;

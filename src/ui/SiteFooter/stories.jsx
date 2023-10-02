@@ -2,7 +2,7 @@ import { SiteFooter } from "./index";
 import { generateSiteFooter } from "@/faker/generateSiteFooter";
 
 export default {
-  title: "UI/New/SiteFooter",
+  title: "New/UI/SiteFooter",
   component: SiteFooter,
   parameters: {},
   tags: [],
