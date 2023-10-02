@@ -1,6 +1,6 @@
 import { JobCard } from "./index";
 import { Col, Container, Row } from "react-bootstrap";
-import { generateJobCard } from "@/faker/generateJobCard";
+import { generateJob } from "@/faker/generateJob";
 
 export default {
   title: "UI/JobCard",
@@ -19,5 +19,5 @@ export default {
 };
 
 export const Default = {
-  args: generateJobCard(),
+  args: generateJob(),
 };

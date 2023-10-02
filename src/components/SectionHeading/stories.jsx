@@ -1,5 +1,5 @@
 import { SectionHeading } from "./index";
-import { generateSectionHeading } from "@/faker/generateSectionHeading";
+import { generateTitle } from "@/faker/generateTitle";
 
 export default {
   title: "Components/SectionHeading",
@@ -10,5 +10,7 @@ export default {
 };
 
 export const Default = {
-  args: generateSectionHeading(),
+  args: {
+    title: generateTitle(),
+  },
 };

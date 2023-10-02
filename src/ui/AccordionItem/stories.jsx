@@ -1,6 +1,7 @@
 import { AccordionItem } from "./index";
 import { Container } from "react-bootstrap";
-import { generateAccordionItem } from "@/faker/generateAccordionItem";
+import { generateTitle } from "@/faker/generateTitle";
+import { generateBody } from "@/faker/generateBody";
 
 export default {
   title: "UI/AccordionItem",
@@ -15,5 +16,9 @@ export default {
 };
 
 export const Default = {
-  args: generateAccordionItem(),
+  args: {
+    title: generateTitle(),
+    body: generateBody(),
+    active: false,
+  },
 };

@@ -1,5 +1,6 @@
 import { CollapsibleSectionItem } from "./index";
-import { generateCollapsibleSectionItem } from "@/faker/generateCollapsibleSectionItem";
+import { generateTitle } from "@/faker/generateTitle";
+import { generateBody } from "@/faker/generateBody";
 
 export default {
   title: "UI/CollapsibleSectionItem",
@@ -10,5 +11,8 @@ export default {
 };
 
 export const Default = {
-  args: generateCollapsibleSectionItem(),
+  args: {
+    title: generateTitle(),
+    body: generateBody(),
+  },
 };

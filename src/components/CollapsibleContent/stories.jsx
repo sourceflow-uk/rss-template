@@ -1,6 +1,7 @@
 import { CollapsibleContent } from "./index";
 import { Col, Container, Row } from "react-bootstrap";
-import { generateCollapsibleContent } from "@/faker/generateCollapsibleContent";
+import { generateTitle } from "@/faker/generateTitle";
+import { generateBody } from "@/faker/generateBody";
 
 export default {
   title: "New/Components/CollapsibleContent",
@@ -19,5 +20,8 @@ export default {
 };
 
 export const Default = {
-  args: generateCollapsibleContent(),
+  args: {
+    title: generateTitle(),
+    body: generateBody(),
+  },
 };

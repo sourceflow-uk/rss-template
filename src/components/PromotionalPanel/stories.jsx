@@ -1,6 +1,8 @@
 import { PromotionalPanel } from "./index";
 import { generateArrayOf } from "@/faker/generateArrayOf";
-import { generatePromotionalPanelCard } from "@/faker/generatePromotionalPanelCard";
+import { generateTitle } from "@/faker/generateTitle";
+import { generateDescription } from "@/faker/generateDescription";
+import { generateCTA } from "@/faker/generateCTA";
 
 export default {
   title: "Components/PromotionalPanel",
@@ -12,6 +14,13 @@ export default {
 
 export const Default = {
   args: {
-    items: generateArrayOf(generatePromotionalPanelCard, { count: 2 }),
+    items: generateArrayOf(
+      () => ({
+        title: generateTitle(),
+        description: generateDescription(),
+        cta: generateCTA(),
+      }),
+      { count: 2 }
+    ),
   },
 };

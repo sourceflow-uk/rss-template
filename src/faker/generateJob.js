@@ -3,7 +3,7 @@ import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateTag } from "@/faker/generateTag";
 import { generateTitle } from "@/faker/generateTitle";
 
-export const generateRelatedJob = () => ({
+export const generateJob = () => ({
   title: generateTitle(),
   sectors: generateArrayOf(generateTag, { count: { min: 1, max: 3 } }),
   location: faker.location.city(),

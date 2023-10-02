@@ -1,5 +1,5 @@
 import { RichText } from "./index";
-import { generateRichText } from "@/faker/generateRichText";
+import { generateBody } from "@/faker/generateBody";
 
 export default {
   title: "Components/RichText",
@@ -10,5 +10,7 @@ export default {
 };
 
 export const Default = {
-  args: generateRichText(),
+  args: {
+    body: generateBody(),
+  },
 };

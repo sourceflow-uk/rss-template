@@ -1,6 +1,7 @@
 import { Accordion } from "./index";
 import { generateArrayOf } from "@/faker/generateArrayOf";
-import { generateAccordionItem } from "@/faker/generateAccordionItem";
+import { generateTitle } from "@/faker/generateTitle";
+import { generateBody } from "@/faker/generateBody";
 
 export default {
   title: "Components/Accordion",
@@ -13,7 +14,14 @@ export default {
 export const Default = {
   args: {
     className: "",
-    items: generateArrayOf(generateAccordionItem, { count: 4 }),
+    items: generateArrayOf(
+      () => ({
+        title: generateTitle(),
+        body: generateBody(),
+        active: false,
+      }),
+      { count: 4 }
+    ),
     defaultActiveKey: 0,
   },
 };

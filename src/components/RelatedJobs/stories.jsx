@@ -1,6 +1,6 @@
 import { RelatedJobs } from "./index";
 import { generateArrayOf } from "@/faker/generateArrayOf";
-import { generateRelatedJob } from "@/faker/generateRelatedJob";
+import { generateJob } from "@/faker/generateJob";
 
 export default {
   title: "Components/RelatedJobs",
@@ -12,13 +12,13 @@ export default {
 
 export const Default = {
   args: {
-    items: generateArrayOf(generateRelatedJob, { count: 4 }),
+    items: generateArrayOf(generateJob, { count: 4 }),
   },
 };
 
 export const Column = {
   args: {
-    items: generateArrayOf(generateRelatedJob, { count: 4 }),
+    items: generateArrayOf(generateJob, { count: 4 }),
     direction: "column",
   },
 };

@@ -1,6 +1,8 @@
 import { PromotionalPanelCard } from "./index";
 import { Col, Container, Row } from "react-bootstrap";
-import { generatePromotionalPanelCard } from "@/faker/generatePromotionalPanelCard";
+import { generateTitle } from "@/faker/generateTitle";
+import { generateDescription } from "@/faker/generateDescription";
+import { generateCTA } from "@/faker/generateCTA";
 
 export default {
   title: "UI/PromotionalPanelCard",
@@ -19,5 +21,9 @@ export default {
 };
 
 export const Default = {
-  args: generatePromotionalPanelCard(),
+  args: {
+    title: generateTitle(),
+    description: generateDescription(),
+    cta: generateCTA(),
+  },
 };

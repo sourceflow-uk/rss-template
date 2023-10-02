@@ -1,6 +1,6 @@
 import { LatestJobs } from "./index";
 import { generateArrayOf } from "@/faker/generateArrayOf";
-import { generateJobCard } from "@/faker/generateJobCard";
+import { generateJob } from "@/faker/generateJob";
 
 export default {
   title: "Components/LatestJobs",
@@ -12,13 +12,13 @@ export default {
 
 export const Default = {
   args: {
-    items: generateArrayOf(generateJobCard, { count: 10 }),
+    items: generateArrayOf(generateJob, { count: 10 }),
   },
 };
 
 export const FourJobs = {
   args: {
-    items: generateArrayOf(generateJobCard, { count: 10 }),
+    items: generateArrayOf(generateJob, { count: 10 }),
     visibleCount: 4,
   },
 };

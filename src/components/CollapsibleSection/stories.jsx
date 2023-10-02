@@ -1,8 +1,8 @@
 import { CollapsibleSection } from "./index";
 import { generateArrayOf } from "@/faker/generateArrayOf";
-import { generateCollapsibleSectionItem } from "@/faker/generateCollapsibleSectionItem";
 import { generateTitle } from "@/faker/generateTitle";
 import { generateDescription } from "@/faker/generateDescription";
+import { generateBody } from "@/faker/generateBody";
 
 export default {
   title: "New/Components/CollapsibleSection",
@@ -16,6 +16,12 @@ export const Default = {
   args: {
     title: generateTitle(),
     description: generateDescription(),
-    items: generateArrayOf(generateCollapsibleSectionItem, { count: 3 }),
+    items: generateArrayOf(
+      () => ({
+        title: generateTitle(),
+        body: generateBody(),
+      }),
+      { count: 3 }
+    ),
   },
 };
