@@ -1,7 +1,7 @@
 import { Col, Container, Row, Stack } from "react-bootstrap";
 import clsx from "classnames";
-import { SocialMediaShare } from "@/components/SocialMediaShare";
-import { RelatedArticles } from "@/components/RelatedArticles";
+import { SocialMediaShare } from "@/ui/SocialMediaShare";
+import { RelatedArticles } from "@/ui/RelatedArticles";
 import { Time } from "@/ui/Time";
 import { Tag } from "@/ui/Tag";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
@@ -28,6 +28,7 @@ export const Article = ({ className, title, description, body, img, tags, publis
               </p>
               <div dangerouslySetInnerHTML={{ __html: body }} />
             </div>
+            <SocialMediaShare className="mt-5" />
           </Col>
           <Col xs={12} md={4}>
             <RelatedArticles items={related} />

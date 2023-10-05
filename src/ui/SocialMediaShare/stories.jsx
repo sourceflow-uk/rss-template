@@ -1,7 +1,7 @@
 import { SocialMediaShare } from "./index";
 
 export default {
-  title: "Components/SocialMediaShare",
+  title: "UI/SocialMediaShare",
   component: SocialMediaShare,
   parameters: {},
   tags: [],

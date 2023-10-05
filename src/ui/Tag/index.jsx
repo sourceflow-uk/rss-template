@@ -3,10 +3,12 @@ import classes from "./styles.module.scss";
 import clsx from "classnames";
 
 export const Tag = ({ className, label, href }) => {
-  return (
+  return href ? (
     <a className={clsx(className, classes.tag)} href={href}>
       {label}
     </a>
+  ) : (
+    <span className={clsx(className, classes.tag)}>{label}</span>
   );
 };
 

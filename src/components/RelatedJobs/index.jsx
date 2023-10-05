@@ -30,7 +30,7 @@ export const RelatedJobs = ({ className, title, items, direction }) => {
 };
 
 RelatedJobs.defaultProps = {
-  className: "",
+  className: "py-5",
   title: "Related Jobs",
   items: [],
   direction: "row",

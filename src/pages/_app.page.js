@@ -8,7 +8,7 @@ import { getHeaderMenu } from "@/getters/getHeaderMenu";
 import { getFooterMenu } from "@/getters/getFooterMenu";
 import { Alert } from "react-bootstrap";
 import { initializeMarker } from "@/functions/initializeMarker";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 
 export default function App({ Component, pageProps }) {
   const global = getGlobal();
@@ -43,17 +43,19 @@ export default function App({ Component, pageProps }) {
   }, []);
 
   return (
-    <ParallaxProvider>
-      {/*<SiteHead meta={pageProps?.meta} />*/}
-      <Alert className="py-2 bg-quaternary border-0 text-white mb-0" style={{ borderRadius: 0, textAlign: "center" }}>
-        Storybook has moved. Please{" "}
-        <a href="https://sourceflow-uk.github.io/rss-template/storybook/index.html">click here</a>.
-      </Alert>
-      <SiteHeader {...headerProps} />
-      <main className="flex-grow-1">
-        <Component {...pageProps} />
-      </main>
-      <SiteFooter {...footerProps} />
-    </ParallaxProvider>
+    <Suspense>
+      <ParallaxProvider>
+        {/*<SiteHead meta={pageProps?.meta} />*/}
+        <Alert className="py-2 bg-quaternary border-0 text-white mb-0" style={{ borderRadius: 0, textAlign: "center" }}>
+          Storybook has moved. Please{" "}
+          <a href="https://sourceflow-uk.github.io/rss-template/storybook/index.html">click here</a>.
+        </Alert>
+        <SiteHeader {...headerProps} />
+        <main className="flex-grow-1">
+          <Component {...pageProps} />
+        </main>
+        <SiteFooter {...footerProps} />
+      </ParallaxProvider>
+    </Suspense>
   );
 }

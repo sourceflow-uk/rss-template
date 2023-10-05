@@ -14,7 +14,7 @@ export const SectionHeading = ({ className, title }) => {
 };
 
 SectionHeading.defaultProps = {
-  className: "",
+  className: "py-5",
   title: "",
 };
 

@@ -3,7 +3,7 @@ import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateArticle } from "@/faker/generateArticle";
 
 export default {
-  title: "New/Components/RelatedArticles",
+  title: "New/UI/RelatedArticles",
   component: RelatedArticles,
   parameters: {},
   tags: [],

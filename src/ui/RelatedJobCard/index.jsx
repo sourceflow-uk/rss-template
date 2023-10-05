@@ -28,12 +28,12 @@ export const RelatedJobCard = ({
           <Stack className="flex-row flex-wrap" gap={2}>
             <Tag label={`${salary_package} a year`} />
             <Tag label={role_type} />
-            {sectors.map(({ label, href }, k) => (
-              <Tag key={k} label={label} href={href} />
+            {sectors.map(({ label }, k) => (
+              <Tag key={k} label={label} />
             ))}
           </Stack>
         </div>
-        <time>{`Posted ${formatDistanceToNowStrict(published_at)} ago`}</time>
+        <time>{`Posted ${formatDistanceToNowStrict(new Date(published_at))} ago`}</time>
       </div>
     </a>
   );

@@ -5,7 +5,7 @@ import { generateSidebarNavigationItem } from "@/faker/generateSidebarNavigation
 import { Col, Container, Row } from "react-bootstrap";
 
 export default {
-  title: "Components/SidebarNavigation",
+  title: "UI/SidebarNavigation",
   component: (props) => (
     <Container>
       <Row>

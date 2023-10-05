@@ -5,6 +5,7 @@ import LinkedIn from "@/assets/LinkedIn.svg";
 import Phone from "@/assets/Phone.svg";
 import classes from "./styles.module.scss";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
+import PropTypes from "prop-types";
 
 export const TeamBio = ({
   className,
@@ -82,6 +83,28 @@ export const TeamBio = ({
   );
 };
 
-TeamBio.defaultProps = {};
+TeamBio.defaultProps = {
+  className: "py-5",
+  name: "",
+  role: "",
+  email: "",
+  linkedIn: "",
+  phone: "",
+  qualification: "",
+  photo: "",
+  description: "",
+  reverse: false,
+};
 
-TeamBio.propTypes = {};
+TeamBio.propTypes = {
+  className: PropTypes.string,
+  name: PropTypes.string,
+  role: PropTypes.string,
+  email: PropTypes.string,
+  linkedIn: PropTypes.string,
+  phone: PropTypes.string,
+  qualification: PropTypes.string,
+  photo: PropTypes.string,
+  description: PropTypes.string,
+  reverse: PropTypes.bool,
+};

@@ -10,9 +10,7 @@ export default {
 };
 
 export const Default = {
-  args: {
-    ...generateTeamBio(),
-  },
+  args: generateTeamBio(),
 };
 
 export const Reverse = {

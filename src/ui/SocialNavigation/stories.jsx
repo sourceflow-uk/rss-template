@@ -1,7 +1,7 @@
 import { SocialNavigation } from "./index";
 
 export default {
-  title: "Components/SocialNavigation",
+  title: "UI/SocialNavigation",
   component: SocialNavigation,
   parameters: {},
   tags: [],

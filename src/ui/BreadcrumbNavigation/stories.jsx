@@ -2,7 +2,7 @@ import { BreadcrumbNavigation } from "./index";
 import { Container } from "react-bootstrap";
 
 export default {
-  title: "New/Components/BreadcrumbNavigation",
+  title: "New/UI/BreadcrumbNavigation",
   component: (props) => (
     <Container>
       <BreadcrumbNavigation {...props} />

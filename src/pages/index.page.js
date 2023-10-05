@@ -26,6 +26,7 @@ import { generatePromotionalCarouselItem } from "@/faker/generatePromotionalCaro
 import { generateCTA } from "@/faker/generateCTA";
 import { generateRecruiter } from "@/faker/generateRecruiter";
 import { generateRecruiterListingItem } from "@/faker/generateRecruiterListingItem";
+import { generateTeamBio } from "@/faker/generateTeamBio";
 
 export default function Page({ content }) {
   return (
@@ -226,12 +227,31 @@ export async function getStaticProps({}) {
           },
         },
         {
+          component: "RelatedJobs",
+          props: {
+            items: generateArrayOf(generateJob, { count: 4 }),
+          },
+        },
+        {
           component: "RichText",
           props: {
             body: generateBody(),
           },
         },
+        {
+          component: "SectionHeading",
+          props: {
+            title: generateTitle(),
+          },
+        },
+        {
+          component: "SectionHeading",
+          props: {
+            title: generateTitle(),
+          },
+        },
         { component: "SocialVideo", props: generateSocialVideo() },
+        { component: "TeamBio", props: generateTeamBio() },
       ],
     },
   };
