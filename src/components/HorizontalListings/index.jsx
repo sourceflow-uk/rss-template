@@ -33,7 +33,7 @@ export const HorizontalListings = ({ className, title, items }) => {
 };
 
 HorizontalListings.defaultProps = {
-  className: "",
+  className: "py-5",
   title: "",
   items: [],
 };

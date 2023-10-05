@@ -6,9 +6,9 @@ import { generateDescription } from "@/faker/generateDescription";
 export const generateHeader = ({ description = false, video = false, cta = false } = {}) => ({
   title: generateTitle(),
   img: faker.image.urlPicsumPhotos({ width: 1440, height: 300 }),
-  description: description ? generateDescription() : undefined,
+  description: description ? generateDescription() : null,
   video_embed_url: video
     ? "https://www.youtube-nocookie.com/embed/gIL2wQUBjdA?si=Cfpp7oDgxQ-vFZbq&amp;controls=0"
-    : undefined,
-  cta: cta ? generateCTA() : undefined,
+    : null,
+  cta: cta ? generateCTA() : null,
 });

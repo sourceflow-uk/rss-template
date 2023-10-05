@@ -10,7 +10,7 @@ export const generateArticle = () => ({
   description: generateDescription(),
   img: faker.image.urlPicsumPhotos({ width: 373, height: 220 }),
   tags: generateArrayOf(generateTag, { count: 1 }),
-  body: generateBody(),
+  body: generateBody({ title: true }),
   published_at: faker.date.past().toISOString(),
   href: "#",
 });
