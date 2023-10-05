@@ -178,24 +178,32 @@ hr {
 
 .hover-bg {
   &-primary {
+    transition: $transition-base;
+
     &:hover,
     &:focus {
       background-color: var(#{--bs-primary}) !important;
     }
   }
   &-secondary {
+    transition: $transition-base;
+
     &:hover,
     &:focus {
       background-color: var(#{--bs-secondary}) !important;
     }
   }
   &-secondary {
+    transition: $transition-base;
+
     &:hover,
     &:focus {
       background-color: var(#{--bs-tertiary}) !important;
     }
   }
   &-quaternary {
+    transition: $transition-base;
+
     &:hover,
     &:focus {
       background-color: var(#{--bs-quaternary}) !important;

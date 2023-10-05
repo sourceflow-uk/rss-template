@@ -20,6 +20,7 @@ import { generateHeroCarouselItem } from "@/faker/generateHeroCarouselItem";
 import { fakerEN_GB as faker } from "@faker-js/faker/locale/index";
 import { generateHorizontalListing } from "@/faker/generateHorizontalListing";
 import { generateMultiTileCard } from "@/faker/generateMultiTileCard";
+import { generateOfficeLocationCard } from "@/faker/generateOfficeLocationCard";
 
 export default function Page({ content }) {
   return (
@@ -171,6 +172,12 @@ export async function getStaticProps({}) {
         {
           component: "NarrativePanel",
           props: generateNarrativePanel(),
+        },
+        {
+          component: "OfficeLocations",
+          props: {
+            items: generateArrayOf(generateOfficeLocationCard, { count: 4 }),
+          },
         },
         {
           component: "RichText",

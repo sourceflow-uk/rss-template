@@ -6,7 +6,7 @@ import { OfficeLocationCard } from "@/ui/OfficeLocationCard";
 export const OfficeLocations = ({ className, items }) => {
   return (
     <div className={clsx(className)}>
-      <Container>
+      <Container className="mw-xl">
         <Row>
           {items.map(({ address, phone, email, map_embed_url, opening_hours }, k) => (
             <Col key={k} xs={12} md={3}>
@@ -26,7 +26,7 @@ export const OfficeLocations = ({ className, items }) => {
 };
 
 OfficeLocations.defaultProps = {
-  className: "",
+  className: "py-5",
   items: [],
 };
 
