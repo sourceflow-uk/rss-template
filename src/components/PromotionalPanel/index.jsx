@@ -21,7 +21,7 @@ export const PromotionalPanel = ({ className, items }) => {
 };
 
 PromotionalPanel.defaultProps = {
-  className: "",
+  className: "py-5",
   items: [],
 };
 

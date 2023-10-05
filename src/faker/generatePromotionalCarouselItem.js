@@ -10,5 +10,5 @@ export const generatePromotionalCarouselItem = ({ video = false } = {}) => ({
   cta: generateCTA(),
   video_embed_url: video
     ? "https://www.youtube-nocookie.com/embed/gIL2wQUBjdA?si=Cfpp7oDgxQ-vFZbq&amp;controls=0"
-    : undefined,
+    : null,
 });

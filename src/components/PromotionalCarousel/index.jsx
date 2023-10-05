@@ -35,7 +35,7 @@ export const PromotionalCarousel = ({ className, items }) => {
 };
 
 PromotionalCarousel.defaultProps = {
-  title: "",
+  className: "py-5",
   items: [],
 };
 

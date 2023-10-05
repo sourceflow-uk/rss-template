@@ -19,7 +19,7 @@ export const Recruiter = ({
 }) => {
   return (
     <div className={clsx(className, classes.recruiter)}>
-      <Container>
+      <Container className="mw-xl">
         <Row>
           <Col xs={12}>
             <SourceFlowImage className="mb-4" src={profile_pic} size="167x167" alt={name} />
@@ -75,7 +75,7 @@ export const Recruiter = ({
 };
 
 Recruiter.defaultProps = {
-  className: "",
+  className: "py-5",
   name: "",
   title: "",
   email: "",

@@ -21,6 +21,11 @@ import { fakerEN_GB as faker } from "@faker-js/faker/locale/index";
 import { generateHorizontalListing } from "@/faker/generateHorizontalListing";
 import { generateMultiTileCard } from "@/faker/generateMultiTileCard";
 import { generateOfficeLocationCard } from "@/faker/generateOfficeLocationCard";
+import { generateOfficeLocatorLocations } from "@/faker/generateOfficeLocatorLocations";
+import { generatePromoButton } from "@/faker/generatePromoButton";
+import { generatePromotionalCarouselItem } from "@/faker/generatePromotionalCarouselItem";
+import { generateCTA } from "@/faker/generateCTA";
+import { generateRecruiter } from "@/faker/generateRecruiter";
 
 export default function Page({ content }) {
   return (
@@ -180,15 +185,44 @@ export async function getStaticProps({}) {
           },
         },
         {
-          component: "RichText",
+          component: "PromoButtons",
           props: {
-            body: generateBody(),
+            items: generateArrayOf(generatePromoButton, { count: 3 }),
           },
         },
         {
           component: "PromoSection",
           props: {
             items: generateArrayOf(generatePromoItem, { count: 4 }),
+          },
+        },
+        {
+          component: "PromotionalCarousel",
+          props: {
+            items: generateArrayOf(generatePromotionalCarouselItem, { count: 3 }),
+          },
+        },
+        {
+          component: "PromotionalPanel",
+          props: {
+            items: generateArrayOf(
+              () => ({
+                title: generateTitle(),
+                description: generateDescription(),
+                cta: generateCTA(),
+              }),
+              { count: 2 }
+            ),
+          },
+        },
+        {
+          component: "Recruiter",
+          props: generateRecruiter(),
+        },
+        {
+          component: "RichText",
+          props: {
+            body: generateBody(),
           },
         },
         { component: "SocialVideo", props: generateSocialVideo() },
