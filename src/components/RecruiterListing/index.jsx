@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 export const RecruiterListing = ({ className, items }) => {
   return (
     <div className={clsx(className)}>
-      <Container>
+      <Container className="mw-xl">
         <Row>
           {items.map(({ name, title, email, linkedIn, phone, profile_pic, description }, k) => (
             <Col xs={12} key={k} className="mb-5">
@@ -28,7 +28,7 @@ export const RecruiterListing = ({ className, items }) => {
 };
 
 RecruiterListing.defaultProps = {
-  className: "",
+  className: "py-5",
   items: [],
 };
 

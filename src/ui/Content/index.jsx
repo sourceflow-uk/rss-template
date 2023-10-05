@@ -1,6 +1,6 @@
 import { FadeIn } from "react-slide-fade-in";
 import * as components from "@/components";
-import { Collapse } from "react-bootstrap";
+import { Button, ButtonGroup, Collapse } from "react-bootstrap";
 import { useState } from "react";
 
 /**
@@ -10,17 +10,17 @@ import { useState } from "react";
  * @returns {JSX.Element}
  * @constructor
  */
-export const Content = ({ items, additionalComponents }) => {
+export const Content = ({ items, additionalComponents, demoMode }) => {
   const [open, setOpen] = useState(items.reduce((acc, i, k) => ({ ...acc, [k]: true }), {}));
   const allowedComponents = {
     ...components,
     ...additionalComponents,
   };
 
-  return (
-    <section>
-      {items.map(({ component, id, props }, k) => {
-        return (
+  if (!demoMode) {
+    return (
+      <section>
+        {items.map(({ component, id, props }, k) => (
           <FadeIn
             from="bottom"
             positionOffset={0}
@@ -29,6 +29,41 @@ export const Content = ({ items, additionalComponents }) => {
             delayInMilliseconds={100}
             key={k}
           >
+            {id && <a id={id} />}
+            {(() => {
+              if (typeof component !== "undefined" && component in allowedComponents) {
+                const Component = allowedComponents[component];
+
+                return <Component {...props} />;
+              }
+            })()}
+          </FadeIn>
+        ))}
+      </section>
+    );
+  }
+
+  const closeAll = () => {
+    setOpen(items.reduce((acc, i, k) => ({ ...acc, [k]: false }), {}));
+  };
+
+  const openAll = () => {
+    setOpen(items.reduce((acc, i, k) => ({ ...acc, [k]: true }), {}));
+  };
+
+  return (
+    <section>
+      <ButtonGroup className="position-fixed z-3 bottom-0 p-3" style={{ right: 0 }}>
+        <Button size="sm" variant="primary" onClick={openAll}>
+          Open All
+        </Button>
+        <Button size="sm" variant="quaternary" onClick={closeAll}>
+          Close All
+        </Button>
+      </ButtonGroup>
+      {items.map(({ component, id, props }, k) => {
+        return (
+          <div key={k}>
             {id && <a id={id} />}
             {(() => {
               if (typeof component !== "undefined" && component in allowedComponents) {
@@ -55,7 +90,7 @@ export const Content = ({ items, additionalComponents }) => {
                 );
               }
             })()}
-          </FadeIn>
+          </div>
         );
       })}
     </section>
@@ -65,4 +100,5 @@ export const Content = ({ items, additionalComponents }) => {
 Content.defaultProps = {
   items: [],
   additionalComponents: {},
+  demoMode: false,
 };

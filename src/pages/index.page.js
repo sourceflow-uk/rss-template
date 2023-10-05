@@ -21,16 +21,16 @@ import { fakerEN_GB as faker } from "@faker-js/faker/locale/index";
 import { generateHorizontalListing } from "@/faker/generateHorizontalListing";
 import { generateMultiTileCard } from "@/faker/generateMultiTileCard";
 import { generateOfficeLocationCard } from "@/faker/generateOfficeLocationCard";
-import { generateOfficeLocatorLocations } from "@/faker/generateOfficeLocatorLocations";
 import { generatePromoButton } from "@/faker/generatePromoButton";
 import { generatePromotionalCarouselItem } from "@/faker/generatePromotionalCarouselItem";
 import { generateCTA } from "@/faker/generateCTA";
 import { generateRecruiter } from "@/faker/generateRecruiter";
+import { generateRecruiterListingItem } from "@/faker/generateRecruiterListingItem";
 
 export default function Page({ content }) {
   return (
     <>
-      <Content items={content} />
+      <Content items={content} demoMode={true} />
     </>
   );
 }
@@ -218,6 +218,12 @@ export async function getStaticProps({}) {
         {
           component: "Recruiter",
           props: generateRecruiter(),
+        },
+        {
+          component: "RecruiterListing",
+          props: {
+            items: generateArrayOf(generateRecruiterListingItem, { count: 3 }),
+          },
         },
         {
           component: "RichText",
