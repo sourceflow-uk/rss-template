@@ -8,8 +8,7 @@ import { getHeaderMenu } from "@/getters/getHeaderMenu";
 import { getFooterMenu } from "@/getters/getFooterMenu";
 import { Alert } from "react-bootstrap";
 import { initializeMarker } from "@/functions/initializeMarker";
-
-initializeMarker();
+import { useEffect } from "react";
 
 export default function App({ Component, pageProps }) {
   const global = getGlobal();
@@ -38,6 +37,10 @@ export default function App({ Component, pageProps }) {
     vat_number: global["_theme.vat.number"],
     nav: getFooterMenu(),
   };
+
+  useEffect(() => {
+    initializeMarker();
+  }, []);
 
   return (
     <ParallaxProvider>
