@@ -1,4 +1,4 @@
-import global from "../../../itworkshealth.co.uk/.sourceflow/global.json";
+// import global from "@/../.sourceflow/global.json";
 import BaseObject from "@sourceflow-uk/sourceflow-sdk/base_object";
 
 /**
@@ -40,5 +40,5 @@ export const getGlobal = (locale = "en") => {
     "_theme.social.youtube": "https://www.youtube.com/channel/UCN1X-rcqNOXv0fLbhtNnJJQ",
   };
 
-  return new BaseObject(global, locale).toJson();
+  // return new BaseObject(global, locale).toJson();
 };
