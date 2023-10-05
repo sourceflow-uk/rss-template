@@ -76,6 +76,8 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.SOURCEFLOW_GITHUB_TOKEN }}
+      - name: Build Storybook
+        run: ${{ steps.detect-package-manager.outputs.runner }} storybook build -o public/storybook
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Static HTML export with Next.js
