@@ -40,6 +40,6 @@ BlogArticleCard.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   img: PropTypes.string,
-  published_at: PropTypes.instanceOf(Date),
+  published_at: PropTypes.string,
   // tags: PropTypes.arrayOf(PropTypes.shape(Tag.propTypes)),
 };
