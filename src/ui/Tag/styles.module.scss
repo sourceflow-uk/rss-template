@@ -2,14 +2,21 @@
 
 .tag {
   flex-grow: 0;
-  border: 1px solid $dark;
+  border-radius: var(#{--bs-border-radius-sm});
   color: $dark;
+  background-color: var(#{--bs-light});
   text-decoration: none;
-  padding: 0 $spacer * 0.125;
+  padding: 3px 6px;
   font-size: 14px;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
   text-transform: capitalize;
-  @include darken-on-hover;
+  transition: $transition-base;
+
+  &:hover,
+  &:focus {
+    background-color: var(#{--bs-quaternary});
+    color: $white;
+  }
 }

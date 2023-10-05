@@ -1,18 +1,26 @@
 @import "src/scss/module";
 
 .article {
-  time {
-    font-size: $font-size-sm;
-    color: rgba($text-color, 0.66);
-  }
-
   &__img {
     width: 100%;
     flex-basis: 785px;
     height: 459px;
     object-fit: cover;
+    border-radius: var(#{--bs-border-radius-sm});
   }
 
   &__body {
+    h1,
+    .h1,
+    h2,
+    .h2,
+    h3,
+    .h3 {
+      color: var(#{--bs-tertiary});
+    }
+
+    img {
+      border-radius: var(#{--bs-border-radius-sm});
+    }
   }
 }

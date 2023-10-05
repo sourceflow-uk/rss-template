@@ -39,7 +39,7 @@ export const Recruiter = ({
                 <dt>Sectors:</dt>
                 {sectors.map(({ label, href }, k) => (
                   <dd key={k}>
-                    <Tag className="p-1" label={label} href={href} />
+                    <Tag label={label} href={href} />
                   </dd>
                 ))}
               </dl>

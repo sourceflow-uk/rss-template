@@ -1,24 +1,22 @@
 import clsx from "classnames";
 import PropTypes from "prop-types";
 import classes from "./styles.module.scss";
-import { format } from "date-fns";
 import { Stack } from "react-bootstrap";
 import { Tag } from "@/ui/Tag";
 import { trimText } from "@/functions/trimText";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
-import Calendar from "@/assets/Calendar.svg";
+import { Time } from "@/ui/Time";
 
 export const RelatedArticleCard = ({ className, title, img, tags, published_at, href }) => {
   return (
     <a href={href} className={clsx(className, classes.card)}>
       <SourceFlowImage className={classes.card__img} src={img} size="384x179" alt={title} />
       <div className={clsx(classes.card__body, "pb-3")}>
-        <h3 className="h6 my-2">{trimText(title, 50)}</h3>
+        <h3 className="h6 text-primary my-2">{trimText(title, 50)}</h3>
         <Stack className="flex-row flex-wrap align-items-center" gap={2}>
-          <Calendar />
-          <time>{format(published_at, "do LLLL, yyyy")}</time>
+          <Time date={published_at} />
           {tags.map(({ label, href }, k) => (
-            <Tag className="p-1" key={k} label={label} href={href} />
+            <Tag key={k} label={label} href={href} />
           ))}
         </Stack>
       </div>
@@ -41,6 +39,6 @@ RelatedArticleCard.propTypes = {
   description: PropTypes.string,
   img: PropTypes.string,
   tags: PropTypes.arrayOf(Tag.propTypes),
-  published_at: PropTypes.instanceOf(Date),
+  published_at: PropTypes.string,
   href: PropTypes.string,
 };

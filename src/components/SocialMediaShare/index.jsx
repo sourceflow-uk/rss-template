@@ -8,7 +8,11 @@ import Facebook from "@/assets/Facebook.svg";
 import classes from "./styles.module.scss";
 
 export const SocialMediaShare = ({ className }) => {
-  return typeof window !== "undefined" ? (
+  if (typeof window === "undefined") {
+    return null;
+  }
+
+  return (
     <div className={clsx(className, classes.share)}>
       <h4 className="h6 fw-semibold mb-3">Share this</h4>
       <Stack className="flex-row" gap={3}>
@@ -26,5 +30,5 @@ export const SocialMediaShare = ({ className }) => {
         </EmailShareButton>
       </Stack>
     </div>
-  ) : null;
+  );
 };

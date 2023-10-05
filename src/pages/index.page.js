@@ -31,10 +31,6 @@ export async function getStaticProps({}) {
           props: generateNarrativePanel(),
         },
         {
-          component: "NarrativePanel",
-          props: generateNarrativePanel({ reverse: true, video: true }),
-        },
-        {
           component: "RichText",
           props: {
             body: generateBody(),
@@ -102,6 +98,13 @@ export async function getStaticProps({}) {
           },
         },
         { component: "SocialVideo", props: generateSocialVideo() },
+        {
+          component: "Article",
+          props: {
+            ...generateArticle(),
+            related: generateArrayOf(generateArticle, { count: 3 }),
+          },
+        },
       ],
     },
   };

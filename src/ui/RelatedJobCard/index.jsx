@@ -26,10 +26,10 @@ export const RelatedJobCard = ({
         </dl>
         <div className="flex-grow-1 mb-2">
           <Stack className="flex-row flex-wrap" gap={2}>
-            <Tag className="p-1" label={`${salary_package} a year`} />
-            <Tag className="p-1" label={role_type} />
+            <Tag label={`${salary_package} a year`} />
+            <Tag label={role_type} />
             {sectors.map(({ label, href }, k) => (
-              <Tag className="p-1" key={k} label={label} href={href} />
+              <Tag key={k} label={label} href={href} />
             ))}
           </Stack>
         </div>
@@ -56,6 +56,6 @@ RelatedJobCard.propTypes = {
   location: PropTypes.string,
   salary_package: PropTypes.string,
   role_type: PropTypes.string,
-  published_at: PropTypes.instanceOf(Date),
+  published_at: PropTypes.string,
   href: PropTypes.string,
 };
