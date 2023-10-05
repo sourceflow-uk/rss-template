@@ -1,7 +1,7 @@
 @import "src/scss/module";
 
 .item {
-  border-bottom: 1px solid;
+  border-bottom: 1px solid $gray-300;
 
   header {
     cursor: pointer;
@@ -33,7 +33,7 @@
 
     &:hover,
     &:focus {
-      color: $primary;
+      color: var(#{--bs-quaternary});
 
       &:after {
       }
@@ -48,7 +48,7 @@
 
   &--active {
     header {
-      color: $primary;
+      color: var(#{--bs-quaternary});
 
       a {
         &:before {

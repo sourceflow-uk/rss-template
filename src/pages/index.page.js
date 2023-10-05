@@ -12,6 +12,9 @@ import { generateHeroButton } from "@/faker/generateHeroButton";
 import { generateTitle } from "@/faker/generateTitle";
 import { generateBody } from "@/faker/generateBody";
 import { generateNarrativePanel } from "@/faker/generateNarrativePanel";
+import { generateDescription } from "@/faker/generateDescription";
+import { generateCaseStudy } from "@/faker/generateCaseStudy";
+import { generateFeaturedTabListItem } from "@/faker/generateFeaturedTabListItem";
 
 export default function Page({ content }) {
   return (
@@ -26,6 +29,75 @@ export async function getStaticProps({}) {
     props: {
       meta: {},
       content: [
+        {
+          component: "Accordion",
+          props: {
+            items: generateArrayOf(
+              () => ({
+                title: generateTitle(),
+                body: generateBody(),
+                active: false,
+              }),
+              { count: 4 }
+            ),
+          },
+        },
+        {
+          component: "Article",
+          props: {
+            ...generateArticle(),
+            related: generateArrayOf(generateArticle, { count: 3 }),
+          },
+        },
+        {
+          component: "BlockQuote",
+          props: {
+            title: "What people say",
+            items: generateArrayOf(generateBlockQuoteCard, { count: 9 }),
+            carousel: true,
+            visibleCount: 3,
+          },
+        },
+        {
+          component: "BrandPositioning",
+          props: {
+            title: generateTitle(),
+            description: generateDescription(),
+          },
+        },
+        {
+          component: "CaseStudies",
+          props: {
+            items: generateArrayOf(generateCaseStudy, { count: 6 }),
+          },
+        },
+        {
+          component: "CollapsibleContent",
+          props: {
+            title: generateTitle(),
+            body: generateBody(),
+          },
+        },
+        {
+          component: "CollapsibleSection",
+          props: {
+            title: generateTitle(),
+            description: generateDescription(),
+            items: generateArrayOf(
+              () => ({
+                title: generateTitle(),
+                body: generateBody(),
+              }),
+              { count: 3 }
+            ),
+          },
+        },
+        {
+          component: "FeatureTabsList",
+          props: {
+            items: generateArrayOf(generateFeaturedTabListItem, { count: 5 }),
+          },
+        },
         {
           component: "NarrativePanel",
           props: generateNarrativePanel(),
@@ -88,23 +160,7 @@ export async function getStaticProps({}) {
             items: generateArrayOf(generateMiniCarouselCard, { count: 3 }),
           },
         },
-        {
-          component: "BlockQuote",
-          props: {
-            title: "What people say",
-            items: generateArrayOf(generateBlockQuoteCard, { count: 9 }),
-            carousel: true,
-            visibleCount: 3,
-          },
-        },
         { component: "SocialVideo", props: generateSocialVideo() },
-        {
-          component: "Article",
-          props: {
-            ...generateArticle(),
-            related: generateArrayOf(generateArticle, { count: 3 }),
-          },
-        },
       ],
     },
   };

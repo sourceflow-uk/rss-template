@@ -1,5 +1,6 @@
 import { FadeIn } from "react-slide-fade-in";
 import * as components from "@/components";
+import { Container } from "react-bootstrap";
 
 /**
  *
@@ -30,7 +31,14 @@ export const Content = ({ items, additionalComponents }) => {
             if (typeof component !== "undefined" && component in allowedComponents) {
               const Component = allowedComponents[component];
 
-              return <Component {...props} />;
+              return (
+                <>
+                  <code className="d-block bg-primary text-white p-2">
+                    <Container className="mw-xl">{component}</Container>
+                  </code>
+                  <Component {...props} />
+                </>
+              );
             }
           })()}
         </FadeIn>

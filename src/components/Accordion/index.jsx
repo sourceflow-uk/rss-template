@@ -27,7 +27,7 @@ export const Accordion = ({ className, items, defaultActiveKey }) => {
 };
 
 Accordion.defaultProps = {
-  className: "",
+  className: "py-5",
   items: [],
   defaultActiveKey: 0,
 };

@@ -6,7 +6,7 @@ import { CaseStudyCard } from "@/ui/CaseStudyCard";
 export const CaseStudies = ({ className, items }) => {
   return (
     <div className={clsx(className)}>
-      <Container>
+      <Container className="mw-xl">
         <Row>
           {items.map(({ title, description, img, href }, k) => (
             <Col key={k} xs={12} md={4} className="mb-4">
@@ -20,7 +20,7 @@ export const CaseStudies = ({ className, items }) => {
 };
 
 CaseStudies.defaultProps = {
-  className: "",
+  className: "py-5",
   items: [],
 };
 

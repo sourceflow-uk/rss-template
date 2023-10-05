@@ -1,7 +1,6 @@
 @import "src/scss/module";
 
 .featured {
-  background-color: $gray-200;
   position: relative;
 
   [role="tab"] {
@@ -12,6 +11,8 @@
     text-transform: capitalize;
     text-align: center;
     color: inherit;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 
     &[aria-selected="true"] {
       background-color: rgba($black, 0.1);

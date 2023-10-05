@@ -10,7 +10,7 @@ export const CollapsibleSection = ({ className, title, description, items, defau
 
   return (
     <div className={clsx(className, classes.collapsible)}>
-      <Container>
+      <Container className="mw-xl">
         <h2>{title}</h2>
         <div dangerouslySetInnerHTML={{ __html: description }} />
         <Row>
@@ -32,7 +32,7 @@ export const CollapsibleSection = ({ className, title, description, items, defau
 };
 
 CollapsibleSection.defaultProps = {
-  className: "",
+  className: "py-5",
   title: "",
   description: "",
   items: [],
