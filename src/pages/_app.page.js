@@ -7,6 +7,9 @@ import { getGlobal } from "@/getters/getGlobal";
 import { getHeaderMenu } from "@/getters/getHeaderMenu";
 import { getFooterMenu } from "@/getters/getFooterMenu";
 import { Alert } from "react-bootstrap";
+import { initializeMarker } from "@/functions/initializeMarker";
+
+initializeMarker();
 
 export default function App({ Component, pageProps }) {
   const global = getGlobal();
