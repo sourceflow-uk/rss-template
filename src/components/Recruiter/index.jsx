@@ -94,7 +94,7 @@ Recruiter.propTypes = {
   email: PropTypes.string,
   location: PropTypes.string,
   linkedIn: PropTypes.string,
-  sectors: PropTypes.arrayOf(Tag.propTypes),
+  sectors: PropTypes.arrayOf(PropTypes.shape(Tag.propTypes)),
   phone: PropTypes.string,
   profile_pic: PropTypes.string,
   description: PropTypes.string,

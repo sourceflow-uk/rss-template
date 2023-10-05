@@ -41,5 +41,5 @@ PromotionalCarousel.defaultProps = {
 
 PromotionalCarousel.propTypes = {
   className: PropTypes.string,
-  items: PropTypes.arrayOf(PromotionalCarouselItem.propTypes),
+  items: PropTypes.arrayOf(PropTypes.shape(PromotionalCarouselItem.propTypes)),
 };

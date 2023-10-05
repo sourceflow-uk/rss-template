@@ -12,11 +12,9 @@ if (isGithubActions) {
 }
 
 module.exports = {
+  output: "export",
   assetPrefix: assetPrefix,
   basePath: basePath,
-  experimental: {
-    appDir: false,
-  },
   reactStrictMode: true,
   trailingSlash: true,
   images: {

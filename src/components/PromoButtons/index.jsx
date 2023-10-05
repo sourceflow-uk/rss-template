@@ -27,5 +27,5 @@ PromoButtons.defaultProps = {
 
 PromoButtons.propTypes = {
   className: PropTypes.string,
-  items: PropTypes.arrayOf(PromoButton.propTypes),
+  items: PropTypes.arrayOf(PropTypes.shape(PromoButton.propTypes)),
 };

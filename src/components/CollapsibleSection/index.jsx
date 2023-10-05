@@ -43,6 +43,6 @@ CollapsibleSection.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
-  items: PropTypes.arrayOf(CollapsibleSectionItem.propTypes),
+  items: PropTypes.arrayOf(PropTypes.shape(CollapsibleSectionItem.propTypes)),
   defaultActiveKey: PropTypes.number,
 };

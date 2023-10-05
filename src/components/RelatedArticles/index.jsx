@@ -34,5 +34,5 @@ RelatedArticles.defaultProps = {
 RelatedArticles.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
-  items: PropTypes.arrayOf(RelatedArticleCard.propTypes),
+  items: PropTypes.arrayOf(PropTypes.shape(RelatedArticleCard.propTypes)),
 };

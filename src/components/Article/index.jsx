@@ -55,7 +55,7 @@ Article.propTypes = {
   description: PropTypes.string,
   body: PropTypes.string,
   img: PropTypes.string,
-  tags: PropTypes.arrayOf(Tag.propTypes),
+  tags: PropTypes.arrayOf(PropTypes.shape(Tag.propTypes)),
   published_at: PropTypes.string,
   related: RelatedArticles.propTypes.items,
 };

@@ -39,6 +39,6 @@ RelatedJobs.defaultProps = {
 RelatedJobs.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
-  items: PropTypes.arrayOf(RelatedJobCard.propTypes),
+  items: PropTypes.arrayOf(PropTypes.shape(RelatedJobCard.propTypes)),
   direction: PropTypes.oneOf(["row", "column"]),
 };

@@ -34,5 +34,5 @@ RecruiterListing.defaultProps = {
 
 RecruiterListing.propTypes = {
   className: PropTypes.string,
-  items: PropTypes.arrayOf(RecruiterListingItem.propTypes),
+  items: PropTypes.arrayOf(PropTypes.shape(RecruiterListingItem.propTypes)),
 };
