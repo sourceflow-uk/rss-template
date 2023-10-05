@@ -4,6 +4,8 @@ import { chunk } from "lodash";
 import classes from "./styles.module.scss";
 import clsx from "classnames";
 import { BlockQuoteCard } from "@/ui/BlockQuoteCard";
+import ChevronLeft from "@/assets/ChevronLeft.svg";
+import ChevronRight from "@/assets/ChevronRight.svg";
 
 const BlockQuoteCards = ({ className, items, visibleCount }) => (
   <Row className={clsx(className, { "h-100 px-4": visibleCount > 1 })}>
@@ -21,17 +23,23 @@ export const BlockQuote = ({ className, title, items, carousel, visibleCount }) 
       <Container>
         <h2>{title}</h2>
         {carousel ? (
-          <Carousel className={classes.blockquotes__carousel} controls={true} indicators={false}>
-            {chunk(items, visibleCount).map((items) => (
-              <Carousel.Item>
+          <Carousel
+            className={classes.blockquotes__carousel}
+            controls={true}
+            indicators={false}
+            prevIcon={<ChevronLeft width="14" height="25" />}
+            nextIcon={<ChevronRight width="14" height="25" />}
+          >
+            {chunk(items, visibleCount).map((items, k) => (
+              <Carousel.Item key={k}>
                 <BlockQuoteCards items={items} visibleCount={visibleCount} />
               </Carousel.Item>
             ))}
           </Carousel>
         ) : (
           <div className="px-5">
-            {chunk(items, visibleCount).map((items) => (
-              <BlockQuoteCards items={items} visibleCount={visibleCount} />
+            {chunk(items, visibleCount).map((items, k) => (
+              <BlockQuoteCards key={k} items={items} visibleCount={visibleCount} />
             ))}
           </div>
         )}
@@ -41,7 +49,7 @@ export const BlockQuote = ({ className, title, items, carousel, visibleCount }) 
 };
 
 BlockQuote.defaultProps = {
-  className: "",
+  className: "bg-white py-5",
   title: "",
   items: [],
   carousel: false,

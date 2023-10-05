@@ -4,14 +4,15 @@ import { Col, Container, Row } from "react-bootstrap";
 import classes from "./styles.module.scss";
 import { HeroButton } from "@/ui/HeroButton";
 
-export const HeroButtonsGrid = ({ className, items }) => {
+export const HeroButtonsGrid = ({ className, title, items }) => {
   return (
     <div className={clsx(className, classes.grid)}>
-      <Container>
+      <Container className="mw-lg">
+        <h2 className="text-center">{title}</h2>
         <Row>
-          {items.map(({ title, img, href }) => (
-            <Col md={3} className="p-2">
-              <HeroButton title={title} img={img} href={href} />
+          {items.map(({ title, img, href }, k) => (
+            <Col key={k} md={3} className="p-2">
+              <HeroButton className="text-center" title={title} img={img} href={href} />
             </Col>
           ))}
         </Row>
@@ -21,11 +22,13 @@ export const HeroButtonsGrid = ({ className, items }) => {
 };
 
 HeroButtonsGrid.defaultProps = {
-  className: "",
+  className: "py-5",
+  title: "",
   items: [],
 };
 
 HeroButtonsGrid.propTypes = {
   className: PropTypes.string,
+  title: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.shape(HeroButton.propTypes)),
 };

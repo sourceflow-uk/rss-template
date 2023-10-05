@@ -7,5 +7,5 @@ export const generateMiniCarouselCard = () => ({
   title: generateTitle(),
   description: generateDescription(),
   img: faker.image.urlPicsumPhotos({ width: 703, height: 352 }),
-  cta: generateCTA(),
+  cta: generateCTA({ variant: "secondary" }),
 });

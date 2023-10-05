@@ -8,8 +8,8 @@ export const SidebarNavigation = ({ className, title, items }) => {
     <div className={clsx(className, classes.sidebar)}>
       <h3>{title}</h3>
       <Nav className={classes.sidebar__nav}>
-        {items.map(({ label, href }) => (
-          <Nav.Item>
+        {items.map(({ label, href }, k) => (
+          <Nav.Item key={k}>
             <Nav.Link href={href}>{label}</Nav.Link>
           </Nav.Item>
         ))}

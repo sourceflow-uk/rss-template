@@ -2,4 +2,11 @@
 
 .cta {
   text-transform: capitalize;
+
+  a {
+    display: inline-flex;
+    gap: $spacer * 0.5;
+    align-items: center;
+    justify-content: center;
+  }
 }

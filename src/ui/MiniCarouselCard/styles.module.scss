@@ -1,6 +1,8 @@
 @import "src/scss/module";
 
 .card {
+  background-color: var(#{--bs-primary});
+
   p {
     text-transform: capitalize;
   }
@@ -10,6 +12,15 @@
   }
 
   img {
+    display: block;
+    text-align: center;
+    text-transform: capitalize;
+    color: var(#{--bs-primary});
     clip-path: polygon(15% 0%, 100% 0, 100% 100%, 0% 100%);
+    width: 703px;
+    height: 352px;
+    max-width: 100%;
+    background-color: var(#{--bs-light});
+    object-fit: cover;
   }
 }

@@ -3,8 +3,8 @@ import { fakerEN_GB as faker } from "@faker-js/faker";
 export const generateSiteHeader = () => ({
   nav: faker.helpers.multiple(
     () => ({
-      title: faker.lorem.words({ min: 1, max: 2 }),
-      items: faker.helpers.multiple(
+      label: faker.lorem.words({ min: 1, max: 2 }),
+      children: faker.helpers.multiple(
         () => ({
           label: faker.lorem.words({ min: 1, max: 3 }),
           href: "#",

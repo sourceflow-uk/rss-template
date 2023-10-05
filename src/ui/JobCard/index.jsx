@@ -1,81 +1,82 @@
 import clsx from "classnames";
 import PropTypes from "prop-types";
-import { format } from "date-fns";
-import { Tag } from "@/ui/Tag";
-import { Button } from "react-bootstrap";
+// import { format } from "date-fns";
+// import { Tag } from "@/ui/Tag";
+import { CTA } from "@/ui/CTA";
 import classes from "./styles.module.scss";
-import ChevronRight from "@/assets/ChevronRight.svg";
 import { trimText } from "@/functions/trimText";
+// import ChevronRight from "@/assets/ChevronRight.svg";
+import Location from "@/assets/Location.svg";
+import Contract from "@/assets/Contract.svg";
+
+// TODO remove commented out sections
 
 export const JobCard = ({
   className,
   title,
-  sectors,
-  logo,
+  // sectors,
+  // logo,
   location,
   salary_package,
   role_type,
-  published_at,
+  // published_at,
   href,
 }) => {
   return (
-    <div className={clsx(className, classes.card)}>
+    <div className={clsx(className, classes.card, "p-4")}>
       <div className={classes.card__body}>
-        <time>{format(published_at, "dd/MM/yyyy")}</time>
-        {logo && <img src={logo} alt="" />}
-        <h3 className="h4 my-3 flex-grow-1">{trimText(title, 35)}</h3>
-        <div className="d-flex gap-2 pb-3">
-          {sectors.map(({ label, href }) => (
-            <Tag label={label} href={href} />
-          ))}
-        </div>
+        {/*<time>{format(new Date(published_at), "dd/MM/yyyy")}</time>*/}
+        {/*{logo && <img src={logo} alt="" />}*/}
+        <h3 className="h5 mb-3 flex-grow-1 text-primary">{trimText(title, 35)}</h3>
+        {/*<div className="d-flex gap-2 pb-3">*/}
+        {/*  {sectors.map(({ label, href }, k) => (*/}
+        {/*    <Tag key={k} label={label} href={href} />*/}
+        {/*  ))}*/}
+        {/*</div>*/}
+        <dl>
+          <dt className="visually-hidden">Salary</dt>
+          <dd>
+            <strong>{salary_package}</strong>
+          </dd>
+        </dl>
         <dl>
           <dt>
             <span className="visually-hidden">Location</span>
-            <ChevronRight width="7" height="13" />
+            <Location width="25" height="25" />
           </dt>
           <dd>{location}</dd>
         </dl>
         <dl>
           <dt>
-            <span className="visually-hidden">Salary</span>
-            <ChevronRight width="7" height="13" />
-          </dt>
-          <dd>{salary_package}</dd>
-        </dl>
-        <dl>
-          <dt>
             <span className="visually-hidden">Role Type</span>
-            <ChevronRight width="7" height="13" />
+            <Contract width="25" height="25" />
           </dt>
           <dd>{role_type}</dd>
         </dl>
-        <Button className="mt-3" variant="dark" href={href}>
-          View this job
-        </Button>
+        <CTA className="mt-5" variant="secondary" href={href} label="View this job" />
       </div>
     </div>
   );
 };
 
 JobCard.defaultProps = {
-  className: "",
+  className: "bg-light",
   title: "",
-  sectors: [],
-  logo: null,
+  // sectors: [],
+  // logo: null,
   salary_package: "",
   role_type: "",
-  published_at: "",
+  // published_at: "",
   href: "",
 };
 
 JobCard.propTypes = {
   title: PropTypes.string,
-  sectors: PropTypes.arrayOf(PropTypes.shape(Tag.propTypes)),
+  // sectors: PropTypes.arrayOf(PropTypes.shape(Tag.propTypes)),
   location: PropTypes.string,
-  logo: PropTypes.string,
+  // logo: PropTypes.string,
   salary_package: PropTypes.string,
   role_type: PropTypes.string,
-  published_at: PropTypes.instanceOf(Date),
+  // published_at: PropTypes.string,
   href: PropTypes.string,
 };

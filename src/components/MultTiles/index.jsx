@@ -8,8 +8,8 @@ export const MultiTiles = ({ className, items }) => {
     <div className={clsx(className)}>
       <Container>
         <Row>
-          {items.map(({ title, img, href }) => (
-            <Col xs={2} className="p-0">
+          {items.map(({ title, img, href }, k) => (
+            <Col key={k} xs={2} className="p-0">
               <MultiTileCard title={title} img={img} href={href} />
             </Col>
           ))}

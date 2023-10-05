@@ -1,6 +1,6 @@
 import { Container } from "react-bootstrap";
 import clsx from "classnames";
-import classes from "./styles.modules.scss";
+import classes from "./styles.module.scss";
 import PropTypes from "prop-types";
 
 export const SectionHeading = ({ className, title }) => {

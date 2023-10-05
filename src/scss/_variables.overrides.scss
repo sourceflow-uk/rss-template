@@ -1,7 +1,18 @@
 @import "bootstrap/scss/variables";
 
+$tertiary: $success;
+$quaternary: $danger;
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "tertiary": $tertiary,
+  "quaternary": $quaternary,
+  "light": $light,
+  "dark": $dark,
+);
+
 $headings-font-weight: $font-weight-bold;
-$btn-border-radius: 0;
 $btn-padding-x: $spacer * 3;
 
 $text-color: $black;

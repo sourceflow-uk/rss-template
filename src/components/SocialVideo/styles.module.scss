@@ -16,7 +16,7 @@
     align-items: center;
 
     svg {
-      fill: $card-text-color;
+      fill: var(#{--bs-secondary});
     }
   }
 }

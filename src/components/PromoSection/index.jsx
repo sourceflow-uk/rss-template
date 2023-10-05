@@ -7,7 +7,7 @@ import classes from "./styles.module.scss";
 export const PromoSection = ({ className, items }) => {
   return (
     <div className={clsx(className, classes.section)}>
-      <Container>
+      <Container className="mw-xl">
         <Row>
           {items.map(({ title, description, img, href }, k) => (
             <Col key={k}>
@@ -21,7 +21,7 @@ export const PromoSection = ({ className, items }) => {
 };
 
 PromoSection.defaultProps = {
-  className: "",
+  className: "py-5",
   items: [],
 };
 

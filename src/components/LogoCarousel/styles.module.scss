@@ -7,6 +7,10 @@
     [class*="carousel-control-"] {
       position: relative;
       width: $spacer * 10;
+
+      svg {
+        fill: var(#{--bs-primary});
+      }
     }
 
     [class="carousel-control-prev"] {

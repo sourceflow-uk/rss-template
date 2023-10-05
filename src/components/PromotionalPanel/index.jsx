@@ -9,8 +9,8 @@ export const PromotionalPanel = ({ className, items }) => {
     <div className={clsx(className, classes.panel)}>
       <Container className="mw-lg">
         <Row>
-          {items.map(({ title, description, cta }) => (
-            <Col>
+          {items.map(({ title, description, cta }, k) => (
+            <Col key={k}>
               <PromotionalPanelCard title={title} description={description} cta={cta} />
             </Col>
           ))}

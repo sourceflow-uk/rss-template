@@ -35,7 +35,7 @@ export const LogoCarousel = ({ className, items, visibleCount }) => {
 };
 
 LogoCarousel.defaultProps = {
-  className: "",
+  className: "py-5",
   items: [],
   visibleCount: 5,
 };

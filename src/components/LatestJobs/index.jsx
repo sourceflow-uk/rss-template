@@ -19,13 +19,13 @@ export const LatestJobs = ({ className, title, items, button, visibleCount }) =>
           prevIcon={<ChevronLeft width="14" height="25" />}
           nextIcon={<ChevronRight width="14" height="25" />}
         >
-          {chunk(items, visibleCount).map((items) => (
-            <Carousel.Item>
-              <Row className={clsx(className)}>
+          {chunk(items, visibleCount).map((items, k) => (
+            <Carousel.Item key={k}>
+              <Row>
                 {items.map(({ title, sectors, location, logo, salary_package, role_type, published_at, href }, k) => (
                   <Col key={k} xs={12} md={12 / visibleCount}>
                     <JobCard
-                      className="h-100"
+                      className="bg-light h-100"
                       title={title}
                       sectors={sectors}
                       location={location}
@@ -55,7 +55,7 @@ export const LatestJobs = ({ className, title, items, button, visibleCount }) =>
 };
 
 LatestJobs.defaultProps = {
-  className: "",
+  className: "py-5",
   title: "Latest Jobs",
   visibleCount: 3,
   items: [],

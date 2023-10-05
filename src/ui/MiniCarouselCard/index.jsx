@@ -24,6 +24,7 @@ export const MiniCarouselCard = ({ className, title, description, cta, img }) =>
 };
 
 MiniCarouselCard.defaultProps = {
+  className: "",
   title: "",
   description: "",
   img: "",
@@ -31,6 +32,7 @@ MiniCarouselCard.defaultProps = {
 };
 
 MiniCarouselCard.propTypes = {
+  className: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
   img: PropTypes.string,

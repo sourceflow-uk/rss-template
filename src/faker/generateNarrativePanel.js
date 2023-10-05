@@ -9,7 +9,7 @@ export const generateNarrativePanel = ({ video = false, reverse = false } = {}) 
   description: generateDescription(),
   video_embed_url: video
     ? "https://www.youtube-nocookie.com/embed/gIL2wQUBjdA?si=Cfpp7oDgxQ-vFZbq&amp;controls=0"
-    : undefined,
-  cta: generateCTA(),
+    : null,
+  cta: generateCTA({ variant: "secondary" }),
   reverse,
 });

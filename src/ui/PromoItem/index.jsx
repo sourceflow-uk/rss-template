@@ -11,8 +11,8 @@ export const PromoItem = ({ className, title, img, description, href }) => {
         <SourceFlowImage src={img} size="380x220" alt={title} />
       </figure>
       <div className={classes.card__body}>
-        <h4>{trimText(title, 50)}</h4>
-        <p>{trimText(description, 240)}</p>
+        <h5>{trimText(title, 50)}</h5>
+        <p>{trimText(description, 150)}</p>
       </div>
     </a>
   );

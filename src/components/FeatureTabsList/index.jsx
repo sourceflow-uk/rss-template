@@ -1,4 +1,4 @@
-import { Col, Container, Nav, Row, Stack, Tab, Tabs } from "react-bootstrap";
+import { Nav, Stack, Tab } from "react-bootstrap";
 import clsx from "classnames";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 import { trimText } from "@/functions/trimText";
@@ -12,7 +12,7 @@ export const FeatureTabsList = ({ className, items, defaultActiveKey, vertical }
         <Stack className={clsx({ "flex-row": vertical })}>
           <Nav variant="pills" className={clsx({ "flex-column": vertical })}>
             {items.map(({ title, icon }, k) => (
-              <Nav.Item className={clsx({ "flex-grow-1": !vertical })}>
+              <Nav.Item key={k} className={clsx({ "flex-grow-1": !vertical })}>
                 <Nav.Link eventKey={k} className="p-3 gap-2">
                   <SourceFlowImage src={icon} size="75x75" alt={title} />
                   <span>{trimText(title, 24)}</span>
@@ -22,7 +22,7 @@ export const FeatureTabsList = ({ className, items, defaultActiveKey, vertical }
           </Nav>
           <Tab.Content>
             {items.map(({ title, img, body }, k) => (
-              <Tab.Pane eventKey={k} className="p-5">
+              <Tab.Pane key={k} eventKey={k} className="p-5">
                 <Stack as="article" className="flex-row" gap="3">
                   <div dangerouslySetInnerHTML={{ __html: body }} />
                   <SourceFlowImage src={img} size="420x291" alt={title} />

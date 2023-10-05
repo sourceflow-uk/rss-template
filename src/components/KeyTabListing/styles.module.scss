@@ -1,24 +1,24 @@
 @import "src/scss/module";
 
 .listings {
-  background-color: $light;
-
   ul[role="tablist"] {
     width: 100%;
+    overflow: hidden;
+    border-top-right-radius: var(#{--bs-border-radius});
+    border-top-left-radius: var(#{--bs-border-radius});
+    border-bottom: 0;
+    background-color: lightgray;
+    gap: 0.5px;
 
     li[role="presentation"] {
       flex-grow: 1;
 
-      &:not(:last-child) {
-        border-right: 1px solid rgba($black, 0.1);
-      }
-
       button[role="tab"] {
         width: 100%;
-        border-radius: 0;
         border: 0;
-        background-color: $gray-200;
-        color: $dark;
+        border-radius: 0;
+        background-color: var(#{--bs-tertiary});
+        color: $white;
         text-align: left;
         margin: 0;
         font-weight: $font-weight-semibold;
@@ -26,7 +26,7 @@
         &:hover,
         &:focus,
         &[aria-selected="true"] {
-          background-color: rgba($black, 0.1);
+          background-color: var(#{--bs-tertiary-active});
         }
 
         figure {
@@ -42,7 +42,6 @@
 
         span {
           flex-grow: 1;
-          text-align: center;
           text-transform: capitalize;
         }
       }
@@ -50,22 +49,15 @@
   }
 
   div[class="tab-content"] {
-    background-color: rgba($black, 0.1);
+    background-color: var(#{--bs-tertiary-active});
+    color: $white;
     text-align: center;
     text-transform: capitalize;
+    border-bottom-right-radius: var(#{--bs-border-radius});
+    border-bottom-left-radius: var(#{--bs-border-radius});
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
     h6 {
-      text-transform: uppercase;
-      font-weight: $font-weight-semibold;
-
-      strong {
-        font-weight: $font-weight-bold;
-      }
+      margin-bottom: 0;
     }
 
     p {

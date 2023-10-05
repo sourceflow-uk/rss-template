@@ -8,11 +8,11 @@ import ChevronRight from "@/assets/ChevronRight.svg";
 export const LatestBlogs = ({ className, title, items, button }) => {
   return (
     <div className={clsx(className, classes.blogs)}>
-      <Container>
+      <Container className="mw-xl">
         <h2>{title}</h2>
         <Row className="mb-4">
           {items.map(({ title, description, img, published_at, tags }, k) => (
-            <Col key={k} xs={12} md={4} className="mb-4">
+            <Col key={k} xs={12} md={4}>
               <BlogArticleCard
                 className="h-100"
                 title={title}
@@ -24,19 +24,21 @@ export const LatestBlogs = ({ className, title, items, button }) => {
             </Col>
           ))}
         </Row>
-        {button && (
-          <a className={classes.blogs__link} href={button.href}>
-            {button.label}
-            <ChevronRight width="7" height="13" className="ms-2" />
-          </a>
-        )}
+        <div className={classes.blogs__footer}>
+          {button && (
+            <a className={classes.blogs__link} href={button.href}>
+              {button.label}
+              <ChevronRight width="7" height="13" className="ms-2" />
+            </a>
+          )}
+        </div>
       </Container>
     </div>
   );
 };
 
 LatestBlogs.defaultProps = {
-  className: "",
+  className: "py-5",
   title: "Latest Blogs",
   items: [],
   button: {

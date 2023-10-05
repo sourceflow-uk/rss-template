@@ -17,6 +17,7 @@ export const CollapsibleSection = ({ className, title, description, items, defau
           <Col xs={12} md={8}>
             {items.map(({ title, body }, k) => (
               <CollapsibleSectionItem
+                key={k}
                 title={title}
                 body={body}
                 active={k === active}

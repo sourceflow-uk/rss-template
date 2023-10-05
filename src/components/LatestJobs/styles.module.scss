@@ -1,6 +1,12 @@
 @import "src/scss/module";
 
 .jobs {
+  [class*="carousel-control-"] {
+    svg {
+      fill: var(#{--bs-primary});
+    }
+  }
+
   [class="carousel-control-prev"] {
     left: initial;
     right: 30px;
@@ -26,8 +32,11 @@
   &__link {
     display: inline-flex;
     align-items: center;
-    color: $dark;
+    color: var(#{--bs-primary});
     text-decoration: none;
-    font-weight: $font-weight-semibold;
+
+    & svg {
+      fill: var(#{--bs-primary});
+    }
   }
 }

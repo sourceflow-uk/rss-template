@@ -8,7 +8,7 @@ export const RichText = ({ className, body }) => {
   }
   return (
     <div className={clsx(className, classes.text)}>
-      <Container>
+      <Container className="mw-lg">
         <Row>
           <Col xs={12} dangerouslySetInnerHTML={{ __html: body }} />
         </Row>
@@ -18,6 +18,6 @@ export const RichText = ({ className, body }) => {
 };
 
 RichText.defaultProps = {
-  className: "",
+  className: "py-5",
   body: null,
 };

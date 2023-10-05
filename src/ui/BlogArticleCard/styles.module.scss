@@ -2,7 +2,9 @@
 
 .card {
   text-align: left;
-  border: 1px solid;
+  border-top: 4px solid var(#{--bs-quaternary});
+  border-radius: var(#{--bs-border-radius});
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   @include card-hover-rise;
@@ -28,9 +30,13 @@
   &__body {
     flex-grow: 1;
     padding: $spacer;
+    border: 1px solid lightgray;
+    border-bottom-left-radius: var(#{--bs-border-radius});
+    border-bottom-right-radius: var(#{--bs-border-radius});
 
     h4 {
       min-height: 57.6px;
+      color: var(#{--bs-primary});
     }
   }
 }

@@ -24,7 +24,7 @@ export const SocialVideo = ({ className, video_embed_url, img }) => {
 };
 
 SocialVideo.defaultProps = {
-  className: "",
+  className: "bg-light py-5",
   video_embed_url: "",
   img: "",
 };

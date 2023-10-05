@@ -2,6 +2,7 @@
 
 #Storybook
 /storybook-static
+/public/storybook
 
 #IDE
 .idea
