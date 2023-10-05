@@ -1,6 +1,6 @@
 import { FadeIn } from "react-slide-fade-in";
 import * as components from "@/components";
-import { Collapse, Container } from "react-bootstrap";
+import { Collapse } from "react-bootstrap";
 import { useState } from "react";
 
 /**
@@ -11,6 +11,7 @@ import { useState } from "react";
  * @constructor
  */
 export const Content = ({ items, additionalComponents }) => {
+  const [open, setOpen] = useState(items.reduce((acc, i, k) => ({ ...acc, [k]: true }), {}));
   const allowedComponents = {
     ...components,
     ...additionalComponents,
@@ -19,8 +20,6 @@ export const Content = ({ items, additionalComponents }) => {
   return (
     <section>
       {items.map(({ component, id, props }, k) => {
-        const [open, setOpen] = useState(true);
-
         return (
           <FadeIn
             from="bottom"
@@ -41,13 +40,13 @@ export const Content = ({ items, additionalComponents }) => {
                     <code
                       className="d-block bg-tertiary hover-bg-quaternary border-bottom text-white"
                       style={{ cursor: "pointer" }}
-                      onClick={() => setOpen(!open)}
+                      onClick={() => setOpen({ ...open, [k]: !open[k] })}
                     >
                       <a className="d-block p-2" href={`#${component}`}>
                         {component}
                       </a>
                     </code>
-                    <Collapse in={open}>
+                    <Collapse in={open[k]}>
                       <div>
                         <Component {...props} />
                       </div>
