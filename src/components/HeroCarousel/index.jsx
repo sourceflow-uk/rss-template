@@ -9,26 +9,24 @@ import ChevronRight from "@/assets/ChevronRight.svg";
 export const HeroCarousel = ({ className, items, controls }) => {
   return (
     <div className={clsx(className, classes.hero)}>
-      <Container className="mw-xxl">
-        <Carousel
-          controls={controls}
-          indicators={false}
-          prevIcon={<ChevronLeft width="14" height="25" />}
-          nextIcon={<ChevronRight width="14" height="25" />}
-        >
-          {items.map(({ title, description, img, video_embed_url }, k) => (
-            <Carousel.Item key={k}>
-              <HeroCarouselCard title={title} description={description} img={img} video_embed_url={video_embed_url} />
-            </Carousel.Item>
-          ))}
-        </Carousel>
-      </Container>
+      <Carousel
+        controls={controls}
+        indicators={false}
+        prevIcon={<ChevronLeft width="14" height="25" />}
+        nextIcon={<ChevronRight width="14" height="25" />}
+      >
+        {items.map(({ title, description, img, video_embed_url }, k) => (
+          <Carousel.Item key={k}>
+            <HeroCarouselCard title={title} description={description} img={img} video_embed_url={video_embed_url} />
+          </Carousel.Item>
+        ))}
+      </Carousel>
     </div>
   );
 };
 
 HeroCarousel.defaultProps = {
-  className: "py-5",
+  className: "",
   title: "",
   items: [],
   controls: true,

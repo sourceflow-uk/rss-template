@@ -19,6 +19,7 @@ import { generateHeader } from "@/faker/generateHeader";
 import { generateHeroCarouselItem } from "@/faker/generateHeroCarouselItem";
 import { fakerEN_GB as faker } from "@faker-js/faker/locale/index";
 import { generateHorizontalListing } from "@/faker/generateHorizontalListing";
+import { generateMultiTileCard } from "@/faker/generateMultiTileCard";
 
 export default function Page({ content }) {
   return (
@@ -127,28 +128,6 @@ export async function getStaticProps({}) {
           },
         },
         {
-          component: "NarrativePanel",
-          props: generateNarrativePanel(),
-        },
-        {
-          component: "RichText",
-          props: {
-            body: generateBody(),
-          },
-        },
-        {
-          component: "LogoCarousel",
-          props: {
-            items: generateArrayOf(generateLogoCard, { count: 10 }),
-          },
-        },
-        {
-          component: "PromoSection",
-          props: {
-            items: generateArrayOf(generatePromoItem, { count: 4 }),
-          },
-        },
-        {
           component: "KeyTabListing",
           props: {
             items: generateArrayOf(generateKeyTabListing, { count: 4 }),
@@ -158,10 +137,6 @@ export async function getStaticProps({}) {
           component: "LatestBlogs",
           props: {
             items: generateArrayOf(generateArticle, { count: 3 }),
-            button: {
-              label: "View more blogs",
-              href: "#",
-            },
           },
         },
         {
@@ -176,9 +151,37 @@ export async function getStaticProps({}) {
           },
         },
         {
+          component: "LogoCarousel",
+          props: {
+            items: generateArrayOf(generateLogoCard, { count: 10 }),
+          },
+        },
+        {
           component: "MiniCarousel",
           props: {
             items: generateArrayOf(generateMiniCarouselCard, { count: 3 }),
+          },
+        },
+        {
+          component: "MultiTiles",
+          props: {
+            items: generateArrayOf(generateMultiTileCard, { count: 12 }),
+          },
+        },
+        {
+          component: "NarrativePanel",
+          props: generateNarrativePanel(),
+        },
+        {
+          component: "RichText",
+          props: {
+            body: generateBody(),
+          },
+        },
+        {
+          component: "PromoSection",
+          props: {
+            items: generateArrayOf(generatePromoItem, { count: 4 }),
           },
         },
         { component: "SocialVideo", props: generateSocialVideo() },

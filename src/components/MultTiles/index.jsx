@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 export const MultiTiles = ({ className, items }) => {
   return (
     <div className={clsx(className)}>
-      <Container>
+      <Container className="mw-xl">
         <Row>
           {items.map(({ title, img, href }, k) => (
             <Col key={k} xs={2} className="p-0">
@@ -20,7 +20,7 @@ export const MultiTiles = ({ className, items }) => {
 };
 
 MultiTiles.defaultProps = {
-  className: "",
+  className: "py-5",
   items: [],
 };
 
