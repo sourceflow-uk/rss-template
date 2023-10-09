@@ -32,3 +32,4 @@ export const RichText = lazy(() => import("./RichText"));
 export const SectionHeading = lazy(() => import("./SectionHeading"));
 export const SocialVideo = lazy(() => import("./SocialVideo"));
 export const TeamBio = lazy(() => import("./TeamBio"));
+export const TrendingJobs = lazy(() => import("./TrendingJobs"));

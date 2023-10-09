@@ -256,6 +256,10 @@ export async function getStaticProps({}) {
         },
         { component: "SocialVideo", props: generateSocialVideo() },
         { component: "TeamBio", props: generateTeamBio() },
+        {
+          component: "TrendingJobs",
+          props: {},
+        },
       ],
     },
   };
