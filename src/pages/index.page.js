@@ -258,6 +258,12 @@ export async function getStaticProps({}) {
             title: generateTitle(),
           },
         },
+        {
+          component: "SimilarJobs",
+          props: {
+            items: generateArrayOf(generateJob, { count: 4 }),
+          },
+        },
         { component: "SocialVideo", props: generateSocialVideo() },
         { component: "TeamBio", props: generateTeamBio() },
         {

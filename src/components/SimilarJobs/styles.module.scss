@@ -1,0 +1,30 @@
+@import "src/scss/module";
+
+.similar {
+  &__button {
+    width: 100%;
+    text-align: left;
+    padding: $spacer;
+    color: $white;
+    display: flex;
+
+    svg {
+      stroke: $white;
+    }
+  }
+
+  &__toggle {
+    svg {
+      transition: $transition-base;
+    }
+  }
+
+  &__button[class*="open"] &__toggle {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__collapse {
+  }
+}
