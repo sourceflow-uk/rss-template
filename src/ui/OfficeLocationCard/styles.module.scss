@@ -21,6 +21,12 @@
       display: flex;
       gap: $spacer * 0.5;
 
+      dt {
+        svg {
+          fill: var(#{--bs-quaternary});
+        }
+      }
+
       dd {
         margin-bottom: 0;
 

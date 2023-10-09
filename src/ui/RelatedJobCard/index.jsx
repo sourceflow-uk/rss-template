@@ -54,7 +54,11 @@ RelatedJobCard.defaultProps = {
 
 RelatedJobCard.propTypes = {
   title: PropTypes.string,
-  sectors: PropTypes.arrayOf(PropTypes.string),
+  sectors: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+    })
+  ),
   location: PropTypes.string,
   salary_package: PropTypes.string,
   role_type: PropTypes.string,
