@@ -7,6 +7,7 @@ export const BrandPositioning = lazy(() => import("./BrandPositioning"));
 export const CaseStudies = lazy(() => import("./CaseStudies"));
 export const CollapsibleContent = lazy(() => import("./CollapsibleContent"));
 export const CollapsibleSection = lazy(() => import("./CollapsibleSection"));
+export const FeaturedEmployers = lazy(() => import("./FeaturedEmployers"));
 export const FeatureTabsList = lazy(() => import("./FeatureTabsList"));
 export const Header = lazy(() => import("./Header"));
 export const HeroButtonsGrid = lazy(() => import("./HeroButtonsGrid"));

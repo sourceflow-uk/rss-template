@@ -4,12 +4,15 @@ import clsx from "classnames";
 import classes from "./styles.module.scss";
 import { BlogArticleCard } from "@/ui/BlogArticleCard";
 import ChevronRight from "@/assets/ChevronRight.svg";
+import { DynamicText } from "@/ui/DynamicText";
 
 export const LatestBlogs = ({ className, title, items, button }) => {
   return (
     <div className={clsx(className, classes.blogs)}>
       <Container className="mw-xl">
-        <h2>{title}</h2>
+        <DynamicText path={`_component.${this}.title`} tag="h2">
+          {title}
+        </DynamicText>
         <Row className="mb-4">
           {items.map(({ title, description, img, published_at, tags }, k) => (
             <Col key={k} xs={12} md={4}>

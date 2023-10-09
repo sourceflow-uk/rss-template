@@ -6,6 +6,7 @@ import clsx from "classnames";
 import ChevronLeft from "@/assets/ChevronLeft.svg";
 import ChevronRight from "@/assets/ChevronRight.svg";
 import { lazy } from "react";
+import { DynamicText } from "@/ui/DynamicText";
 
 const BlockQuoteCard = lazy(() => import("@/ui/BlockQuoteCard"));
 
@@ -23,7 +24,9 @@ export const BlockQuote = ({ className, title, items, carousel, visibleCount }) 
   return (
     <div className={clsx(className, classes.blockquotes)}>
       <Container>
-        <h2>{title}</h2>
+        <DynamicText path={`_component.${this}.title`} tag="h2">
+          {title}
+        </DynamicText>
         {carousel ? (
           <Carousel
             className={classes.blockquotes__carousel}

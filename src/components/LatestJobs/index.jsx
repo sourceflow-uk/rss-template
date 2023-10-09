@@ -6,6 +6,7 @@ import classes from "./styles.module.scss";
 import ChevronRight from "@/assets/ChevronRight.svg";
 import ChevronLeft from "@/assets/ChevronLeft.svg";
 import { lazy } from "react";
+import { DynamicText } from "@/ui/DynamicText";
 
 const JobCard = lazy(() => import("@/ui/JobCard"));
 
@@ -13,7 +14,9 @@ export const LatestJobs = ({ className, title, items, button, visibleCount }) =>
   return (
     <div className={clsx(className, classes.jobs)}>
       <Container className="mw-xl">
-        <h2>{title}</h2>
+        <DynamicText path={`_component.${this}.title`} tag="h2">
+          {title}
+        </DynamicText>
         <Carousel
           className="mb-4"
           controls={true}

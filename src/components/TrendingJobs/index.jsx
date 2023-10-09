@@ -2,12 +2,15 @@ import PropTypes from "prop-types";
 import clsx from "classnames";
 import classes from "./styles.module.scss";
 import { Button, Container, Stack } from "react-bootstrap";
+import { DynamicText } from "@/ui/DynamicText";
 
 export const TrendingJobs = ({ className, title }) => {
   return (
     <div className={clsx(className, classes.trending)}>
       <Container className="mw-xl text-center">
-        <h2 className="mb-5">{title}</h2>
+        <DynamicText path={`_component.${this}.title`} tag="h2" className="mb-5">
+          {title}
+        </DynamicText>
         <Stack className="flex-row flex-wrap justify-content-center" gap={2}>
           <Button className="mb-1 px-3" variant="outline-dark">
             Accountant jobs

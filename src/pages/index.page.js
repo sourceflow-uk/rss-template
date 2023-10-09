@@ -27,6 +27,7 @@ import { generateCTA } from "@/faker/generateCTA";
 import { generateRecruiter } from "@/faker/generateRecruiter";
 import { generateRecruiterListingItem } from "@/faker/generateRecruiterListingItem";
 import { generateTeamBio } from "@/faker/generateTeamBio";
+import { generateEmployer } from "@/faker/generateEmployer";
 
 export default function Page({ content }) {
   return (
@@ -105,6 +106,13 @@ export async function getStaticProps({}) {
           },
         },
         {
+          component: "FeaturedEmployers",
+          props: {
+            description: generateDescription(),
+            items: generateArrayOf(generateEmployer, { count: 10 }),
+          },
+        },
+        {
           component: "FeatureTabsList",
           props: {
             items: generateArrayOf(generateFeaturedTabListItem, { count: 5 }),
@@ -151,10 +159,6 @@ export async function getStaticProps({}) {
           props: {
             items: generateArrayOf(generateJob, { count: 12 }),
             visibleCount: 4,
-            button: {
-              label: "View more jobs",
-              href: "/jobs",
-            },
           },
         },
         {

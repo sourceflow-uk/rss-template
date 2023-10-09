@@ -4,12 +4,15 @@ import classes from "./styles.module.scss";
 import { Col, Container, Row } from "react-bootstrap";
 import { trimText } from "@/functions/trimText";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
+import { DynamicText } from "@/ui/DynamicText";
 
 export const HorizontalListings = ({ className, title, items }) => {
   return (
     <div className={clsx(className, classes.listings)}>
       <Container className="mw-lg">
-        <h3>{title}</h3>
+        <DynamicText path={`_component.${this}.title`} tag="h3">
+          {title}
+        </DynamicText>
         <Row>
           {items.map(({ title, img, description }, k) => (
             <Col key={k} xs={12} md={4}>

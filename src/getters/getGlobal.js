@@ -38,6 +38,7 @@ export const getGlobal = (locale = "en") => {
     "_theme.social.twitter": "https://twitter.com/bluearrowgroup",
     "_theme.social.linkedin": "https://www.linkedin.com/company/blue-arrow",
     "_theme.social.youtube": "https://www.youtube.com/channel/UCN1X-rcqNOXv0fLbhtNnJJQ",
+    "_component.FeaturedEmployers.description": "",
   };
 
   // return new BaseObject(global, locale).toJson();
