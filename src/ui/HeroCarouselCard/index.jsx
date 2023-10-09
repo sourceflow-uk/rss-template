@@ -1,10 +1,12 @@
 import { Col, Row } from "react-bootstrap";
-import { VideoModal } from "@/ui/VideoModal";
 import Play from "@/assets/Play.svg";
 import clsx from "classnames";
 import classes from "./styles.module.scss";
 import { trimText } from "@/functions/trimText";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
+import { lazy } from "react";
+
+const VideoModal = lazy(() => import("@/ui/VideoModal"));
 
 export const HeroCarouselCard = ({ className, title, description, img, video_embed_url }) => {
   return (
@@ -26,3 +28,5 @@ export const HeroCarouselCard = ({ className, title, description, img, video_emb
     </div>
   );
 };
+
+export default HeroCarouselCard;

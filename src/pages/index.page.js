@@ -217,6 +217,10 @@ export async function getStaticProps({}) {
           },
         },
         {
+          component: "QuickJobSearch",
+          props: {},
+        },
+        {
           component: "Recruiter",
           props: generateRecruiter(),
         },

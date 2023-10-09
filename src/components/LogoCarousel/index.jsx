@@ -45,3 +45,5 @@ LogoCarousel.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape(LogoCard.propTypes)),
   visibleCount: PropTypes.number,
 };
+
+export default LogoCarousel;

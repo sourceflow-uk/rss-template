@@ -1,0 +1,22 @@
+@import "src/scss/module";
+
+.search {
+  &__form {
+    display: flex;
+    flex-direction: column;
+    border-radius: var(#{--bs-border-radius-sm});
+    background-color: var(#{--bs-primary});
+    color: $white;
+    overflow: hidden;
+
+    [type="button"] {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: $spacer * 0.5;
+      padding: $spacer;
+      border-radius: 0;
+      font-weight: $font-weight-semibold;
+    }
+  }
+}

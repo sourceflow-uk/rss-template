@@ -34,3 +34,5 @@ BreadcrumbNavigation.propTypes = {
     })
   ),
 };
+
+export default BreadcrumbNavigation;

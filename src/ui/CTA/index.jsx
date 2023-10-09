@@ -28,3 +28,5 @@ CTA.propTypes = {
   href: PropTypes.string,
   variant: PropTypes.string,
 };
+
+export default CTA;

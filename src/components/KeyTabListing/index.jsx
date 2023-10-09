@@ -47,3 +47,5 @@ KeyTabListing.propTypes = {
     })
   ),
 };
+
+export default KeyTabListing;

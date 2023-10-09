@@ -34,3 +34,5 @@ OfficeLocations.propTypes = {
   className: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.shape(OfficeLocationCard.propTypes)),
 };
+
+export default OfficeLocations;

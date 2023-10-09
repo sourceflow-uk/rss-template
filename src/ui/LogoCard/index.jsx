@@ -22,3 +22,5 @@ LogoCard.propTypes = {
   logo: PropTypes.string,
   href: PropTypes.string,
 };
+
+export default LogoCard;

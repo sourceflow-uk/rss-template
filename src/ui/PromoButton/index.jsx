@@ -26,3 +26,5 @@ PromoButton.propTypes = {
   title: PropTypes.string,
   href: PropTypes.string,
 };
+
+export default PromoButton;

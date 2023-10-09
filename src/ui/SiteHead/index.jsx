@@ -10,3 +10,5 @@ export const SiteHead = ({ meta }) => {
     </SourceFlowHead>
   );
 };
+
+export default SiteHead;

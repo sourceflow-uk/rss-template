@@ -58,3 +58,5 @@ OfficeLocator.propTypes = {
     })
   ),
 };
+
+export default OfficeLocator;

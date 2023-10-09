@@ -49,3 +49,5 @@ HorizontalListings.propTypes = {
     })
   ),
 };
+
+export default HorizontalListings;

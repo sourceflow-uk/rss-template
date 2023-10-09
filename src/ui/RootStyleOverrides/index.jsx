@@ -34,3 +34,5 @@ export const RootStyleOverrides = () => {
     </style>
   );
 };
+
+export default RootStyleOverrides;

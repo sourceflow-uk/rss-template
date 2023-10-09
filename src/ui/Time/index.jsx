@@ -24,3 +24,5 @@ Time.propTypes = {
   date: PropTypes.string,
   format: PropTypes.string,
 };
+
+export default Time;

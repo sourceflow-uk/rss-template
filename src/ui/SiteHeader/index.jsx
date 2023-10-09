@@ -71,3 +71,5 @@ SiteHeader.propTypes = {
     })
   ),
 };
+
+export default SiteHeader;

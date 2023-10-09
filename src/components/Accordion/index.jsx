@@ -1,9 +1,10 @@
 import classes from "./styles.module.scss";
 import clsx from "classnames";
-import { useState } from "react";
+import { lazy, useState } from "react";
 import PropTypes from "prop-types";
 import { Container } from "react-bootstrap";
-import { AccordionItem } from "@/ui/AccordionItem";
+
+const AccordionItem = lazy(() => import("@/ui/AccordionItem"));
 
 export const Accordion = ({ className, items, defaultActiveKey }) => {
   const [active, setActive] = useState(defaultActiveKey);
@@ -37,3 +38,5 @@ Accordion.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape(AccordionItem.propTypes)),
   defaultActiveKey: PropTypes.number,
 };
+
+export default Accordion;

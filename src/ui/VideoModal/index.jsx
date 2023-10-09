@@ -32,3 +32,5 @@ export const VideoModal = ({ video_embed_url, children, ...props }) => {
     </>
   );
 };
+
+export default VideoModal;

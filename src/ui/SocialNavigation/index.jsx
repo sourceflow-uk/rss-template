@@ -63,3 +63,5 @@ SocialNavigation.propTypes = {
   whatsapp: PropTypes.string,
   email: PropTypes.string,
 };
+
+export default SocialNavigation;

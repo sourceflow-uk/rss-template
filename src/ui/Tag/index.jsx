@@ -23,3 +23,5 @@ Tag.propTypes = {
   label: PropTypes.string,
   href: PropTypes.string,
 };
+
+export default Tag;

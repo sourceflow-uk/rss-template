@@ -34,3 +34,5 @@ SocialVideo.propTypes = {
   video_embed_url: PropTypes.string,
   img: PropTypes.string,
 };
+
+export default SocialVideo;

@@ -6,7 +6,9 @@ import LinkedIn from "@/assets/LinkedIn.svg";
 import Twitter from "@/assets/Twitter.svg";
 import Facebook from "@/assets/Facebook.svg";
 import classes from "./styles.module.scss";
-import { NoSSR } from "@/ui/NoSSR";
+import { lazy } from "react";
+
+const NoSSR = lazy(() => import("@/ui/NoSSR"));
 
 export const SocialMediaShare = ({ className }) => {
   return (
@@ -39,3 +41,5 @@ export const SocialMediaShare = ({ className }) => {
 SocialMediaShare.defaultProps = {
   className: "",
 };
+
+export default SocialMediaShare;

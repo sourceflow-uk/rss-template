@@ -1,12 +1,14 @@
 import { Col, Row } from "react-bootstrap";
-import { CTA } from "@/ui/CTA";
-import { VideoModal } from "@/ui/VideoModal";
 import Play from "@/assets/Play.svg";
 import PropTypes from "prop-types";
 import classes from "./styles.module.scss";
 import clsx from "classnames";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 import { trimText } from "@/functions/trimText";
+import { lazy } from "react";
+
+const CTA = lazy(() => import("@/ui/CTA"));
+const VideoModal = lazy(() => import("@/ui/VideoModal"));
 
 export const PromotionalCarouselItem = ({ className, title, description, img, video_embed_url, cta }) => {
   return (
@@ -47,3 +49,5 @@ PromotionalCarouselItem.propTypes = {
   cta: CTA.propTypes,
   video_embed_url: PropTypes.string,
 };
+
+export default PromotionalCarouselItem;

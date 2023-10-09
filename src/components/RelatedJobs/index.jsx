@@ -42,3 +42,5 @@ RelatedJobs.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape(RelatedJobCard.propTypes)),
   direction: PropTypes.oneOf(["row", "column"]),
 };
+
+export default RelatedJobs;

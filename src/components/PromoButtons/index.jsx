@@ -29,3 +29,5 @@ PromoButtons.propTypes = {
   className: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.shape(PromoButton.propTypes)),
 };
+
+export default PromoButtons;

@@ -1,8 +1,10 @@
 import { Col, Container, Row } from "react-bootstrap";
-import { PromotionalPanelCard } from "@/ui/PromotionalPanelCard";
 import clsx from "classnames";
 import classes from "./styles.module.scss";
 import PropTypes from "prop-types";
+import { lazy } from "react";
+
+const PromotionalPanelCard = lazy(() => import("@/ui/PromotionalPanelCard"));
 
 export const PromotionalPanel = ({ className, items }) => {
   return (
@@ -29,3 +31,5 @@ PromotionalPanel.propTypes = {
   className: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.shape(PromotionalPanelCard.propTypes)),
 };
+
+export default PromotionalPanel;

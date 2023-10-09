@@ -44,3 +44,5 @@ HeroCarousel.propTypes = {
   ),
   controls: PropTypes.bool,
 };
+
+export default HeroCarousel;

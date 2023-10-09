@@ -24,3 +24,5 @@ export const NoSSR = ({ children }) => {
 
   return <>{children()}</>;
 };
+
+export default NoSSR;

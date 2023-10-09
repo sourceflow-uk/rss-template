@@ -1,11 +1,13 @@
 import PropTypes from "prop-types";
 import clsx from "classnames";
 import { Carousel, Col, Container, Row } from "react-bootstrap";
-import { JobCard } from "@/ui/JobCard";
 import { chunk } from "lodash";
 import classes from "./styles.module.scss";
 import ChevronRight from "@/assets/ChevronRight.svg";
 import ChevronLeft from "@/assets/ChevronLeft.svg";
+import { lazy } from "react";
+
+const JobCard = lazy(() => import("@/ui/JobCard"));
 
 export const LatestJobs = ({ className, title, items, button, visibleCount }) => {
   return (
@@ -75,3 +77,5 @@ LatestJobs.propTypes = {
   }),
   visibleCount: PropTypes.number,
 };
+
+export default LatestJobs;

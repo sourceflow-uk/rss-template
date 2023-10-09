@@ -46,3 +46,5 @@ CollapsibleSection.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape(CollapsibleSectionItem.propTypes)),
   defaultActiveKey: PropTypes.number,
 };
+
+export default CollapsibleSection;

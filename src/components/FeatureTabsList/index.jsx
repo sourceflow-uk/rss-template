@@ -58,3 +58,5 @@ FeatureTabsList.propTypes = {
   defaultActiveKey: PropTypes.number,
   vertical: PropTypes.bool,
 };
+
+export default FeatureTabsList;

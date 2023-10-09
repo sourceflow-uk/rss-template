@@ -35,3 +35,5 @@ BlockQuoteCard.propTypes = {
     position: PropTypes.string,
   }),
 };
+
+export default BlockQuoteCard;

@@ -37,3 +37,5 @@ MiniCarousel.propTypes = {
   className: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.shape(MiniCarouselCard.propTypes)),
 };
+
+export default MiniCarousel;

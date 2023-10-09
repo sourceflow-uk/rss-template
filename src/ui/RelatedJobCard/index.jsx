@@ -3,8 +3,10 @@ import PropTypes from "prop-types";
 import classes from "./styles.module.scss";
 import { formatDistanceToNowStrict } from "date-fns";
 import { Stack } from "react-bootstrap";
-import { Tag } from "@/ui/Tag";
 import { trimText } from "@/functions/trimText";
+import { lazy } from "react";
+
+const Tag = lazy(() => import("@/ui/Tag"));
 
 export const RelatedJobCard = ({
   className,
@@ -59,3 +61,5 @@ RelatedJobCard.propTypes = {
   published_at: PropTypes.string,
   href: PropTypes.string,
 };
+
+export default RelatedJobCard;

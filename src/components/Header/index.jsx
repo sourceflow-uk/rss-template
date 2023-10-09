@@ -3,10 +3,12 @@ import classes from "./styles.module.scss";
 import clsx from "classnames";
 import { Col, Row } from "react-bootstrap";
 import Play from "@/assets/Play.svg";
-import { CTA } from "@/ui/CTA";
-import { VideoModal } from "@/ui/VideoModal";
 import { trimText } from "@/functions/trimText";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
+import { lazy } from "react";
+
+const CTA = lazy(() => import("@/ui/CTA"));
+const VideoModal = lazy(() => import("@/ui/VideoModal"));
 
 export const Header = ({ className, title, img, description, cta, video_embed_url }) => {
   return (
@@ -46,3 +48,5 @@ Header.propTypes = {
   cta: PropTypes.shape(CTA.propTypes),
   video_embed_url: PropTypes.string,
 };
+
+export default Header;

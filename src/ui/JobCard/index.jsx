@@ -1,38 +1,18 @@
 import clsx from "classnames";
 import PropTypes from "prop-types";
-// import { format } from "date-fns";
-// import { Tag } from "@/ui/Tag";
-import { CTA } from "@/ui/CTA";
 import classes from "./styles.module.scss";
 import { trimText } from "@/functions/trimText";
-// import ChevronRight from "@/assets/ChevronRight.svg";
 import Location from "@/assets/Location.svg";
 import Contract from "@/assets/Contract.svg";
+import { lazy } from "react";
 
-// TODO remove commented out sections
+const CTA = lazy(() => import("@/ui/CTA"));
 
-export const JobCard = ({
-  className,
-  title,
-  // sectors,
-  // logo,
-  location,
-  salary_package,
-  role_type,
-  // published_at,
-  href,
-}) => {
+export const JobCard = ({ className, title, location, salary_package, role_type, href }) => {
   return (
     <div className={clsx(className, classes.card, "p-4")}>
       <div className={classes.card__body}>
-        {/*<time>{format(new Date(published_at), "dd/MM/yyyy")}</time>*/}
-        {/*{logo && <img src={logo} alt="" />}*/}
         <h3 className="h5 mb-3 flex-grow-1 text-primary">{trimText(title, 35)}</h3>
-        {/*<div className="d-flex gap-2 pb-3">*/}
-        {/*  {sectors.map(({ label, href }, k) => (*/}
-        {/*    <Tag key={k} label={label} href={href} />*/}
-        {/*  ))}*/}
-        {/*</div>*/}
         <dl>
           <dt className="visually-hidden">Salary</dt>
           <dd>
@@ -62,21 +42,17 @@ export const JobCard = ({
 JobCard.defaultProps = {
   className: "bg-light",
   title: "",
-  // sectors: [],
-  // logo: null,
   salary_package: "",
   role_type: "",
-  // published_at: "",
   href: "",
 };
 
 JobCard.propTypes = {
   title: PropTypes.string,
-  // sectors: PropTypes.arrayOf(PropTypes.shape(Tag.propTypes)),
   location: PropTypes.string,
-  // logo: PropTypes.string,
   salary_package: PropTypes.string,
   role_type: PropTypes.string,
-  // published_at: PropTypes.string,
   href: PropTypes.string,
 };
+
+export default JobCard;

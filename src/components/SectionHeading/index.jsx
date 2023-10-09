@@ -22,3 +22,5 @@ SectionHeading.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
 };
+
+export default SectionHeading;

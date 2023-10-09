@@ -2,9 +2,11 @@ import PropTypes from "prop-types";
 import classes from "./styles.module.scss";
 import clsx from "classnames";
 import { Carousel, Container } from "react-bootstrap";
-import { PromotionalCarouselItem } from "@/ui/PromotionalCarouselItem";
 import ChevronLeft from "@/assets/ChevronLeft.svg";
 import ChevronRight from "@/assets/ChevronRight.svg";
+import { lazy } from "react";
+
+const PromotionalCarouselItem = lazy(() => import("@/ui/PromotionalCarouselItem"));
 
 export const PromotionalCarousel = ({ className, items }) => {
   return (
@@ -43,3 +45,5 @@ PromotionalCarousel.propTypes = {
   className: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.shape(PromotionalCarouselItem.propTypes)),
 };
+
+export default PromotionalCarousel;

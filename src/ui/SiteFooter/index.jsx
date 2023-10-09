@@ -154,3 +154,5 @@ SiteFooter.propTypes = {
   company_logo: PropTypes.string,
   vat_number: PropTypes.string,
 };
+
+export default SiteFooter;

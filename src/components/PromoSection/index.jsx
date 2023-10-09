@@ -1,8 +1,10 @@
 import clsx from "classnames";
 import { Col, Container, Row } from "react-bootstrap";
-import { PromoItem } from "@/ui/PromoItem";
 import PropTypes from "prop-types";
 import classes from "./styles.module.scss";
+import { lazy } from "react";
+
+const PromoItem = lazy(() => import("@/ui/PromoItem"));
 
 export const PromoSection = ({ className, items }) => {
   return (
@@ -29,3 +31,5 @@ PromoSection.propTypes = {
   className: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.shape(PromoItem.propTypes)),
 };
+
+export default PromoSection;

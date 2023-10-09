@@ -82,3 +82,5 @@ RecruiterListingItem.propTypes = {
   profile_pic: PropTypes.string,
   description: PropTypes.string,
 };
+
+export default RecruiterListingItem;

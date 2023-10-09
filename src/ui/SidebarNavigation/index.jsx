@@ -34,3 +34,5 @@ SidebarNavigation.propTypes = {
     })
   ),
 };
+
+export default SidebarNavigation;

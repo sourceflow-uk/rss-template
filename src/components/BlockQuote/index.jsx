@@ -3,9 +3,11 @@ import { Carousel, Col, Container, Row } from "react-bootstrap";
 import { chunk } from "lodash";
 import classes from "./styles.module.scss";
 import clsx from "classnames";
-import { BlockQuoteCard } from "@/ui/BlockQuoteCard";
 import ChevronLeft from "@/assets/ChevronLeft.svg";
 import ChevronRight from "@/assets/ChevronRight.svg";
+import { lazy } from "react";
+
+const BlockQuoteCard = lazy(() => import("@/ui/BlockQuoteCard"));
 
 const BlockQuoteCards = ({ className, items, visibleCount }) => (
   <Row className={clsx(className, { "h-100 px-4": visibleCount > 1 })}>
@@ -63,3 +65,5 @@ BlockQuote.propTypes = {
   carousel: PropTypes.bool,
   visibleCount: PropTypes.number,
 };
+
+export default BlockQuote;

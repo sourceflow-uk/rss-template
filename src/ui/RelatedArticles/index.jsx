@@ -1,7 +1,9 @@
 import clsx from "classnames";
 import { Col, Row } from "react-bootstrap";
 import PropTypes from "prop-types";
-import { RelatedArticleCard } from "@/ui/RelatedArticleCard";
+import { lazy } from "react";
+
+const RelatedArticleCard = lazy(() => import("@/ui/RelatedArticleCard"));
 
 export const RelatedArticles = ({ className, title, items }) => {
   return (
@@ -36,3 +38,5 @@ RelatedArticles.propTypes = {
   title: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.shape(RelatedArticleCard.propTypes)),
 };
+
+export default RelatedArticles;

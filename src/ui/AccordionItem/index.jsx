@@ -21,3 +21,5 @@ AccordionItem.propTypes = {
   eventKey: PropTypes.number,
   onClick: PropTypes.func,
 };
+
+export default AccordionItem;

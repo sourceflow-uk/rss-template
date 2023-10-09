@@ -1,7 +1,7 @@
 import { FadeIn } from "react-slide-fade-in";
 import * as components from "@/components";
 import { Button, ButtonGroup, Collapse } from "react-bootstrap";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 
 /**
  *
@@ -19,7 +19,7 @@ export const Content = ({ items, additionalComponents, demoMode }) => {
 
   if (!demoMode) {
     return (
-      <section>
+      <Suspense>
         {items.map(({ component, id, props }, k) => (
           <FadeIn
             from="bottom"
@@ -39,7 +39,7 @@ export const Content = ({ items, additionalComponents, demoMode }) => {
             })()}
           </FadeIn>
         ))}
-      </section>
+      </Suspense>
     );
   }
 
@@ -52,7 +52,7 @@ export const Content = ({ items, additionalComponents, demoMode }) => {
   };
 
   return (
-    <section>
+    <Suspense>
       <ButtonGroup className="position-fixed z-3 bottom-0 p-3" style={{ right: 0 }}>
         <Button size="sm" variant="primary" onClick={openAll}>
           Open All
@@ -93,7 +93,7 @@ export const Content = ({ items, additionalComponents, demoMode }) => {
           </div>
         );
       })}
-    </section>
+    </Suspense>
   );
 };
 
@@ -102,3 +102,5 @@ Content.defaultProps = {
   additionalComponents: {},
   demoMode: false,
 };
+
+export default Content;

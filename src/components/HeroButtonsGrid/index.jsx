@@ -32,3 +32,5 @@ HeroButtonsGrid.propTypes = {
   title: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.shape(HeroButton.propTypes)),
 };
+
+export default HeroButtonsGrid;

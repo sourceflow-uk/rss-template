@@ -56,3 +56,5 @@ LatestBlogs.propTypes = {
     href: PropTypes.string,
   }),
 };
+
+export default LatestBlogs;

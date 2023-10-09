@@ -3,10 +3,12 @@ import { Col, Container, Row } from "react-bootstrap";
 import PropTypes from "prop-types";
 import classes from "./styles.module.scss";
 import Play from "@/assets/Play.svg";
-import { CTA } from "@/ui/CTA";
-import { VideoModal } from "@/ui/VideoModal";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 import { trimText } from "@/functions/trimText";
+import { lazy } from "react";
+
+const CTA = lazy(() => import("@/ui/CTA"));
+const VideoModal = lazy(() => import("@/ui/VideoModal"));
 
 export const NarrativePanel = ({ className, title, description, img, cta, video_embed_url, reverse }) => {
   return (
@@ -58,3 +60,5 @@ NarrativePanel.propTypes = {
   video: PropTypes.string,
   reverse: PropTypes.bool,
 };
+
+export default NarrativePanel;

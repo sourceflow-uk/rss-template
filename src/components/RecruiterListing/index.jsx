@@ -36,3 +36,5 @@ RecruiterListing.propTypes = {
   className: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.shape(RecruiterListingItem.propTypes)),
 };
+
+export default RecruiterListing;

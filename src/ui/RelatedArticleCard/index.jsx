@@ -2,10 +2,12 @@ import clsx from "classnames";
 import PropTypes from "prop-types";
 import classes from "./styles.module.scss";
 import { Stack } from "react-bootstrap";
-import { Tag } from "@/ui/Tag";
 import { trimText } from "@/functions/trimText";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
-import { Time } from "@/ui/Time";
+import { lazy } from "react";
+
+const Tag = lazy(() => import("@/ui/Tag"));
+const Time = lazy(() => import("@/ui/Time"));
 
 export const RelatedArticleCard = ({ className, title, img, tags, published_at, href }) => {
   return (
@@ -46,3 +48,5 @@ RelatedArticleCard.propTypes = {
   published_at: PropTypes.string,
   href: PropTypes.string,
 };
+
+export default RelatedArticleCard;

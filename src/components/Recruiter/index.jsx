@@ -1,9 +1,11 @@
-import clsx from "classnames";
-import { Col, Container, Row } from "react-bootstrap";
-import PropTypes from "prop-types";
-import classes from "./styles.module.scss";
-import { Tag } from "@/ui/Tag";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
+import PropTypes from "prop-types";
+import { Col, Container, Row } from "react-bootstrap";
+import clsx from "classnames";
+import classes from "./styles.module.scss";
+import { lazy } from "react";
+
+const Tag = lazy(() => import("@/ui/Tag"));
 
 export const Recruiter = ({
   className,
@@ -99,3 +101,5 @@ Recruiter.propTypes = {
   profile_pic: PropTypes.string,
   description: PropTypes.string,
 };
+
+export default Recruiter;

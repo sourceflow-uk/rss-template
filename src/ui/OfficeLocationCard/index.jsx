@@ -58,3 +58,5 @@ OfficeLocationCard.propTypes = {
   map_embed_url: PropTypes.string,
   opening_hours: PropTypes.string,
 };
+
+export default OfficeLocationCard;

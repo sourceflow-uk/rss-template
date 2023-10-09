@@ -108,3 +108,5 @@ TeamBio.propTypes = {
   description: PropTypes.string,
   reverse: PropTypes.bool,
 };
+
+export default TeamBio;

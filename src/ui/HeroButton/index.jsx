@@ -27,3 +27,5 @@ HeroButton.propTypes = {
   img: PropTypes.string,
   href: PropTypes.string,
 };
+
+export default HeroButton;

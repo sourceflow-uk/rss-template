@@ -33,3 +33,5 @@ PromoItem.propTypes = {
   description: PropTypes.string,
   href: PropTypes.string,
 };
+
+export default PromoItem;

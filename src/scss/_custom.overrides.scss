@@ -210,3 +210,9 @@ hr {
     }
   }
 }
+
+.form {
+  &-label {
+    font-weight: $font-weight-semibold;
+  }
+}

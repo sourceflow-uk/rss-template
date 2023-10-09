@@ -28,3 +28,5 @@ MultiTileCard.propTypes = {
   img: PropTypes.string,
   href: PropTypes.string,
 };
+
+export default MultiTileCard;

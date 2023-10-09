@@ -60,3 +60,5 @@ Article.propTypes = {
   published_at: PropTypes.string,
   related: RelatedArticles.propTypes.items,
 };
+
+export default Article;

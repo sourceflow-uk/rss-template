@@ -28,3 +28,5 @@ CaseStudies.propTypes = {
   className: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.shape(CaseStudyCard.propTypes)),
 };
+
+export default CaseStudies;

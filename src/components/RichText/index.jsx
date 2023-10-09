@@ -21,3 +21,5 @@ RichText.defaultProps = {
   className: "py-5",
   body: null,
 };
+
+export default RichText;

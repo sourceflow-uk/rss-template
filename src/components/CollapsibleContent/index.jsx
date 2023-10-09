@@ -30,3 +30,5 @@ CollapsibleContent.propTypes = {
   title: PropTypes.string,
   body: PropTypes.string,
 };
+
+export default CollapsibleContent;
