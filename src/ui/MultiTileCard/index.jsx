@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 import { trimText } from "@/functions/trimText";
 
-export const MultiTileCard = ({ className, title, img, href }) => {
+export default function MultiTileCard({ className, title, img, href }) {
   return (
     <a href={href} className={clsx(className, classes.card)}>
       <SourceFlowImage className={classes.card__img} src={img} size="200x200" alt={title} />
@@ -13,7 +13,7 @@ export const MultiTileCard = ({ className, title, img, href }) => {
       </div>
     </a>
   );
-};
+}
 
 MultiTileCard.defaultProps = {
   className: "",
@@ -28,5 +28,3 @@ MultiTileCard.propTypes = {
   img: PropTypes.string,
   href: PropTypes.string,
 };
-
-export default MultiTileCard;

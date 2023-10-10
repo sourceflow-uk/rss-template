@@ -3,7 +3,7 @@ import clsx from "classnames";
 import classes from "./styles.module.scss";
 import PropTypes from "prop-types";
 
-export const SectionHeading = ({ className, title }) => {
+export default function SectionHeading({ className, title }) {
   return (
     <div className={clsx(className, classes.heading)}>
       <Container>
@@ -11,7 +11,7 @@ export const SectionHeading = ({ className, title }) => {
       </Container>
     </div>
   );
-};
+}
 
 SectionHeading.defaultProps = {
   className: "py-5",
@@ -22,5 +22,3 @@ SectionHeading.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
 };
-
-export default SectionHeading;

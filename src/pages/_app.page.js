@@ -1,14 +1,12 @@
 import "@/scss/styles.scss";
 import { ParallaxProvider } from "react-scroll-parallax";
-// import { SiteHead } from "@/ui/SiteHead";
-import { SiteHeader } from "@/ui/SiteHeader";
-import { SiteFooter } from "@/ui/SiteFooter";
 import { getGlobal } from "@/getters/getGlobal";
 import { getHeaderMenu } from "@/getters/getHeaderMenu";
 import { getFooterMenu } from "@/getters/getFooterMenu";
 import { Alert } from "react-bootstrap";
 import { initializeMarker } from "@/functions/initializeMarker";
 import { Suspense, useEffect } from "react";
+import { SiteFooter, SiteHeader } from "@/ui";
 
 export default function App({ Component, pageProps }) {
   const global = getGlobal();

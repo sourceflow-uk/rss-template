@@ -8,7 +8,7 @@ import LinkedIn from "@/assets/LinkedIn.svg";
 import YouTube from "@/assets/YouTube.svg";
 import { format } from "date-fns";
 
-export const SiteFooter = ({
+export default function SiteFooter({
   className,
   nav,
   social_links,
@@ -19,7 +19,7 @@ export const SiteFooter = ({
   company_number,
   company_logo,
   vat_number,
-}) => {
+}) {
   return (
     <div className={clsx(className, classes.footer, "pt-5 pb-4")}>
       <Container>
@@ -112,7 +112,7 @@ export const SiteFooter = ({
       </Container>
     </div>
   );
-};
+}
 
 SiteFooter.defaultProps = {
   className: "",
@@ -154,5 +154,3 @@ SiteFooter.propTypes = {
   company_logo: PropTypes.string,
   vat_number: PropTypes.string,
 };
-
-export default SiteFooter;

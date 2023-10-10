@@ -4,7 +4,7 @@ import classes from "./styles.module.scss";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 import { trimText } from "@/functions/trimText";
 
-export const PromoButton = ({ className, title, img, href }) => {
+export default function PromoButton({ className, title, img, href }) {
   return (
     <a href={href} className={clsx(className, classes.button)}>
       <SourceFlowImage className={classes.button__img} src={img} size="332x332" alt={title} />
@@ -13,7 +13,7 @@ export const PromoButton = ({ className, title, img, href }) => {
       </div>
     </a>
   );
-};
+}
 
 PromoButton.defaultProps = {
   className: "",
@@ -26,5 +26,3 @@ PromoButton.propTypes = {
   title: PropTypes.string,
   href: PropTypes.string,
 };
-
-export default PromoButton;

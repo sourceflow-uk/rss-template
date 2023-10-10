@@ -1,4 +1,5 @@
-import { Content } from "@/ui/Content";
+import { Content } from "@/ui";
+import { fakerEN_GB as faker } from "@faker-js/faker/locale/index";
 import { generateSocialVideo } from "@/faker/generateSocialVideo";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateBlockQuoteCard } from "@/faker/generateBlockQuoteCard";
@@ -17,7 +18,6 @@ import { generateCaseStudy } from "@/faker/generateCaseStudy";
 import { generateFeaturedTabListItem } from "@/faker/generateFeaturedTabListItem";
 import { generateHeader } from "@/faker/generateHeader";
 import { generateHeroCarouselItem } from "@/faker/generateHeroCarouselItem";
-import { fakerEN_GB as faker } from "@faker-js/faker/locale/index";
 import { generateHorizontalListing } from "@/faker/generateHorizontalListing";
 import { generateMultiTileCard } from "@/faker/generateMultiTileCard";
 import { generateOfficeLocationCard } from "@/faker/generateOfficeLocationCard";
@@ -244,12 +244,6 @@ export async function getStaticProps({}) {
           component: "RichText",
           props: {
             body: generateBody(),
-          },
-        },
-        {
-          component: "SectionHeading",
-          props: {
-            title: generateTitle(),
           },
         },
         {

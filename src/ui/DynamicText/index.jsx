@@ -12,7 +12,7 @@ import { getGlobal } from "@/getters/getGlobal";
  * @returns {React.DetailedReactHTMLElement<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>|JSX.Element}
  * @constructor
  */
-export const DynamicText = ({ path, tag, dangerouslySetInnerHTML, children, ...props }) => {
+export default function DynamicText({ path, tag, dangerouslySetInnerHTML, children, ...props }) {
   let textProps = {
     type: "text",
     global: getGlobal(),
@@ -29,7 +29,7 @@ export const DynamicText = ({ path, tag, dangerouslySetInnerHTML, children, ...p
   }
 
   return <SourceFlowText {...textProps} {...props} />;
-};
+}
 
 DynamicText.defaultProps = {
   tag: null,

@@ -1,4 +1,4 @@
-import { NarrativePanel } from "./index";
+import NarrativePanel from "./index";
 import { generateNarrativePanel } from "@/faker/generateNarrativePanel";
 
 export default {

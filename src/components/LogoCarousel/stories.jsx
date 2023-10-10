@@ -1,4 +1,4 @@
-import { LogoCarousel } from "./index";
+import LogoCarousel from "./index";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateLogoCard } from "@/faker/generateLogoCard";
 

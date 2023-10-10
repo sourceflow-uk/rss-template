@@ -2,11 +2,9 @@ import clsx from "classnames";
 import classes from "./styles.module.scss";
 import PropTypes from "prop-types";
 import { trimText } from "@/functions/trimText";
-import { lazy } from "react";
+import { CTA } from "@/ui";
 
-const CTA = lazy(() => import("@/ui/CTA"));
-
-export const PromotionalPanelCard = ({ className, title, description, cta }) => {
+export default function PromotionalPanelCard({ className, title, description, cta }) {
   return (
     <div className={clsx(className, classes.card)}>
       <div className={classes.card__body}>
@@ -20,7 +18,7 @@ export const PromotionalPanelCard = ({ className, title, description, cta }) => 
       </div>
     </div>
   );
-};
+}
 
 PromotionalPanelCard.defaultProps = {
   className: "",
@@ -33,7 +31,10 @@ PromotionalPanelCard.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
-  cta: PropTypes.shape(CTA.propTypes),
+  cta: PropTypes.shape({
+    className: PropTypes.string,
+    label: PropTypes.string,
+    href: PropTypes.string,
+    variant: PropTypes.string,
+  }),
 };
-
-export default PromotionalPanelCard;

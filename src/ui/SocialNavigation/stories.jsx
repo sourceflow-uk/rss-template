@@ -1,4 +1,4 @@
-import { SocialNavigation } from "./index";
+import SocialNavigation from "./index";
 
 export default {
   title: "UI/SocialNavigation",

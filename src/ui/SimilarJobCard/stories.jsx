@@ -1,4 +1,4 @@
-import { SimilarJobCard } from "./index";
+import SimilarJobCard from "./index";
 import { Col, Container, Row } from "react-bootstrap";
 import { generateJob } from "@/faker/generateJob";
 

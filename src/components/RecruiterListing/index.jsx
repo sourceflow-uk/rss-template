@@ -1,9 +1,9 @@
 import clsx from "classnames";
 import { Col, Container, Row } from "react-bootstrap";
-import { RecruiterListingItem } from "@/ui/RecruiterListingItem";
 import PropTypes from "prop-types";
+import { RecruiterListingItem } from "@/ui";
 
-export const RecruiterListing = ({ className, items }) => {
+export default function RecruiterListing({ className, items }) {
   return (
     <div className={clsx(className)}>
       <Container className="mw-xl">
@@ -25,7 +25,7 @@ export const RecruiterListing = ({ className, items }) => {
       </Container>
     </div>
   );
-};
+}
 
 RecruiterListing.defaultProps = {
   className: "py-5",
@@ -34,7 +34,16 @@ RecruiterListing.defaultProps = {
 
 RecruiterListing.propTypes = {
   className: PropTypes.string,
-  items: PropTypes.arrayOf(PropTypes.shape(RecruiterListingItem.propTypes)),
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      className: PropTypes.string,
+      name: PropTypes.string,
+      title: PropTypes.string,
+      email: PropTypes.string,
+      linkedIn: PropTypes.string,
+      phone: PropTypes.string,
+      profile_pic: PropTypes.string,
+      description: PropTypes.string,
+    })
+  ),
 };
-
-export default RecruiterListing;

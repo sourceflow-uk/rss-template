@@ -1,4 +1,4 @@
-import { SimilarJobs } from "./index";
+import SimilarJobs from "./index";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateJob } from "@/faker/generateJob";
 

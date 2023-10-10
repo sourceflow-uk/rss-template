@@ -5,7 +5,7 @@ import { Container, Tab, Tabs } from "react-bootstrap";
 import { trimText } from "@/functions/trimText";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 
-export const KeyTabListing = ({ className, items }) => {
+export default function KeyTabListing({ className, items }) {
   return (
     <div className={clsx(className, classes.listings)}>
       <Container className="mw-lg">
@@ -30,7 +30,7 @@ export const KeyTabListing = ({ className, items }) => {
       </Container>
     </div>
   );
-};
+}
 
 KeyTabListing.defaultProps = {
   className: "py-5",
@@ -47,5 +47,3 @@ KeyTabListing.propTypes = {
     })
   ),
 };
-
-export default KeyTabListing;

@@ -1,4 +1,4 @@
-import { RecruiterListing } from "./index";
+import RecruiterListing from "./index";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateRecruiterListingItem } from "@/faker/generateRecruiterListingItem";
 

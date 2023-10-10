@@ -1,4 +1,4 @@
-import { SocialMediaShare } from "./index";
+import SocialMediaShare from "./index";
 
 export default {
   title: "UI/SocialMediaShare",

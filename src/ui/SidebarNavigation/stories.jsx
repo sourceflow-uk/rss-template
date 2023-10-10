@@ -1,4 +1,4 @@
-import { SidebarNavigation } from "./index";
+import SidebarNavigation from "./index";
 import { fakerEN_GB as faker } from "@faker-js/faker";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateSidebarNavigationItem } from "@/faker/generateSidebarNavigationItem";

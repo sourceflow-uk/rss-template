@@ -2,9 +2,9 @@ import PropTypes from "prop-types";
 import clsx from "classnames";
 import classes from "./styles.module.scss";
 import { Button, Container, Stack } from "react-bootstrap";
-import { DynamicText } from "@/ui/DynamicText";
+import { DynamicText } from "@/ui";
 
-export const TrendingJobs = ({ className, title }) => {
+export default function TrendingJobs({ className, title }) {
   return (
     <div className={clsx(className, classes.trending)}>
       <Container className="mw-xl text-center">
@@ -46,7 +46,7 @@ export const TrendingJobs = ({ className, title }) => {
       </Container>
     </div>
   );
-};
+}
 
 TrendingJobs.defaultProps = {
   className: "py-5",
@@ -64,5 +64,3 @@ TrendingJobs.propTypes = {
     })
   ),
 };
-
-export default TrendingJobs;

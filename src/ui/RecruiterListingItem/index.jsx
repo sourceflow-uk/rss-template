@@ -8,7 +8,16 @@ import Email from "@/assets/Email.svg";
 import Phone from "@/assets/Phone.svg";
 import LinkedIn from "@/assets/LinkedIn.svg";
 
-export const RecruiterListingItem = ({ className, name, title, email, linkedIn, phone, profile_pic, description }) => {
+export default function RecruiterListingItem({
+  className,
+  name,
+  title,
+  email,
+  linkedIn,
+  phone,
+  profile_pic,
+  description,
+}) {
   return (
     <div className={clsx(className, classes.item)}>
       <Row>
@@ -59,7 +68,7 @@ export const RecruiterListingItem = ({ className, name, title, email, linkedIn, 
       </Row>
     </div>
   );
-};
+}
 
 RecruiterListingItem.defaultProps = {
   className: "",
@@ -82,5 +91,3 @@ RecruiterListingItem.propTypes = {
   profile_pic: PropTypes.string,
   description: PropTypes.string,
 };
-
-export default RecruiterListingItem;

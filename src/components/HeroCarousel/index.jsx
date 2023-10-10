@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
 import classes from "./styles.module.scss";
 import clsx from "classnames";
-import { Carousel, Container } from "react-bootstrap";
-import { HeroCarouselCard } from "@/ui/HeroCarouselCard";
+import { Carousel } from "react-bootstrap";
 import ChevronLeft from "@/assets/ChevronLeft.svg";
 import ChevronRight from "@/assets/ChevronRight.svg";
+import { HeroCarouselCard } from "@/ui";
 
-export const HeroCarousel = ({ className, items, controls }) => {
+export default function HeroCarousel({ className, items, controls }) {
   return (
     <div className={clsx(className, classes.hero)}>
       <Carousel
@@ -23,7 +23,7 @@ export const HeroCarousel = ({ className, items, controls }) => {
       </Carousel>
     </div>
   );
-};
+}
 
 HeroCarousel.defaultProps = {
   className: "",
@@ -44,5 +44,3 @@ HeroCarousel.propTypes = {
   ),
   controls: PropTypes.bool,
 };
-
-export default HeroCarousel;

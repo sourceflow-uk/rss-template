@@ -1,4 +1,4 @@
-import { Accordion } from "./index";
+import Accordion from "./index";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateTitle } from "@/faker/generateTitle";
 import { generateBody } from "@/faker/generateBody";

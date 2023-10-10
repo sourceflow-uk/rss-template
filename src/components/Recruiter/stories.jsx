@@ -1,4 +1,4 @@
-import { Recruiter } from "./index";
+import Recruiter from "./index";
 import { generateRecruiter } from "@/faker/generateRecruiter";
 
 export default {

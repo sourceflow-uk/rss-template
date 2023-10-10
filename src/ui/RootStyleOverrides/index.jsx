@@ -1,7 +1,7 @@
 import { hexToRgb } from "@/functions/hexToRgb";
 import { getGlobal } from "@/getters/getGlobal";
 
-export const RootStyleOverrides = () => {
+export default function RootStyleOverrides() {
   const global = getGlobal();
 
   return (
@@ -33,6 +33,4 @@ export const RootStyleOverrides = () => {
       `}
     </style>
   );
-};
-
-export default RootStyleOverrides;
+}

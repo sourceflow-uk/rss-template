@@ -1,4 +1,4 @@
-import { BreadcrumbNavigation } from "./index";
+import BreadcrumbNavigation from "./index";
 import { Container } from "react-bootstrap";
 
 export default {

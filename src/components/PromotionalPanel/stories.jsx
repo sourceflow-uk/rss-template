@@ -1,4 +1,4 @@
-import { PromotionalPanel } from "./index";
+import PromotionalPanel from "./index";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateTitle } from "@/faker/generateTitle";
 import { generateDescription } from "@/faker/generateDescription";

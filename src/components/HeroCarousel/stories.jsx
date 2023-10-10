@@ -1,4 +1,4 @@
-import { HeroCarousel } from "./index";
+import HeroCarousel from "./index";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateHeroCarouselItem } from "@/faker/generateHeroCarouselItem";
 

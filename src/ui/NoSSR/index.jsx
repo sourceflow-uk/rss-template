@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
 
-export const NoSSR = ({ children }) => {
+export default function NoSSR({ children }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -23,6 +23,4 @@ export const NoSSR = ({ children }) => {
   }
 
   return <>{children()}</>;
-};
-
-export default NoSSR;
+}

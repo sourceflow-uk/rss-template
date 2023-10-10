@@ -2,8 +2,9 @@ import classes from "./styles.module.scss";
 import { Modal } from "react-bootstrap";
 import { useState } from "react";
 import clsx from "classnames";
+import PropTypes from "prop-types";
 
-export const VideoModal = ({ video_embed_url, children, ...props }) => {
+export default function VideoModal({ video_embed_url, children, ...props }) {
   const [show, setShow] = useState(false);
 
   return (
@@ -31,6 +32,12 @@ export const VideoModal = ({ video_embed_url, children, ...props }) => {
       </Modal>
     </>
   );
+}
+
+VideoModal.defaultProps = {
+  video_embed_url: "",
 };
 
-export default VideoModal;
+VideoModal.propTypes = {
+  video_embed_url: PropTypes.string,
+};

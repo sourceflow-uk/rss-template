@@ -1,4 +1,4 @@
-import { MiniCarouselCard } from "./index";
+import MiniCarouselCard from "./index";
 import { Container } from "react-bootstrap";
 import { generateMiniCarouselCard } from "@/faker/generateMiniCarouselCard";
 

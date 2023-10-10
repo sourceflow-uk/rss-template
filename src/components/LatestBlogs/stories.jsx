@@ -1,4 +1,4 @@
-import { LatestBlogs } from "./index";
+import LatestBlogs from "./index";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateArticle } from "@/faker/generateArticle";
 

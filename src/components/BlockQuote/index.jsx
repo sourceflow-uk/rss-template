@@ -5,10 +5,7 @@ import classes from "./styles.module.scss";
 import clsx from "classnames";
 import ChevronLeft from "@/assets/ChevronLeft.svg";
 import ChevronRight from "@/assets/ChevronRight.svg";
-import { lazy } from "react";
-import { DynamicText } from "@/ui/DynamicText";
-
-const BlockQuoteCard = lazy(() => import("@/ui/BlockQuoteCard"));
+import { BlockQuoteCard, DynamicText } from "@/ui";
 
 const BlockQuoteCards = ({ className, items, visibleCount }) => (
   <Row className={clsx(className, { "h-100 px-4": visibleCount > 1 })}>
@@ -20,7 +17,7 @@ const BlockQuoteCards = ({ className, items, visibleCount }) => (
   </Row>
 );
 
-export const BlockQuote = ({ className, title, items, carousel, visibleCount }) => {
+export default function BlockQuote({ className, title, items, carousel, visibleCount }) {
   return (
     <div className={clsx(className, classes.blockquotes)}>
       <Container>
@@ -51,7 +48,7 @@ export const BlockQuote = ({ className, title, items, carousel, visibleCount }) 
       </Container>
     </div>
   );
-};
+}
 
 BlockQuote.defaultProps = {
   className: "bg-white py-5",
@@ -64,9 +61,16 @@ BlockQuote.defaultProps = {
 BlockQuote.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
-  items: PropTypes.arrayOf(PropTypes.shape(BlockQuoteCard.propTypes)),
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      className: PropTypes.string,
+      quote: PropTypes.string,
+      author: PropTypes.shape({
+        name: PropTypes.string,
+        position: PropTypes.string,
+      }),
+    })
+  ),
   carousel: PropTypes.bool,
   visibleCount: PropTypes.number,
 };
-
-export default BlockQuote;

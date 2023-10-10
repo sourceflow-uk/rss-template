@@ -1,10 +1,9 @@
 import clsx from "classnames";
 import { Col, Container, Row } from "react-bootstrap";
 import PropTypes from "prop-types";
-import { RelatedJobCard } from "@/ui/RelatedJobCard";
-import { DynamicText } from "@/ui/DynamicText";
+import { DynamicText, RelatedJobCard } from "@/ui";
 
-export const RelatedJobs = ({ className, title, items, direction }) => {
+export default function RelatedJobs({ className, title, items, direction }) {
   return (
     <div className={clsx(className)}>
       <Container className="mw-lg">
@@ -30,7 +29,7 @@ export const RelatedJobs = ({ className, title, items, direction }) => {
       </Container>
     </div>
   );
-};
+}
 
 RelatedJobs.defaultProps = {
   className: "py-5",
@@ -42,8 +41,20 @@ RelatedJobs.defaultProps = {
 RelatedJobs.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
-  items: PropTypes.arrayOf(PropTypes.shape(RelatedJobCard.propTypes)),
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      sectors: PropTypes.arrayOf(
+        PropTypes.shape({
+          label: PropTypes.string,
+        })
+      ),
+      location: PropTypes.string,
+      salary_package: PropTypes.string,
+      role_type: PropTypes.string,
+      published_at: PropTypes.string,
+      href: PropTypes.string,
+    })
+  ),
   direction: PropTypes.oneOf(["row", "column"]),
 };
-
-export default RelatedJobs;

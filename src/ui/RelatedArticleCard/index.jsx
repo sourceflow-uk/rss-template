@@ -4,12 +4,9 @@ import classes from "./styles.module.scss";
 import { Stack } from "react-bootstrap";
 import { trimText } from "@/functions/trimText";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
-import { lazy } from "react";
+import { Tag, Time } from "@/ui";
 
-const Tag = lazy(() => import("@/ui/Tag"));
-const Time = lazy(() => import("@/ui/Time"));
-
-export const RelatedArticleCard = ({ className, title, img, tags, published_at, href }) => {
+export default function RelatedArticleCard({ className, title, img, tags, published_at, href }) {
   return (
     <div className={clsx(className, classes.card)}>
       <a href={href}>
@@ -28,7 +25,7 @@ export const RelatedArticleCard = ({ className, title, img, tags, published_at, 
       </div>
     </div>
   );
-};
+}
 
 RelatedArticleCard.defaultProps = {
   className: "",
@@ -44,9 +41,14 @@ RelatedArticleCard.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   img: PropTypes.string,
-  tags: PropTypes.arrayOf(PropTypes.shape(Tag.propTypes)),
+  tags: PropTypes.arrayOf(
+    PropTypes.shape({
+      className: PropTypes.string,
+      label: PropTypes.string,
+      href: PropTypes.string,
+      variant: PropTypes.string,
+    })
+  ),
   published_at: PropTypes.string,
   href: PropTypes.string,
 };
-
-export default RelatedArticleCard;

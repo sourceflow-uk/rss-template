@@ -4,7 +4,7 @@ import classes from "./styles.module.scss";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 import { trimText } from "@/functions/trimText";
 
-export const PromoItem = ({ className, title, img, description, href }) => {
+export default function PromoItem({ className, title, img, description, href }) {
   return (
     <a href={href} className={clsx(className, classes.card)}>
       <figure>
@@ -16,7 +16,7 @@ export const PromoItem = ({ className, title, img, description, href }) => {
       </div>
     </a>
   );
-};
+}
 
 PromoItem.defaultProps = {
   className: "",
@@ -33,5 +33,3 @@ PromoItem.propTypes = {
   description: PropTypes.string,
   href: PropTypes.string,
 };
-
-export default PromoItem;

@@ -2,11 +2,9 @@ import clsx from "classnames";
 import { Col, Container, Row } from "react-bootstrap";
 import PropTypes from "prop-types";
 import classes from "./styles.module.scss";
-import { lazy } from "react";
+import { PromoItem } from "@/ui";
 
-const PromoItem = lazy(() => import("@/ui/PromoItem"));
-
-export const PromoSection = ({ className, items }) => {
+export default function PromoSection({ className, items }) {
   return (
     <div className={clsx(className, classes.section)}>
       <Container className="mw-xl">
@@ -20,7 +18,7 @@ export const PromoSection = ({ className, items }) => {
       </Container>
     </div>
   );
-};
+}
 
 PromoSection.defaultProps = {
   className: "py-5",
@@ -29,7 +27,13 @@ PromoSection.defaultProps = {
 
 PromoSection.propTypes = {
   className: PropTypes.string,
-  items: PropTypes.arrayOf(PropTypes.shape(PromoItem.propTypes)),
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      className: PropTypes.string,
+      title: PropTypes.string,
+      img: PropTypes.string,
+      description: PropTypes.string,
+      href: PropTypes.string,
+    })
+  ),
 };
-
-export default PromoSection;

@@ -4,11 +4,10 @@ import clsx from "classnames";
 import classes from "./styles.module.scss";
 import { trimText } from "@/functions/trimText";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
-import { lazy } from "react";
+import PropTypes from "prop-types";
+import { VideoModal } from "@/ui";
 
-const VideoModal = lazy(() => import("@/ui/VideoModal"));
-
-export const HeroCarouselCard = ({ className, title, description, img, video_embed_url }) => {
+export default function HeroCarouselCard({ className, title, description, img, video_embed_url }) {
   return (
     <div className={clsx(className, classes.card)}>
       <SourceFlowImage className={classes.card__img} src={img} size="1440x300" alt={title} />
@@ -27,6 +26,20 @@ export const HeroCarouselCard = ({ className, title, description, img, video_emb
       )}
     </div>
   );
+}
+
+HeroCarouselCard.defaultProps = {
+  className: "",
+  title: "",
+  description: "",
+  img: "",
+  video_embed_url: "",
 };
 
-export default HeroCarouselCard;
+HeroCarouselCard.propTypes = {
+  className: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  img: PropTypes.string,
+  video_embed_url: PropTypes.string,
+};

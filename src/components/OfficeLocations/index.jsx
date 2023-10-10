@@ -1,9 +1,9 @@
 import clsx from "classnames";
 import { Col, Container, Row } from "react-bootstrap";
 import PropTypes from "prop-types";
-import { OfficeLocationCard } from "@/ui/OfficeLocationCard";
+import { OfficeLocationCard } from "@/ui";
 
-export const OfficeLocations = ({ className, items }) => {
+export default function OfficeLocations({ className, items }) {
   return (
     <div className={clsx(className)}>
       <Container className="mw-xl">
@@ -23,7 +23,7 @@ export const OfficeLocations = ({ className, items }) => {
       </Container>
     </div>
   );
-};
+}
 
 OfficeLocations.defaultProps = {
   className: "py-5",
@@ -32,7 +32,14 @@ OfficeLocations.defaultProps = {
 
 OfficeLocations.propTypes = {
   className: PropTypes.string,
-  items: PropTypes.arrayOf(PropTypes.shape(OfficeLocationCard.propTypes)),
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      className: PropTypes.string,
+      address: PropTypes.string,
+      phone_number: PropTypes.string,
+      email: PropTypes.string,
+      map_embed_url: PropTypes.string,
+      opening_hours: PropTypes.string,
+    })
+  ),
 };
-
-export default OfficeLocations;

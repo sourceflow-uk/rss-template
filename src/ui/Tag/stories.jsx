@@ -1,4 +1,4 @@
-import { Tag } from "./index";
+import Tag from "./index";
 import { Col, Container, Row } from "react-bootstrap";
 import { generateTag } from "@/faker/generateTag";
 

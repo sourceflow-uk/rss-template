@@ -5,12 +5,9 @@ import classes from "./styles.module.scss";
 import Play from "@/assets/Play.svg";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 import { trimText } from "@/functions/trimText";
-import { lazy } from "react";
+import { CTA, VideoModal } from "@/ui";
 
-const CTA = lazy(() => import("@/ui/CTA"));
-const VideoModal = lazy(() => import("@/ui/VideoModal"));
-
-export const NarrativePanel = ({ className, title, description, img, cta, video_embed_url, reverse }) => {
+export default function NarrativePanel({ className, title, description, img, cta, video_embed_url, reverse }) {
   return (
     <div className={clsx(className, classes.panel)}>
       <Container className="mw-xl">
@@ -36,7 +33,7 @@ export const NarrativePanel = ({ className, title, description, img, cta, video_
       </Container>
     </div>
   );
-};
+}
 
 NarrativePanel.defaultProps = {
   className: "py-5",
@@ -56,9 +53,12 @@ NarrativePanel.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   img: PropTypes.string,
-  cta: PropTypes.shape(CTA.propTypes),
+  cta: PropTypes.shape({
+    className: PropTypes.string,
+    label: PropTypes.string,
+    href: PropTypes.string,
+    variant: PropTypes.string,
+  }),
   video: PropTypes.string,
   reverse: PropTypes.bool,
 };
-
-export default NarrativePanel;

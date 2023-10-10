@@ -1,4 +1,4 @@
-import { Header } from "./index";
+import Header from "./index";
 import { generateHeader } from "@/faker/generateHeader";
 
 export default {

@@ -4,7 +4,7 @@ import ArrowRight from "@/assets/ArrowRight.svg";
 import classes from "./styles.module.scss";
 import { useCallback, useState } from "react";
 
-export const QuickJobSearch = ({ className }) => {
+export default function QuickJobSearch({ className }) {
   const [query, setQuery] = useState();
   const [sector, setSector] = useState();
   const [location, setLocation] = useState();
@@ -112,10 +112,8 @@ export const QuickJobSearch = ({ className }) => {
       </Container>
     </div>
   );
-};
+}
 
 QuickJobSearch.defaultProps = {
   className: "py-5",
 };
-
-export default QuickJobSearch;

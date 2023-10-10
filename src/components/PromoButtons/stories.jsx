@@ -1,4 +1,4 @@
-import { PromoButtons } from "./index";
+import PromoButtons from "./index";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generatePromoButton } from "@/faker/generatePromoButton";
 

@@ -2,11 +2,11 @@ import clsx from "classnames";
 import PropTypes from "prop-types";
 import { Carousel, Container } from "react-bootstrap";
 import classes from "./styles.module.scss";
-import { MiniCarouselCard } from "@/ui/MiniCarouselCard";
 import ChevronLeft from "@/assets/ChevronLeft.svg";
 import ChevronRight from "@/assets/ChevronRight.svg";
+import { MiniCarouselCard } from "@/ui";
 
-export const MiniCarousel = ({ className, items }) => {
+export default function MiniCarousel({ className, items }) {
   return (
     <div className={clsx(className, classes.mini)}>
       <Container>
@@ -26,7 +26,7 @@ export const MiniCarousel = ({ className, items }) => {
       </Container>
     </div>
   );
-};
+}
 
 MiniCarousel.defaultProps = {
   className: "py-5 text-white",
@@ -35,7 +35,18 @@ MiniCarousel.defaultProps = {
 
 MiniCarousel.propTypes = {
   className: PropTypes.string,
-  items: PropTypes.arrayOf(PropTypes.shape(MiniCarouselCard.propTypes)),
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      className: PropTypes.string,
+      title: PropTypes.string,
+      description: PropTypes.string,
+      img: PropTypes.string,
+      cta: PropTypes.shape({
+        className: PropTypes.string,
+        label: PropTypes.string,
+        href: PropTypes.string,
+        variant: PropTypes.string,
+      }),
+    })
+  ),
 };
-
-export default MiniCarousel;

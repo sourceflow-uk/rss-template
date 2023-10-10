@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { trimText } from "@/functions/trimText";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 
-export const CaseStudyCard = ({ className, title, description, img, href }) => {
+export default function CaseStudyCard({ className, title, description, img, href }) {
   return (
     <a className={clsx(className, classes.card)} href={href}>
       <SourceFlowImage className={classes.card__img} src={img} size="300x300" alt={title} />
@@ -14,7 +14,7 @@ export const CaseStudyCard = ({ className, title, description, img, href }) => {
       </div>
     </a>
   );
-};
+}
 
 CaseStudyCard.defaultProps = {
   className: "",
@@ -31,5 +31,3 @@ CaseStudyCard.propTypes = {
   img: PropTypes.string,
   href: PropTypes.string,
 };
-
-export default CaseStudyCard;

@@ -1,4 +1,4 @@
-import { RichText } from "./index";
+import RichText from "./index";
 import { generateBody } from "@/faker/generateBody";
 
 export default {

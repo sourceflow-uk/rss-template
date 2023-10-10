@@ -1,4 +1,4 @@
-import { RelatedArticleCard } from "./index";
+import RelatedArticleCard from "./index";
 import { Col, Container, Row } from "react-bootstrap";
 import { generateArticle } from "@/faker/generateArticle";
 

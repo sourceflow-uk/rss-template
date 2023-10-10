@@ -1,4 +1,4 @@
-import { CTA } from "./index";
+import CTA from "./index";
 import { Col, Container, Row } from "react-bootstrap";
 import { generateCTA } from "@/faker/generateCTA";
 

@@ -1,4 +1,4 @@
-import { Content } from "@/ui/Content";
+import { Content } from "@/ui";
 
 export default function Page({ content }) {
   return (

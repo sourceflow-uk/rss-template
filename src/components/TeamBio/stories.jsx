@@ -1,4 +1,4 @@
-import { TeamBio } from "./index";
+import TeamBio from "./index";
 import { generateTeamBio } from "@/faker/generateTeamBio";
 
 export default {

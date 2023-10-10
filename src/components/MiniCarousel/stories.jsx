@@ -1,4 +1,4 @@
-import { MiniCarousel } from "./index";
+import MiniCarousel from "./index";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateMiniCarouselCard } from "@/faker/generateMiniCarouselCard";
 

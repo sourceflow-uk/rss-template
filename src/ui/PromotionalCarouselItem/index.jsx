@@ -5,12 +5,9 @@ import classes from "./styles.module.scss";
 import clsx from "classnames";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 import { trimText } from "@/functions/trimText";
-import { lazy } from "react";
+import { CTA, VideoModal } from "@/ui";
 
-const CTA = lazy(() => import("@/ui/CTA"));
-const VideoModal = lazy(() => import("@/ui/VideoModal"));
-
-export const PromotionalCarouselItem = ({ className, title, description, img, video_embed_url, cta }) => {
+export default function PromotionalCarouselItem({ className, title, description, img, video_embed_url, cta }) {
   return (
     <div className={clsx(className, classes.item)}>
       <Row>
@@ -32,7 +29,7 @@ export const PromotionalCarouselItem = ({ className, title, description, img, vi
       </Row>
     </div>
   );
-};
+}
 
 PromotionalCarouselItem.defaultProps = {
   title: "",
@@ -46,8 +43,11 @@ PromotionalCarouselItem.propTypes = {
   title: PropTypes.string,
   img: PropTypes.string,
   description: PropTypes.string,
-  cta: CTA.propTypes,
+  cta: PropTypes.shape({
+    className: PropTypes.string,
+    label: PropTypes.string,
+    href: PropTypes.string,
+    variant: PropTypes.string,
+  }),
   video_embed_url: PropTypes.string,
 };
-
-export default PromotionalCarouselItem;

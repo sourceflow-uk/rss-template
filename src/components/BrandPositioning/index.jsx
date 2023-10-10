@@ -1,11 +1,10 @@
 import { Container } from "react-bootstrap";
 import PropTypes from "prop-types";
-import { DynamicText } from "@/ui/DynamicText";
 import { generateTitle } from "@/faker/generateTitle";
 import { generateDescription } from "@/faker/generateDescription";
-import { DynamicHtml } from "@/ui/DynamicHtml";
+import { DynamicHtml, DynamicText } from "@/ui";
 
-export const BrandPositioning = ({ className, title, description }) => {
+export default function BrandPositioning({ className, title, description }) {
   return (
     <div className={className}>
       <Container className="text-center py-5 mw-md">
@@ -18,7 +17,7 @@ export const BrandPositioning = ({ className, title, description }) => {
       </Container>
     </div>
   );
-};
+}
 
 BrandPositioning.defaultProps = {
   className: "py-5",
@@ -31,5 +30,3 @@ BrandPositioning.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
 };
-
-export default BrandPositioning;

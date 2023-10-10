@@ -1,4 +1,4 @@
-import { BlockQuoteCard } from "./index";
+import BlockQuoteCard from "./index";
 import { Col, Container, Row } from "react-bootstrap";
 import { generateBlockQuoteCard } from "@/faker/generateBlockQuoteCard";
 

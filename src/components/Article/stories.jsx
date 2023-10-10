@@ -1,4 +1,4 @@
-import { Article } from "./index";
+import Article from "./index";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateArticle } from "@/faker/generateArticle";
 

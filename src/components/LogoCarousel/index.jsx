@@ -1,13 +1,13 @@
 import { Carousel, Col, Container, Row } from "react-bootstrap";
 import clsx from "classnames";
 import { chunk } from "lodash";
-import { LogoCard } from "@/ui/LogoCard";
 import PropTypes from "prop-types";
 import ChevronLeft from "@/assets/ChevronLeft.svg";
 import ChevronRight from "@/assets/ChevronRight.svg";
 import classes from "./styles.module.scss";
+import { LogoCard } from "@/ui";
 
-export const LogoCarousel = ({ className, items, visibleCount }) => {
+export default function LogoCarousel({ className, items, visibleCount }) {
   return (
     <div className={clsx(className, classes.logos)}>
       <Container className="mw-xxl">
@@ -32,7 +32,7 @@ export const LogoCarousel = ({ className, items, visibleCount }) => {
       </Container>
     </div>
   );
-};
+}
 
 LogoCarousel.defaultProps = {
   className: "py-5",
@@ -42,8 +42,12 @@ LogoCarousel.defaultProps = {
 
 LogoCarousel.propTypes = {
   className: PropTypes.string,
-  items: PropTypes.arrayOf(PropTypes.shape(LogoCard.propTypes)),
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      logo: PropTypes.string,
+      href: PropTypes.string,
+    })
+  ),
   visibleCount: PropTypes.number,
 };
-
-export default LogoCarousel;

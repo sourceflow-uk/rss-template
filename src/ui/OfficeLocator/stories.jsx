@@ -1,4 +1,4 @@
-import { OfficeLocator } from "./index";
+import OfficeLocator from "./index";
 import { Col, Container, Row } from "react-bootstrap";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateOfficeLocatorLocations } from "@/faker/generateOfficeLocatorLocations";

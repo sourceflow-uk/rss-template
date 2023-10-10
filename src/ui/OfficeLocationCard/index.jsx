@@ -5,7 +5,7 @@ import Email from "@/assets/Email.svg";
 import Phone from "@/assets/Phone.svg";
 import { trimText } from "@/functions/trimText";
 
-export const OfficeLocationCard = ({ className, address, phone, email, map_embed_url, opening_hours }) => {
+export default function OfficeLocationCard({ className, address, phone, email, map_embed_url, opening_hours }) {
   return (
     <div className={clsx(className, classes.card)}>
       <div className={classes.card__map}>
@@ -46,7 +46,7 @@ export const OfficeLocationCard = ({ className, address, phone, email, map_embed
       </div>
     </div>
   );
-};
+}
 
 OfficeLocationCard.defaultProps = {};
 
@@ -58,5 +58,3 @@ OfficeLocationCard.propTypes = {
   map_embed_url: PropTypes.string,
   opening_hours: PropTypes.string,
 };
-
-export default OfficeLocationCard;

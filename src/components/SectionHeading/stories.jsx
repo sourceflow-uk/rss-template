@@ -1,4 +1,4 @@
-import { SectionHeading } from "./index";
+import SectionHeading from "./index";
 import { generateTitle } from "@/faker/generateTitle";
 
 export default {

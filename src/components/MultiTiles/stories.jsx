@@ -1,4 +1,4 @@
-import { MultiTiles } from "./index";
+import MultiTiles from "./index";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateMultiTileCard } from "@/faker/generateMultiTileCard";
 

@@ -5,9 +5,9 @@ import { useState } from "react";
 import classes from "./styles.module.scss";
 import Pay from "@/assets/Pay.svg";
 import DoubleArrowDown from "@/assets/DoubleArrowDown.svg";
-import SimilarJobCard from "@/ui/SimilarJobCard";
+import { SimilarJobCard } from "@/ui";
 
-export const SimilarJobs = ({ className, title, items }) => {
+export default function SimilarJobs({ className, title, items }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -41,7 +41,7 @@ export const SimilarJobs = ({ className, title, items }) => {
       </Container>
     </div>
   );
-};
+}
 
 SimilarJobs.defaultProps = {
   className: "py-5",
@@ -52,7 +52,14 @@ SimilarJobs.defaultProps = {
 SimilarJobs.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
-  items: PropTypes.arrayOf(PropTypes.shape({})),
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      location: PropTypes.string,
+      salary_package: PropTypes.string,
+      role_type: PropTypes.string,
+      href: PropTypes.string,
+      published_at: PropTypes.string,
+    })
+  ),
 };
-
-export default SimilarJobs;

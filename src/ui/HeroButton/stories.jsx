@@ -1,4 +1,4 @@
-import { HeroButton } from "./index";
+import HeroButton from "./index";
 import { Col, Container, Row } from "react-bootstrap";
 import { generateHeroButton } from "@/faker/generateHeroButton";
 

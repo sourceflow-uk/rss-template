@@ -1,4 +1,4 @@
-import { BrandPositioning } from "./index";
+import BrandPositioning from "./index";
 import { generateTitle } from "@/faker/generateTitle";
 import { generateDescription } from "@/faker/generateDescription";
 

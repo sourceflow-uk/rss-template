@@ -1,6 +1,6 @@
 import { Html, Head, Main, NextScript } from "next/document";
-import { RootStyleOverrides } from "@/ui/RootStyleOverrides";
 import Script from "next/script";
+import { RootStyleOverrides } from "@/ui";
 import { getGlobal } from "@/getters/getGlobal";
 
 export default function Document() {

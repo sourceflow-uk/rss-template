@@ -8,7 +8,7 @@ import { getGlobal } from "@/getters/getGlobal";
  * @returns {JSX.Element}
  * @constructor
  */
-export const DynamicHtml = ({ path, tag = "div", dangerouslySetInnerHTML, children, ...props }) => {
+export default function DynamicHtml({ path, tag = "div", dangerouslySetInnerHTML, children, ...props }) {
   let htmlProps = {
     type: "html",
     global: getGlobal(),
@@ -21,4 +21,4 @@ export const DynamicHtml = ({ path, tag = "div", dangerouslySetInnerHTML, childr
   }
 
   return React.createElement(tag, props, <SourceFlowText {...htmlProps} />);
-};
+}

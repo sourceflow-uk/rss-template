@@ -1,4 +1,4 @@
-import { CaseStudies } from "./index";
+import CaseStudies from "./index";
 import { generateCaseStudy } from "@/faker/generateCaseStudy";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 

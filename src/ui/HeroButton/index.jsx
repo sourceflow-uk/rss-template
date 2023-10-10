@@ -3,7 +3,7 @@ import clsx from "classnames";
 import PropTypes from "prop-types";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 
-export const HeroButton = ({ className, title, img, href }) => {
+export default function HeroButton({ className, title, img, href }) {
   return (
     <a className={clsx(className, classes.button)} href={href}>
       <SourceFlowImage className={classes.button__img} src={img} size="160x160" alt={title} />
@@ -12,7 +12,7 @@ export const HeroButton = ({ className, title, img, href }) => {
       </div>
     </a>
   );
-};
+}
 
 HeroButton.defaultProps = {
   className: "",
@@ -27,5 +27,3 @@ HeroButton.propTypes = {
   img: PropTypes.string,
   href: PropTypes.string,
 };
-
-export default HeroButton;

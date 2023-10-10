@@ -2,7 +2,7 @@ import { Collapse, Container } from "react-bootstrap";
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-export const CollapsibleContent = ({ className, title, body }) => {
+export default function CollapsibleContent({ className, title, body }) {
   const [show, setShow] = useState(false);
 
   return (
@@ -17,7 +17,7 @@ export const CollapsibleContent = ({ className, title, body }) => {
       </Container>
     </div>
   );
-};
+}
 
 CollapsibleContent.defaultProps = {
   className: "py-5",
@@ -30,5 +30,3 @@ CollapsibleContent.propTypes = {
   title: PropTypes.string,
   body: PropTypes.string,
 };
-
-export default CollapsibleContent;

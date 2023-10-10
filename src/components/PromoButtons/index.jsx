@@ -2,9 +2,9 @@ import PropTypes from "prop-types";
 import clsx from "classnames";
 import classes from "./styles.module.scss";
 import { Col, Container, Row } from "react-bootstrap";
-import { PromoButton } from "@/ui/PromoButton";
+import { PromoButton } from "@/ui";
 
-export const PromoButtons = ({ className, items }) => {
+export default function PromoButtons({ className, items }) {
   return (
     <div className={clsx(className, classes.buttons)}>
       <Container className="mw-lg">
@@ -18,7 +18,7 @@ export const PromoButtons = ({ className, items }) => {
       </Container>
     </div>
   );
-};
+}
 
 PromoButtons.defaultProps = {
   className: "py-5",
@@ -27,7 +27,11 @@ PromoButtons.defaultProps = {
 
 PromoButtons.propTypes = {
   className: PropTypes.string,
-  items: PropTypes.arrayOf(PropTypes.shape(PromoButton.propTypes)),
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      className: PropTypes.string,
+      title: PropTypes.string,
+      href: PropTypes.string,
+    })
+  ),
 };
-
-export default PromoButtons;

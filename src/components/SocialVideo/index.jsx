@@ -2,11 +2,11 @@ import clsx from "classnames";
 import { Container } from "react-bootstrap";
 import classes from "./styles.module.scss";
 import Play from "@/assets/Play.svg";
-import { VideoModal } from "@/ui/VideoModal";
 import PropTypes from "prop-types";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
+import { VideoModal } from "@/ui";
 
-export const SocialVideo = ({ className, video_embed_url, img }) => {
+export default function SocialVideo({ className, video_embed_url, img }) {
   return (
     <div className={clsx(className, classes.video)}>
       <Container>
@@ -21,7 +21,7 @@ export const SocialVideo = ({ className, video_embed_url, img }) => {
       </Container>
     </div>
   );
-};
+}
 
 SocialVideo.defaultProps = {
   className: "bg-light py-5",
@@ -34,5 +34,3 @@ SocialVideo.propTypes = {
   video_embed_url: PropTypes.string,
   img: PropTypes.string,
 };
-
-export default SocialVideo;

@@ -18,7 +18,7 @@ export const LatestBlogs = lazy(() => import("./LatestBlogs"));
 export const LatestJobs = lazy(() => import("./LatestJobs"));
 export const LogoCarousel = lazy(() => import("./LogoCarousel"));
 export const MiniCarousel = lazy(() => import("./MiniCarousel"));
-export const MultiTiles = lazy(() => import("./MultTiles"));
+export const MultiTiles = lazy(() => import("./MultiTiles"));
 export const NarrativePanel = lazy(() => import("./NarrativePanel"));
 export const OfficeLocations = lazy(() => import("./OfficeLocations"));
 export const PromoButtons = lazy(() => import("./PromoButtons"));

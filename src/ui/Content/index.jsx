@@ -1,7 +1,7 @@
 import { FadeIn } from "react-slide-fade-in";
 import * as components from "@/components";
 import { Button, ButtonGroup, Collapse } from "react-bootstrap";
-import { Suspense, useState } from "react";
+import { useState } from "react";
 
 /**
  *
@@ -10,7 +10,7 @@ import { Suspense, useState } from "react";
  * @returns {JSX.Element}
  * @constructor
  */
-export const Content = ({ items, additionalComponents, demoMode }) => {
+export default function Content({ items, additionalComponents, demoMode }) {
   const [open, setOpen] = useState(items.reduce((acc, i, k) => ({ ...acc, [k]: true }), {}));
   const allowedComponents = {
     ...components,
@@ -19,7 +19,7 @@ export const Content = ({ items, additionalComponents, demoMode }) => {
 
   if (!demoMode) {
     return (
-      <Suspense>
+      <section>
         {items.map(({ component, id, props }, k) => (
           <FadeIn
             from="bottom"
@@ -39,7 +39,7 @@ export const Content = ({ items, additionalComponents, demoMode }) => {
             })()}
           </FadeIn>
         ))}
-      </Suspense>
+      </section>
     );
   }
 
@@ -52,7 +52,7 @@ export const Content = ({ items, additionalComponents, demoMode }) => {
   };
 
   return (
-    <Suspense>
+    <section>
       <ButtonGroup className="position-fixed z-3 bottom-0 p-3" style={{ right: 0 }}>
         <Button size="sm" variant="primary" onClick={openAll}>
           Open All
@@ -93,14 +93,12 @@ export const Content = ({ items, additionalComponents, demoMode }) => {
           </div>
         );
       })}
-    </Suspense>
+    </section>
   );
-};
+}
 
 Content.defaultProps = {
   items: [],
   additionalComponents: {},
   demoMode: false,
 };
-
-export default Content;

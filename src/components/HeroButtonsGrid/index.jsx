@@ -2,9 +2,9 @@ import PropTypes from "prop-types";
 import clsx from "classnames";
 import { Col, Container, Row } from "react-bootstrap";
 import classes from "./styles.module.scss";
-import { HeroButton } from "@/ui/HeroButton";
+import { HeroButton } from "@/ui";
 
-export const HeroButtonsGrid = ({ className, title, items }) => {
+export default function HeroButtonsGrid({ className, title, items }) {
   return (
     <div className={clsx(className, classes.grid)}>
       <Container className="mw-lg">
@@ -19,7 +19,7 @@ export const HeroButtonsGrid = ({ className, title, items }) => {
       </Container>
     </div>
   );
-};
+}
 
 HeroButtonsGrid.defaultProps = {
   className: "py-5",
@@ -30,7 +30,12 @@ HeroButtonsGrid.defaultProps = {
 HeroButtonsGrid.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
-  items: PropTypes.arrayOf(PropTypes.shape(HeroButton.propTypes)),
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      className: PropTypes.string,
+      title: PropTypes.string,
+      img: PropTypes.string,
+      href: PropTypes.string,
+    })
+  ),
 };
-
-export default HeroButtonsGrid;

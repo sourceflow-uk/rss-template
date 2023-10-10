@@ -1,4 +1,4 @@
-import { BlockQuote } from "./index";
+import BlockQuote from "./index";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateBlockQuoteCard } from "@/faker/generateBlockQuoteCard";
 

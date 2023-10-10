@@ -3,7 +3,7 @@ import clsx from "classnames";
 import classes from "./styles.module.scss";
 import PropTypes from "prop-types";
 
-export const BreadcrumbNavigation = ({ className, items }) => {
+export default function BreadcrumbNavigation({ className, items }) {
   return (
     <div className={clsx(className, classes.breadcrumbs)}>
       <Container className="mw-xl">
@@ -18,7 +18,7 @@ export const BreadcrumbNavigation = ({ className, items }) => {
       </Container>
     </div>
   );
-};
+}
 
 BreadcrumbNavigation.defaultProps = {
   className: "",
@@ -34,5 +34,3 @@ BreadcrumbNavigation.propTypes = {
     })
   ),
 };
-
-export default BreadcrumbNavigation;

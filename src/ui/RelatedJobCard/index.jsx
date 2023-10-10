@@ -4,11 +4,9 @@ import classes from "./styles.module.scss";
 import { formatDistanceToNowStrict } from "date-fns";
 import { Stack } from "react-bootstrap";
 import { trimText } from "@/functions/trimText";
-import { lazy } from "react";
+import { Tag } from "@/ui";
 
-const Tag = lazy(() => import("@/ui/Tag"));
-
-export const RelatedJobCard = ({
+export default function RelatedJobCard({
   className,
   title,
   sectors,
@@ -17,7 +15,7 @@ export const RelatedJobCard = ({
   role_type,
   published_at,
   href,
-}) => {
+}) {
   return (
     <a href={href} className={clsx(className, classes.card)}>
       <div className={classes.card__body}>
@@ -39,7 +37,7 @@ export const RelatedJobCard = ({
       </div>
     </a>
   );
-};
+}
 
 RelatedJobCard.defaultProps = {
   className: "",
@@ -65,5 +63,3 @@ RelatedJobCard.propTypes = {
   published_at: PropTypes.string,
   href: PropTypes.string,
 };
-
-export default RelatedJobCard;

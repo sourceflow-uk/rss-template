@@ -4,11 +4,9 @@ import PropTypes from "prop-types";
 import clsx from "classnames";
 import classes from "./styles.module.scss";
 import { trimText } from "@/functions/trimText";
-import { lazy } from "react";
+import { CTA } from "@/ui";
 
-const CTA = lazy(() => import("@/ui/CTA"));
-
-export const MiniCarouselCard = ({ className, title, description, cta, img }) => {
+export default function MiniCarouselCard({ className, title, description, cta, img }) {
   return (
     <div className={clsx(className, classes.card)}>
       <Row className="m-0">
@@ -23,7 +21,7 @@ export const MiniCarouselCard = ({ className, title, description, cta, img }) =>
       </Row>
     </div>
   );
-};
+}
 
 MiniCarouselCard.defaultProps = {
   className: "",
@@ -38,7 +36,10 @@ MiniCarouselCard.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   img: PropTypes.string,
-  cta: PropTypes.shape(CTA.propTypes),
+  cta: PropTypes.shape({
+    className: PropTypes.string,
+    label: PropTypes.string,
+    href: PropTypes.string,
+    variant: PropTypes.string,
+  }),
 };
-
-export default MiniCarouselCard;

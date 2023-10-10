@@ -1,4 +1,4 @@
-import { BlogArticleCard } from "./index";
+import BlogArticleCard from "./index";
 import { Col, Container, Row } from "react-bootstrap";
 import { generateArticle } from "@/faker/generateArticle";
 

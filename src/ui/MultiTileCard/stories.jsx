@@ -1,4 +1,4 @@
-import { MultiTileCard } from "./index";
+import MultiTileCard from "./index";
 import { Col, Container, Row } from "react-bootstrap";
 import { generateMultiTileCard } from "@/faker/generateMultiTileCard";
 

@@ -1,4 +1,4 @@
-import { QuickJobSearch } from "./index";
+import QuickJobSearch from "./index";
 
 export default {
   title: "Components/QuickJobSearch",

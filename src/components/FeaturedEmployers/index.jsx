@@ -1,15 +1,13 @@
 import clsx from "classnames";
 import { Carousel, Col, Container, Row } from "react-bootstrap";
 import PropTypes from "prop-types";
-import { DynamicHtml } from "@/ui/DynamicHtml";
-import { DynamicText } from "@/ui/DynamicText";
 import { chunk } from "lodash/array";
 import ChevronLeft from "@/assets/ChevronLeft.svg";
 import ChevronRight from "@/assets/ChevronRight.svg";
-import { FeaturedEmployerCard } from "@/ui/FeaturedEmployerCard";
 import classes from "./styles.module.scss";
+import { DynamicHtml, DynamicText, FeaturedEmployerCard } from "@/ui";
 
-export const FeaturedEmployers = ({ className, title, description, items }) => {
+export default function FeaturedEmployers({ className, title, description, items }) {
   return (
     <div className={clsx(className, classes.featured)}>
       <Container>
@@ -46,7 +44,7 @@ export const FeaturedEmployers = ({ className, title, description, items }) => {
       </Container>
     </div>
   );
-};
+}
 
 FeaturedEmployers.defaultProps = {
   className: "py-5",
@@ -59,7 +57,12 @@ FeaturedEmployers.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
-  items: PropTypes.arrayOf(PropTypes.shape()),
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      className: PropTypes.string,
+      title: PropTypes.string,
+      img: PropTypes.string,
+      href: PropTypes.string,
+    })
+  ),
 };
-
-export default FeaturedEmployers;

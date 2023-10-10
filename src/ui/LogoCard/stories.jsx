@@ -1,4 +1,4 @@
-import { LogoCard } from "./index";
+import LogoCard from "./index";
 import { Col, Container, Row } from "react-bootstrap";
 import { generateLogoCard } from "@/faker/generateLogoCard";
 

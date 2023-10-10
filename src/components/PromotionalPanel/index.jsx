@@ -2,11 +2,9 @@ import { Col, Container, Row } from "react-bootstrap";
 import clsx from "classnames";
 import classes from "./styles.module.scss";
 import PropTypes from "prop-types";
-import { lazy } from "react";
+import { PromotionalPanelCard } from "@/ui";
 
-const PromotionalPanelCard = lazy(() => import("@/ui/PromotionalPanelCard"));
-
-export const PromotionalPanel = ({ className, items }) => {
+export default function PromotionalPanel({ className, items }) {
   return (
     <div className={clsx(className, classes.panel)}>
       <Container className="mw-lg">
@@ -20,7 +18,7 @@ export const PromotionalPanel = ({ className, items }) => {
       </Container>
     </div>
   );
-};
+}
 
 PromotionalPanel.defaultProps = {
   className: "py-5",
@@ -29,7 +27,17 @@ PromotionalPanel.defaultProps = {
 
 PromotionalPanel.propTypes = {
   className: PropTypes.string,
-  items: PropTypes.arrayOf(PropTypes.shape(PromotionalPanelCard.propTypes)),
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      className: PropTypes.string,
+      title: PropTypes.string,
+      description: PropTypes.string,
+      cta: PropTypes.shape({
+        className: PropTypes.string,
+        label: PropTypes.string,
+        href: PropTypes.string,
+        variant: PropTypes.string,
+      }),
+    })
+  ),
 };
-
-export default PromotionalPanel;

@@ -4,7 +4,7 @@ import classes from "./styles.module.scss";
 import { Button, Form } from "react-bootstrap";
 import { useState } from "react";
 
-export const OfficeLocator = ({ className, title, locations }) => {
+export default function OfficeLocator({ className, title, locations }) {
   const [term, setTerm] = useState("");
   const [location, setLocation] = useState("");
 
@@ -39,7 +39,7 @@ export const OfficeLocator = ({ className, title, locations }) => {
       </Form>
     </aside>
   );
-};
+}
 
 OfficeLocator.defaultProps = {
   title: "Our Branches",
@@ -58,5 +58,3 @@ OfficeLocator.propTypes = {
     })
   ),
 };
-
-export default OfficeLocator;

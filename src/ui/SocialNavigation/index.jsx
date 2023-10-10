@@ -8,7 +8,7 @@ import WhatsApp from "@/assets/WhatsApp.svg";
 import classes from "./styles.module.scss";
 import PropTypes from "prop-types";
 
-export const SocialNavigation = ({ className, linkedIn, twitter, facebook, whatsapp, email }) => {
+export default function SocialNavigation({ className, linkedIn, twitter, facebook, whatsapp, email }) {
   if (!linkedIn && !twitter && !facebook && !whatsapp && !email) {
     return null;
   }
@@ -44,7 +44,7 @@ export const SocialNavigation = ({ className, linkedIn, twitter, facebook, whats
       </Stack>
     </div>
   );
-};
+}
 
 SocialNavigation.defaultProps = {
   className: "",
@@ -63,5 +63,3 @@ SocialNavigation.propTypes = {
   whatsapp: PropTypes.string,
   email: PropTypes.string,
 };
-
-export default SocialNavigation;

@@ -1,4 +1,4 @@
-import { CollapsibleSectionItem } from "./index";
+import CollapsibleSectionItem from "./index";
 import { generateTitle } from "@/faker/generateTitle";
 import { generateBody } from "@/faker/generateBody";
 

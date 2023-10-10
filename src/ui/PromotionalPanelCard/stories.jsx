@@ -1,4 +1,4 @@
-import { PromotionalPanelCard } from "./index";
+import PromotionalPanelCard from "./index";
 import { Col, Container, Row } from "react-bootstrap";
 import { generateTitle } from "@/faker/generateTitle";
 import { generateDescription } from "@/faker/generateDescription";

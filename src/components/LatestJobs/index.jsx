@@ -5,12 +5,9 @@ import { chunk } from "lodash";
 import classes from "./styles.module.scss";
 import ChevronRight from "@/assets/ChevronRight.svg";
 import ChevronLeft from "@/assets/ChevronLeft.svg";
-import { lazy } from "react";
-import { DynamicText } from "@/ui/DynamicText";
+import { DynamicText, JobCard } from "@/ui";
 
-const JobCard = lazy(() => import("@/ui/JobCard"));
-
-export const LatestJobs = ({ className, title, items, button, visibleCount }) => {
+export default function LatestJobs({ className, title, items, button, visibleCount }) {
   return (
     <div className={clsx(className, classes.jobs)}>
       <Container className="mw-xl">
@@ -57,7 +54,7 @@ export const LatestJobs = ({ className, title, items, button, visibleCount }) =>
       </Container>
     </div>
   );
-};
+}
 
 LatestJobs.defaultProps = {
   className: "py-5",
@@ -73,12 +70,18 @@ LatestJobs.defaultProps = {
 LatestJobs.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
-  items: PropTypes.arrayOf(PropTypes.shape(JobCard.propTypes)),
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      location: PropTypes.string,
+      salary_package: PropTypes.string,
+      role_type: PropTypes.string,
+      href: PropTypes.string,
+    })
+  ),
   button: PropTypes.shape({
     label: PropTypes.string,
     href: PropTypes.string,
   }),
   visibleCount: PropTypes.number,
 };
-
-export default LatestJobs;

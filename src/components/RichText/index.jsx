@@ -2,7 +2,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import clsx from "classnames";
 import classes from "./styles.module.scss";
 
-export const RichText = ({ className, body }) => {
+export default function RichText({ className, body }) {
   if (!body) {
     return null;
   }
@@ -15,11 +15,9 @@ export const RichText = ({ className, body }) => {
       </Container>
     </div>
   );
-};
+}
 
 RichText.defaultProps = {
   className: "py-5",
   body: null,
 };
-
-export default RichText;

@@ -1,4 +1,4 @@
-import { PromotionalCarousel } from "./index";
+import PromotionalCarousel from "./index";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generatePromotionalCarouselItem } from "@/faker/generatePromotionalCarouselItem";
 

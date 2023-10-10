@@ -1,14 +1,11 @@
 import { Col, Container, Row, Stack } from "react-bootstrap";
 import clsx from "classnames";
-import { SocialMediaShare } from "@/ui/SocialMediaShare";
-import { RelatedArticles } from "@/ui/RelatedArticles";
-import { Time } from "@/ui/Time";
-import { Tag } from "@/ui/Tag";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 import classes from "./styles.module.scss";
 import PropTypes from "prop-types";
+import { RelatedArticles, SocialMediaShare, Tag, Time } from "@/ui";
 
-export const Article = ({ className, title, description, body, img, tags, published_at, related }) => {
+export default function Article({ className, title, description, body, img, tags, published_at, related }) {
   return (
     <article className={clsx(className, classes.article)}>
       <Container className="mw-xl">
@@ -37,7 +34,7 @@ export const Article = ({ className, title, description, body, img, tags, publis
       </Container>
     </article>
   );
-};
+}
 
 Article.defaultProps = {
   className: "py-5",
@@ -56,9 +53,30 @@ Article.propTypes = {
   description: PropTypes.string,
   body: PropTypes.string,
   img: PropTypes.string,
-  tags: PropTypes.arrayOf(PropTypes.shape(Tag.propTypes)),
+  tags: PropTypes.arrayOf(
+    PropTypes.shape({
+      className: PropTypes.string,
+      label: PropTypes.string,
+      href: PropTypes.string,
+    })
+  ),
   published_at: PropTypes.string,
-  related: RelatedArticles.propTypes.items,
+  related: PropTypes.arrayOf(
+    PropTypes.shape({
+      className: PropTypes.string,
+      title: PropTypes.string,
+      description: PropTypes.string,
+      img: PropTypes.string,
+      tags: PropTypes.arrayOf(
+        PropTypes.shape({
+          className: PropTypes.string,
+          label: PropTypes.string,
+          href: PropTypes.string,
+          variant: PropTypes.string,
+        })
+      ),
+      published_at: PropTypes.string,
+      href: PropTypes.string,
+    })
+  ),
 };
-
-export default Article;

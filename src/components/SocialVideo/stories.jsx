@@ -1,4 +1,4 @@
-import { SocialVideo } from "./index";
+import SocialVideo from "./index";
 import { generateSocialVideo } from "@/faker/generateSocialVideo";
 
 export default {

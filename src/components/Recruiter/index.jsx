@@ -3,11 +3,9 @@ import PropTypes from "prop-types";
 import { Col, Container, Row } from "react-bootstrap";
 import clsx from "classnames";
 import classes from "./styles.module.scss";
-import { lazy } from "react";
+import { Tag } from "@/ui";
 
-const Tag = lazy(() => import("@/ui/Tag"));
-
-export const Recruiter = ({
+export default function Recruiter({
   className,
   name,
   title,
@@ -18,7 +16,7 @@ export const Recruiter = ({
   phone,
   profile_pic,
   description,
-}) => {
+}) {
   return (
     <div className={clsx(className, classes.recruiter)}>
       <Container className="mw-xl">
@@ -74,7 +72,7 @@ export const Recruiter = ({
       </Container>
     </div>
   );
-};
+}
 
 Recruiter.defaultProps = {
   className: "py-5",
@@ -96,10 +94,14 @@ Recruiter.propTypes = {
   email: PropTypes.string,
   location: PropTypes.string,
   linkedIn: PropTypes.string,
-  sectors: PropTypes.arrayOf(PropTypes.shape(Tag.propTypes)),
+  sectors: PropTypes.arrayOf(
+    PropTypes.shape({
+      className: PropTypes.string,
+      label: PropTypes.string,
+      href: PropTypes.string,
+    })
+  ),
   phone: PropTypes.string,
   profile_pic: PropTypes.string,
   description: PropTypes.string,
 };
-
-export default Recruiter;

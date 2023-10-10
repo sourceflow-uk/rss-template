@@ -2,7 +2,7 @@ import clsx from "classnames";
 import classes from "./styles.module.scss";
 import PropTypes from "prop-types";
 
-export const BlockQuoteCard = ({ className, quote, author }) => {
+export default function BlockQuoteCard({ className, quote, author }) {
   return (
     <blockquote className={clsx(className, classes.card, "p-4")}>
       <section dangerouslySetInnerHTML={{ __html: quote }} />
@@ -16,7 +16,7 @@ export const BlockQuoteCard = ({ className, quote, author }) => {
       </svg>
     </blockquote>
   );
-};
+}
 
 BlockQuoteCard.defaultProps = {
   className: "",
@@ -35,5 +35,3 @@ BlockQuoteCard.propTypes = {
     position: PropTypes.string,
   }),
 };
-
-export default BlockQuoteCard;

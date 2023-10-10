@@ -1,4 +1,4 @@
-import { PromoSection } from "./index";
+import PromoSection from "./index";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generatePromoItem } from "@/faker/generatePromoItem";
 

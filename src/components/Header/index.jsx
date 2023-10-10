@@ -5,12 +5,9 @@ import { Col, Row } from "react-bootstrap";
 import Play from "@/assets/Play.svg";
 import { trimText } from "@/functions/trimText";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
-import { lazy } from "react";
+import { CTA, VideoModal } from "@/ui";
 
-const CTA = lazy(() => import("@/ui/CTA"));
-const VideoModal = lazy(() => import("@/ui/VideoModal"));
-
-export const Header = ({ className, title, img, description, cta, video_embed_url }) => {
+export default function Header({ className, title, img, description, cta, video_embed_url }) {
   return (
     <div className={clsx(className, classes.header)}>
       <SourceFlowImage className={classes.header__img} src={img} size="1440x300" alt={title} />
@@ -30,7 +27,7 @@ export const Header = ({ className, title, img, description, cta, video_embed_ur
       )}
     </div>
   );
-};
+}
 
 Header.defaultProps = {
   title: "",
@@ -45,8 +42,11 @@ Header.propTypes = {
   title: PropTypes.string,
   img: PropTypes.string,
   description: PropTypes.string,
-  cta: PropTypes.shape(CTA.propTypes),
+  cta: PropTypes.shape({
+    className: PropTypes.string,
+    label: PropTypes.string,
+    href: PropTypes.string,
+    variant: PropTypes.string,
+  }),
   video_embed_url: PropTypes.string,
 };
-
-export default Header;

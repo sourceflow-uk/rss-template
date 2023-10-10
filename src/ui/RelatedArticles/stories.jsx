@@ -1,4 +1,4 @@
-import { RelatedArticles } from "./index";
+import RelatedArticles from "./index";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateArticle } from "@/faker/generateArticle";
 

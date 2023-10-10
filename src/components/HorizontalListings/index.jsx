@@ -4,9 +4,9 @@ import classes from "./styles.module.scss";
 import { Col, Container, Row } from "react-bootstrap";
 import { trimText } from "@/functions/trimText";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
-import { DynamicText } from "@/ui/DynamicText";
+import { DynamicText } from "@/ui";
 
-export const HorizontalListings = ({ className, title, items }) => {
+export default function HorizontalListings({ className, title, items }) {
   return (
     <div className={clsx(className, classes.listings)}>
       <Container className="mw-lg">
@@ -33,7 +33,7 @@ export const HorizontalListings = ({ className, title, items }) => {
       </Container>
     </div>
   );
-};
+}
 
 HorizontalListings.defaultProps = {
   className: "py-5",
@@ -52,5 +52,3 @@ HorizontalListings.propTypes = {
     })
   ),
 };
-
-export default HorizontalListings;

@@ -1,4 +1,4 @@
-import { PromoButton } from "./index";
+import PromoButton from "./index";
 import { Col, Container, Row } from "react-bootstrap";
 import { generatePromoButton } from "@/faker/generatePromoButton";
 

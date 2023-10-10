@@ -1,4 +1,4 @@
-import { KeyTabListing } from "./index";
+import KeyTabListing from "./index";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateKeyTabListing } from "@/faker/generateKeyTabListing";
 

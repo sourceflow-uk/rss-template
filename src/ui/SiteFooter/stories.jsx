@@ -1,4 +1,4 @@
-import { SiteFooter } from "./index";
+import SiteFooter from "./index";
 import { generateSiteFooter } from "@/faker/generateSiteFooter";
 
 export default {

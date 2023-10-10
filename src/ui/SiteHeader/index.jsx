@@ -4,7 +4,7 @@ import classes from "./styles.module.scss";
 import PropTypes from "prop-types";
 import ChevronDown from "@/assets/ChevronDown.svg";
 
-export const SiteHeader = ({ className, company_name, company_logo, nav }) => {
+export default function SiteHeader({ className, company_name, company_logo, nav }) {
   return (
     <Navbar className={clsx(className, classes.header)}>
       <Container className="p-0">
@@ -46,7 +46,7 @@ export const SiteHeader = ({ className, company_name, company_logo, nav }) => {
       </Container>
     </Navbar>
   );
-};
+}
 
 SiteHeader.defaultProps = {
   className: "",
@@ -71,5 +71,3 @@ SiteHeader.propTypes = {
     })
   ),
 };
-
-export default SiteHeader;

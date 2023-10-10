@@ -6,11 +6,9 @@ import LinkedIn from "@/assets/LinkedIn.svg";
 import Twitter from "@/assets/Twitter.svg";
 import Facebook from "@/assets/Facebook.svg";
 import classes from "./styles.module.scss";
-import { lazy } from "react";
+import { NoSSR } from "@/ui";
 
-const NoSSR = lazy(() => import("@/ui/NoSSR"));
-
-export const SocialMediaShare = ({ className }) => {
+export default function SocialMediaShare({ className }) {
   return (
     <div className={clsx(className, classes.share)}>
       <h4 className="h6 fw-semibold mb-3">Share this</h4>
@@ -36,10 +34,8 @@ export const SocialMediaShare = ({ className }) => {
       </Stack>
     </div>
   );
-};
+}
 
 SocialMediaShare.defaultProps = {
   className: "",
 };
-
-export default SocialMediaShare;

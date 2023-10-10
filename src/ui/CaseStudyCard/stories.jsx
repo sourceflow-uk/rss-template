@@ -1,4 +1,4 @@
-import { CaseStudyCard } from "./index";
+import CaseStudyCard from "./index";
 import { Col, Container, Row } from "react-bootstrap";
 import { generateCaseStudy } from "@/faker/generateCaseStudy";
 

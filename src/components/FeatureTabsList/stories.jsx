@@ -1,4 +1,4 @@
-import { FeatureTabsList } from "./index";
+import FeatureTabsList from "./index";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateFeaturedTabListItem } from "@/faker/generateFeaturedTabListItem";
 

@@ -1,11 +1,9 @@
 import clsx from "classnames";
 import { Col, Row } from "react-bootstrap";
 import PropTypes from "prop-types";
-import { lazy } from "react";
+import { RelatedArticleCard } from "@/ui";
 
-const RelatedArticleCard = lazy(() => import("@/ui/RelatedArticleCard"));
-
-export const RelatedArticles = ({ className, title, items }) => {
+export default function RelatedArticles({ className, title, items }) {
   return (
     <div className={clsx(className)}>
       <h3 className="text-tertiary my-2">{title}</h3>
@@ -25,7 +23,7 @@ export const RelatedArticles = ({ className, title, items }) => {
       </Row>
     </div>
   );
-};
+}
 
 RelatedArticles.defaultProps = {
   className: "",
@@ -36,7 +34,22 @@ RelatedArticles.defaultProps = {
 RelatedArticles.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
-  items: PropTypes.arrayOf(PropTypes.shape(RelatedArticleCard.propTypes)),
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      className: PropTypes.string,
+      title: PropTypes.string,
+      description: PropTypes.string,
+      img: PropTypes.string,
+      tags: PropTypes.arrayOf(
+        PropTypes.shape({
+          className: PropTypes.string,
+          label: PropTypes.string,
+          href: PropTypes.string,
+          variant: PropTypes.string,
+        })
+      ),
+      published_at: PropTypes.string,
+      href: PropTypes.string,
+    })
+  ),
 };
-
-export default RelatedArticles;

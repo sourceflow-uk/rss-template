@@ -1,4 +1,4 @@
-import { PromoItem } from "./index";
+import PromoItem from "./index";
 import { Col, Container, Row } from "react-bootstrap";
 import { generatePromoItem } from "@/faker/generatePromoItem";
 

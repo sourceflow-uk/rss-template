@@ -1,4 +1,4 @@
-import { RecruiterListingItem } from "./index";
+import RecruiterListingItem from "./index";
 import { Container } from "react-bootstrap";
 import { generateRecruiterListingItem } from "@/faker/generateRecruiterListingItem";
 

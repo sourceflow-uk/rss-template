@@ -1,4 +1,4 @@
-import { HeroButtonsGrid } from "./index";
+import HeroButtonsGrid from "./index";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateHeroButton } from "@/faker/generateHeroButton";
 import { generateTitle } from "@/faker/generateTitle";

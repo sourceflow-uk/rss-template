@@ -1,7 +1,7 @@
 import SourceFlowHead from "@sourceflow-uk/sourceflow-head";
 // import metaObject from "../../.sourceflow/metadata.json";
 
-export const SiteHead = ({ meta }) => {
+export default function SiteHead({ meta }) {
   let metaObject = {}; // TODO remove
 
   return (
@@ -9,6 +9,4 @@ export const SiteHead = ({ meta }) => {
       {meta?.title && <title>{meta.title}</title>}
     </SourceFlowHead>
   );
-};
-
-export default SiteHead;
+}

@@ -4,14 +4,14 @@ import PropTypes from "prop-types";
 import classes from "./styles.module.scss";
 import clsx from "classnames";
 
-export const Time = ({ className, date, format, icon }) => {
+export default function Time({ className, date, format, icon }) {
   return (
     <time className={clsx(className, classes.time)}>
       {icon && <Calendar />}
       {formatDate(new Date(date), format)}
     </time>
   );
-};
+}
 
 Time.defaultProps = {
   className: "",
@@ -25,5 +25,3 @@ Time.propTypes = {
   date: PropTypes.string,
   format: PropTypes.string,
 };
-
-export default Time;

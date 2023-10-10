@@ -5,7 +5,7 @@ import { trimText } from "@/functions/trimText";
 import PropTypes from "prop-types";
 import classes from "./styles.module.scss";
 
-export const FeatureTabsList = ({ className, items, defaultActiveKey, vertical }) => {
+export default function FeatureTabsList({ className, items, defaultActiveKey, vertical }) {
   return (
     <div className={clsx(className, classes.featured, { vertical })}>
       <Container>
@@ -36,7 +36,7 @@ export const FeatureTabsList = ({ className, items, defaultActiveKey, vertical }
       </Container>
     </div>
   );
-};
+}
 
 FeatureTabsList.defaultProps = {
   className: "py-5",
@@ -58,5 +58,3 @@ FeatureTabsList.propTypes = {
   defaultActiveKey: PropTypes.number,
   vertical: PropTypes.bool,
 };
-
-export default FeatureTabsList;

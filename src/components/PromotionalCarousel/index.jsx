@@ -4,11 +4,9 @@ import clsx from "classnames";
 import { Carousel, Container } from "react-bootstrap";
 import ChevronLeft from "@/assets/ChevronLeft.svg";
 import ChevronRight from "@/assets/ChevronRight.svg";
-import { lazy } from "react";
+import { PromotionalCarouselItem } from "@/ui";
 
-const PromotionalCarouselItem = lazy(() => import("@/ui/PromotionalCarouselItem"));
-
-export const PromotionalCarousel = ({ className, items }) => {
+export default function PromotionalCarousel({ className, items }) {
   return (
     <div className={clsx(className, classes.promotional)}>
       <Container className="mw-xxl">
@@ -34,7 +32,7 @@ export const PromotionalCarousel = ({ className, items }) => {
       </Container>
     </div>
   );
-};
+}
 
 PromotionalCarousel.defaultProps = {
   className: "py-5",
@@ -43,7 +41,18 @@ PromotionalCarousel.defaultProps = {
 
 PromotionalCarousel.propTypes = {
   className: PropTypes.string,
-  items: PropTypes.arrayOf(PropTypes.shape(PromotionalCarouselItem.propTypes)),
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      img: PropTypes.string,
+      description: PropTypes.string,
+      cta: PropTypes.shape({
+        className: PropTypes.string,
+        label: PropTypes.string,
+        href: PropTypes.string,
+        variant: PropTypes.string,
+      }),
+      video_embed_url: PropTypes.string,
+    })
+  ),
 };
-
-export default PromotionalCarousel;

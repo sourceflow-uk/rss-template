@@ -1,11 +1,11 @@
 import clsx from "classnames";
 import { Col, Container, Row } from "react-bootstrap";
 import PropTypes from "prop-types";
-import { CollapsibleSectionItem } from "@/ui/CollapsibleSectionItem";
 import { useState } from "react";
 import classes from "./styles.module.scss";
+import { CollapsibleSectionItem } from "@/ui";
 
-export const CollapsibleSection = ({ className, title, description, items, defaultActiveKey }) => {
+export default function CollapsibleSection({ className, title, description, items, defaultActiveKey }) {
   const [active, setActive] = useState(defaultActiveKey);
 
   return (
@@ -29,7 +29,7 @@ export const CollapsibleSection = ({ className, title, description, items, defau
       </Container>
     </div>
   );
-};
+}
 
 CollapsibleSection.defaultProps = {
   className: "py-5",
@@ -43,8 +43,14 @@ CollapsibleSection.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
-  items: PropTypes.arrayOf(PropTypes.shape(CollapsibleSectionItem.propTypes)),
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      active: PropTypes.bool,
+      title: PropTypes.string,
+      body: PropTypes.string,
+      eventKey: PropTypes.number,
+      onClick: PropTypes.func,
+    })
+  ),
   defaultActiveKey: PropTypes.number,
 };
-
-export default CollapsibleSection;

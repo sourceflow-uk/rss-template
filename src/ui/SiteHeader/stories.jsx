@@ -1,4 +1,4 @@
-import { SiteHeader } from "./index";
+import SiteHeader from "./index";
 import { Container } from "react-bootstrap";
 import { generateSiteHeader } from "@/faker/generateSiteHeader";
 

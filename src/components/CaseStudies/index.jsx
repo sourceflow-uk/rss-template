@@ -1,9 +1,9 @@
 import clsx from "classnames";
 import { Col, Container, Row } from "react-bootstrap";
 import PropTypes from "prop-types";
-import { CaseStudyCard } from "@/ui/CaseStudyCard";
+import { CaseStudyCard } from "@/ui";
 
-export const CaseStudies = ({ className, items }) => {
+export default function CaseStudies({ className, items }) {
   return (
     <div className={clsx(className)}>
       <Container className="mw-xl">
@@ -17,7 +17,7 @@ export const CaseStudies = ({ className, items }) => {
       </Container>
     </div>
   );
-};
+}
 
 CaseStudies.defaultProps = {
   className: "py-5",
@@ -26,7 +26,13 @@ CaseStudies.defaultProps = {
 
 CaseStudies.propTypes = {
   className: PropTypes.string,
-  items: PropTypes.arrayOf(PropTypes.shape(CaseStudyCard.propTypes)),
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      className: PropTypes.string,
+      title: PropTypes.string,
+      description: PropTypes.string,
+      img: PropTypes.string,
+      href: PropTypes.string,
+    })
+  ),
 };
-
-export default CaseStudies;

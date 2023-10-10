@@ -7,7 +7,7 @@ import classes from "./styles.module.scss";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 import PropTypes from "prop-types";
 
-export const TeamBio = ({
+export default function TeamBio({
   className,
   name,
   role,
@@ -18,7 +18,7 @@ export const TeamBio = ({
   photo,
   description,
   reverse,
-}) => {
+}) {
   return (
     <div className={clsx(className, classes.bio)}>
       <Container>
@@ -81,7 +81,7 @@ export const TeamBio = ({
       </Container>
     </div>
   );
-};
+}
 
 TeamBio.defaultProps = {
   className: "py-5",
@@ -108,5 +108,3 @@ TeamBio.propTypes = {
   description: PropTypes.string,
   reverse: PropTypes.bool,
 };
-
-export default TeamBio;

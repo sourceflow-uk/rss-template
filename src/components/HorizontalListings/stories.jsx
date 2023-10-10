@@ -1,4 +1,4 @@
-import { HorizontalListings } from "./index";
+import HorizontalListings from "./index";
 import { fakerEN_GB as faker } from "@faker-js/faker";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateHorizontalListing } from "@/faker/generateHorizontalListing";

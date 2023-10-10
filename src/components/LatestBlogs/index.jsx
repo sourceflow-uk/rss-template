@@ -2,11 +2,10 @@ import PropTypes from "prop-types";
 import { Col, Container, Row } from "react-bootstrap";
 import clsx from "classnames";
 import classes from "./styles.module.scss";
-import { BlogArticleCard } from "@/ui/BlogArticleCard";
 import ChevronRight from "@/assets/ChevronRight.svg";
-import { DynamicText } from "@/ui/DynamicText";
+import { BlogArticleCard, DynamicText } from "@/ui";
 
-export const LatestBlogs = ({ className, title, items, button }) => {
+export default function LatestBlogs({ className, title, items, button }) {
   return (
     <div className={clsx(className, classes.blogs)}>
       <Container className="mw-xl">
@@ -38,7 +37,7 @@ export const LatestBlogs = ({ className, title, items, button }) => {
       </Container>
     </div>
   );
-};
+}
 
 LatestBlogs.defaultProps = {
   className: "py-5",
@@ -53,11 +52,17 @@ LatestBlogs.defaultProps = {
 LatestBlogs.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
-  items: PropTypes.arrayOf(PropTypes.shape(BlogArticleCard.propTypes)),
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      className: PropTypes.string,
+      title: PropTypes.string,
+      description: PropTypes.string,
+      img: PropTypes.string,
+      published_at: PropTypes.string,
+    })
+  ),
   button: PropTypes.shape({
     label: PropTypes.string,
     href: PropTypes.string,
   }),
 };
-
-export default LatestBlogs;

@@ -3,7 +3,7 @@ import classes from "./styles.module.scss";
 import PropTypes from "prop-types";
 import { Nav } from "react-bootstrap";
 
-export const SidebarNavigation = ({ className, title, items }) => {
+export default function SidebarNavigation({ className, title, items }) {
   return (
     <div className={clsx(className, classes.sidebar)}>
       <h3>{title}</h3>
@@ -16,7 +16,7 @@ export const SidebarNavigation = ({ className, title, items }) => {
       </Nav>
     </div>
   );
-};
+}
 
 SidebarNavigation.defaultProps = {
   className: "",
@@ -34,5 +34,3 @@ SidebarNavigation.propTypes = {
     })
   ),
 };
-
-export default SidebarNavigation;

@@ -1,4 +1,4 @@
-import { OfficeLocations } from "./index";
+import OfficeLocations from "./index";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateOfficeLocationCard } from "@/faker/generateOfficeLocationCard";
 

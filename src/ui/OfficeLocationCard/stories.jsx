@@ -1,4 +1,4 @@
-import { OfficeLocationCard } from "./index";
+import OfficeLocationCard from "./index";
 import { Col, Container, Row } from "react-bootstrap";
 import { generateOfficeLocationCard } from "@/faker/generateOfficeLocationCard";
 

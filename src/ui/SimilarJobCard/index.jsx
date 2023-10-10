@@ -4,12 +4,9 @@ import classes from "./styles.module.scss";
 import { trimText } from "@/functions/trimText";
 import Location from "@/assets/Location.svg";
 import Contract from "@/assets/Contract.svg";
-import { lazy } from "react";
-import Time from "@/ui/Time";
+import { CTA, Time } from "@/ui";
 
-const CTA = lazy(() => import("@/ui/CTA"));
-
-export const SimilarJobCard = ({ className, title, location, salary_package, role_type, href, published_at }) => {
+export default function SimilarJobCard({ className, title, location, salary_package, role_type, href, published_at }) {
   return (
     <div className={clsx(className, classes.card, "p-4")}>
       <div className={classes.card__body}>
@@ -39,7 +36,7 @@ export const SimilarJobCard = ({ className, title, location, salary_package, rol
       </div>
     </div>
   );
-};
+}
 
 SimilarJobCard.defaultProps = {
   className: "bg-light",
@@ -58,5 +55,3 @@ SimilarJobCard.propTypes = {
   href: PropTypes.string,
   published_at: PropTypes.string,
 };
-
-export default SimilarJobCard;
