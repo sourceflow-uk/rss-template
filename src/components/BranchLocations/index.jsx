@@ -1,16 +1,16 @@
 import clsx from "classnames";
 import { Col, Container, Row } from "react-bootstrap";
 import PropTypes from "prop-types";
-import { OfficeLocationCard } from "@/ui";
+import { BranchLocationCard } from "@/ui";
 
-export default function OfficeLocations({ className, items }) {
+export default function BranchLocations({ className, branches }) {
   return (
     <div className={clsx(className)}>
       <Container className="mw-xl">
         <Row>
-          {items.map(({ address, phone, email, map_embed_url, opening_hours }, k) => (
+          {branches.map(({ address, phone, email, map_embed_url, opening_hours }, k) => (
             <Col key={k} xs={12} md={3}>
-              <OfficeLocationCard
+              <BranchLocationCard
                 address={address}
                 phone={phone}
                 email={email}
@@ -25,14 +25,14 @@ export default function OfficeLocations({ className, items }) {
   );
 }
 
-OfficeLocations.defaultProps = {
+BranchLocations.defaultProps = {
   className: "py-5",
-  items: [],
+  branches: [],
 };
 
-OfficeLocations.propTypes = {
+BranchLocations.propTypes = {
   className: PropTypes.string,
-  items: PropTypes.arrayOf(
+  branches: PropTypes.arrayOf(
     PropTypes.shape({
       className: PropTypes.string,
       address: PropTypes.string,

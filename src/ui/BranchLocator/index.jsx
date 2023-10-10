@@ -4,9 +4,9 @@ import classes from "./styles.module.scss";
 import { Button, Form } from "react-bootstrap";
 import { useState } from "react";
 
-export default function OfficeLocator({ className, title, locations }) {
+export default function BranchLocator({ className, title, branches }) {
   const [term, setTerm] = useState("");
-  const [location, setLocation] = useState("");
+  const [branch, setBranch] = useState("");
 
   const handleSearchClick = () => {};
 
@@ -20,11 +20,11 @@ export default function OfficeLocator({ className, title, locations }) {
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label>Or select a location</Form.Label>
-          <Form.Select value={location} onChange={(e) => setLocation(e.target.value)}>
+          <Form.Select value={branch} onChange={(e) => setBranch(e.target.value)}>
             <option value="" disabled>
               Select
             </option>
-            {locations.map(({ id, title }, k) => (
+            {branches.map(({ id, title }, k) => (
               <option key={k} value={id}>
                 {title}
               </option>
@@ -41,15 +41,15 @@ export default function OfficeLocator({ className, title, locations }) {
   );
 }
 
-OfficeLocator.defaultProps = {
-  title: "Our Branches",
+BranchLocator.defaultProps = {
+  title: "Find Branch",
   offices: [],
 };
 
-OfficeLocator.propTypes = {
+BranchLocator.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
-  offices: PropTypes.arrayOf(
+  branches: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
       title: PropTypes.string,

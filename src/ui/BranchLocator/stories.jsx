@@ -1,15 +1,15 @@
-import OfficeLocator from "./index";
+import BranchLocator from "./index";
 import { Col, Container, Row } from "react-bootstrap";
 import { generateArrayOf } from "@/faker/generateArrayOf";
-import { generateOfficeLocatorLocations } from "@/faker/generateOfficeLocatorLocations";
+import { generateBranch } from "@/faker/generateBranch";
 
 export default {
-  title: "New/UI/OfficeLocator",
+  title: "New/UI/BranchLocator",
   component: (props) => (
     <Container>
       <Row>
         <Col xs={12} md={3}>
-          <OfficeLocator {...props} />
+          <BranchLocator {...props} />
         </Col>
       </Row>
     </Container>
@@ -21,6 +21,6 @@ export default {
 
 export const Default = {
   args: {
-    locations: generateArrayOf(generateOfficeLocatorLocations, { count: 20 }),
+    locations: generateArrayOf(generateBranch, { count: 20 }),
   },
 };

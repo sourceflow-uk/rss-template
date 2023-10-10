@@ -1,14 +1,14 @@
-import OfficeLocationCard from "./index";
+import BranchLocationCard from "./index";
 import { Col, Container, Row } from "react-bootstrap";
-import { generateOfficeLocationCard } from "@/faker/generateOfficeLocationCard";
+import { generateBranch } from "@/faker/generateBranch";
 
 export default {
-  title: "UI/OfficeLocationCard",
+  title: "UI/BranchLocationCard",
   component: (props) => (
     <Container>
       <Row>
         <Col xs={4}>
-          <OfficeLocationCard {...props} />
+          <BranchLocationCard {...props} />
         </Col>
       </Row>
     </Container>
@@ -19,5 +19,5 @@ export default {
 };
 
 export const Default = {
-  args: generateOfficeLocationCard(),
+  args: generateBranch(),
 };

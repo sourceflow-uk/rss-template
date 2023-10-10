@@ -20,7 +20,6 @@ import { generateHeader } from "@/faker/generateHeader";
 import { generateHeroCarouselItem } from "@/faker/generateHeroCarouselItem";
 import { generateHorizontalListing } from "@/faker/generateHorizontalListing";
 import { generateMultiTileCard } from "@/faker/generateMultiTileCard";
-import { generateOfficeLocationCard } from "@/faker/generateOfficeLocationCard";
 import { generatePromoButton } from "@/faker/generatePromoButton";
 import { generatePromotionalCarouselItem } from "@/faker/generatePromotionalCarouselItem";
 import { generateCTA } from "@/faker/generateCTA";
@@ -28,6 +27,7 @@ import { generateRecruiter } from "@/faker/generateRecruiter";
 import { generateRecruiterListingItem } from "@/faker/generateRecruiterListingItem";
 import { generateTeamBio } from "@/faker/generateTeamBio";
 import { generateEmployer } from "@/faker/generateEmployer";
+import { generateBranch } from "@/faker/generateBranch";
 
 export default function Page({ content }) {
   return (
@@ -186,7 +186,13 @@ export async function getStaticProps({}) {
         {
           component: "OfficeLocations",
           props: {
-            items: generateArrayOf(generateOfficeLocationCard, { count: 4 }),
+            items: generateArrayOf(generateBranch, { count: 4 }),
+          },
+        },
+        {
+          component: "OfficeLocator",
+          props: {
+            items: generateArrayOf(generateBranch, { count: 20 }),
           },
         },
         {
