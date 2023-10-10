@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
+import PropTypes from "prop-types";
 
 export default function NoSSR({ children }) {
   const [loading, setLoading] = useState(true);
@@ -12,7 +13,7 @@ export default function NoSSR({ children }) {
     if (typeof window !== "undefined") {
       setLoading(false);
     }
-  }, []);
+  }, [children]);
 
   if (loading) {
     return (
@@ -24,3 +25,7 @@ export default function NoSSR({ children }) {
 
   return <>{children()}</>;
 }
+
+NoSSR.propTypes = {
+  children: PropTypes.func,
+};
