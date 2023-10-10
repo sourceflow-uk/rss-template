@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 export default function BreadcrumbNavigation({ className, items }) {
   return (
     <div className={clsx(className, classes.breadcrumbs)}>
-      <Container className="mw-xl">
+      <Container className="mw-xxl">
         <Breadcrumb>
           <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
           {items.map(({ label, href }, k) => (
