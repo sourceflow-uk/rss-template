@@ -9,7 +9,7 @@
   align-items: center;
   background-color: var(#{--bs-light});
 
-  &--has-img &__img {
+  &[class*="has-img"] &__img {
     position: absolute;
     top: 0;
     left: 0;
@@ -20,11 +20,11 @@
     z-index: 1;
   }
 
-  &--has-img:hover &__img {
+  &[class*="has-img"]:hover &__img {
     scale: 1.05;
   }
 
-  &--has-img::after {
+  &[class*="has-img"]::after {
     position: absolute;
     top: 0;
     left: 0;
@@ -34,7 +34,7 @@
     z-index: 2;
   }
 
-  &--has-img &__body {
+  &[class*="has-img"] &__body {
     h1 {
       color: $card-text-color;
     }

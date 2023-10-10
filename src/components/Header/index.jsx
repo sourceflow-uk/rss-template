@@ -9,7 +9,7 @@ import { CTA, VideoModal } from "@/ui";
 
 export default function Header({ className, title, img, description, cta, video_embed_url }) {
   return (
-    <div className={clsx(className, classes.header, { [classes.headerHasImg]: img })}>
+    <div className={clsx(className, classes.header, { "has-img": img })}>
       {img && <SourceFlowImage className={classes.header__img} src={img} size="1440x300" alt={title} />}
       <div className={clsx(classes.header__body, "p-5")}>
         <Row className="h-100">

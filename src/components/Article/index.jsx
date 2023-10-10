@@ -13,7 +13,7 @@ export default function Article({ className, title, description, body, img, tags
           <Col xs={12} md={8}>
             <h1 className="text-tertiary mb-3">{title}</h1>
             <Stack className="flex-row flex-wrap align-items-center mb-3" gap={2}>
-              <Time date={published_at} />
+              {published_at && <Time date={published_at} />}
               {tags.map(({ label, href }, k) => (
                 <Tag key={k} label={label} href={href} />
               ))}
