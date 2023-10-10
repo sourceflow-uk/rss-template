@@ -2,7 +2,8 @@
 
 .locator {
   padding: $spacer;
-  border: 1px solid $dark;
+  background-color: var(#{--bs-primary});
+  color: $white;
 
   label {
     font-weight: $font-weight-bold;

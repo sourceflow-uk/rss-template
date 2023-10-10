@@ -2,13 +2,15 @@ import clsx from "classnames";
 import PropTypes from "prop-types";
 import classes from "./styles.module.scss";
 import { Button, Form } from "react-bootstrap";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 export default function BranchLocator({ className, title, branches }) {
-  const [term, setTerm] = useState("");
   const [branch, setBranch] = useState("");
+  const [term, setTerm] = useState("");
 
-  const handleSearchClick = () => {};
+  const handleSearchClick = useCallback(() => {
+    // TODO: handle search
+  }, [branch, term]);
 
   return (
     <aside className={clsx(className, classes.locator)}>
@@ -32,7 +34,7 @@ export default function BranchLocator({ className, title, branches }) {
           </Form.Select>
         </Form.Group>
         <Form.Group>
-          <Button className="w-100" variant="dark" onClick={handleSearchClick}>
+          <Button className="w-100" variant="secondary" onClick={handleSearchClick}>
             Search
           </Button>
         </Form.Group>
