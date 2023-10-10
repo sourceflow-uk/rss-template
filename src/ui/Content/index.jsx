@@ -11,7 +11,7 @@ import { useState } from "react";
  * @constructor
  */
 export default function Content({ items, additionalComponents, demoMode }) {
-  const [open, setOpen] = useState(items.reduce((acc, i, k) => ({ ...acc, [k]: true }), {}));
+  const [open, setOpen] = useState(items.reduce((acc, i, k) => ({ ...acc, [k]: false }), {}));
   const allowedComponents = {
     ...components,
     ...additionalComponents,

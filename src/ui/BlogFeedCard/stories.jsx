@@ -1,14 +1,14 @@
-import BlogArticleCard from "./index";
+import BlogFeedCard from "./index";
 import { Col, Container, Row } from "react-bootstrap";
 import { generateArticle } from "@/faker/generateArticle";
 
 export default {
-  title: "UI/BlogArticleCard",
+  title: "UI/BlogFeedCard",
   component: (props) => (
     <Container>
       <Row>
         <Col xs={4}>
-          <BlogArticleCard {...props} />
+          <BlogFeedCard {...props} />
         </Col>
       </Row>
     </Container>

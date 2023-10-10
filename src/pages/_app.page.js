@@ -3,7 +3,6 @@ import { ParallaxProvider } from "react-scroll-parallax";
 import { getGlobal } from "@/getters/getGlobal";
 import { getHeaderMenu } from "@/getters/getHeaderMenu";
 import { getFooterMenu } from "@/getters/getFooterMenu";
-import { Alert } from "react-bootstrap";
 import { initializeMarker } from "@/functions/initializeMarker";
 import { Suspense, useEffect } from "react";
 import { SiteFooter, SiteHeader } from "@/ui";
@@ -44,10 +43,6 @@ export default function App({ Component, pageProps }) {
     <Suspense>
       <ParallaxProvider>
         {/*<SiteHead meta={pageProps?.meta} />*/}
-        <Alert className="py-2 bg-quaternary border-0 text-white mb-0" style={{ borderRadius: 0, textAlign: "center" }}>
-          Storybook has moved. Please{" "}
-          <a href="https://sourceflow-uk.github.io/rss-template/storybook/index.html">click here</a>.
-        </Alert>
         <SiteHeader {...headerProps} />
         <main className="flex-grow-1">
           <Component {...pageProps} />

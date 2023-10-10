@@ -1,16 +1,23 @@
-@import "src/scss/module";
+@import "../../scss/module";
 
 .breadcrumbs {
-  border: 1px solid $dark;
   padding-top: $spacer * 0.75;
   padding-bottom: $spacer * 0.75;
 
   ol {
     margin: 0;
+
+    li {
+      &:last-of-type {
+        a {
+          color: inherit;
+        }
+      }
+    }
   }
 
   a {
-    color: inherit;
+    color: var(#{--bs-primary});
     text-decoration: none;
 
     &:hover {

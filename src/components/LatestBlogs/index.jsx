@@ -3,7 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import clsx from "classnames";
 import classes from "./styles.module.scss";
 import ChevronRight from "@/assets/ChevronRight.svg";
-import { BlogArticleCard, DynamicText } from "@/ui";
+import { LatestBlogCard, DynamicText } from "@/ui";
 
 export default function LatestBlogs({ className, title, items, button }) {
   return (
@@ -15,7 +15,7 @@ export default function LatestBlogs({ className, title, items, button }) {
         <Row className="mb-4">
           {items.map(({ title, description, img, published_at, tags }, k) => (
             <Col key={k} xs={12} md={4}>
-              <BlogArticleCard
+              <LatestBlogCard
                 className="h-100"
                 title={title}
                 description={description}

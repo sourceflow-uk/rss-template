@@ -9,8 +9,8 @@ import { CTA, VideoModal } from "@/ui";
 
 export default function Header({ className, title, img, description, cta, video_embed_url }) {
   return (
-    <div className={clsx(className, classes.header)}>
-      <SourceFlowImage className={classes.header__img} src={img} size="1440x300" alt={title} />
+    <div className={clsx(className, classes.header, { [classes.headerHasImg]: img })}>
+      {img && <SourceFlowImage className={classes.header__img} src={img} size="1440x300" alt={title} />}
       <div className={clsx(classes.header__body, "p-5")}>
         <Row className="h-100">
           <Col xs={5} className="d-flex flex-column justify-content-center h-100">
@@ -31,7 +31,7 @@ export default function Header({ className, title, img, description, cta, video_
 
 Header.defaultProps = {
   title: "",
-  img: "",
+  img: null,
   description: "",
   cta: null,
   video_embed_url: null,

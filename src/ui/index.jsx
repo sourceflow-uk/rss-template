@@ -2,8 +2,7 @@ import { lazy } from "react";
 
 export const AccordionItem = lazy(() => import("./AccordionItem"));
 export const BlockQuoteCard = lazy(() => import("./BlockQuoteCard"));
-export const BlogArticleCard = lazy(() => import("./BlogArticleCard"));
-export const BreadcrumbNavigation = lazy(() => import("./BreadcrumbNavigation"));
+export const BlogFeedCard = lazy(() => import("./BlogFeedCard"));
 export const CaseStudyCard = lazy(() => import("./CaseStudyCard"));
 export const CollapsibleSectionItem = lazy(() => import("./CollapsibleSectionItem"));
 export const Content = lazy(() => import("./Content"));
@@ -14,6 +13,7 @@ export const FeaturedEmployerCard = lazy(() => import("./FeaturedEmployerCard"))
 export const HeroButton = lazy(() => import("./HeroButton"));
 export const HeroCarouselCard = lazy(() => import("./HeroCarouselCard"));
 export const JobCard = lazy(() => import("./JobCard"));
+export const LatestBlogCard = lazy(() => import("./LatestBlogCard"));
 export const LogoCard = lazy(() => import("./LogoCard"));
 export const MiniCarouselCard = lazy(() => import("./MiniCarouselCard"));
 export const MultiTileCard = lazy(() => import("./MultiTileCard"));

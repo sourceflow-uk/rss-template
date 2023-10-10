@@ -5,7 +5,7 @@ import clsx from "classnames";
 import { format } from "date-fns";
 import { trimText } from "@/functions/trimText";
 
-export default function BlogArticleCard({ className, title, description, img, published_at }) {
+export default function LatestBlogCard({ className, title, description, img, published_at }) {
   return (
     <article className={clsx(className, classes.card)}>
       <figure className="ratio ratio-1x1">
@@ -20,7 +20,7 @@ export default function BlogArticleCard({ className, title, description, img, pu
   );
 }
 
-BlogArticleCard.propTypes = {
+LatestBlogCard.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
