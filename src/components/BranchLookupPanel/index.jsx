@@ -7,10 +7,10 @@ export default function BranchLookupPanel({ className, branches }) {
     <div className={clsx(className)}>
       <Container>
         <Row>
-          <Col xs={12} md={4}>
+          <Col xs={12} md={3}>
             <BranchLocator branches={branches} />
           </Col>
-          <Col xs={12} md={8}></Col>
+          <Col xs={12} md={9}></Col>
         </Row>
       </Container>
     </div>

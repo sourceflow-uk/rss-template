@@ -27,8 +27,12 @@ export default function RootStyleOverrides() {
           --bs-border-radius: ${global["_theme.border.radius"]} !important;
           --bs-border-radius-sm: ${global["_theme.border.radius.sm"]} !important;
           --bs-font-family: ${global["_theme.font.family.default"]} !important;
-          --bs-font-family-heading: ${global["_theme.font.family.heading"]} !important;
-          --bs-font-family-heading-small: ${global["_theme.font.family.heading.small"]} !important;
+          --bs-font-family-h1: ${global["_theme.font.family.h1"]} !important;
+          --bs-font-family-h2: ${global["_theme.font.family.h2"]} !important;
+          --bs-font-family-h3: ${global["_theme.font.family.h3"]} !important;
+          --bs-font-family-h4: ${global["_theme.font.family.h4"]} !important;
+          --bs-font-family-h5: ${global["_theme.font.family.h5"]} !important;
+          --bs-font-family-h6: ${global["_theme.font.family.h6"]} !important;
         }
       `}
     </style>

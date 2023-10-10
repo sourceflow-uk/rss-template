@@ -14,7 +14,7 @@ export default function BranchLocator({ className, title, branches }) {
 
   return (
     <aside className={clsx(className, classes.locator)}>
-      <h2 className="mb-3">{title}</h2>
+      <h3 className="mb-3">{title}</h3>
       <Form>
         <Form.Group className="mb-3">
           <Form.Label>Enter town or postcode</Form.Label>

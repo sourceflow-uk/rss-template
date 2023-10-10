@@ -1,8 +1,9 @@
 @import "../../scss/module";
 
 .locator {
-  padding: $spacer;
+  padding: $spacer * 1.5;
   background-color: var(#{--bs-primary});
+  border-radius: var(#{--bs-border-radius-sm});
   color: $white;
 
   label {
@@ -11,6 +12,6 @@
 
   input,
   select {
-    border: 1px solid $dark;
+    border-radius: var(#{--bs-border-radius-sm});
   }
 }
