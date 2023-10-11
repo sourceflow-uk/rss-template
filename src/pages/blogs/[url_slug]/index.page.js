@@ -24,7 +24,7 @@ export async function getStaticProps({ params: { url_slug } }) {
           props: {
             items: [
               { label: "Blogs", href: getRoute("blogs") },
-              { label: article.title, href: getRoute("blogPost", url_slug) },
+              { label: article.title, href: getRoute("blogPost", { url_slug }) },
             ],
           },
         },

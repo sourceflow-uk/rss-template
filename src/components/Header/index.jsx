@@ -14,16 +14,16 @@ export default function Header({ className, title, img, description, cta, video_
       <div className={clsx(classes.header__body, "p-5")}>
         <Container className="mw-xxl">
           <Row className="h-100">
-            <Col xs={5} className="d-flex flex-column justify-content-center h-100">
+            <Col xs={12} md={5} className="d-flex flex-column justify-content-center h-100">
               {back && (
                 <a className={clsx(classes.header__back, "mb-3")} href={back.href}>
                   <ArrowLeft />
                   {back.label}
                 </a>
               )}
-              <h1>{title}</h1>
-              <div dangerouslySetInnerHTML={{ __html: description }} />
-              {cta && <CTA label={cta.label} href={cta.href} variant={cta.variant} />}
+              <h1 className="mb-0">{title}</h1>
+              {description && <div className="mt-5" dangerouslySetInnerHTML={{ __html: description }} />}
+              {cta && <CTA className="mt-4" label={cta.label} href={cta.href} variant={cta.variant} />}
             </Col>
           </Row>
         </Container>

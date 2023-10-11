@@ -23,7 +23,7 @@ export async function getStaticProps({ params: { url_slug } }) {
             items: [
               { label: "Contact us", href: getRoute("contact") },
               { label: "Our Branches", href: getRoute("branches") },
-              { label: unslug(url_slug), href: getRoute("branch", url_slug) },
+              { label: unslug(url_slug), href: getRoute("branch", { url_slug }) },
             ],
           },
         },

@@ -25,6 +25,12 @@ export async function getStaticProps() {
             ],
           },
         },
+        {
+          component: "Header",
+          props: {
+            title: `Get in touch`,
+          },
+        },
       ],
     },
   };
