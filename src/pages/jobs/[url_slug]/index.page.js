@@ -15,6 +15,7 @@ export default function JobPage({ content }) {
 
 export async function getStaticProps({ params: { url_slug } }) {
   const job = generateJob();
+  const related = generateArrayOf(generateJob, { count: 5 });
 
   return {
     props: {
@@ -46,7 +47,7 @@ export async function getStaticProps({ params: { url_slug } }) {
           },
         },
         { component: "SimilarJobs", props: { items: generateArrayOf(generateJob, { count: 4 }) } },
-        { component: "JobPageContent", props: { ...job } },
+        { component: "JobPageContent", props: { ...job, related } },
       ],
     },
   };

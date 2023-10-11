@@ -235,6 +235,12 @@ hr {
     padding: $spacer $spacer * 2;
     background-color: var(#{--bs-primary});
     color: $white;
+
+    & > * {
+      font-size: inherit;
+      font-weight: inherit;
+      margin: 0;
+    }
   }
 
   &-body {

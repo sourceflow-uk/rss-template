@@ -11,7 +11,9 @@ import { NoSSR } from "@/ui";
 export default function SocialMediaShare({ className, title }) {
   return (
     <Card className={clsx(className, classes.share)}>
-      <Card.Header>{title}</Card.Header>
+      <Card.Header>
+        <h3>{title}</h3>
+      </Card.Header>
       <Card.Body>
         <Stack className="flex-row" gap={3}>
           <NoSSR>

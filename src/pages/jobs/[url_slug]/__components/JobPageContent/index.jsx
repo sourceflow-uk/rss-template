@@ -9,6 +9,7 @@ import classes from "./styles.module.scss";
 import clsx from "classnames";
 import { getGlobal } from "@/getters/getGlobal";
 import { formatDistanceToNowStrict } from "date-fns";
+import { RelatedJobs } from "@/components";
 
 export default function JobPageContent({
   className,
@@ -20,6 +21,7 @@ export default function JobPageContent({
   salary_package,
   external_reference,
   published_at,
+  related,
 }) {
   const global = getGlobal();
 
@@ -29,7 +31,9 @@ export default function JobPageContent({
         <Row>
           <Col xs={12} md={9}>
             <Card className={classes.content__details}>
-              <Card.Header>Job Details</Card.Header>
+              <Card.Header>
+                <h3>Job Details</h3>
+              </Card.Header>
               <Card.Body className="p-0">
                 <div className="p-4">
                   <Row>
@@ -87,13 +91,18 @@ export default function JobPageContent({
             </Card>
           </Col>
           <Col xs={12} md={3}>
-            <SocialMediaShare className="mb-4" title="Share this job" />
-            <Card>
-              <Card.Header>Have a Question?</Card.Header>
-              <Card.Body>
-                <Phone number={global["_theme.phone"]} />
-              </Card.Body>
-            </Card>
+            <Stack gap={4}>
+              <SocialMediaShare title="Share this job" />
+              <Card>
+                <Card.Header>
+                  <h3>Have a Question?</h3>
+                </Card.Header>
+                <Card.Body>
+                  <Phone number={global["_theme.phone"]} />
+                </Card.Body>
+              </Card>
+              <RelatedJobs items={related} />
+            </Stack>
           </Col>
         </Row>
       </Container>
@@ -103,8 +112,28 @@ export default function JobPageContent({
 
 JobPageContent.defaultProps = {
   className: "pb-4",
+  body: null,
+  img: null,
+  role_type: null,
+  location: null,
+  sectors: [],
+  salary_package: null,
+  external_reference: null,
+  published_at: null,
 };
 
 JobPageContent.propTypes = {
   className: PropTypes.string,
+  body: PropTypes.string,
+  img: PropTypes.string,
+  role_type: PropTypes.string,
+  location: PropTypes.string,
+  sectors: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+    })
+  ),
+  salary_package: PropTypes.string,
+  external_reference: PropTypes.string,
+  published_at: PropTypes.string,
 };

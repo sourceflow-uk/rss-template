@@ -1,41 +1,39 @@
 import clsx from "classnames";
-import { Col, Container, Row } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { DynamicText, RelatedJobCard } from "@/ui";
 
-export default function RelatedJobs({ className, title, items, direction }) {
+export default function RelatedJobs({ className, title, items }) {
   return (
-    <div className={clsx(className)}>
-      <Container className="mw-lg">
-        <DynamicText path={`_component.${this}.title`} tag="h2">
+    <Card className={clsx(className)}>
+      <Card.Header>
+        <DynamicText path={`_component.${this}.title`} tag="h3">
           {title}
         </DynamicText>
-        <Row>
-          {items.map(({ title, sectors, location, salary_package, role_type, published_at, href }, k) => (
-            <Col key={k} className="mb-3" xs={12} md={{ row: 3, column: 12 }[direction]}>
-              <RelatedJobCard
-                className="h-100"
-                title={title}
-                sectors={sectors}
-                location={location}
-                salary_package={salary_package}
-                role_type={role_type}
-                published_at={published_at}
-                href={href}
-              />
-            </Col>
-          ))}
-        </Row>
-      </Container>
-    </div>
+      </Card.Header>
+      <Card.Body>
+        {items.map(({ title, sectors, location, salary_package, role_type, published_at, href }, k) => (
+          <RelatedJobCard
+            key={k}
+            className="h-100"
+            title={title}
+            sectors={sectors}
+            location={location}
+            salary_package={salary_package}
+            role_type={role_type}
+            published_at={published_at}
+            href={href}
+          />
+        ))}
+      </Card.Body>
+    </Card>
   );
 }
 
 RelatedJobs.defaultProps = {
-  className: "py-5",
-  title: "Related Jobs",
+  className: "",
+  title: "Other jobs you might like",
   items: [],
-  direction: "row",
 };
 
 RelatedJobs.propTypes = {
@@ -56,5 +54,4 @@ RelatedJobs.propTypes = {
       href: PropTypes.string,
     })
   ),
-  direction: PropTypes.oneOf(["row", "column"]),
 };

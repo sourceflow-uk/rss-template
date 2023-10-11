@@ -3,16 +3,30 @@
 .card {
   display: block;
   color: $text-color;
-  border: 1px solid $dark;
   text-decoration: none;
-  padding-top: $spacer;
-  @include card-hover-rise;
+  padding: $spacer 0;
+
+  &:first-of-type {
+    padding-top: 0;
+  }
+
+  &:last-of-type {
+    padding-bottom: 0;
+  }
+
+  &:not(:last-of-type) {
+    border-bottom: 1px solid #d6d6d6;
+  }
 
   &__body {
     height: 100%;
-    padding: $spacer;
     display: flex;
     flex-direction: column;
+
+    h4 {
+      font-size: inherit;
+      color: var(#{--bs-primary});
+    }
 
     time {
       font-size: $font-size-sm;
