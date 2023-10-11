@@ -12,7 +12,7 @@ export default function SimilarJobs({ className, title, items }) {
 
   return (
     <div className={clsx(className, classes.similar)}>
-      <Container className="mw-xl">
+      <Container className="mw-xxl">
         <Button className={clsx(classes.similar__button, { open })} variant="tertiary" onClick={() => setOpen(!open)}>
           <Pay />
           <span className="ms-3 me-auto">{title}</span>
@@ -26,6 +26,7 @@ export default function SimilarJobs({ className, title, items }) {
               {items.slice(0, 4).map(({ title, href, location, salary_package, role_type, published_at }, k) => (
                 <Col key={k} xs={12} md={3}>
                   <SimilarJobCard
+                    className="h-100"
                     title={title}
                     href={href}
                     location={location}

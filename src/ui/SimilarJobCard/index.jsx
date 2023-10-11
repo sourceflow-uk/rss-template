@@ -8,7 +8,7 @@ import { CTA, Time } from "@/ui";
 
 export default function SimilarJobCard({ className, title, location, salary_package, role_type, href, published_at }) {
   return (
-    <div className={clsx(className, classes.card, "p-4")}>
+    <div className={clsx(className, classes.card, "bg-light p-4")}>
       <div className={classes.card__body}>
         <dl>
           <dt className="visually-hidden">Salary</dt>
@@ -39,7 +39,7 @@ export default function SimilarJobCard({ className, title, location, salary_pack
 }
 
 SimilarJobCard.defaultProps = {
-  className: "bg-light",
+  className: "",
   title: "",
   salary_package: "",
   role_type: "",
