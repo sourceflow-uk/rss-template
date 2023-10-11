@@ -2,8 +2,10 @@ import { Content } from "@/ui";
 import { generateArticle } from "@/faker/generateArticle";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { getRoute } from "@/getters/getRoute";
+import { generateJob } from "@/faker/generateJob";
+import unslug from "unslug";
 
-export default function BlogPostPage({ content }) {
+export default function JobPage({ content }) {
   return (
     <>
       <Content items={content} />
@@ -12,8 +14,7 @@ export default function BlogPostPage({ content }) {
 }
 
 export async function getStaticProps({ params: { url_slug } }) {
-  const article = generateArticle();
-  const related = generateArrayOf(generateArticle, { count: 4 });
+  const job = generateJob();
 
   return {
     props: {
@@ -23,12 +24,27 @@ export async function getStaticProps({ params: { url_slug } }) {
           component: "BreadcrumbNavigation",
           props: {
             items: [
-              { label: "Blogs", href: getRoute("blogs") },
-              { label: article.title, href: getRoute("blogPost", { url_slug }) },
+              {
+                label: "Find a Job",
+                href: getRoute("jobs"),
+              },
+              {
+                label: unslug(url_slug),
+                href: getRoute("job", { url_slug }),
+              },
             ],
           },
         },
-        { component: "Article", props: { ...article, related } },
+        {
+          component: "Header",
+          props: {
+            title: unslug(url_slug),
+            back: {
+              label: `Back to job search`,
+              href: getRoute("jobs"),
+            },
+          },
+        },
       ],
     },
   };

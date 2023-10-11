@@ -1,8 +1,8 @@
-import { fakerEN_GB as faker } from "@faker-js/faker";
 import { generateTitle } from "@/faker/generateTitle";
+import { generateImage } from "@/faker/generateImage";
 
 export const generateMultiTileCard = () => ({
   title: generateTitle(),
-  img: faker.image.urlPicsumPhotos({ width: 200, height: 200 }),
+  img: generateImage({ width: 200, height: 200 }),
   href: "#",
 });

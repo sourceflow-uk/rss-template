@@ -22,7 +22,7 @@ export default function Header({ className, title, img, description, cta, video_
                 </a>
               )}
               <h1 className="mb-0">{title}</h1>
-              {description && <div className="mt-5" dangerouslySetInnerHTML={{ __html: description }} />}
+              {description && <div className="mt-4" dangerouslySetInnerHTML={{ __html: description }} />}
               {cta && <CTA className="mt-4" label={cta.label} href={cta.href} variant={cta.variant} />}
             </Col>
           </Row>

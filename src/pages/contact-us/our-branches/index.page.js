@@ -3,7 +3,7 @@ import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateBranch } from "@/faker/generateBranch";
 import { getRoute } from "@/getters/getRoute";
 
-export default function Page({ content }) {
+export default function BranchesPage({ content }) {
   return (
     <>
       <Content items={content} />

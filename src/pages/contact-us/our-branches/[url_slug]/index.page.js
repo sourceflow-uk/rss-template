@@ -4,7 +4,7 @@ import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateJob } from "@/faker/generateJob";
 import { getRoute } from "@/getters/getRoute";
 
-export default function Page({ content }) {
+export default function BranchPage({ content }) {
   return (
     <>
       <Content items={content} />

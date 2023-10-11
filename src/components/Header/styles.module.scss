@@ -39,11 +39,9 @@
   }
 
   &[class*="has-img"] &__body {
-    h1 {
-      color: $card-text-color;
-    }
+    color: $card-text-color;
 
-    p {
+    h1 {
       color: $card-text-color;
     }
   }

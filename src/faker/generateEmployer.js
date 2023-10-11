@@ -1,8 +1,8 @@
-import { fakerEN_GB as faker } from "@faker-js/faker";
 import { generateTitle } from "@/faker/generateTitle";
+import { generateImage } from "@/faker/generateImage";
 
 export const generateEmployer = () => ({
   title: generateTitle(),
-  img: faker.image.urlPicsumPhotos({ width: 120, height: 120 }),
+  img: generateImage({ width: 120, height: 120 }),
   href: "#",
 });

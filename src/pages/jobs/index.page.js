@@ -1,7 +1,9 @@
 import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
+import { generateImage } from "@/faker/generateImage";
+import { generateDescription } from "@/faker/generateDescription";
 
-export default function ContactPage({ content }) {
+export default function JobsPage({ content }) {
   return (
     <>
       <Content items={content} />
@@ -9,7 +11,7 @@ export default function ContactPage({ content }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({}) {
   return {
     props: {
       meta: {},
@@ -19,8 +21,8 @@ export async function getStaticProps() {
           props: {
             items: [
               {
-                label: "Contact us",
-                href: getRoute("contact"),
+                label: "Find a Job",
+                href: getRoute("jobs"),
               },
             ],
           },
@@ -28,7 +30,9 @@ export async function getStaticProps() {
         {
           component: "Header",
           props: {
-            title: `Get in touch`,
+            title: "Find a Job",
+            description: generateDescription({ min: 2, max: 2 }),
+            img: generateImage({ width: 1440, height: 300 }),
           },
         },
       ],

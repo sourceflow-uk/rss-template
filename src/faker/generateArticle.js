@@ -4,11 +4,12 @@ import { generateTag } from "@/faker/generateTag";
 import { generateTitle } from "@/faker/generateTitle";
 import { generateDescription } from "@/faker/generateDescription";
 import { generateBody } from "@/faker/generateBody";
+import { generateImage } from "@/faker/generateImage";
 
 export const generateArticle = () => ({
   title: generateTitle(),
   description: generateDescription(),
-  img: faker.image.urlPicsumPhotos({ width: 373, height: 220 }),
+  img: generateImage({ width: 373, height: 220 }),
   tags: generateArrayOf(generateTag, { count: 1 }),
   body: generateBody({ title: true }),
   published_at: faker.date.past().toISOString(),

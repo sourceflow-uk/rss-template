@@ -1,4 +1,5 @@
 import { fakerEN_GB as faker } from "@faker-js/faker";
+import { generateImage } from "@/faker/generateImage";
 
 export const generateSiteHeader = () => ({
   nav: faker.helpers.multiple(
@@ -15,5 +16,5 @@ export const generateSiteHeader = () => ({
     { count: { min: 3, max: 4 } }
   ),
   company_name: faker.company.name(),
-  company_logo: faker.image.urlPicsumPhotos({ width: 182, height: 40 }),
+  company_logo: generateImage({ width: 182, height: 40 }),
 });

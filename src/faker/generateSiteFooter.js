@@ -1,4 +1,5 @@
 import { fakerEN_GB as faker } from "@faker-js/faker";
+import { generateImage } from "@/faker/generateImage";
 
 export const generateSiteFooter = () => ({
   nav: faker.helpers.multiple(
@@ -22,7 +23,7 @@ export const generateSiteFooter = () => ({
   },
   company_name: faker.company.name(),
   company_number: `${faker.number.bigInt()}`.slice(0, 6),
-  company_logo: faker.image.urlPicsumPhotos({ width: 182, height: 40 }),
+  company_logo: generateImage({ width: 182, height: 40 }),
   vat_number: `${faker.number.bigInt()}`.slice(0, 9),
   website: faker.internet.domainName(),
   phone: faker.phone.number(),
