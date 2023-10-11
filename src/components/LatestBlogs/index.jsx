@@ -8,7 +8,7 @@ import { LatestBlogCard, DynamicText } from "@/ui";
 export default function LatestBlogs({ className, title, items, button }) {
   return (
     <div className={clsx(className, classes.blogs)}>
-      <Container className="mw-xl">
+      <Container className="mw-xxl">
         <DynamicText path={`_component.${this}.title`} tag="h2">
           {title}
         </DynamicText>

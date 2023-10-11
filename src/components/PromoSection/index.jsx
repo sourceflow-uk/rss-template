@@ -2,12 +2,13 @@ import clsx from "classnames";
 import { Col, Container, Row } from "react-bootstrap";
 import PropTypes from "prop-types";
 import classes from "./styles.module.scss";
-import { PromoItem } from "@/ui";
+import { DynamicText, PromoItem } from "@/ui";
 
-export default function PromoSection({ className, items }) {
+export default function PromoSection({ className, title, items }) {
   return (
     <div className={clsx(className, classes.section)}>
-      <Container className="mw-xl">
+      <Container className="mw-xxl">
+        {title && <h2 className="mb-5">{title}</h2>}
         <Row>
           {items.map(({ title, description, img, href }, k) => (
             <Col key={k}>
@@ -22,11 +23,13 @@ export default function PromoSection({ className, items }) {
 
 PromoSection.defaultProps = {
   className: "py-5",
+  title: null,
   items: [],
 };
 
 PromoSection.propTypes = {
   className: PropTypes.string,
+  title: PropTypes.string,
   items: PropTypes.arrayOf(
     PropTypes.shape({
       className: PropTypes.string,

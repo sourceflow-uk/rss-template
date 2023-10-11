@@ -7,10 +7,11 @@ import ChevronRight from "@/assets/ChevronRight.svg";
 import classes from "./styles.module.scss";
 import { LogoCard } from "@/ui";
 
-export default function LogoCarousel({ className, items, visibleCount }) {
+export default function LogoCarousel({ className, title, items, visibleCount }) {
   return (
     <div className={clsx(className, classes.logos)}>
       <Container className="mw-xxl">
+        {title && <h2 className="mb-5">{title}</h2>}
         <Carousel
           className={classes.logos__carousel}
           controls={true}

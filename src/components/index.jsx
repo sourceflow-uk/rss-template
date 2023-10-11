@@ -10,6 +10,7 @@ export const BreadcrumbNavigation = lazy(() => import("./BreadcrumbNavigation"))
 export const CaseStudies = lazy(() => import("./CaseStudies"));
 export const CollapsibleContent = lazy(() => import("./CollapsibleContent"));
 export const CollapsibleSection = lazy(() => import("./CollapsibleSection"));
+export const Divider = lazy(() => import("./Divider"));
 export const FeaturedEmployers = lazy(() => import("./FeaturedEmployers"));
 export const FeatureTabsList = lazy(() => import("./FeatureTabsList"));
 export const Header = lazy(() => import("./Header"));

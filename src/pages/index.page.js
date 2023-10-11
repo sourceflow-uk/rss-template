@@ -23,33 +23,29 @@ export async function getStaticProps({}) {
         {
           component: "LogoCarousel",
           props: {
+            title: "Featured Employers",
             items: generateArrayOf(generateLogoCard, { count: 8 }),
             visibleCount: 4,
           },
         },
         {
           component: "PromoSection",
-          props: {
-            items: generateArrayOf(generatePromoItem, { count: 4 }),
-          },
+          props: { title: "Careers Advice", items: generateArrayOf(generatePromoItem, { count: 4 }) },
         },
+        { component: "Divider" },
         {
           component: "MiniCarousel",
-          props: {
-            items: generateArrayOf(generateMiniCarouselCard, { count: 3 }),
-          },
+          props: { items: generateArrayOf(generateMiniCarouselCard, { count: 3 }) },
         },
+        { component: "Divider" },
         {
           component: "LatestJobs",
-          props: {
-            items: generateArrayOf(generateJob, { count: 3 }),
-          },
+          props: { items: generateArrayOf(generateJob, { count: 12 }), visibleCount: 4 },
         },
+        { component: "Divider" },
         {
           component: "LatestBlogs",
-          props: {
-            items: generateArrayOf(generateArticle, { count: 3 }),
-          },
+          props: { items: generateArrayOf(generateArticle, { count: 3 }) },
         },
       ],
     },

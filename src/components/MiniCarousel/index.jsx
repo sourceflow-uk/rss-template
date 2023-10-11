@@ -9,7 +9,7 @@ import { MiniCarouselCard } from "@/ui";
 export default function MiniCarousel({ className, items }) {
   return (
     <div className={clsx(className, classes.mini)}>
-      <Container>
+      <Container className="mw-xxl">
         <Carousel
           className={classes.mini__carousel}
           controls={true}

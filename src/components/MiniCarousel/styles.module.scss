@@ -4,6 +4,8 @@
   &__carousel {
     display: flex;
     height: 100%;
+    margin-left: $spacer * -3;
+    margin-right: $spacer * -3;
 
     [class*="carousel-control-"] {
       position: relative;

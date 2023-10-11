@@ -3,12 +3,13 @@ import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import classes from "./styles.module.scss";
 import PropTypes from "prop-types";
 import ChevronDown from "@/assets/ChevronDown.svg";
+import { getRoute } from "@/getters/getRoute";
 
 export default function SiteHeader({ className, company_name, company_logo, nav }) {
   return (
     <Navbar className={clsx(className, classes.header)}>
       <Container className="p-0">
-        <Navbar.Brand className="me-auto p-2" href="/">
+        <Navbar.Brand className="me-auto p-2" href={getRoute("home")}>
           <img src={company_logo} alt={company_name} />
         </Navbar.Brand>
         <Nav>
