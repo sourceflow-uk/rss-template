@@ -33,6 +33,12 @@ export default function RootStyleOverrides() {
           --bs-font-family-h4: ${global["_theme.font.family.h4"]} !important;
           --bs-font-family-h5: ${global["_theme.font.family.h5"]} !important;
           --bs-font-family-h6: ${global["_theme.font.family.h6"]} !important;
+          --bs-font-weight-h1: ${global["_theme.font.weight.h1"]} !important;
+          --bs-font-weight-h2: ${global["_theme.font.weight.h2"]} !important;
+          --bs-font-weight-h3: ${global["_theme.font.weight.h3"]} !important;
+          --bs-font-weight-h4: ${global["_theme.font.weight.h4"]} !important;
+          --bs-font-weight-h5: ${global["_theme.font.weight.h5"]} !important;
+          --bs-font-weight-h6: ${global["_theme.font.weight.h6"]} !important;
         }
       `}
     </style>

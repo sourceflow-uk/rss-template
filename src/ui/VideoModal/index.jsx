@@ -1,11 +1,22 @@
 import classes from "./styles.module.scss";
 import { Modal } from "react-bootstrap";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import clsx from "classnames";
 import PropTypes from "prop-types";
 
 export default function VideoModal({ video_embed_url, children, ...props }) {
   const [show, setShow] = useState(false);
+  const [video, setVideo] = useState("");
+
+  useEffect(() => {
+    let [url, params] = video_embed_url.split("?");
+
+    params = new URLSearchParams(params);
+    params.set("controls", "0");
+    params.set("autoplay", "1");
+
+    setVideo(`${url}?${params.toString()}`);
+  }, [video_embed_url]);
 
   return (
     <>
@@ -23,7 +34,7 @@ export default function VideoModal({ video_embed_url, children, ...props }) {
           <iframe
             width="560"
             height="315"
-            src={video_embed_url}
+            src={video}
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen

@@ -8,7 +8,5 @@ export const generatePromotionalCarouselItem = ({ video = false } = {}) => ({
   img: faker.image.urlPicsumPhotos({ width: 540, height: 291 }),
   description: generateDescription(),
   cta: generateCTA(),
-  video_embed_url: video
-    ? "https://www.youtube-nocookie.com/embed/gIL2wQUBjdA?si=Cfpp7oDgxQ-vFZbq&amp;controls=0"
-    : null,
+  video_embed_url: video ? "https://www.youtube-nocookie.com/embed/gIL2wQUBjdA?si=Cfpp7oDgxQ-vFZbq&controls=0" : null,
 });

@@ -27,6 +27,16 @@ export async function getStaticProps({ params: { url_slug } }) {
           },
         },
         {
+          component: "Header",
+          props: {
+            title: `${unslug(url_slug)} Branch`,
+            back: {
+              label: `Back to branches`,
+              href: "/contact-us/our-branches",
+            },
+          },
+        },
+        {
           component: "LatestJobs",
           props: {
             title: `Latest Jobs in ${unslug(url_slug)}`,

@@ -10,7 +10,7 @@ import { DynamicText, JobCard } from "@/ui";
 export default function LatestJobs({ className, title, items, button, visibleCount }) {
   return (
     <div className={clsx(className, classes.jobs)}>
-      <Container className="mw-xl">
+      <Container className="mw-xxl">
         <DynamicText path={`_component.${this}.title`} tag="h2">
           {title}
         </DynamicText>

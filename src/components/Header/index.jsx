@@ -5,8 +5,9 @@ import { Col, Container, Row } from "react-bootstrap";
 import Play from "@/assets/Play.svg";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 import { CTA, VideoModal } from "@/ui";
+import ArrowLeft from "@/assets/ArrowLeft.svg";
 
-export default function Header({ className, title, img, description, cta, video_embed_url }) {
+export default function Header({ className, title, img, description, cta, video_embed_url, back }) {
   return (
     <div className={clsx(className, classes.header, { "has-img": img })}>
       {img && <SourceFlowImage className={classes.header__img} src={img} size="1440x300" alt={title} />}
@@ -14,6 +15,12 @@ export default function Header({ className, title, img, description, cta, video_
         <Container className="mw-xxl">
           <Row className="h-100">
             <Col xs={5} className="d-flex flex-column justify-content-center h-100">
+              {back && (
+                <a className={clsx(classes.header__back, "mb-3")} href={back.href}>
+                  <ArrowLeft />
+                  {back.label}
+                </a>
+              )}
               <h1>{title}</h1>
               <div dangerouslySetInnerHTML={{ __html: description }} />
               {cta && <CTA label={cta.label} href={cta.href} variant={cta.variant} />}
@@ -36,6 +43,7 @@ Header.defaultProps = {
   description: "",
   cta: null,
   video_embed_url: null,
+  back: null,
 };
 
 Header.propTypes = {
@@ -50,4 +58,7 @@ Header.propTypes = {
     variant: PropTypes.string,
   }),
   video_embed_url: PropTypes.string,
+  back: PropTypes.shape({
+    label: PropTypes.string,
+  }),
 };
