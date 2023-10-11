@@ -8,7 +8,7 @@ import Facebook from "@/assets/Facebook.svg";
 import classes from "./styles.module.scss";
 import { NoSSR } from "@/ui";
 
-export default function SocialMediaShare({ className, title }) {
+export default function SocialShare({ className, title }) {
   return (
     <Card className={clsx(className, classes.share)}>
       <Card.Header>
@@ -40,7 +40,7 @@ export default function SocialMediaShare({ className, title }) {
   );
 }
 
-SocialMediaShare.defaultProps = {
+SocialShare.defaultProps = {
   className: "",
   title: "Share this",
 };

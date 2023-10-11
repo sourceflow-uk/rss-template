@@ -3,7 +3,7 @@ import clsx from "classnames";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 import classes from "./styles.module.scss";
 import PropTypes from "prop-types";
-import { RelatedArticles, SocialMediaShare, Tag, Time } from "@/ui";
+import { RelatedArticles, SocialShare, Tag, Time } from "@/ui";
 
 export default function Article({ className, title, description, body, img, tags, published_at, related }) {
   return (
@@ -25,7 +25,7 @@ export default function Article({ className, title, description, body, img, tags
               </p>
               <div dangerouslySetInnerHTML={{ __html: body }} />
             </div>
-            <SocialMediaShare className="mt-5" />
+            <SocialShare className="mt-5" />
           </Col>
           <Col xs={12} md={4}>
             <RelatedArticles items={related} />

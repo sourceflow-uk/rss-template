@@ -1,15 +1,15 @@
 import Calendar from "@/assets/Calendar.svg";
 import { format as formatDate } from "date-fns";
 import PropTypes from "prop-types";
-import classes from "./styles.module.scss";
-import clsx from "classnames";
+import { Detail } from "@/ui";
 
-export default function Time({ className, date, format, icon }) {
+export default function Time({ className, icon, date, format }) {
   return (
-    <time className={clsx(className, classes.time)}>
-      {icon && <Calendar />}
-      {formatDate(new Date(date), format)}
-    </time>
+    <Detail
+      className={className}
+      icon={icon && <Calendar width="21" height="21" />}
+      value={<time>{formatDate(new Date(date), format)}</time>}
+    />
   );
 }
 

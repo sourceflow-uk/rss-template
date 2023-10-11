@@ -1,6 +1,6 @@
 import { Card, Col, Container, Row, Stack } from "react-bootstrap";
 import PropTypes from "prop-types";
-import { CTA, Phone, SocialMediaShare, Tag } from "@/ui";
+import { CTA, Phone, SocialShare, Tag } from "@/ui";
 import Calendar from "@/assets/Calendar.svg";
 import Contract from "@/assets/Contract.svg";
 import Location from "@/assets/Location.svg";
@@ -92,7 +92,7 @@ export default function JobPageContent({
           </Col>
           <Col xs={12} md={3}>
             <Stack gap={4}>
-              <SocialMediaShare title="Share this job" />
+              <SocialShare title="Share this job" />
               <Card>
                 <Card.Header>
                   <h3>Have a Question?</h3>

@@ -53,21 +53,21 @@ h6,
 
 h1,
 .h1 {
-  margin-bottom: $spacer * 2;
+  margin-bottom: $spacer * 1.5;
   font-family: var(#{--bs-font-family-h1});
   font-weight: var(#{--bs-font-weight-h1});
 }
 
 h2,
 .h2 {
-  margin-bottom: $spacer * 2;
+  margin-bottom: $spacer * 1.5;
   font-family: var(#{--bs-font-family-h2});
   font-weight: var(#{--bs-font-weight-h2});
 }
 
 h3,
 .h3 {
-  margin-bottom: $spacer * 2;
+  margin-bottom: $spacer * 1.5;
   font-family: var(#{--bs-font-family-h3});
   font-weight: var(#{--bs-font-weight-h3});
 }

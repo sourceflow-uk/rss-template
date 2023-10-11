@@ -1,8 +1,8 @@
-import SocialMediaShare from "./index";
+import SocialLinks from "./index";
 
 export default {
-  title: "UI/SocialMediaShare",
-  component: SocialMediaShare,
+  title: "UI/SocialLinks",
+  component: SocialLinks,
   parameters: {},
   tags: [],
   argTypes: {},

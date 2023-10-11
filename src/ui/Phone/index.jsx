@@ -1,25 +1,24 @@
 import Icon from "@/assets/Phone.svg";
 import PropTypes from "prop-types";
-import classes from "./styles.module.scss";
-import clsx from "classnames";
+import { Detail } from "@/ui";
 
-export default function Phone({ className, number, icon }) {
+export default function Phone({ className, number }) {
   return (
-    <time className={clsx(className, classes.phone)}>
-      {icon && <Icon width="24" height="24" />}
-      <a href={`tel:${number.replaceAll(" ", "")}`}>{number}</a>
-    </time>
+    <Detail
+      className={className}
+      label="Phone"
+      icon={<Icon width="21" height="21" />}
+      value={<a href={`tel:${number.replaceAll(" ", "")}`}>{number}</a>}
+    />
   );
 }
 
 Phone.defaultProps = {
   className: "",
-  icon: true,
   number: "",
 };
 
 Phone.propTypes = {
   className: PropTypes.string,
-  icon: PropTypes.bool,
   number: PropTypes.string,
 };
