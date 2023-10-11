@@ -1,6 +1,6 @@
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Row, Stack } from "react-bootstrap";
 import PropTypes from "prop-types";
-import { CTA, Phone, SocialMediaShare } from "@/ui";
+import { CTA, Phone, SocialMediaShare, Tag } from "@/ui";
 import Calendar from "@/assets/Calendar.svg";
 import Contract from "@/assets/Contract.svg";
 import Location from "@/assets/Location.svg";
@@ -16,6 +16,7 @@ export default function JobPageContent({
   img,
   role_type,
   location,
+  sectors,
   salary_package,
   external_reference,
   published_at,
@@ -35,12 +36,16 @@ export default function JobPageContent({
                     <Col xs={12} md={5}>
                       <dl>
                         <dt>
+                          <span className="visually-hidden">Published</span>
                           <Calendar />
                         </dt>
-                        <dd>{`Posted ${formatDistanceToNowStrict(new Date(published_at))} ago`}</dd>
+                        <dd>
+                          <time>{`Posted ${formatDistanceToNowStrict(new Date(published_at))} ago`}</time>
+                        </dd>
                       </dl>
                       <dl>
                         <dt>
+                          <span className="visually-hidden">Location</span>
                           <Location />
                         </dt>
                         <dd>{location}</dd>
@@ -49,12 +54,14 @@ export default function JobPageContent({
                     <Col xs={12} md={5}>
                       <dl>
                         <dt>
+                          <span className="visually-hidden">Role Type</span>
                           <Contract />
                         </dt>
                         <dd>{role_type}</dd>
                       </dl>
                       <dl>
                         <dt>
+                          <span className="visually-hidden">Salary</span>
                           <Salary />
                         </dt>
                         <dd>{salary_package}</dd>
@@ -64,6 +71,11 @@ export default function JobPageContent({
                       {img && <img className="ms-auto d-block" src={img} alt="" />}
                     </Col>
                   </Row>
+                  <Stack className="flex-row mb-3" gap={2}>
+                    {sectors.map(({ label }) => (
+                      <Tag label={label} />
+                    ))}
+                  </Stack>
                   <div>
                     <b>Job Ref: </b>
                     {external_reference}
