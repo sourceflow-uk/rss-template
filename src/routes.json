@@ -1,0 +1,9 @@
+{
+  "home": "/",
+  "blogs": "/blogs",
+  "blogPost": "/blogs/[url_slug]",
+  "jobs": "/jobs",
+  "contact": "/contact-us",
+  "branches": "/contact-us/our-branches",
+  "branch": "/contact-us/our-branches/[url_slug]"
+}

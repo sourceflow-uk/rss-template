@@ -1,6 +1,7 @@
 import { Content } from "@/ui";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateBranch } from "@/faker/generateBranch";
+import { getRoute } from "@/getters/getRoute";
 
 export default function Page({ content }) {
   return (
@@ -19,8 +20,8 @@ export async function getStaticProps() {
           component: "BreadcrumbNavigation",
           props: {
             items: [
-              { label: "Contact us", href: "/contact-us" },
-              { label: "Our Branches", href: "/contact-us/our-branches" },
+              { label: "Contact us", href: getRoute("contact") },
+              { label: "Our Branches", href: getRoute("branches") },
             ],
           },
         },

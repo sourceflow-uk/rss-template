@@ -2,13 +2,14 @@ import { Breadcrumb, Container } from "react-bootstrap";
 import clsx from "classnames";
 import classes from "./styles.module.scss";
 import PropTypes from "prop-types";
+import { getRoute } from "@/getters/getRoute";
 
 export default function BreadcrumbNavigation({ className, items }) {
   return (
     <div className={clsx(className, classes.breadcrumbs)}>
       <Container className="mw-xxl">
         <Breadcrumb>
-          <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+          <Breadcrumb.Item href={getRoute("home")}>Home</Breadcrumb.Item>
           {items.map(({ label, href }, k) => (
             <Breadcrumb.Item key={k} href={href}>
               {label}

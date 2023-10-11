@@ -1,5 +1,6 @@
 import { Content } from "@/ui";
 import { getArticles } from "@/getters/getArticles";
+import { getRoute } from "@/getters/getRoute";
 
 export default function BlogsPage({ content }) {
   return (
@@ -14,7 +15,17 @@ export async function getStaticProps() {
     props: {
       meta: {},
       content: [
-        { component: "BreadcrumbNavigation", props: { items: [{ label: "Blogs", href: "/blogs" }] } },
+        {
+          component: "BreadcrumbNavigation",
+          props: {
+            items: [
+              {
+                label: "Blogs",
+                href: getRoute("blogs"),
+              },
+            ],
+          },
+        },
         {
           component: "Header",
           props: {

@@ -2,6 +2,7 @@ import { Content } from "@/ui";
 import unslug from "unslug";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateJob } from "@/faker/generateJob";
+import { getRoute } from "@/getters/getRoute";
 
 export default function Page({ content }) {
   return (
@@ -20,9 +21,9 @@ export async function getStaticProps({ params: { url_slug } }) {
           component: "BreadcrumbNavigation",
           props: {
             items: [
-              { label: "Contact us", href: "/contact-us" },
-              { label: "Our Branches", href: "/contact-us/our-branches" },
-              { label: unslug(url_slug), href: `/contact-us/our-branches/${url_slug}` },
+              { label: "Contact us", href: getRoute("contact") },
+              { label: "Our Branches", href: getRoute("branches") },
+              { label: unslug(url_slug), href: getRoute("branch", url_slug) },
             ],
           },
         },
@@ -32,7 +33,7 @@ export async function getStaticProps({ params: { url_slug } }) {
             title: `${unslug(url_slug)} Branch`,
             back: {
               label: `Back to branches`,
-              href: "/contact-us/our-branches",
+              href: getRoute("branches"),
             },
           },
         },

@@ -63,7 +63,7 @@ LatestJobs.defaultProps = {
   items: [],
   button: {
     label: "View more jobs",
-    href: "#",
+    href: "/jobs",
   },
 };
 

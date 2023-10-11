@@ -1,4 +1,5 @@
 import { Content } from "@/ui";
+import { getRoute } from "@/getters/getRoute";
 
 export default function Page({ content }) {
   return (
@@ -13,7 +14,17 @@ export async function getStaticProps() {
     props: {
       meta: {},
       content: [
-        { component: "BreadcrumbNavigation", props: { items: [{ label: "Contact us", href: "/contact-us" }] } },
+        {
+          component: "BreadcrumbNavigation",
+          props: {
+            items: [
+              {
+                label: "Contact us",
+                href: getRoute("contact"),
+              },
+            ],
+          },
+        },
       ],
     },
   };
