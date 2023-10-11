@@ -20,6 +20,7 @@ export const LogoCard = lazy(() => import("./LogoCard"));
 export const MiniCarouselCard = lazy(() => import("./MiniCarouselCard"));
 export const MultiTileCard = lazy(() => import("./MultiTileCard"));
 export const NoSSR = lazy(() => import("./NoSSR"));
+export const Phone = lazy(() => import("./Phone"));
 export const PromoButton = lazy(() => import("./PromoButton"));
 export const PromoItem = lazy(() => import("./PromoItem"));
 export const PromotionalCarouselItem = lazy(() => import("./PromotionalCarouselItem"));

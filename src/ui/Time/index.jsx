@@ -22,6 +22,7 @@ Time.defaultProps = {
 
 Time.propTypes = {
   className: PropTypes.string,
+  icon: PropTypes.bool,
   date: PropTypes.string,
   format: PropTypes.string,
 };

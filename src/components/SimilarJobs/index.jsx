@@ -45,7 +45,7 @@ export default function SimilarJobs({ className, title, items }) {
 }
 
 SimilarJobs.defaultProps = {
-  className: "py-5",
+  className: "py-4",
   title: "Looking for similar job, better PAY?",
   items: [],
 };

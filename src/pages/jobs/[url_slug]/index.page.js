@@ -1,13 +1,14 @@
 import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
 import { generateJob } from "@/faker/generateJob";
-import unslug from "unslug";
 import { generateArrayOf } from "@/faker/generateArrayOf";
+import * as additionalComponents from "./__components";
+import unslug from "unslug";
 
 export default function JobPage({ content }) {
   return (
     <>
-      <Content items={content} />
+      <Content items={content} additionalComponents={additionalComponents} />
     </>
   );
 }
@@ -45,6 +46,7 @@ export async function getStaticProps({ params: { url_slug } }) {
           },
         },
         { component: "SimilarJobs", props: { items: generateArrayOf(generateJob, { count: 4 }) } },
+        { component: "JobPageContent", props: { ...job } },
       ],
     },
   };
