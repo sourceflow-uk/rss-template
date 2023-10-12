@@ -2,10 +2,15 @@ import PropTypes from "prop-types";
 import clsx from "classnames";
 import { DynamicText } from "@/ui";
 import classes from "./styles.module.scss";
+import React from "react";
 
 export default function Title({ className, title, tag }) {
   if (!title) {
     return null;
+  }
+
+  if (typeof title === "string") {
+    return React.createElement(tag, { className: clsx(classes.title, className) }, title);
   }
 
   return (
@@ -24,8 +29,11 @@ Title.defaultProps = {
 Title.propTypes = {
   className: PropTypes.string,
   tag: PropTypes.string,
-  title: {
-    label: PropTypes.string,
-    placeholder: PropTypes.string,
-  },
+  title: PropTypes.oneOf([
+    PropTypes.shape({
+      label: PropTypes.string,
+      placeholder: PropTypes.string,
+    }),
+    PropTypes.string,
+  ]),
 };

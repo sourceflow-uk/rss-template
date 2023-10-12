@@ -30,7 +30,10 @@ export async function getStaticProps({}) {
         {
           component: "Header",
           props: {
-            title: "Find a Job",
+            title: {
+              path: "page.jobs.component.Header.title",
+              placeholder: "Find a Job",
+            },
             description: generateDescription({ min: 2, max: 2 }),
             img: generateImage({ width: 1440, height: 300 }),
           },

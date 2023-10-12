@@ -30,9 +30,13 @@ export async function getStaticProps({ params: { url_slug } }) {
         {
           component: "Header",
           props: {
-            title: `${unslug(url_slug)} Branch`,
+            title: {
+              path: `page.branch.${url_slug}.component.Header.title`,
+              placeholder: `${unslug(url_slug)} Branch`,
+            },
             back: {
-              label: `Back to branches`,
+              path: "page.branch.component.Header.back",
+              placeholder: `Back to branches`,
               href: getRoute("branches"),
             },
           },

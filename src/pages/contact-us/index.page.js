@@ -29,7 +29,10 @@ export async function getStaticProps() {
         {
           component: "Header",
           props: {
-            title: `Get in touch`,
+            title: {
+              path: "page.contact.component.Header.title",
+              placeholder: "Get in touch",
+            },
           },
         },
         {

@@ -41,7 +41,8 @@ export async function getStaticProps({ params: { url_slug } }) {
           props: {
             title: unslug(url_slug),
             back: {
-              label: `Back to job search`,
+              path: "page.job.component.Header.back",
+              placeholder: "Back to job search",
               href: getRoute("jobs"),
             },
           },
