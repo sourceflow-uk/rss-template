@@ -5,15 +5,13 @@ import { chunk } from "lodash";
 import classes from "./styles.module.scss";
 import ChevronRight from "@/assets/ChevronRight.svg";
 import ChevronLeft from "@/assets/ChevronLeft.svg";
-import { DynamicText, JobCard } from "@/ui";
+import { DynamicText, JobCard, Title } from "@/ui";
 
 export default function LatestJobs({ className, title, items, button, visibleCount }) {
   return (
     <div className={clsx(className, classes.jobs)}>
       <Container className="mw-xxl">
-        <DynamicText path={`_component.${this}.title`} tag="h2">
-          {title}
-        </DynamicText>
+        <Title title={title} />
         <Carousel
           className="mb-4"
           controls={true}
@@ -58,7 +56,7 @@ export default function LatestJobs({ className, title, items, button, visibleCou
 
 LatestJobs.defaultProps = {
   className: "py-5",
-  title: "Latest Jobs",
+  title: null,
   visibleCount: 3,
   items: [],
   button: {

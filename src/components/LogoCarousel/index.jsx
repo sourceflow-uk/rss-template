@@ -5,13 +5,13 @@ import PropTypes from "prop-types";
 import ChevronLeft from "@/assets/ChevronLeft.svg";
 import ChevronRight from "@/assets/ChevronRight.svg";
 import classes from "./styles.module.scss";
-import { LogoCard } from "@/ui";
+import { LogoCard, Title } from "@/ui";
 
 export default function LogoCarousel({ className, title, items, visibleCount }) {
   return (
     <div className={clsx(className, classes.logos)}>
       <Container className="mw-xxl">
-        {title && <h2 className="mb-5">{title}</h2>}
+        <Title title={title} />
         <Carousel
           className={classes.logos__carousel}
           controls={true}
@@ -37,12 +37,14 @@ export default function LogoCarousel({ className, title, items, visibleCount }) 
 
 LogoCarousel.defaultProps = {
   className: "py-5",
+  title: null,
   items: [],
   visibleCount: 5,
 };
 
 LogoCarousel.propTypes = {
   className: PropTypes.string,
+  title: PropTypes.string,
   items: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,

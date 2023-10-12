@@ -144,6 +144,10 @@ hr {
   opacity: 0.25;
 }
 
+[data-sourceflow-path]:empty {
+  display: none;
+}
+
 .btn {
   &-primary {
     --bs-btn-bg: var(#{--bs-primary}) !important;

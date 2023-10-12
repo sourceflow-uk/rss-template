@@ -4,12 +4,13 @@ import { Carousel, Container } from "react-bootstrap";
 import classes from "./styles.module.scss";
 import ChevronLeft from "@/assets/ChevronLeft.svg";
 import ChevronRight from "@/assets/ChevronRight.svg";
-import { MiniCarouselCard } from "@/ui";
+import { MiniCarouselCard, Title } from "@/ui";
 
-export default function MiniCarousel({ className, items }) {
+export default function MiniCarousel({ className, title, items }) {
   return (
     <div className={clsx(className, classes.mini)}>
       <Container className="mw-xxl">
+        <Title title={title} />
         <Carousel
           className={classes.mini__carousel}
           controls={true}
@@ -30,11 +31,13 @@ export default function MiniCarousel({ className, items }) {
 
 MiniCarousel.defaultProps = {
   className: "py-5 text-white",
+  title: null,
   items: [],
 };
 
 MiniCarousel.propTypes = {
   className: PropTypes.string,
+  title: PropTypes.string,
   items: PropTypes.arrayOf(
     PropTypes.shape({
       className: PropTypes.string,

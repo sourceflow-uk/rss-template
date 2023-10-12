@@ -3,15 +3,13 @@ import { Col, Container, Row } from "react-bootstrap";
 import clsx from "classnames";
 import classes from "./styles.module.scss";
 import ChevronRight from "@/assets/ChevronRight.svg";
-import { LatestBlogCard, DynamicText } from "@/ui";
+import { LatestBlogCard, Title } from "@/ui";
 
 export default function LatestBlogs({ className, title, items, button }) {
   return (
     <div className={clsx(className, classes.blogs)}>
       <Container className="mw-xxl">
-        <DynamicText path={`_component.${this}.title`} tag="h2">
-          {title}
-        </DynamicText>
+        <Title title={title} />
         <Row className="mb-4">
           {items.map(({ title, description, img, published_at, tags }, k) => (
             <Col key={k} xs={12} md={4}>
@@ -41,7 +39,7 @@ export default function LatestBlogs({ className, title, items, button }) {
 
 LatestBlogs.defaultProps = {
   className: "py-5",
-  title: "Latest Blogs",
+  title: null,
   items: [],
   button: {
     label: "View more blogs",

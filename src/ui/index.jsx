@@ -41,4 +41,5 @@ export const SocialNavigation = lazy(() => import("./SocialNavigation"));
 export const SocialShare = lazy(() => import("./SocialShare"));
 export const Tag = lazy(() => import("./Tag"));
 export const Time = lazy(() => import("./Time"));
+export const Title = lazy(() => import("./Title"));
 export const VideoModal = lazy(() => import("./VideoModal"));
