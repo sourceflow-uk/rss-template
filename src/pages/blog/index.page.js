@@ -32,13 +32,15 @@ export async function getStaticProps() {
               path: "page.blogs.component.Header.title",
               placeholder: "Blue Arrow Blog",
             },
-            description:
-              "Lorem ipsum dolor sit amet consectetur. Ut id ultrices netus est massa. Arcu libero ut fringilla enim aliquam feugiat lectus. Massa.",
+            description: {
+              path: "page.blogs.component.Header.description",
+              placeholder:
+                "Lorem ipsum dolor sit amet consectetur. Ut id ultrices netus est massa. Arcu libero ut fringilla enim aliquam feugiat lectus. Massa.",
+            },
           },
         },
         {
           component: "BlogFeed",
-          props: {},
         },
       ],
     },
