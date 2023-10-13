@@ -1,6 +1,7 @@
 import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
 import unslug from "unslug";
+import { generateBody } from "@/faker/generateBody";
 
 export default function Page({ content }) {
   return (
@@ -39,10 +40,15 @@ export async function getStaticProps({ params: { url_slugs } }) {
                   href: prevPage.href,
                 }
               : {
-                  label: `Back to Home`,
+                  path: `page.home.component.Header.back`,
+                  placeholder: `Back to Home`,
                   href: getRoute("home"),
                 },
           },
+        },
+        {
+          component: "RichText",
+          props: { body: generateBody() },
         },
       ],
     },

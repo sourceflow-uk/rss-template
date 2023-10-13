@@ -42,6 +42,9 @@ export async function getStaticProps({ params: { url_slug } }) {
           },
         },
         {
+          component: "Divider",
+        },
+        {
           component: "LatestJobs",
           props: {
             title: `Latest Jobs in ${unslug(url_slug)}`,
