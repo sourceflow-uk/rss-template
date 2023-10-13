@@ -1,11 +1,14 @@
 // import data from "../../.sourceflow/main_menu.json";
 // import BaseCollection from "@sourceflow-uk/sourceflow-sdk/base_collection";
 
+import { getRoute } from "@/getters/getRoute";
+
 export const getHeaderMenu = (locale = "en") => {
   return [
     {
       label: "Jobs",
-      href: "/jobs",
+      href: getRoute("jobs"),
+      children: [{ label: "Great Places To Work", href: getRoute("employers") }],
     },
     {
       label: "Recruitment Solutions",
@@ -34,7 +37,7 @@ export const getHeaderMenu = (locale = "en") => {
       children: [
         { label: "Our CSR Agenda", href: "/enhancing-your-everyday/our-csr-agenda" },
         { label: "Our EDI Strategy", href: "/our-edi-strategy" },
-        { label: "Our Branches", href: "/our-branches" },
+        { label: "Our Branches", href: getRoute("branches") },
       ],
     },
     {
@@ -58,7 +61,7 @@ export const getHeaderMenu = (locale = "en") => {
     },
     {
       label: "Contact Us",
-      href: "/contact-us",
+      href: getRoute("contact"),
     },
   ];
 

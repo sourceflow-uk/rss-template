@@ -1,10 +1,11 @@
 {
   "home": "/",
-  "blog": "/blog",
-  "blogPost": "/blog/[url_slug]",
-  "jobs": "/jobs",
-  "job": "/jobs/[url_slug]",
-  "contact": "/contact-us",
-  "branches": "/contact-us/our-branches",
-  "branch": "/contact-us/our-branches/[url_slug]"
+  "blog": "/blog/",
+  "blogPost": "/blog/[url_slug]/",
+  "jobs": "/jobs/",
+  "job": "/jobs/[url_slug]/",
+  "contact": "/contact-us/",
+  "branches": "/contact-us/our-branches/",
+  "branch": "/contact-us/our-branches/[url_slug]/",
+  "employers": "/great-places-to-work/"
 }

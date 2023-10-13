@@ -1,6 +1,8 @@
 // import data from "../../.sourceflow/main_menu.json";
 // import BaseCollection from "@sourceflow-uk/sourceflow-sdk/base_collection";
 
+import { getRoute } from "@/getters/getRoute";
+
 export const getFooterMenu = (locale = "en") => {
   return [
     {
@@ -32,8 +34,8 @@ export const getFooterMenu = (locale = "en") => {
         { label: "About Us", href: "/enhancing-your-everyday" },
         { label: "Our CSR Agenda", href: "/enhancing-your-everyday/our-csr-agenda" },
         { label: "Our EDI Strategy", href: "/our-edi-strategy" },
-        { label: "Our Branches", href: "/our-branches" },
-        { label: "Contact us", href: "/contact-us" },
+        { label: "Our Branches", href: getRoute("branches") },
+        { label: "Contact us", href: getRoute("contact") },
       ],
     },
     {
