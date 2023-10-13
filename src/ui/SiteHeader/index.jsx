@@ -1,5 +1,5 @@
 import clsx from "classnames";
-import { Container, Dropdown, Nav, Navbar, NavDropdown, NavItem } from "react-bootstrap";
+import { Container, Dropdown, Nav, Navbar } from "react-bootstrap";
 import classes from "./styles.module.scss";
 import PropTypes from "prop-types";
 import ChevronDown from "@/assets/ChevronDown.svg";

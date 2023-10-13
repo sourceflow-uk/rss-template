@@ -3,7 +3,11 @@ import config from "@/../next.config";
 import { isUrl } from "@/functions/isUrl";
 
 export const getRoute = (key, params = {}) => {
-  let route = routes[key] ?? "/";
+  let route = routes[key];
+
+  if (!route) {
+    return isUrl(key) ? key : `${config.basePath}${key}`;
+  }
 
   if (isUrl(route)) {
     return route;
