@@ -6,6 +6,7 @@ import classes from "./styles.module.scss";
 import ChevronRight from "@/assets/ChevronRight.svg";
 import ChevronLeft from "@/assets/ChevronLeft.svg";
 import { JobCard, Title } from "@/ui";
+import { getRoute } from "@/getters/getRoute";
 
 export default function LatestJobs({ className, title, items, button, visibleCount }) {
   return (
@@ -61,7 +62,7 @@ LatestJobs.defaultProps = {
   items: [],
   button: {
     label: "View more jobs",
-    href: "/jobs",
+    href: getRoute("jobs"),
   },
 };
 

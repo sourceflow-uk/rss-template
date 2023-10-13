@@ -4,6 +4,7 @@ import clsx from "classnames";
 import classes from "./styles.module.scss";
 import ChevronRight from "@/assets/ChevronRight.svg";
 import { LatestBlogCard, Title } from "@/ui";
+import { getRoute } from "@/getters/getRoute";
 
 export default function LatestBlogs({ className, title, items, button }) {
   return (
@@ -43,7 +44,7 @@ LatestBlogs.defaultProps = {
   items: [],
   button: {
     label: "View more blogs",
-    href: "#",
+    href: getRoute("blog"),
   },
 };
 

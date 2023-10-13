@@ -12,6 +12,7 @@ export const getHeaderMenu = (locale = "en") => {
     },
     {
       label: "Recruitment Solutions",
+      href: getRoute("/recruitment-solutions/why-choose-blue-arrow"),
       children: [
         { label: "Why choose Blue Arrow?", href: getRoute("/recruitment-solutions/why-choose-blue-arrow") },
         { label: "Case Studies", href: getRoute("/recruitment-solutions/case-studies") },
