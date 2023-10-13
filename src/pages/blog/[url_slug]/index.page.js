@@ -1,6 +1,4 @@
 import { Content } from "@/ui";
-import { generateArticle } from "@/faker/generateArticle";
-import { generateArrayOf } from "@/faker/generateArrayOf";
 import { getRoute } from "@/getters/getRoute";
 import * as additionalComponents from "./__components";
 import { blogHelper } from "@/helpers/blogHelper";
@@ -37,5 +35,8 @@ export async function getStaticProps({ params: { url_slug } }) {
 }
 
 export async function getStaticPaths() {
-  return { paths: [], fallback: false };
+  return {
+    paths: blogHelper.toPaths(),
+    fallback: false,
+  };
 }
