@@ -12,6 +12,7 @@ export default function Page({ content }) {
 
 export async function getStaticProps({ params: { url_slugs } }) {
   const pages = url_slugs.map((url_slug, k) => ({
+    url_slug,
     label: unslug(url_slug),
     href: getRoute("dynamic", { url_slugs: url_slugs.slice(0, k + 1) }),
   }));
@@ -33,7 +34,8 @@ export async function getStaticProps({ params: { url_slugs } }) {
             title: page.label,
             back: prevPage
               ? {
-                  label: `Back to ${prevPage.label}`,
+                  path: `page.${prevPage.url_slug}.component.Header.back`,
+                  placeholder: `Back to ${prevPage.label}`,
                   href: prevPage.href,
                 }
               : {
