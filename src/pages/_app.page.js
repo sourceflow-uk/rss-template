@@ -3,7 +3,6 @@ import { ParallaxProvider } from "react-scroll-parallax";
 import { getGlobal } from "@/getters/getGlobal";
 import { getHeaderMenu } from "@/getters/getHeaderMenu";
 import { getFooterMenu } from "@/getters/getFooterMenu";
-import { initializeMarker } from "@/functions/initializeMarker";
 import { Suspense, useEffect } from "react";
 import { SiteFooter, SiteHeader } from "@/ui";
 
@@ -34,10 +33,6 @@ export default function App({ Component, pageProps }) {
     vat_number: global["_theme.vat.number"],
     nav: getFooterMenu(),
   };
-
-  useEffect(() => {
-    initializeMarker();
-  }, []);
 
   return (
     <Suspense>
