@@ -2,7 +2,6 @@
 
 .detail {
   display: flex;
-  align-items: center;
   gap: $spacer * 0.5;
   font-size: $font-size-sm;
 
@@ -16,11 +15,11 @@
 
   dd {
     margin-bottom: 0;
+    font-size: 16px;
 
     a {
       color: inherit;
       text-decoration: none;
-      font-size: 16px;
 
       &:hover {
         color: var(#{--bs-primary});

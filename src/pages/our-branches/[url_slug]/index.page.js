@@ -44,7 +44,7 @@ export async function getStaticProps({ params: { url_slug } }) {
             },
           },
         },
-        { component: "BranchPageContent", props: { content: branch.content, address: branch.address } },
+        { component: "BranchPageContent", props: { ...branch } },
         {
           component: "Divider",
         },

@@ -4,8 +4,6 @@ import { getGlobal } from "@/getters/getGlobal";
 export default function RootStyleOverrides() {
   const global = getGlobal();
 
-  console.log(global);
-
   return (
     <style key="root-style-overrides">
       {`
