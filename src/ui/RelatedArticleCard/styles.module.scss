@@ -5,13 +5,13 @@
   color: $text-color;
   border-bottom: 1px solid $gray-300;
   text-decoration: none;
-  padding-top: $spacer;
+  padding-top: $spacer * 0.5;
   max-width: 384px;
 
   &__img {
     width: 100%;
-    max-width: 384px;
-    height: 179px;
+    max-width: 180px;
+    height: 84px;
     object-fit: cover;
     border-radius: var(#{--bs-border-radius-sm});
   }

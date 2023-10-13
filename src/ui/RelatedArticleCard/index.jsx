@@ -9,15 +9,17 @@ import { Tag, Time } from "@/ui";
 export default function RelatedArticleCard({ className, title, img, tags, published_at, href }) {
   return (
     <div className={clsx(className, classes.card)}>
-      <a href={href}>
-        <SourceFlowImage className={classes.card__img} src={img} size="384x179" alt={title} />
-      </a>
       <div className={clsx(classes.card__body, "pb-3")}>
-        <h3 className="h6 text-primary my-2">
-          <a href={href}>{trimText(title, 50)}</a>
-        </h3>
+        <Stack className="flex-row mb-3" gap={3}>
+          <a href={href} className="w-50">
+            <SourceFlowImage className={classes.card__img} src={img} size="180x84" alt={title} />
+          </a>
+          <h3 className="h6 text-primary my-2 w-50">
+            <a href={href}>{trimText(title, 50)}</a>
+          </h3>
+        </Stack>
         <Stack className="flex-row flex-wrap align-items-center" gap={2}>
-          <Time date={published_at} />
+          <Time className="mb-0" date={published_at} />
           {tags.map(({ label, href }, k) => (
             <Tag key={k} label={label} href={href} />
           ))}
