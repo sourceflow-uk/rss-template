@@ -1,5 +1,4 @@
 import { Content } from "@/ui";
-import { getArticles } from "@/getters/getArticles";
 import { getRoute } from "@/getters/getRoute";
 
 export default function BlogsPage({ content }) {
@@ -39,9 +38,7 @@ export async function getStaticProps() {
         },
         {
           component: "BlogFeed",
-          props: {
-            items: getArticles(),
-          },
+          props: {},
         },
       ],
     },

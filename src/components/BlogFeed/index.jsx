@@ -2,15 +2,25 @@ import PropTypes from "prop-types";
 import clsx from "classnames";
 import { Col, Container, Row } from "react-bootstrap";
 import { BlogFeedCard } from "@/ui";
+import { blogHelper } from "@/helpers/blogHelper";
+import { getRoute } from "@/getters/getRoute";
 
-export default function BlogArticleFeed({ className, items }) {
+export default function BlogArticleFeed({ className }) {
+  const items = blogHelper.fetch();
+
   return (
     <div className={clsx(className)}>
       <Container className="mw-xl">
         <Row>
-          {items.map(({ title, description, img, published_at, href }, k) => (
+          {items.map(({ title, image, publish_date, url_slug }, k) => (
             <Col key={k} xs={12} md={4} className="mb-4">
-              <BlogFeedCard className="h-100" title={title} img={img} published_at={published_at} href={href} />
+              <BlogFeedCard
+                className="h-100"
+                title={title}
+                img={image}
+                published_at={publish_date}
+                href={getRoute("blogPost", { url_slug })}
+              />
             </Col>
           ))}
         </Row>

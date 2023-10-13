@@ -4,6 +4,10 @@ import PropTypes from "prop-types";
 import { Detail } from "@/ui";
 
 export default function Time({ className, icon, date, format }) {
+  if (!date) {
+    return null;
+  }
+
   return (
     <Detail
       className={className}
