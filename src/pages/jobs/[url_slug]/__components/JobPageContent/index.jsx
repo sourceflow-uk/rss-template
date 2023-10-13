@@ -98,7 +98,7 @@ export default function JobPageContent({
                   <h3>Have a Question?</h3>
                 </Card.Header>
                 <Card.Body>
-                  <Phone number={global["_theme.phone"]} />
+                  <Phone number={global["_theme.company.phone"]} />
                 </Card.Body>
               </Card>
               <RelatedJobs items={related} />

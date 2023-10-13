@@ -24,13 +24,13 @@ export default function App({ Component, pageProps }) {
       linkedin: global["_theme.social.linkedin"],
       youtube: global["_theme.social.youtube"],
     },
-    website: global["_theme.website"],
-    phone: global["_theme.phone"],
-    address: global["_theme.address"],
+    website: global["_theme.company.website"],
+    phone: global["_theme.company.phone"],
+    address: global["_theme.company.address"],
     company_name: global["_theme.company.name"],
     company_number: global["_theme.company.number"],
     company_logo: global["_theme.company.logo"],
-    vat_number: global["_theme.vat.number"],
+    vat_number: global["_theme.company.vat.number"],
     nav: getFooterMenu(),
   };
 

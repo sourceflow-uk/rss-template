@@ -24,7 +24,7 @@ export default function ContactPageContent({ className }) {
                 maecenas porta accumsan. Enim mauris montes at et mattis condimentum libero lorem.
               </p>
             </DynamicHtml>
-            <Phone number={global["_theme.phone"]} />
+            <Phone number={global["_theme.company.phone"]} />
             <Detail
               icon={<Location width={22} height={30} />}
               value={<a href={getRoute("branches")}>Branch finder</a>}

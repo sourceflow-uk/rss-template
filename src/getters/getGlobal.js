@@ -40,15 +40,14 @@ export const getGlobal = (locale = "en") => {
     "_theme.company.number": "641659",
     "_theme.company.logo": "",
     "_theme.company.logo.white": "",
-    "_theme.vat.number": "108252831",
-    "_theme.address": "33 Soho Square, London, W1D 3QU, United Kingdom",
-    "_theme.phone": "0800 085 5777",
-    "_theme.website": "bluearrow.co.uk",
+    "_theme.company.vat.number": "108252831",
+    "_theme.company.address": "33 Soho Square, London, W1D 3QU, United Kingdom",
+    "_theme.company.phone": "0800 085 5777",
+    "_theme.company.website": "bluearrow.co.uk",
     "_theme.social.facebook": "https://www.facebook.com/BlueArrowJobs",
     "_theme.social.twitter": "https://twitter.com/bluearrowgroup",
     "_theme.social.linkedin": "https://www.linkedin.com/company/blue-arrow",
     "_theme.social.youtube": "https://www.youtube.com/channel/UCN1X-rcqNOXv0fLbhtNnJJQ",
-    "_component.FeaturedEmployers.description": "",
   };
 
   // return new BaseObject(global, locale).toJson();
