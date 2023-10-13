@@ -1,7 +1,7 @@
 {
   "home": "/",
-  "blogs": "/blogs",
-  "blogPost": "/blogs/[url_slug]",
+  "blog": "/blog",
+  "blogPost": "/blog/[url_slug]",
   "jobs": "/jobs",
   "job": "/jobs/[url_slug]",
   "contact": "/contact-us",

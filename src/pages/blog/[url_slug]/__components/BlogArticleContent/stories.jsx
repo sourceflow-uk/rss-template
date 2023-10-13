@@ -1,10 +1,10 @@
-import Article from "./index";
+import BlogArticleContent from "./index";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateArticle } from "@/faker/generateArticle";
 
 export default {
-  title: "New/Components/Article",
-  component: Article,
+  title: "New/Components/BlogArticleContent",
+  component: BlogArticleContent,
   parameters: {},
   tags: [],
   argTypes: {},

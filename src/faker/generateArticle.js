@@ -9,7 +9,7 @@ import { generateImage } from "@/faker/generateImage";
 export const generateArticle = () => ({
   title: generateTitle(),
   description: generateDescription(),
-  img: generateImage({ width: 373, height: 220 }),
+  img: generateImage({ width: 1440, height: 360 }),
   tags: generateArrayOf(generateTag, { count: 1 }),
   body: generateBody({ title: true }),
   published_at: faker.date.past().toISOString(),

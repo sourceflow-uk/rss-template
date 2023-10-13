@@ -2,9 +2,14 @@
 
 .socials {
   width: 68px;
-  border: 1px solid $dark;
+  border-top-right-radius: var(#{--bs-border-radius});
+  border-bottom-right-radius: var(#{--bs-border-radius});
+  border: 1px solid #d6d6d6;
+  position: fixed;
+  background-color: $white;
+  box-shadow: $box-shadow-sm;
 
-  a {
+  button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,6 +18,7 @@
 
     svg {
       transition: $transition-base;
+      fill: var(#{--bs-tertiary});
     }
 
     &:hover,

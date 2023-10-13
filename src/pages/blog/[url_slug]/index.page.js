@@ -2,11 +2,12 @@ import { Content } from "@/ui";
 import { generateArticle } from "@/faker/generateArticle";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { getRoute } from "@/getters/getRoute";
+import * as additionalComponents from "./__components";
 
 export default function BlogPostPage({ content }) {
   return (
     <>
-      <Content items={content} />
+      <Content items={content} additionalComponents={additionalComponents} />
     </>
   );
 }
@@ -23,12 +24,12 @@ export async function getStaticProps({ params: { url_slug } }) {
           component: "BreadcrumbNavigation",
           props: {
             items: [
-              { label: "Blogs", href: getRoute("blogs") },
+              { label: "Blog", href: getRoute("blog") },
               { label: article.title, href: getRoute("blogPost", { url_slug }) },
             ],
           },
         },
-        { component: "Article", props: { ...article, related } },
+        { component: "BlogArticleContent", props: { ...article, related } },
       ],
     },
   };

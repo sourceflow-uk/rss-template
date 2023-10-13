@@ -5,7 +5,7 @@ import { RelatedArticleCard } from "@/ui";
 
 export default function RelatedArticles({ className, title, items }) {
   return (
-    <div className={clsx(className)}>
+    <aside className={clsx(className)}>
       <h3 className="text-tertiary my-2">{title}</h3>
       <Row>
         {items.map(({ title, img, tags, published_at, href }, k) => (
@@ -21,7 +21,7 @@ export default function RelatedArticles({ className, title, items }) {
           </Col>
         ))}
       </Row>
-    </div>
+    </aside>
   );
 }
 

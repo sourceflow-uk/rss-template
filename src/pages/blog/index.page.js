@@ -20,8 +20,8 @@ export async function getStaticProps() {
           props: {
             items: [
               {
-                label: "Blogs",
-                href: getRoute("blogs"),
+                label: "Blog",
+                href: getRoute("blog"),
               },
             ],
           },
