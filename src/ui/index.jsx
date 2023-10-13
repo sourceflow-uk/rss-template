@@ -9,6 +9,7 @@ export const CaseStudyCard = lazy(() => import("./CaseStudyCard"));
 export const CollapsibleSectionItem = lazy(() => import("./CollapsibleSectionItem"));
 export const Content = lazy(() => import("./Content"));
 export const CTA = lazy(() => import("./CTA"));
+export const Description = lazy(() => import("./Description"));
 export const Detail = lazy(() => import("./Detail"));
 export const DynamicHtml = lazy(() => import("./DynamicHtml"));
 export const DynamicText = lazy(() => import("./DynamicText"));

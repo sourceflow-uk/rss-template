@@ -20,6 +20,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
   const [page, prevPage] = [...pages].reverse();
 
   return {
+    notFound: true,
     props: {
       meta: {},
       content: [

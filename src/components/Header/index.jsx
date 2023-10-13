@@ -4,7 +4,7 @@ import clsx from "classnames";
 import { Col, Container, Row } from "react-bootstrap";
 import Play from "@/assets/Play.svg";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
-import { CTA, DynamicText, Title, VideoModal } from "@/ui";
+import { CTA, Description, DynamicText, Title, VideoModal } from "@/ui";
 import ArrowLeft from "@/assets/ArrowLeft.svg";
 
 export default function Header({ className, title, img, description, cta, video_embed_url, back }) {
@@ -22,7 +22,7 @@ export default function Header({ className, title, img, description, cta, video_
                 </a>
               )}
               <Title className="mb-0" title={title} tag="h1" />
-              {description && <div className="mt-4" dangerouslySetInnerHTML={{ __html: description }} />}
+              <Description className="mt-4" description={description} />
               {cta && <CTA className="mt-4" label={cta.label} href={cta.href} variant={cta.variant} />}
             </Col>
           </Row>
@@ -40,7 +40,7 @@ export default function Header({ className, title, img, description, cta, video_
 Header.defaultProps = {
   title: null,
   img: null,
-  description: "",
+  description: null,
   cta: null,
   video_embed_url: null,
   back: null,
@@ -53,7 +53,10 @@ Header.propTypes = {
     placeholder: PropTypes.string,
   }),
   img: PropTypes.string,
-  description: PropTypes.string,
+  description: PropTypes.shape({
+    path: PropTypes.string,
+    placeholder: PropTypes.string,
+  }),
   cta: PropTypes.shape({
     className: PropTypes.string,
     label: PropTypes.string,

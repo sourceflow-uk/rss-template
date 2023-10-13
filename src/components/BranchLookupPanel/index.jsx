@@ -1,14 +1,15 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { BranchLocator } from "@/ui";
 import clsx from "classnames";
+import PropTypes from "prop-types";
 
-export default function BranchLookupPanel({ className, branches }) {
+export default function BranchLookupPanel({ className }) {
   return (
     <div className={clsx(className)}>
       <Container>
         <Row>
           <Col xs={12} md={3}>
-            <BranchLocator branches={branches} />
+            <BranchLocator />
           </Col>
           <Col xs={12} md={9}></Col>
         </Row>
@@ -21,4 +22,6 @@ BranchLookupPanel.defaultProps = {
   className: "py-5",
 };
 
-BranchLookupPanel.propTypes = {};
+BranchLookupPanel.propTypes = {
+  className: PropTypes.string,
+};

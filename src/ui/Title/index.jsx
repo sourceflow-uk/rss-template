@@ -29,11 +29,5 @@ Title.defaultProps = {
 Title.propTypes = {
   className: PropTypes.string,
   tag: PropTypes.string,
-  title: PropTypes.oneOf([
-    PropTypes.shape({
-      label: PropTypes.string,
-      placeholder: PropTypes.string,
-    }),
-    PropTypes.string,
-  ]),
+  title: PropTypes.any,
 };

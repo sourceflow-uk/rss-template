@@ -3,6 +3,7 @@ import unslug from "unslug";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateJob } from "@/faker/generateJob";
 import { getRoute } from "@/getters/getRoute";
+import { branchHelper } from "@/helpers/branchHelper";
 
 export default function BranchPage({ content }) {
   return (
@@ -58,5 +59,8 @@ export async function getStaticProps({ params: { url_slug } }) {
 }
 
 export async function getStaticPaths() {
-  return { paths: [], fallback: false };
+  return {
+    paths: branchHelper.toPaths(),
+    fallback: false,
+  };
 }

@@ -2,7 +2,7 @@ import { fakerEN_GB as faker } from "@faker-js/faker";
 
 export const generateBranch = () => ({
   id: faker.string.uuid(),
-  title: faker.location.city(),
+  name: faker.location.city(),
   address: `${faker.location.streetAddress()}<br/>${faker.location.city()}<br/>${faker.location.county()}<br/>${faker.location.zipCode()}`,
   phone: faker.phone.number(),
   email: faker.internet.email(),
