@@ -7,6 +7,8 @@ import Twitter from "@/assets/Twitter.svg";
 import LinkedIn from "@/assets/LinkedIn.svg";
 import YouTube from "@/assets/YouTube.svg";
 import { format } from "date-fns";
+import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
+import { getRoute } from "@/getters/getRoute";
 
 export default function SiteFooter({
   className,
@@ -71,43 +73,43 @@ export default function SiteFooter({
             )}
           </Stack>
         )}
-        <Stack className={clsx(classes.footer__details, "flex-lg-row mb-5")} gap={{ xs: 2, lg: 4 }}>
-          <dl>
-            <dt className="visually-hidden">Website</dt>
-            <dd>
-              <a href={`//${website}`}>{website}</a>
-            </dd>
-          </dl>
-          <dl>
-            <dt className="visually-hidden">Phone</dt>
-            <dd>
-              <a href={`tel:${phone.replaceAll(" ", "")}`}>{phone}</a>
-            </dd>
-          </dl>
-          <dl>
-            <dt className="visually-hidden">Address</dt>
-            <dd>{address}</dd>
-          </dl>
-        </Stack>
-        <Stack className="flex-lg-row justify-content-between align-items-center small">
-          <Stack className={clsx(classes.footer__copyright, "flex-lg-row")}>
-            <span className="mb-2">
-              {`© ${company_name}. `}
-              <br className="d-md-none" />
-              {`All rights reserved ${format(new Date(), "yyyy")}`}
-            </span>
-            <dl className="mb-2">
-              <dt>Company Number</dt>
-              <dd>{company_number}</dd>
+        <Stack className="flex-lg-row justify-content-between align-items-center">
+          <Stack className={clsx(classes.footer__details, "flex-lg-row")} gap={{ xs: 2, lg: 4 }}>
+            <dl>
+              <dt className="visually-hidden">Website</dt>
+              <dd>
+                <a href={`//${website}`}>{website}</a>
+              </dd>
             </dl>
-            <dl className="mb-2">
-              <dt>VAT Number</dt>
-              <dd>{vat_number}</dd>
+            <dl>
+              <dt className="visually-hidden">Phone</dt>
+              <dd>
+                <a href={`tel:${phone.replaceAll(" ", "")}`}>{phone}</a>
+              </dd>
+            </dl>
+            <dl>
+              <dt className="visually-hidden">Address</dt>
+              <dd>{address}</dd>
             </dl>
           </Stack>
-          <a href="/">
-            <img src={company_logo} alt="" />
+          <a className={classes.footer__brand} href={getRoute("home")}>
+            <SourceFlowImage src={company_logo} size="260x44" alt={company_name} />
           </a>
+        </Stack>
+        <Stack className={clsx(classes.footer__copyright, "flex-lg-row mt-5 small")}>
+          <span className="mb-2">
+            {`© ${company_name}. `}
+            <br className="d-md-none" />
+            {`All rights reserved ${format(new Date(), "yyyy")}`}
+          </span>
+          <dl className="mb-2">
+            <dt>Company Number</dt>
+            <dd>{company_number}</dd>
+          </dl>
+          <dl className="mb-2">
+            <dt>VAT Number</dt>
+            <dd>{vat_number}</dd>
+          </dl>
         </Stack>
       </Container>
     </div>

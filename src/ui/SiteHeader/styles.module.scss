@@ -3,6 +3,14 @@
 .header {
   padding: 0;
 
+  &__brand {
+    img {
+      width: 174px;
+      height: 54px;
+      object-fit: contain;
+    }
+  }
+
   [class*="dropdown-toggle"] {
     &::after {
       margin-left: $spacer * 0.5;

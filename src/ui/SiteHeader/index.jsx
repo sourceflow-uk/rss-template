@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import ChevronDown from "@/assets/ChevronDown.svg";
 import { getRoute } from "@/getters/getRoute";
 import { useState } from "react";
+import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 
 export default function SiteHeader({ className, company_name, company_logo, nav }) {
   const [show, setShow] = useState(null);
@@ -12,8 +13,8 @@ export default function SiteHeader({ className, company_name, company_logo, nav 
   return (
     <Navbar className={clsx(className, classes.header)}>
       <Container className="p-0">
-        <Navbar.Brand className="me-auto p-2" href={getRoute("home")}>
-          <img src={company_logo} alt={company_name} />
+        <Navbar.Brand className={clsx(classes.header__brand, "me-auto p-2")} href={getRoute("home")}>
+          <SourceFlowImage src={company_logo} size="174x54" alt={company_name} />
         </Navbar.Brand>
         <Nav>
           {nav.map(({ label, children, href, target }, k) =>
