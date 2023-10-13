@@ -1,10 +1,9 @@
 import "@/scss/styles.scss";
-import { ParallaxProvider } from "react-scroll-parallax";
 import { getGlobal } from "@/getters/getGlobal";
 import { getHeaderMenu } from "@/getters/getHeaderMenu";
 import { getFooterMenu } from "@/getters/getFooterMenu";
 import { Suspense } from "react";
-import { SiteFooter, SiteHeader } from "@/ui";
+import { SiteFooter, SiteHead, SiteHeader } from "@/ui";
 import { getAsset } from "@/getters/getAsset";
 
 export default function App({ Component, pageProps }) {
@@ -37,14 +36,12 @@ export default function App({ Component, pageProps }) {
 
   return (
     <Suspense>
-      <ParallaxProvider>
-        {/*<SiteHead meta={pageProps?.meta} />*/}
-        <SiteHeader {...headerProps} />
-        <main className="flex-grow-1">
-          <Component {...pageProps} />
-        </main>
-        <SiteFooter {...footerProps} />
-      </ParallaxProvider>
+      <SiteHead meta={pageProps?.meta} />
+      <SiteHeader {...headerProps} />
+      <main className="flex-grow-1">
+        <Component {...pageProps} />
+      </main>
+      <SiteFooter {...footerProps} />
     </Suspense>
   );
 }

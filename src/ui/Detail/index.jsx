@@ -24,8 +24,8 @@ Detail.defaultProps = {
 
 Detail.propTypes = {
   className: PropTypes.string,
-  value: PropTypes.string,
-  icon: PropTypes.string,
+  value: PropTypes.any,
+  icon: PropTypes.any,
   label: PropTypes.string,
   hideLabel: PropTypes.bool,
 };

@@ -29,10 +29,7 @@ export default function ContactPageContent({ className }) {
               icon={<Location width={22} height={30} />}
               value={<a href={getRoute("branches")}>Branch finder</a>}
             />
-            <Detail
-              icon={<Contact width={22} height={22} />}
-              value={<a href="#getInTouch">Send us a message (below)</a>}
-            />
+            <Detail icon={<Contact width={22} height={22} />} value={<a href="#form">Send us a message (below)</a>} />
           </Col>
           <Col xs={12} md={4}>
             <SocialLinks />
