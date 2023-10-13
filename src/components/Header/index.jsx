@@ -14,7 +14,7 @@ export default function Header({ className, title, img, description, cta, video_
       <div className={clsx(classes.header__body, "p-5")}>
         <Container className="mw-xxl">
           <Row className="h-100">
-            <Col xs={12} md={5} className="d-flex flex-column justify-content-center h-100">
+            <Col xs={12} md={6} className="d-flex flex-column justify-content-center h-100">
               {back && (
                 <a className={clsx(classes.header__back, "mb-3")} href={back.href}>
                   <ArrowLeft />

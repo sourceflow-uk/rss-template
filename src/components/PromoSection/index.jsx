@@ -11,7 +11,7 @@ export default function PromoSection({ className, title, items }) {
         <Title title={title} />
         <Row>
           {items.map(({ title, description, img, href }, k) => (
-            <Col key={k}>
+            <Col key={k} xs={12} md={4} className="mb-4">
               <PromoItem className="h-100" title={title} description={description} img={img} href={href} />
             </Col>
           ))}

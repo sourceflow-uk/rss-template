@@ -5,7 +5,7 @@ import { chunk } from "lodash";
 import classes from "./styles.module.scss";
 import ChevronRight from "@/assets/ChevronRight.svg";
 import ChevronLeft from "@/assets/ChevronLeft.svg";
-import { DynamicText, JobCard, Title } from "@/ui";
+import { JobCard, Title } from "@/ui";
 
 export default function LatestJobs({ className, title, items, button, visibleCount }) {
   return (
@@ -67,7 +67,13 @@ LatestJobs.defaultProps = {
 
 LatestJobs.propTypes = {
   className: PropTypes.string,
-  title: PropTypes.string,
+  title: PropTypes.oneOf([
+    PropTypes.shape({
+      label: PropTypes.string,
+      placeholder: PropTypes.string,
+    }),
+    PropTypes.string,
+  ]),
   items: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,

@@ -41,6 +41,13 @@
   &[class*="has-img"] &__body {
     color: $card-text-color;
 
+    & > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+    }
+
     h1 {
       color: $card-text-color;
     }

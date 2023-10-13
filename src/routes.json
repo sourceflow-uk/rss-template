@@ -7,5 +7,6 @@
   "contact": "/contact-us/",
   "branches": "/contact-us/our-branches/",
   "branch": "/contact-us/our-branches/[url_slug]/",
-  "employers": "/great-places-to-work/"
+  "employers": "/great-places-to-work/",
+  "employer": "/great-places-to-work/[url_slug]/"
 }

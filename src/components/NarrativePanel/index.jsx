@@ -10,7 +10,7 @@ import { CTA, VideoModal } from "@/ui";
 export default function NarrativePanel({ className, title, description, img, cta, video_embed_url, reverse }) {
   return (
     <div className={clsx(className, classes.panel)}>
-      <Container className="mw-xl">
+      <Container className="mw-xxl">
         <Row className={clsx("flex-column-reverse", { "flex-md-row-reverse": reverse, "flex-md-row": !reverse })}>
           <Col xs={12} md={6} className="d-flex flex-column justify-content-center">
             <div>
