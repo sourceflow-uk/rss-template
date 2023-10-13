@@ -76,8 +76,8 @@ export default function JobPageContent({
                     </Col>
                   </Row>
                   <Stack className="flex-row mb-3" gap={2}>
-                    {sectors.map(({ label }) => (
-                      <Tag label={label} />
+                    {sectors.map(({ label }, k) => (
+                      <Tag key={k} label={label} />
                     ))}
                   </Stack>
                   <div>
