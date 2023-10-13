@@ -1,4 +1,5 @@
 {
+  "dynamic": "/",
   "home": "/",
   "blog": "/blog/",
   "blogPost": "/blog/[url_slug]/",

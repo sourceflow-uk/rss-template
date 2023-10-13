@@ -18,7 +18,7 @@ export const getRoute = (key, params = {}) => {
   }
 
   if ("url_slugs" in params) {
-    route = `/${params.url_slugs.join("/")}`;
+    route = `${route}${params.url_slugs.join("/")}/`;
   }
 
   return `${config.basePath}${route}`;
