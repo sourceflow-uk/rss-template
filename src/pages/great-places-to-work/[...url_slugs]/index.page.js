@@ -26,7 +26,11 @@ export async function getStaticProps({ params: { url_slugs } }) {
         {
           component: "BreadcrumbNavigation",
           props: {
-            items: [{ label: "Great Places To Work", href: getRoute("employers") }, ...pages],
+            items: [
+              { label: "Find a Job", href: getRoute("jobs") },
+              { label: "Great Places To Work", href: getRoute("employers") },
+              ...pages,
+            ],
           },
         },
         {

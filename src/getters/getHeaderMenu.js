@@ -8,7 +8,10 @@ export const getHeaderMenu = (locale = "en") => {
     {
       label: "Jobs",
       href: getRoute("jobs"),
-      children: [{ label: "Great Places To Work", href: getRoute("employers") }],
+      children: [
+        { label: "Great Places To Work", href: getRoute("employers") },
+        { label: "Career Advice", href: getRoute("careerAdvice") },
+      ],
     },
     {
       label: "Recruitment Solutions",

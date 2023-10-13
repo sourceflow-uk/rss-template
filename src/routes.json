@@ -9,5 +9,6 @@
   "branches": "/our-branches/",
   "branch": "/our-branches/[url_slug]/",
   "employers": "/great-places-to-work/",
-  "employer": "/great-places-to-work/[url_slug]/"
+  "employer": "/great-places-to-work/[url_slug]/",
+  "careerAdvice": "/career-advice/"
 }
