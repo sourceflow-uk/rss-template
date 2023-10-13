@@ -1,11 +1,14 @@
 import clsx from "classnames";
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Container, Dropdown, Nav, Navbar, NavDropdown, NavItem } from "react-bootstrap";
 import classes from "./styles.module.scss";
 import PropTypes from "prop-types";
 import ChevronDown from "@/assets/ChevronDown.svg";
 import { getRoute } from "@/getters/getRoute";
+import { useState } from "react";
 
 export default function SiteHeader({ className, company_name, company_logo, nav }) {
+  const [show, setShow] = useState(null);
+
   return (
     <Navbar className={clsx(className, classes.header)}>
       <Container className="p-0">
@@ -15,26 +18,27 @@ export default function SiteHeader({ className, company_name, company_logo, nav 
         <Nav>
           {nav.map(({ label, children, href, target }, k) =>
             children ? (
-              <NavDropdown
+              <Dropdown
+                as={Nav.Item}
                 key={k}
-                title={
-                  <>
-                    {label}
-                    <ChevronDown />
-                  </>
-                }
-                href={href}
-                target={target}
                 align={nav.length - 1 === k ? "end" : "start"}
+                onMouseEnter={() => setShow(k)}
+                onMouseLeave={() => setShow(null)}
               >
-                {children.map(({ label, href, target }, k) => (
-                  <Nav.Item key={k} className="bg-tertiary hover-bg-quaternary text-white">
-                    <Nav.Link href={href} target={target}>
-                      {label}
-                    </Nav.Link>
-                  </Nav.Item>
-                ))}
-              </NavDropdown>
+                <Dropdown.Toggle as={Nav.Link} href={href} target={target}>
+                  {label}
+                  <ChevronDown />
+                </Dropdown.Toggle>
+                <Dropdown.Menu show={show === k}>
+                  {children.map(({ label, href, target }, k) => (
+                    <Dropdown.Item as={Nav.Item} key={k} className="bg-tertiary hover-bg-quaternary text-white">
+                      <Nav.Link href={href} target={target}>
+                        {label}
+                      </Nav.Link>
+                    </Dropdown.Item>
+                  ))}
+                </Dropdown.Menu>
+              </Dropdown>
             ) : (
               <Nav.Item key={k}>
                 <Nav.Link href={href} target={target}>
