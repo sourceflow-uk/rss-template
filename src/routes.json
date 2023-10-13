@@ -5,8 +5,8 @@
   "jobs": "/jobs/",
   "job": "/jobs/[url_slug]/",
   "contact": "/contact-us/",
-  "branches": "/contact-us/our-branches/",
-  "branch": "/contact-us/our-branches/[url_slug]/",
+  "branches": "/our-branches/",
+  "branch": "/our-branches/[url_slug]/",
   "employers": "/great-places-to-work/",
   "employer": "/great-places-to-work/[url_slug]/"
 }
