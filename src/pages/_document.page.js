@@ -5,24 +5,21 @@ import { hexToRgb } from "@/functions/hexToRgb";
 
 export default function Document() {
   const global = getGlobal();
+  const gtag = global["_theme.google.gtag"];
 
   return (
     <Html lang="en">
       <Head>
-        {global["_theme.google.gtag"] && (
+        {gtag && (
           <>
-            <Script
-              id="gtm"
-              src={`https://www.googletagmanager.com/gtag/js?id=${global["_theme.google.gtag"]}`}
-              strategy="beforeInteractive"
-            />
+            <Script id="gtm" src={`https://www.googletagmanager.com/gtag/js?id=${gtag}`} strategy="beforeInteractive" />
             <Script id="gtm_script" strategy="beforeInteractive">
               {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${global["_theme.google.gtag"]}');
-        `}
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gtag}');
+              `}
             </Script>
           </>
         )}
