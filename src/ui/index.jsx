@@ -32,11 +32,9 @@ export const RecruiterListingItem = lazy(() => import("./RecruiterListingItem"))
 export const RelatedArticleCard = lazy(() => import("./RelatedArticleCard"));
 export const RelatedArticles = lazy(() => import("./RelatedArticles"));
 export const RelatedJobCard = lazy(() => import("./RelatedJobCard"));
-export const RootStyleOverrides = lazy(() => import("./RootStyleOverrides"));
 export const SidebarNavigation = lazy(() => import("./SidebarNavigation"));
 export const SimilarJobCard = lazy(() => import("./SimilarJobCard"));
 export const SiteFooter = lazy(() => import("./SiteFooter"));
-export const SiteHead = lazy(() => import("./SiteHead"));
 export const SiteHeader = lazy(() => import("./SiteHeader"));
 export const SocialLinks = lazy(() => import("./SocialLinks"));
 export const SocialNavigation = lazy(() => import("./SocialNavigation"));

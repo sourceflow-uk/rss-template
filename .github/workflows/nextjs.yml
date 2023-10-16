@@ -78,8 +78,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.SOURCEFLOW_GITHUB_TOKEN }}
       - name: Fetch SourceFlow data
         run: npx sourceflow init https://blue-arrow.sites.sourceflow.co.uk/_sf/api/v1/cms.json
-#      - name: Build Storybook
-#        run: ${{ steps.detect-package-manager.outputs.runner }} storybook build -o public/storybook
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Export with Next.js
