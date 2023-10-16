@@ -7,12 +7,10 @@ import { trimText } from "@/functions/trimText";
 export default function PromoItem({ className, title, img, description, href }) {
   return (
     <a href={href} className={clsx(className, classes.card)}>
-      <figure>
-        <SourceFlowImage src={img} size="380x220" alt={title} />
-      </figure>
+      <figure>{img && <SourceFlowImage src={img} size="380x220" alt={title} />}</figure>
       <div className={classes.card__body}>
         <h5>{trimText(title, 50)}</h5>
-        <p>{trimText(description, 150)}</p>
+        <div dangerouslySetInnerHTML={{ __html: description }} />
       </div>
     </a>
   );

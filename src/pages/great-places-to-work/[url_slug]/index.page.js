@@ -1,13 +1,13 @@
 import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
 import unslug from "unslug";
-import { generateImage } from "@/faker/generateImage";
 import { generateBody } from "@/faker/generateBody";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateTitle } from "@/faker/generateTitle";
 import { generateNarrativePanel } from "@/faker/generateNarrativePanel";
 import { generateJob } from "@/faker/generateJob";
 import { generatePromoItem } from "@/faker/generatePromoItem";
+import { employerHelper } from "@/helpers/employerHelper";
 
 export default function EmployerPage({ content }) {
   return (
@@ -18,6 +18,8 @@ export default function EmployerPage({ content }) {
 }
 
 export async function getStaticProps({ params: { url_slug } }) {
+  const employer = employerHelper.find(url_slug);
+
   return {
     props: {
       meta: {},
@@ -28,7 +30,7 @@ export async function getStaticProps({ params: { url_slug } }) {
             items: [
               { label: "Find a Job", href: getRoute("jobs") },
               { label: "Great Places To Work", href: getRoute("employers") },
-              { label: unslug(url_slug), href: getRoute("employer", { url_slug }) },
+              { label: employer.name, href: getRoute("employer", { url_slug }) },
             ],
           },
         },
@@ -37,16 +39,16 @@ export async function getStaticProps({ params: { url_slug } }) {
           props: {
             title: {
               path: `page.${url_slug}.component.Header.title`,
-              placeholder: `Working with ${unslug(url_slug)}`,
+              placeholder: `Working with ${employer.name}`,
             },
-            img: generateImage({ width: 1440, height: 365 }),
+            img: employer.cover_image ?? null,
           },
         },
         {
           component: "RichText",
           props: {
             className: "bg-primary text-white py-5",
-            body: generateBody(),
+            body: employer.content,
           },
         },
         {
@@ -104,5 +106,5 @@ export async function getStaticProps({ params: { url_slug } }) {
 }
 
 export async function getStaticPaths() {
-  return { paths: [], fallback: false };
+  return { paths: employerHelper.toPaths(), fallback: false };
 }
