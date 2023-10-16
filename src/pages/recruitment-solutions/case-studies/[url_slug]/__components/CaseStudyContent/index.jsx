@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import clsx from "classnames";
 import { Col, Container, Row } from "react-bootstrap";
 import { BlockQuoteCard, DynamicText } from "@/ui";
+import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 
 export default function CaseStudyContent({
   className,
@@ -15,8 +16,11 @@ export default function CaseStudyContent({
   company_background,
   key_features,
   challenge,
+  challenge_image,
   solution,
+  solution_image,
   journey,
+  journey_image,
   result,
   testimonial,
   url_slug,
@@ -94,8 +98,8 @@ export default function CaseStudyContent({
                   Key Features
                 </DynamicText>
                 <ul>
-                  {key_features.split(",").map((i) => (
-                    <li>{i.trim()}</li>
+                  {key_features.split(",").map((i, k) => (
+                    <li key={k}>{i.trim()}</li>
                   ))}
                 </ul>
               </aside>
@@ -112,14 +116,18 @@ export default function CaseStudyContent({
               </DynamicText>
               <div dangerouslySetInnerHTML={{ __html: challenge }} />
             </Col>
-            <Col xs={12} md={6}></Col>
+            <Col xs={12} md={6}>
+              {challenge_image && <SourceFlowImage src={challenge_image} size="540x518" alt="Challenge image" />}
+            </Col>
           </Row>
         </Container>
       </div>
       <div className="py-5">
         <Container>
           <Row>
-            <Col xs={12} md={6}></Col>
+            <Col xs={12} md={6}>
+              {solution_image && <SourceFlowImage src={solution_image} size="540x531" alt="Solution image" />}
+            </Col>
             <Col xs={12} md={6}>
               <DynamicText path={`page.${url_slug}.component.CaseStudyContent.solution.title`} tag="h2">
                 The Solution
@@ -138,7 +146,9 @@ export default function CaseStudyContent({
               </DynamicText>
               <div dangerouslySetInnerHTML={{ __html: journey }} />
             </Col>
-            <Col xs={12} md={6}></Col>
+            <Col xs={12} md={6}>
+              {journey_image && <SourceFlowImage src={journey_image} size="540x291" alt="Journey image" />}
+            </Col>
           </Row>
         </Container>
       </div>

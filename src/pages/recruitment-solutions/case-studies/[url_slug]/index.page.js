@@ -31,6 +31,7 @@ export async function getStaticProps({ params: { url_slug } }) {
         {
           component: "Header",
           props: {
+            className: "text-tertiary",
             title: {
               path: `page.caseStudy.${url_slug}.component.Header.title`,
               placeholder: casestudy.title,
