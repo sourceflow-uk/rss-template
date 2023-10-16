@@ -117,7 +117,7 @@ export default function CaseStudyContent({
               <div dangerouslySetInnerHTML={{ __html: challenge }} />
             </Col>
             <Col xs={12} md={6}>
-              {challenge_image && <SourceFlowImage src={challenge_image} size="540x518" alt="Challenge image" />}
+              {challenge_image && <SourceFlowImage src={challenge_image} size="540x" alt="Challenge image" />}
             </Col>
           </Row>
         </Container>
@@ -126,7 +126,7 @@ export default function CaseStudyContent({
         <Container>
           <Row>
             <Col xs={12} md={6}>
-              {solution_image && <SourceFlowImage src={solution_image} size="540x531" alt="Solution image" />}
+              {solution_image && <SourceFlowImage src={solution_image} size="540x" alt="Solution image" />}
             </Col>
             <Col xs={12} md={6}>
               <DynamicText path={`page.${url_slug}.component.CaseStudyContent.solution.title`} tag="h2">
@@ -147,7 +147,7 @@ export default function CaseStudyContent({
               <div dangerouslySetInnerHTML={{ __html: journey }} />
             </Col>
             <Col xs={12} md={6}>
-              {journey_image && <SourceFlowImage src={journey_image} size="540x291" alt="Journey image" />}
+              {journey_image && <SourceFlowImage src={journey_image} size="540x" alt="Journey image" />}
             </Col>
           </Row>
         </Container>
