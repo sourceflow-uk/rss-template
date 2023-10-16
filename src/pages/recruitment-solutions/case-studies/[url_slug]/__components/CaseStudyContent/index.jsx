@@ -3,6 +3,7 @@ import clsx from "classnames";
 import { Col, Container, Row } from "react-bootstrap";
 import { BlockQuoteCard, DynamicText } from "@/ui";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
+import classes from "./styles.module.scss";
 
 export default function CaseStudyContent({
   className,
@@ -26,12 +27,12 @@ export default function CaseStudyContent({
   url_slug,
 }) {
   return (
-    <div className={clsx(className)}>
+    <div className={clsx(className, classes.content)}>
       <div className="py-5">
         <Container>
           <Row>
-            <Col xs={12} md={4}>
-              <aside className="bg-primary text-white p-4">
+            <Col xs={12} md={3}>
+              <aside className={clsx(classes.content__info, "bg-primary text-white p-4")}>
                 <dl>
                   <dt>
                     <DynamicText path={`page.${url_slug}.component.CaseStudyContent.client.title`}>Client</DynamicText>
@@ -88,7 +89,7 @@ export default function CaseStudyContent({
                 </dl>
               </aside>
             </Col>
-            <Col xs={12} md={8}>
+            <Col xs={12} md={9}>
               <DynamicText path={`page.${url_slug}.component.CaseStudyContent.background.title`} tag="h2">
                 Company Background
               </DynamicText>
@@ -116,7 +117,7 @@ export default function CaseStudyContent({
               </DynamicText>
               <div dangerouslySetInnerHTML={{ __html: challenge }} />
             </Col>
-            <Col xs={12} md={6}>
+            <Col xs={12} md={6} className="d-flex justify-content-end align-items-center">
               {challenge_image && <SourceFlowImage src={challenge_image} size="540x" alt="Challenge image" />}
             </Col>
           </Row>
@@ -125,7 +126,7 @@ export default function CaseStudyContent({
       <div className="py-5">
         <Container>
           <Row>
-            <Col xs={12} md={6}>
+            <Col xs={12} md={6} className="d-flex justify-content-start align-items-center">
               {solution_image && <SourceFlowImage src={solution_image} size="540x" alt="Solution image" />}
             </Col>
             <Col xs={12} md={6}>
@@ -146,7 +147,7 @@ export default function CaseStudyContent({
               </DynamicText>
               <div dangerouslySetInnerHTML={{ __html: journey }} />
             </Col>
-            <Col xs={12} md={6}>
+            <Col xs={12} md={6} className="d-flex justify-content-end align-items-center">
               {journey_image && <SourceFlowImage src={journey_image} size="540x" alt="Journey image" />}
             </Col>
           </Row>
@@ -155,7 +156,7 @@ export default function CaseStudyContent({
       <div className="bg-tertiary text-white py-5">
         <Container>
           <Row>
-            <Col xs={12} md={{ span: 6, offset: 3 }}>
+            <Col xs={12} md={{ span: 8, offset: 2 }}>
               <DynamicText path={`page.${url_slug}.component.CaseStudyContent.result.title`} tag="h2">
                 The Result
               </DynamicText>

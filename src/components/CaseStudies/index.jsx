@@ -2,12 +2,9 @@ import clsx from "classnames";
 import { Col, Container, Row } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { CaseStudyCard, Title } from "@/ui";
-import { casestudyHelper } from "@/helpers/casestudyHelper";
 import { getRoute } from "@/getters/getRoute";
 
-export default function CaseStudyFeed({ className, title }) {
-  const items = casestudyHelper.fetch();
-
+export default function CaseStudies({ className, title, items }) {
   return (
     <div className={clsx(className)}>
       <Container className="mw-xl">
@@ -24,10 +21,19 @@ export default function CaseStudyFeed({ className, title }) {
   );
 }
 
-CaseStudyFeed.defaultProps = {
+CaseStudies.defaultProps = {
   className: "py-5",
+  title: null,
+  items: [],
 };
 
-CaseStudyFeed.propTypes = {
+CaseStudies.propTypes = {
   className: PropTypes.string,
+  title: PropTypes.string,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      href: PropTypes.string,
+    })
+  ),
 };

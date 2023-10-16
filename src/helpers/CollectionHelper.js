@@ -10,12 +10,18 @@ export default class CollectionHelper {
     return this.collection.getItems().find((i) => i[key] === value);
   }
 
-  fetch({ limit } = {}) {
-    if (limit) {
-      return this.collection.getItems().slice(0, limit);
+  fetch({ limit, exclude = [] } = {}) {
+    let items = this.collection.getItems();
+
+    if (exclude) {
+      items = items.filter((i) => !exclude.includes(i.id));
     }
 
-    return this.collection.getItems();
+    if (limit) {
+      items = items.slice(0, limit);
+    }
+
+    return items;
   }
 
   toPaths(iterator = (i) => ({ params: { url_slug: i.url_slug } })) {

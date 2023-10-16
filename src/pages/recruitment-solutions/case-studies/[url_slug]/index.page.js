@@ -45,6 +45,16 @@ export async function getStaticProps({ params: { url_slug } }) {
           },
         },
         { component: "CaseStudyContent", props: { ...casestudy } },
+        {
+          component: "CaseStudies",
+          props: {
+            title: {
+              path: `page.caseStudy.${url_slug}.component.CaseStudies.title`,
+              placeholder: "Other Case Studies you might like",
+            },
+            items: casestudyHelper.fetch({ limit: 3, exclude: [casestudy.id] }),
+          },
+        },
       ],
     },
   };
