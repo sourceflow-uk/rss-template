@@ -1,11 +1,12 @@
 import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
 import { casestudyHelper } from "@/helpers/casestudyHelper";
+import * as additionalComponents from "./__components";
 
 export default function CaseStudyPage({ content }) {
   return (
     <>
-      <Content items={content} />
+      <Content items={content} additionalComponents={additionalComponents} />
     </>
   );
 }
@@ -34,6 +35,7 @@ export async function getStaticProps({ params: { url_slug } }) {
               path: `page.caseStudy.${url_slug}.component.Header.title`,
               placeholder: casestudy.title,
             },
+            img: casestudy.cover_image ?? null,
             back: {
               path: "page.caseStudy.component.Header.back",
               placeholder: `Back to Case Studies`,
@@ -41,6 +43,7 @@ export async function getStaticProps({ params: { url_slug } }) {
             },
           },
         },
+        { component: "CaseStudyContent", props: { ...casestudy } },
       ],
     },
   };
