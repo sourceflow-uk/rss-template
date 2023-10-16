@@ -33,10 +33,7 @@ export async function getStaticProps() {
             },
           },
         },
-        {
-          component: "CaseStudyFeed",
-          props: {},
-        },
+        { component: "CaseStudyFeed" },
       ],
     },
   };
