@@ -2,11 +2,11 @@ import clsx from "classnames";
 import { Col, Container, Row } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { CaseStudyCard, Title } from "@/ui";
-import { casestudyHelper } from "@/helpers/casestudyHelper";
+import { case_study_helper } from "@/helpers/case_study_helper";
 import { getRoute } from "@/getters/getRoute";
 
 export default function CaseStudyFeed({ className, title }) {
-  const items = casestudyHelper.fetch();
+  const items = case_study_helper.fetch();
 
   return (
     <div className={clsx(className)}>

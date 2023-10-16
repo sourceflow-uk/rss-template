@@ -5,6 +5,7 @@ import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generatePromoItem } from "@/faker/generatePromoItem";
 import { generateNarrativePanel } from "@/faker/generateNarrativePanel";
 import { generateArticle } from "@/faker/generateArticle";
+import { career_advice_helper } from "@/helpers/career_advice_helper";
 
 export default function CareersAdvicePage({ content }) {
   return (
@@ -47,7 +48,11 @@ export async function getStaticProps() {
         {
           component: "PromoSection",
           props: {
-            items: generateArrayOf(generatePromoItem, { count: 6 }),
+            items: career_advice_helper.fetch().map((i) => ({
+              title: i.title,
+              img: i.card_image ?? null,
+              href: getRoute("careerAdviceArticle", { url_slug: i.url_slug }),
+            })),
           },
         },
         {

@@ -2,11 +2,11 @@ import PropTypes from "prop-types";
 import clsx from "classnames";
 import { Col, Container, Row } from "react-bootstrap";
 import { BlogFeedCard } from "@/ui";
-import { blogHelper } from "@/helpers/blogHelper";
+import { blog_helper } from "@/helpers/blog_helper";
 import { getRoute } from "@/getters/getRoute";
 
 export default function BlogArticleFeed({ className }) {
-  const items = blogHelper.fetch();
+  const items = blog_helper.fetch();
 
   return (
     <div className={clsx(className)}>

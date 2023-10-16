@@ -1,7 +1,7 @@
 import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
 import * as additionalComponents from "./__components";
-import { blogHelper } from "@/helpers/blogHelper";
+import { blog_helper } from "@/helpers/blog_helper";
 
 export default function BlogPostPage({ content }) {
   return (
@@ -12,8 +12,8 @@ export default function BlogPostPage({ content }) {
 }
 
 export async function getStaticProps({ params: { url_slug } }) {
-  const blogPost = blogHelper.find(url_slug);
-  const related = blogHelper.fetch({ limit: 3 }); // TODO amend to fetch actual related blogPosts
+  const blogPost = blog_helper.find(url_slug);
+  const related = blog_helper.fetch({ limit: 3 }); // TODO amend to fetch actual related blogPosts
 
   return {
     props: {
@@ -36,7 +36,7 @@ export async function getStaticProps({ params: { url_slug } }) {
 
 export async function getStaticPaths() {
   return {
-    paths: blogHelper.toPaths(),
+    paths: blog_helper.toPaths(),
     fallback: false,
   };
 }

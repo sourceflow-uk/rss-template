@@ -7,7 +7,7 @@ import { generateTitle } from "@/faker/generateTitle";
 import { generateNarrativePanel } from "@/faker/generateNarrativePanel";
 import { generateJob } from "@/faker/generateJob";
 import { generatePromoItem } from "@/faker/generatePromoItem";
-import { employerHelper } from "@/helpers/employerHelper";
+import { employer_helper } from "@/helpers/employer_helper";
 
 export default function EmployerPage({ content }) {
   return (
@@ -18,7 +18,7 @@ export default function EmployerPage({ content }) {
 }
 
 export async function getStaticProps({ params: { url_slug } }) {
-  const employer = employerHelper.find(url_slug);
+  const employer = employer_helper.find(url_slug);
 
   return {
     props: {
@@ -106,5 +106,5 @@ export async function getStaticProps({ params: { url_slug } }) {
 }
 
 export async function getStaticPaths() {
-  return { paths: employerHelper.toPaths(), fallback: false };
+  return { paths: employer_helper.toPaths(), fallback: false };
 }

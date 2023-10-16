@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import classes from "./styles.module.scss";
 import { Button, Form } from "react-bootstrap";
 import { useCallback, useState } from "react";
-import { branchHelper } from "@/helpers/branchHelper";
+import { branch_helper } from "@/helpers/branch_helper";
 import { getRoute } from "@/getters/getRoute";
 
 export default function BranchLocator({ className, title }) {
-  const branches = branchHelper.fetch();
+  const branches = branch_helper.fetch();
   const [branch, setBranch] = useState("");
 
   const handleSearchClick = useCallback(() => {

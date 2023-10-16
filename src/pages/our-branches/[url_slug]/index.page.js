@@ -2,7 +2,7 @@ import { Content } from "@/ui";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateJob } from "@/faker/generateJob";
 import { getRoute } from "@/getters/getRoute";
-import { branchHelper } from "@/helpers/branchHelper";
+import { branch_helper } from "@/helpers/branch_helper";
 import * as additionalComponents from "./__components";
 
 export default function BranchPage({ content }) {
@@ -14,7 +14,7 @@ export default function BranchPage({ content }) {
 }
 
 export async function getStaticProps({ params: { url_slug } }) {
-  const branch = branchHelper.find(url_slug);
+  const branch = branch_helper.find(url_slug);
 
   return {
     props: {
@@ -63,7 +63,7 @@ export async function getStaticProps({ params: { url_slug } }) {
 
 export async function getStaticPaths() {
   return {
-    paths: branchHelper.toPaths(),
+    paths: branch_helper.toPaths(),
     fallback: false,
   };
 }

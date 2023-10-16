@@ -1,6 +1,6 @@
 import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
-import { casestudyHelper } from "@/helpers/casestudyHelper";
+import { case_study_helper } from "@/helpers/case_study_helper";
 import * as additionalComponents from "./__components";
 
 export default function CaseStudyPage({ content }) {
@@ -12,7 +12,7 @@ export default function CaseStudyPage({ content }) {
 }
 
 export async function getStaticProps({ params: { url_slug } }) {
-  const casestudy = casestudyHelper.find(url_slug);
+  const casestudy = case_study_helper.find(url_slug);
 
   return {
     props: {
@@ -52,7 +52,7 @@ export async function getStaticProps({ params: { url_slug } }) {
               path: `page.caseStudy.${url_slug}.component.CaseStudies.title`,
               placeholder: "Other Case Studies you might like",
             },
-            items: casestudyHelper.fetch({ limit: 3, exclude: [casestudy.id] }),
+            items: case_study_helper.fetch({ limit: 3, exclude: [casestudy.id] }),
           },
         },
       ],
@@ -62,7 +62,7 @@ export async function getStaticProps({ params: { url_slug } }) {
 
 export async function getStaticPaths() {
   return {
-    paths: casestudyHelper.toPaths(),
+    paths: case_study_helper.toPaths(),
     fallback: false,
   };
 }

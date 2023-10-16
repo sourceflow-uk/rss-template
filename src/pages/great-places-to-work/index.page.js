@@ -1,6 +1,6 @@
 import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
-import { employerHelper } from "@/helpers/employerHelper";
+import { employer_helper } from "@/helpers/employer_helper";
 import { getAsset } from "@/getters/getAsset";
 
 export default function EmployersPage({ content }) {
@@ -12,7 +12,7 @@ export default function EmployersPage({ content }) {
 }
 
 export async function getStaticProps() {
-  const employers = employerHelper.fetch();
+  const employers = employer_helper.fetch();
 
   return {
     props: {
