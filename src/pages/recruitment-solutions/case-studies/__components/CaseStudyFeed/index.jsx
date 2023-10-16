@@ -10,12 +10,12 @@ export default function CaseStudyFeed({ className, title }) {
 
   return (
     <div className={clsx(className)}>
-      <Container className="mw-xl">
+      <Container className="mw-xxl">
         <Title title={title} />
         <Row>
-          {items.map(({ title, cover_image, url_slug }, k) => (
+          {items.map(({ title, card_image, cover_image, url_slug }, k) => (
             <Col key={k} xs={12} md={4} className="mb-4">
-              <CaseStudyCard title={title} img={cover_image} href={getRoute("caseStudy", { url_slug })} />
+              <CaseStudyCard title={title} img={card_image ?? cover_image} href={getRoute("caseStudy", { url_slug })} />
             </Col>
           ))}
         </Row>
