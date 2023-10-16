@@ -6,7 +6,6 @@ export const BlogFeed = lazy(() => import("./BlogFeed"));
 export const BranchLookupPanel = lazy(() => import("./BranchLookupPanel"));
 export const BrandPositioning = lazy(() => import("./BrandPositioning"));
 export const BreadcrumbNavigation = lazy(() => import("./BreadcrumbNavigation"));
-export const CaseStudies = lazy(() => import("./CaseStudies"));
 export const CollapsibleContent = lazy(() => import("./CollapsibleContent"));
 export const CollapsibleSection = lazy(() => import("./CollapsibleSection"));
 export const Divider = lazy(() => import("./Divider"));
