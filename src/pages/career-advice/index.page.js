@@ -2,7 +2,6 @@ import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
 import { generateDescription } from "@/faker/generateDescription";
 import { generateArrayOf } from "@/faker/generateArrayOf";
-import { generatePromoItem } from "@/faker/generatePromoItem";
 import { generateNarrativePanel } from "@/faker/generateNarrativePanel";
 import { generateArticle } from "@/faker/generateArticle";
 import { career_advice_helper } from "@/helpers/career_advice_helper";
@@ -66,7 +65,6 @@ export async function getStaticProps() {
           component: "LatestBlogs",
           props: {
             title: { path: "page.careerAdvice.component.LatestBlogs.title", placeholder: "Latest Blogs" },
-            items: generateArrayOf(generateArticle, { count: 3 }),
           },
         },
       ],

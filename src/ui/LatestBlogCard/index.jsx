@@ -5,9 +5,9 @@ import clsx from "classnames";
 import { format } from "date-fns";
 import { trimText } from "@/functions/trimText";
 
-export default function LatestBlogCard({ className, title, description, img, published_at }) {
+export default function LatestBlogCard({ className, title, description, img, published_at, href }) {
   return (
-    <article className={clsx(className, classes.card)}>
+    <a href={href} className={clsx(className, classes.card)}>
       <figure className="ratio ratio-1x1">
         <SourceFlowImage src={img} size="373x220" alt={title} />
       </figure>
@@ -16,7 +16,7 @@ export default function LatestBlogCard({ className, title, description, img, pub
         <time>{format(new Date(published_at), "dd/MM/yyyy")}</time>
         <p>{trimText(description, 180)}</p>
       </div>
-    </article>
+    </a>
   );
 }
 

@@ -5,22 +5,26 @@ import classes from "./styles.module.scss";
 import ChevronRight from "@/assets/ChevronRight.svg";
 import { LatestBlogCard, Title } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
+import { blog_helper } from "@/helpers/blog_helper";
+import { trimText } from "@/functions/trimText";
 
-export default function LatestBlogs({ className, title, items, button }) {
+export default function LatestBlogs({ className, title, button }) {
+  const items = blog_helper.fetch({ limit: 3 });
+
   return (
     <div className={clsx(className, classes.blogs)}>
       <Container className="mw-xxl">
         <Title title={title} />
         <Row className="mb-4">
-          {items.map(({ title, description, img, published_at, tags }, k) => (
+          {items.map(({ title, body, image, publish_date, url_slug }, k) => (
             <Col key={k} xs={12} md={4}>
               <LatestBlogCard
                 className="h-100"
                 title={title}
-                description={description}
-                img={img}
-                published_at={published_at}
-                tags={tags}
+                description={trimText(body)}
+                img={image}
+                published_at={publish_date}
+                href={getRoute("blogPost", { url_slug })}
               />
             </Col>
           ))}
@@ -41,7 +45,6 @@ export default function LatestBlogs({ className, title, items, button }) {
 LatestBlogs.defaultProps = {
   className: "py-5",
   title: null,
-  items: [],
   button: {
     label: "View more blogs",
     href: getRoute("blog"),
@@ -51,15 +54,6 @@ LatestBlogs.defaultProps = {
 LatestBlogs.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      className: PropTypes.string,
-      title: PropTypes.string,
-      description: PropTypes.string,
-      img: PropTypes.string,
-      published_at: PropTypes.string,
-    })
-  ),
   button: PropTypes.shape({
     label: PropTypes.string,
     href: PropTypes.string,
