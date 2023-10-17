@@ -1,28 +1,5 @@
 @import "module";
 
-:root {
-  --bs-primary: #009ee3;
-  --bs-primary-rgb: 0, 158, 227;
-  --bs-secondary: #ee721c;
-  --bs-secondary-rgb: 238, 114, 28;
-  --bs-secondary-active: #be5b16;
-  --bs-tertiary: #1b1464;
-  --bs-tertiary-rgb: 27, 20, 100;
-  --bs-tertiary-active: #161153;
-  --bs-quaternary: #e50b7e;
-  --bs-quaternary-rgb: 229, 11, 126;
-  --bs-quaternary-active: #b70965;
-  --bs-light: #dff1fd;
-  --bs-light-rgb: 223, 241, 253;
-  --bs-dark: #6f6f6f;
-  --bs-dark-rgb: 111, 111, 111;
-  --bs-border-radius: 10px;
-  --bs-border-radius-sm: 6px;
-  --bs-font-family: Helvetica Neue, sans-serif;
-  --bs-font-family-heading: Arial Black, Helvetica Neue, sans-serif;
-  --bs-font-family-heading-small: Arial, Helvetica Neue, sans-serif;
-}
-
 #__next {
   display: flex;
   flex-direction: column;
@@ -152,7 +129,15 @@ hr {
   display: none;
 }
 
+.sr-only {
+  display: none;
+}
+
 .btn {
+  &-block {
+    width: 100%;
+  }
+
   &-primary {
     --bs-btn-bg: var(#{--bs-primary}) !important;
     --bs-btn-border-color: var(#{--bs-primary}) !important;
@@ -228,6 +213,10 @@ hr {
 .form {
   &-label {
     font-weight: $font-weight-semibold;
+  }
+
+  &-control {
+    border-radius: var(#{--bs-border-radius-sm});
   }
 }
 

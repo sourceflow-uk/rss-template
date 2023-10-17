@@ -1,4 +1,20 @@
 @import "src/scss/module";
 
 .form {
+  [ref="label"] {
+    font-weight: $font-weight-semibold;
+
+    &[class*="field-required"]:after {
+      content: "*";
+      color: $danger;
+    }
+  }
+
+  [ref="component"] {
+    margin-bottom: $spacer;
+  }
+
+  [ref="autocompleteInput"] {
+    display: none;
+  }
 }
