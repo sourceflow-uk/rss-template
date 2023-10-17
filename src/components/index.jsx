@@ -19,7 +19,7 @@ export const HorizontalListings = lazy(() => import("./HorizontalListings"));
 export const KeyTabListing = lazy(() => import("./KeyTabListing"));
 export const LatestBlogs = lazy(() => import("./LatestBlogs"));
 export const LatestJobs = lazy(() => import("./LatestJobs"));
-export const LogoCarousel = lazy(() => import("./LogoCarousel"));
+export const FeaturedEmployersCarousel = lazy(() => import("./FeaturedEmployersCarousel"));
 export const MiniCarousel = lazy(() => import("./MiniCarousel"));
 export const MultiTiles = lazy(() => import("./MultiTiles"));
 export const NarrativePanel = lazy(() => import("./NarrativePanel"));

@@ -6,14 +6,18 @@ import ChevronLeft from "@/assets/ChevronLeft.svg";
 import ChevronRight from "@/assets/ChevronRight.svg";
 import classes from "./styles.module.scss";
 import { LogoCard, Title } from "@/ui";
+import { employer_helper } from "@/helpers/employer_helper";
+import { getRoute } from "@/getters/getRoute";
 
-export default function LogoCarousel({ className, title, items, visibleCount }) {
+export default function FeaturedEmployersCarousel({ className, title, visibleCount, button }) {
+  const items = employer_helper.fetch().filter((i) => !!i.featured);
+
   return (
-    <div className={clsx(className, classes.logos)}>
+    <div className={clsx(className, classes.employers)}>
       <Container className="mw-xxl">
         <Title title={title} />
         <Carousel
-          className={classes.logos__carousel}
+          className={classes.employers__carousel}
           controls={true}
           prevIcon={<ChevronLeft width="14" height="25" />}
           nextIcon={<ChevronRight width="14" height="25" />}
@@ -21,36 +25,40 @@ export default function LogoCarousel({ className, title, items, visibleCount }) 
           {chunk(items, visibleCount).map((items, k) => (
             <Carousel.Item key={k}>
               <Row>
-                {items.map(({ logo, name, href }, k) => (
+                {items.map(({ card_image, name, url_slug }, k) => (
                   <Col key={k} className="py-3">
-                    <LogoCard logo={logo} name={name} href={href} />
+                    <LogoCard logo={card_image} name={name} href={getRoute("employer", { url_slug })} />
                   </Col>
                 ))}
               </Row>
             </Carousel.Item>
           ))}
         </Carousel>
+        <div className={classes.employers__footer}>
+          {button && (
+            <a className={classes.employers__link} href={button.href}>
+              {button.label}
+              <ChevronRight width="7" height="13" className="ms-2" />
+            </a>
+          )}
+        </div>
       </Container>
     </div>
   );
 }
 
-LogoCarousel.defaultProps = {
+FeaturedEmployersCarousel.defaultProps = {
   className: "py-5",
   title: null,
-  items: [],
   visibleCount: 5,
+  button: {
+    label: "View all our Featured Employers",
+    href: getRoute("employers"),
+  },
 };
 
-LogoCarousel.propTypes = {
+FeaturedEmployersCarousel.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string,
-      logo: PropTypes.string,
-      href: PropTypes.string,
-    })
-  ),
   visibleCount: PropTypes.number,
 };

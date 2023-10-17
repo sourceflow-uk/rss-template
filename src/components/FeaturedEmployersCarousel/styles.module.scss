@@ -1,6 +1,6 @@
 @import "src/scss/module";
 
-.logos {
+.employers {
   &__carousel {
     display: flex;
 
@@ -23,6 +23,21 @@
 
     [class="carousel-control-next"] {
       order: 3;
+    }
+  }
+
+  &__footer {
+    text-align: right;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    color: var(#{--bs-primary});
+    text-decoration: none;
+
+    & svg {
+      fill: var(#{--bs-primary});
     }
   }
 }

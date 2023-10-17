@@ -21,10 +21,9 @@ export async function getStaticProps({}) {
       content: [
         { component: "QuickJobSearch", props: {} },
         {
-          component: "LogoCarousel",
+          component: "FeaturedEmployersCarousel",
           props: {
-            title: { path: "page.home.component.LogoCarousel.title", placeholder: "Featured Employers" },
-            items: generateArrayOf(generateLogoCard, { count: 8 }),
+            title: { path: "page.home.component.FeaturedEmployersCarousel.title", placeholder: "Featured Employers" },
             visibleCount: 4,
           },
         },
