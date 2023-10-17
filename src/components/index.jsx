@@ -2,7 +2,6 @@ import { lazy } from "react";
 
 export const Accordion = lazy(() => import("./Accordion"));
 export const BlockQuote = lazy(() => import("./BlockQuote"));
-export const BlogFeed = lazy(() => import("./BlogFeed"));
 export const BranchLookupPanel = lazy(() => import("./BranchLookupPanel"));
 export const BrandPositioning = lazy(() => import("./BrandPositioning"));
 export const BreadcrumbNavigation = lazy(() => import("./BreadcrumbNavigation"));

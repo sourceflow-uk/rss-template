@@ -1,10 +1,11 @@
 import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
+import * as additionalComponents from "./__components";
 
 export default function BlogsPage({ content }) {
   return (
     <>
-      <Content items={content} />
+      <Content items={content} additionalComponents={additionalComponents} />
     </>
   );
 }

@@ -4,36 +4,17 @@ import { Button, Col, Container, Row, Stack } from "react-bootstrap";
 import { BlogFeedCard } from "@/ui";
 import { blog_helper } from "@/helpers/blog_helper";
 import { getRoute } from "@/getters/getRoute";
-import { useCallback, useEffect, useState } from "react";
-import { paginate } from "@/functions/paginate";
 import classes from "./styles.module.scss";
+import { useLoadMore } from "@/hooks/useLoadMore";
 
 export default function BlogArticleFeed({ className }) {
-  const items = blog_helper.fetch();
-  const [page, setPage] = useState(0);
-  const [pages, setPages] = useState(0);
-  const [perPage, _setPerPage] = useState(9);
-  const [computedItems, setComputedItems] = useState([]);
-
-  const loadMore = useCallback(() => {
-    const data = paginate(items, perPage, page + 1);
-
-    setPage(data.__metadata.page);
-    setPages(data.__metadata.pages);
-    setComputedItems([...computedItems, ...data.items]);
-  }, [computedItems, items, page, perPage]);
-
-  useEffect(() => {
-    if (computedItems.length === 0) {
-      loadMore();
-    }
-  }, [computedItems, loadMore]);
+  const [items, loadMore, page, pages] = useLoadMore(blog_helper.fetch());
 
   return (
     <div className={clsx(className, classes.feed)}>
       <Container className="mw-xl">
         <Row>
-          {computedItems.map(({ title, image, publish_date, url_slug }, k) => (
+          {items.map(({ title, image, publish_date, url_slug }, k) => (
             <Col key={k} xs={12} md={4} className="mb-4">
               <BlogFeedCard
                 className="h-100"
