@@ -8,6 +8,9 @@ import { generateNarrativePanel } from "@/faker/generateNarrativePanel";
 import { generateJob } from "@/faker/generateJob";
 import { generatePromoItem } from "@/faker/generatePromoItem";
 import { employer_helper } from "@/helpers/employer_helper";
+import { generateImage } from "@/faker/generateImage";
+import { generateDescription } from "@/faker/generateDescription";
+import { generateCTA } from "@/faker/generateCTA";
 
 export default function EmployerPage({ content }) {
   return (
@@ -37,6 +40,7 @@ export async function getStaticProps({ params: { url_slug } }) {
         {
           component: "Header",
           props: {
+            className: employer.cover_image ? "text-white" : "text-tertiary",
             title: {
               path: `page.${url_slug}.component.Header.title`,
               placeholder: `Working with ${employer.name}`,
@@ -65,7 +69,7 @@ export async function getStaticProps({ params: { url_slug } }) {
                 body: generateBody(),
                 active: false,
               }),
-              { count: 4 }
+              { count: 4 },
             ),
           },
         },
@@ -73,7 +77,17 @@ export async function getStaticProps({ params: { url_slug } }) {
           component: "NarrativePanel",
           props: {
             className: "py-5 bg-light",
-            ...generateNarrativePanel({ video: true, reverse: true }),
+            title: {
+              path: `page.${url_slug}.component.NarrativePanel.title`,
+              placeholder: "Why is Royal Mail a great place to work?",
+            },
+            description: {
+              path: `page.${url_slug}.component.NarrativePanel.description`,
+              placeholder:
+                "Lorem ipsum dolor sit amet consectetur. In magna risus condimentum tellus est. Pulvinar laoreet dui felis venenatis nam sed a erat. ",
+            },
+            video_embed_url: employer.video_embed_url ?? null,
+            reverse: true,
           },
         },
         {

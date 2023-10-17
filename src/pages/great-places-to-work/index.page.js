@@ -2,6 +2,7 @@ import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
 import { employer_helper } from "@/helpers/employer_helper";
 import { getAsset } from "@/getters/getAsset";
+import { trimText } from "@/functions/trimText";
 
 export default function EmployersPage({ content }) {
   return (
@@ -38,7 +39,7 @@ export async function getStaticProps() {
           props: {
             items: employers.map((i) => ({
               title: i.name,
-              description: i.description,
+              description: trimText(i.description),
               img: i.card_image ?? i.cover_image ?? getAsset("_theme.employer.card.img.fallback") ?? null,
               href: getRoute("employer", { url_slug: i.url_slug }),
             })),

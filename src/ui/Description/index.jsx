@@ -10,7 +10,10 @@ export default function Description({ className, description }) {
   }
 
   if (typeof description === "string") {
-    return React.createElement("div", { className: clsx(classes.description, className) }, description);
+    return React.createElement("div", {
+      className: clsx(classes.description, className),
+      dangerouslySetInnerHTML: { __html: description },
+    });
   }
 
   return (

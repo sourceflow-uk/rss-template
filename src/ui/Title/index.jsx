@@ -10,7 +10,10 @@ export default function Title({ className, title, tag }) {
   }
 
   if (typeof title === "string") {
-    return React.createElement(tag, { className: clsx(classes.title, className) }, title);
+    return React.createElement(tag, {
+      className: clsx(classes.title, className),
+      dangerouslySetInnerHTML: { __html: title },
+    });
   }
 
   return (
