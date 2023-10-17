@@ -22,7 +22,7 @@ export default function CareerAdviceArticleContent({ className, id, body }) {
                 {
                   label: "Careers Advice",
                   href: getRoute("careerAdvice"),
-                  children: [...items, ...items, ...items, ...items].map(({ title, url_slug }) => ({
+                  children: items.map(({ title, url_slug }) => ({
                     label: title,
                     href: getRoute("careerAdviceArticle", { url_slug }),
                   })),
