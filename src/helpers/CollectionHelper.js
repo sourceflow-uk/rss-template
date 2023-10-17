@@ -45,6 +45,6 @@ export default class CollectionHelper {
       return { params: { url_slugs } };
     },
   ) {
-    return this.collection.getItems().map(iterator);
+    return this.toPaths(iterator);
   }
 }
