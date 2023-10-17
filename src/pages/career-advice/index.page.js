@@ -6,6 +6,7 @@ import { generateNarrativePanel } from "@/faker/generateNarrativePanel";
 import { generateArticle } from "@/faker/generateArticle";
 import { career_advice_helper } from "@/helpers/career_advice_helper";
 import { getAsset } from "@/getters/getAsset";
+import { trimText } from "@/functions/trimText";
 
 export default function CareersAdvicePage({ content }) {
   return (
@@ -42,7 +43,11 @@ export async function getStaticProps() {
               path: `page.CareerAdvice.component.Header.title`,
               placeholder: "Career Advice",
             },
-            description: generateDescription(),
+            description: {
+              path: "page.CareerAdvice.component.Header.description",
+              placeholder:
+                "Whether you're looking for your first job or looking to take that next step in your career, we have a range of useful tools that can help.",
+            },
           },
         },
         {
@@ -51,6 +56,7 @@ export async function getStaticProps() {
             items: [
               ...career_advice_helper.fetch({ limit: 4, featured: true }).map((i) => ({
                 title: i.title,
+                description: trimText(i.content),
                 img: i.card_image ?? null,
                 href: getRoute("careerAdviceArticle", { url_slug: i.url_slug }),
               })),

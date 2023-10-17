@@ -1,20 +1,35 @@
 import clsx from "classnames";
 import classes from "./styles.module.scss";
 import PropTypes from "prop-types";
-import { Nav } from "react-bootstrap";
+import { Card, Nav } from "react-bootstrap";
 
 export default function SidebarNavigation({ className, title, items }) {
+  if (items.length === 0) {
+    return null;
+  }
+
   return (
-    <div className={clsx(className, classes.sidebar)}>
-      <h3>{title}</h3>
-      <Nav className={classes.sidebar__nav}>
-        {items.map(({ label, href }, k) => (
-          <Nav.Item key={k}>
-            <Nav.Link href={href}>{label}</Nav.Link>
-          </Nav.Item>
-        ))}
-      </Nav>
-    </div>
+    <Card className={clsx(className, classes.sidebar)}>
+      <Card.Header>{title}</Card.Header>
+      <Card.Body>
+        <Nav className={classes.sidebar__nav}>
+          {items.map(({ label, href, children }, k) => (
+            <Nav.Item key={k}>
+              <Nav.Link href={href}>{label}</Nav.Link>
+              {children && (
+                <Nav className={classes.sidebar__subnav}>
+                  {children.map(({ label, href }, k) => (
+                    <Nav.Item key={k}>
+                      <Nav.Link href={href}>{label}</Nav.Link>
+                    </Nav.Item>
+                  ))}
+                </Nav>
+              )}
+            </Nav.Item>
+          ))}
+        </Nav>
+      </Card.Body>
+    </Card>
   );
 }
 
@@ -31,6 +46,6 @@ SidebarNavigation.propTypes = {
     PropTypes.shape({
       label: PropTypes.string,
       href: PropTypes.string,
-    })
+    }),
   ),
 };

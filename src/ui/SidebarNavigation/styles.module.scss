@@ -1,24 +1,57 @@
-@import "../../scss/module";
+@import "src/scss/module";
 
 .sidebar {
   &__nav {
     flex-direction: column;
-    border: 1px solid $dark;
+    margin-top: -$spacer;
+    margin-bottom: -$spacer * 0.5;
 
-    [class="nav-item"]:not(:last-of-type) {
-      border-bottom: 1px solid $dark;
+    div {
+      width: 100%;
     }
 
     a {
-      color: $text-color;
-      text-transform: capitalize;
+      display: flex;
+      align-items: center;
+      font-weight: $font-weight-bold;
+      border-bottom: 1px solid #d6d6d6;
+      color: var(#{--bs-primary});
+      padding: $spacer 0;
+      gap: 0;
       transition: 0.3s;
 
-      &:hover,
-      &:focus {
-        text-indent: 0.5em;
-        color: $text-color;
-        background-color: rgba($black, 0.05);
+      &::before {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        transition: 0.3s;
+        border: 0;
+      }
+
+      &:hover {
+        color: var(#{--bs-tertiary});
+      }
+    }
+  }
+
+  &__subnav {
+    div {
+      width: 100%;
+    }
+
+    a {
+      font-weight: $font-weight-base;
+      padding: $spacer 0 $spacer $spacer;
+
+      &:hover {
+        gap: $spacer * 0.5;
+
+        &::before {
+          border-top: 5px solid transparent;
+          border-bottom: 5px solid transparent;
+          border-left: 5px solid var(#{--bs-quaternary});
+        }
       }
     }
   }
