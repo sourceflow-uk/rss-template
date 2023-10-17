@@ -1,9 +1,5 @@
 import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
-import { generateDescription } from "@/faker/generateDescription";
-import { generateArrayOf } from "@/faker/generateArrayOf";
-import { generateNarrativePanel } from "@/faker/generateNarrativePanel";
-import { generateArticle } from "@/faker/generateArticle";
 import { career_advice_helper } from "@/helpers/career_advice_helper";
 import { getAsset } from "@/getters/getAsset";
 import { trimText } from "@/functions/trimText";
@@ -39,6 +35,7 @@ export async function getStaticProps() {
         {
           component: "Header",
           props: {
+            className: "text-tertiary",
             title: {
               path: `page.CareerAdvice.component.Header.title`,
               placeholder: "Career Advice",
@@ -92,7 +89,21 @@ export async function getStaticProps() {
           component: "NarrativePanel",
           props: {
             className: "py-5 bg-primary text-white",
-            ...generateNarrativePanel({ reverse: true }),
+            title: {
+              path: `page.careerAdvice.component.NarrativePanel.title`,
+              placeholder: "What makes an employer a great place to work?",
+            },
+            description: {
+              path: `page.careerAdvice.component.NarrativePanel.description`,
+              placeholder: "Learn more about what to consider when looking for a great place to work.",
+            },
+            img: getAsset("page.careerAdvice.component.NarrativePanel.img"),
+            cta: {
+              label: "Find out more",
+              href: getRoute("employers"),
+              variant: "secondary",
+            },
+            reverse: true,
           },
         },
         {

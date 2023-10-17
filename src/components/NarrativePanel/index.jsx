@@ -6,39 +6,39 @@ import Play from "@/assets/Play.svg";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 import { CTA, Description, Title, VideoModal } from "@/ui";
 import { getYoutubeIdFromUrl } from "@/functions/getYoutubeIdFromUrl";
+import { useMemo } from "react";
 
 export default function NarrativePanel({ className, title, description, img, cta, video_embed_url, reverse }) {
-  if (!video_embed_url) {
-    return null;
-  }
+  const image = useMemo(() => {
+    if (img) {
+      return img;
+    }
 
-  const youtube_id = getYoutubeIdFromUrl(video_embed_url);
+    return video_embed_url ? `//i3.ytimg.com/vi/${getYoutubeIdFromUrl(video_embed_url)}/hqdefault.jpg` : null;
+  }, [img, video_embed_url]);
 
   return (
     <div className={clsx(className, classes.panel)}>
       <Container className="mw-xxl">
         <Row className={clsx("flex-column-reverse", { "flex-md-row-reverse": reverse, "flex-md-row": !reverse })}>
           <Col xs={12} md={6} className="d-flex flex-column justify-content-center">
-            <div>
+            <div className="ms-md-5">
               <Title title={title} className="mb-3" />
               <Description description={description} />
-              {cta && <CTA label={cta.label} href={cta.href} variant={cta.variant} />}
+              {cta && <CTA className="mt-4" label={cta.label} href={cta.href} variant={cta.variant} />}
             </div>
           </Col>
           <Col xs={12} md={6} className="d-flex flex-column justify-content-center">
-            <figure className="my-4 my-md-0 position-relative">
-              <SourceFlowImage
-                className="mw-100"
-                src={img ?? `//i3.ytimg.com/vi/${youtube_id}/hqdefault.jpg`}
-                size="540x291"
-                alt={title}
-              />
-              {video_embed_url && (
-                <VideoModal video_embed_url={video_embed_url}>
-                  <Play width={100} height={100} />
-                </VideoModal>
-              )}
-            </figure>
+            {image && (
+              <figure className="my-4 my-md-0 position-relative">
+                <SourceFlowImage className="mw-100" src={image} size="540x291" alt={title} />
+                {video_embed_url && (
+                  <VideoModal video_embed_url={video_embed_url}>
+                    <Play width={100} height={100} />
+                  </VideoModal>
+                )}
+              </figure>
+            )}
           </Col>
         </Row>
       </Container>
@@ -52,7 +52,7 @@ NarrativePanel.defaultProps = {
   description: null,
   img: null,
   cta: null,
-  video: null,
+  video_embed_url: null,
   reverse: false,
 };
 
@@ -67,6 +67,6 @@ NarrativePanel.propTypes = {
     href: PropTypes.string,
     variant: PropTypes.string,
   }),
-  video: PropTypes.string,
+  video_embed_url: PropTypes.string,
   reverse: PropTypes.bool,
 };

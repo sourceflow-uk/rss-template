@@ -14,6 +14,7 @@
     padding-top: calc(9 / 16 * 100%);
 
     img {
+      border-radius: var(#{--bs-border-radius});
       @include img-overlay__img;
     }
 
