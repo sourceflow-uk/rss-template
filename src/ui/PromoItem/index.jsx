@@ -2,15 +2,15 @@ import PropTypes from "prop-types";
 import clsx from "classnames";
 import classes from "./styles.module.scss";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
-import { trimText } from "@/functions/trimText";
+import { Description, Title } from "@/ui";
 
 export default function PromoItem({ className, title, img, description, href }) {
   return (
     <a href={href} className={clsx(className, classes.card)}>
-      <figure>{img && <SourceFlowImage src={img} size="380x220" alt={title} />}</figure>
+      <figure>{img && <SourceFlowImage src={img} size="380x220" alt="Cover image" />}</figure>
       <div className={classes.card__body}>
-        <h5>{trimText(title, 50)}</h5>
-        <div dangerouslySetInnerHTML={{ __html: description }} />
+        <Title title={title} tag="h5" />
+        <Description description={description} />
       </div>
     </a>
   );
