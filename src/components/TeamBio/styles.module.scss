@@ -1,0 +1,33 @@
+@import "src/scss/module";
+
+.bio {
+  dl {
+    display: flex;
+    gap: $spacer * 0.5;
+    align-items: center;
+
+    dt {
+      margin-bottom: 0;
+    }
+
+    dd {
+      text-transform: capitalize;
+      margin-bottom: 0;
+
+      a {
+        color: $text-color;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &__email {
+    a {
+      text-transform: none;
+    }
+  }
+}

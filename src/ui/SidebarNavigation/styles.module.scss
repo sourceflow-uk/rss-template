@@ -1,0 +1,25 @@
+@import "../../scss/module";
+
+.sidebar {
+  &__nav {
+    flex-direction: column;
+    border: 1px solid $dark;
+
+    [class="nav-item"]:not(:last-of-type) {
+      border-bottom: 1px solid $dark;
+    }
+
+    a {
+      color: $text-color;
+      text-transform: capitalize;
+      transition: 0.3s;
+
+      &:hover,
+      &:focus {
+        text-indent: 0.5em;
+        color: $text-color;
+        background-color: rgba($black, 0.05);
+      }
+    }
+  }
+}

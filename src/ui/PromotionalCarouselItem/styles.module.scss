@@ -1,0 +1,30 @@
+@import "src/scss/module";
+
+.item {
+  [class*="col-"] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  figure {
+    @include img-overlay__container;
+    padding-top: calc(9 / 16 * 100%);
+
+    img {
+      @include img-overlay__img;
+    }
+
+    div {
+      @include img-overlay__body;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      svg {
+        fill: $card-text-color;
+      }
+    }
+  }
+}

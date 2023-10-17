@@ -1,0 +1,47 @@
+@import "src/scss/module";
+
+.card {
+  text-align: left;
+  border-radius: var(#{--bs-border-radius-sm});
+  @include card-hover-rise;
+
+  &__body {
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    img {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    //time {
+    //  display: block;
+    //  opacity: 0.5;
+    //  font-size: $font-size-sm;
+    //}
+
+    dl {
+      margin-bottom: 0;
+      display: flex;
+      gap: $spacer * 0.5;
+
+      dt {
+        svg {
+          fill: var(#{--bs-quaternary});
+        }
+      }
+
+      dd {
+        color: var(#{--bs-dark});
+
+        strong {
+          color: var(#{--bs-black});
+          font-weight: $font-weight-bold;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+@import "src/scss/module";
+
+.item {
+  border-bottom: 1px solid $gray-300;
+  text-align: left;
+
+  header {
+    cursor: pointer;
+    transition: $transition-base;
+
+    a {
+      display: flex;
+      align-items: center;
+
+      &:before {
+        width: 42px;
+        content: "More";
+        color: var(#{--bs-primary});
+      }
+
+      &:after {
+        content: "";
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-color: $black;
+        margin-top: 3px;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 6px solid;
+        vertical-align: middle;
+        transition: transform $transition-base;
+        color: var(#{--bs-primary});
+      }
+    }
+
+    &:hover,
+    &:focus {
+      &:after {
+      }
+    }
+  }
+
+  section {
+    max-height: 0vh;
+    overflow: hidden;
+    transition: 0.4s;
+  }
+
+  &--active {
+    header {
+      a {
+        &:before {
+          content: "Less";
+        }
+        &:after {
+          transform: rotateX(180deg);
+        }
+      }
+    }
+
+    section {
+      max-height: 100vh;
+      overflow: hidden;
+    }
+  }
+}

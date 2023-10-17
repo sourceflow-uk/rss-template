@@ -1,0 +1,22 @@
+@import "src/scss/module";
+
+.card {
+  @include img-overlay__container;
+  margin: 1px;
+  display: block;
+  padding-top: 100%;
+
+  &__img {
+    @include img-overlay__img;
+  }
+
+  &:hover &__img {
+    scale: 1.05;
+  }
+
+  &__body {
+    @include img-overlay__body;
+    background: linear-gradient(180deg, rgba($card-img-overlay-color, 0.5) 0%, rgba($card-img-overlay-color, 0) 100%);
+    padding: $spacer;
+  }
+}

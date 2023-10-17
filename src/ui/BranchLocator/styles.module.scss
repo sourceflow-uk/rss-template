@@ -1,0 +1,17 @@
+@import "../../scss/module";
+
+.locator {
+  padding: $spacer * 1.5;
+  background-color: var(#{--bs-primary});
+  border-radius: var(#{--bs-border-radius-sm});
+  color: $white;
+
+  label {
+    font-weight: $font-weight-bold;
+  }
+
+  input,
+  select {
+    border-radius: var(#{--bs-border-radius-sm});
+  }
+}

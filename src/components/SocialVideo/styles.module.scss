@@ -1,0 +1,22 @@
+@import "src/scss/module";
+
+.video {
+  &__img {
+    object-fit: cover;
+    transition: $transition-base;
+  }
+
+  &:hover &__img {
+    scale: 1.05;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      fill: var(#{--bs-secondary});
+    }
+  }
+}

@@ -1,0 +1,27 @@
+@import "../../scss/module";
+
+.breadcrumbs {
+  padding-top: $spacer * 0.75;
+  padding-bottom: $spacer * 0.75;
+
+  ol {
+    margin: 0;
+
+    li {
+      &:last-of-type {
+        a {
+          color: inherit;
+        }
+      }
+    }
+  }
+
+  a {
+    color: var(#{--bs-primary});
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

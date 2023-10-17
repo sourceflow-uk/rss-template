@@ -1,0 +1,21 @@
+@import "src/scss/module";
+
+.card {
+  width: 228px;
+  height: 228px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  transition: $transition-base;
+  border-radius: var(#{--bs-border-radius-sm});
+  border: 1px solid #f0f0f0;
+
+  img {
+    object-fit: contain;
+  }
+
+  &:hover {
+    scale: 1.05;
+  }
+}

@@ -1,0 +1,27 @@
+@import "src/scss/module";
+
+.recruiter {
+  img {
+    border-radius: 100px;
+  }
+
+  dl {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacer * 0.5;
+
+    dd {
+      text-transform: capitalize;
+    }
+  }
+
+  &__email {
+    text-transform: none;
+  }
+
+  a {
+    color: $text-color;
+    text-decoration: none;
+    font-weight: $font-weight-bold;
+  }
+}

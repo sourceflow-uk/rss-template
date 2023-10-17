@@ -1,0 +1,36 @@
+@import "src/scss/module";
+
+.card {
+  text-align: left;
+  border: 1px solid lightgray;
+  border-top: 4px solid var(#{--bs-tertiary});
+  border-top-right-radius: var(#{--bs-border-radius});
+  border-top-left-radius: var(#{--bs-border-radius});
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: $text-color;
+  overflow: hidden;
+  @include card-hover-rise;
+
+  figure {
+    margin: 0;
+
+    img {
+      width: 100%;
+      transition: 0.3s;
+    }
+  }
+
+  &__body {
+    flex-grow: 1;
+    padding: $spacer * 2 $spacer $spacer;
+    border-top: 1px solid lightgray;
+
+    h5 {
+      min-height: 48px;
+      color: var(#{--bs-primary});
+      margin-bottom: 0;
+    }
+  }
+}

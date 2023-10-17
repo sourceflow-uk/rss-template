@@ -1,0 +1,24 @@
+@import "src/scss/module";
+
+.video {
+  &__trigger {
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      scale: 1.2;
+    }
+  }
+
+  &__modal {
+    overflow: hidden;
+
+    [class*="modal-content"] {
+      border: 0;
+    }
+
+    iframe {
+      border: 0;
+    }
+  }
+}

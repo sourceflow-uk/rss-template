@@ -1,0 +1,36 @@
+@import "src/scss/module";
+
+.card {
+  @include img-overlay__container;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__img {
+    @include img-overlay__img;
+    z-index: 1;
+  }
+
+  &:hover &__img {
+    scale: 1.05;
+  }
+
+  &__body {
+    @include img-overlay__body;
+    z-index: 2;
+
+    p {
+      text-transform: capitalize;
+    }
+  }
+
+  &__video {
+    position: relative;
+    z-index: 3;
+
+    svg {
+      fill: $card-text-color;
+    }
+  }
+}

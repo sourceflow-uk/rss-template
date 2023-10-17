@@ -1,0 +1,31 @@
+@import "src/scss/module";
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  color: var(#{--bs-black});
+  background-color: var(#{--bs-light});
+  border-radius: var(#{--bs-border-radius});
+
+  section {
+    flex-grow: 1;
+  }
+
+  cite {
+    font-style: normal;
+    opacity: 0.75;
+
+    b {
+      font-weight: $font-weight-semibold;
+    }
+  }
+
+  svg {
+    position: absolute;
+    bottom: -26px;
+    left: 30px;
+    fill: var(#{--bs-light});
+  }
+}

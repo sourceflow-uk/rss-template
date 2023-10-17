@@ -1,0 +1,88 @@
+@import "src/scss/module";
+
+.item {
+  border-bottom: 1px solid;
+
+  header {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    h4 {
+      margin-bottom: 0;
+      flex-grow: 1;
+      transition: $transition-base;
+    }
+
+    &:hover,
+    &:focus {
+      h4 {
+        color: $primary;
+      }
+    }
+  }
+
+  &__toggle {
+    position: relative;
+    border-radius: 100px;
+    border: 2px solid $dark;
+    width: 20px;
+    height: 20px;
+    transition: $transition-base;
+
+    span {
+      position: absolute;
+      top: calc(50% - 1px);
+      left: calc(50% - 5px);
+      display: block;
+      width: 10px;
+      height: 2px;
+      background-color: $dark;
+      transition: $transition-base;
+
+      &:last-of-type {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  header:hover &__toggle {
+    border-color: $primary;
+
+    span {
+      background-color: $primary;
+    }
+  }
+
+  section {
+    max-height: 0vh;
+    overflow: hidden;
+    transition: 0.4s;
+  }
+
+  &--active {
+    header {
+      h4 {
+        color: $primary;
+      }
+
+      span {
+        background-color: $primary;
+
+        &:last-of-type {
+          left: calc(50% - 1px);
+          width: 2px;
+        }
+      }
+    }
+
+    section {
+      max-height: 100vh;
+      overflow: hidden;
+    }
+  }
+
+  &--active &__toggle {
+    border-color: $primary;
+  }
+}

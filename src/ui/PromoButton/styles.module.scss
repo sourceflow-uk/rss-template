@@ -1,0 +1,31 @@
+@import "src/scss/module";
+
+.button {
+  display: block;
+  border-radius: 100%;
+  padding-top: 100%;
+  width: 100%;
+  max-width: 332px;
+  margin: auto;
+  @include img-overlay__container;
+  @include card-hover-rise;
+
+  &__img {
+    @include img-overlay__img;
+  }
+
+  &__body {
+    @include img-overlay__body;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: $spacer * 2;
+    text-align: center;
+
+    h4 {
+      font-weight: $font-weight-semibold;
+      transform: translateY(4rem);
+    }
+  }
+}

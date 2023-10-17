@@ -1,0 +1,8 @@
+@import "src/scss/module";
+
+.heading {
+  h2 {
+    padding-bottom: $spacer * 2;
+    border-bottom: 1px solid $dark;
+  }
+}

@@ -1,0 +1,43 @@
+@import "src/scss/module";
+
+.employers {
+  &__carousel {
+    display: flex;
+
+    [class*="carousel-control-"] {
+      position: relative;
+      width: $spacer * 10;
+
+      svg {
+        fill: var(#{--bs-primary});
+      }
+    }
+
+    [class="carousel-control-prev"] {
+      order: 1;
+    }
+
+    [class="carousel-inner"] {
+      order: 2;
+    }
+
+    [class="carousel-control-next"] {
+      order: 3;
+    }
+  }
+
+  &__footer {
+    text-align: right;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    color: var(#{--bs-primary});
+    text-decoration: none;
+
+    & svg {
+      fill: var(#{--bs-primary});
+    }
+  }
+}

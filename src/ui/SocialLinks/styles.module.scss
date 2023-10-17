@@ -1,0 +1,15 @@
+@import "src/scss/module";
+
+.links {
+  a {
+    transition: 0.3s;
+
+    svg {
+      fill: var(#{--bs-tertiary});
+    }
+
+    &:hover {
+      transform: translateY(-0.25em);
+    }
+  }
+}

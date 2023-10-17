@@ -1,0 +1,36 @@
+@import "src/scss/module";
+
+.card {
+  @include img-overlay__container;
+  display: block;
+  padding-top: 100%;
+  text-decoration: none;
+  transition: 0.3s;
+  border-radius: var(#{--bs-border-radius});
+
+  &:hover {
+    scale: 1.05;
+    box-shadow: $box-shadow-sm;
+  }
+
+  &__img {
+    @include img-overlay__img;
+  }
+
+  &:hover &__img {
+    scale: 1.05;
+  }
+
+  &__body {
+    @include img-overlay__body;
+    padding: $spacer;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    p {
+      margin-bottom: 0;
+      text-transform: capitalize;
+    }
+  }
+}

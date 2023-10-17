@@ -1,0 +1,18 @@
+{
+  "dynamic": "/",
+  "home": "/",
+  "blog": "/blog/",
+  "blogPost": "/blog/[url_slug]/",
+  "jobs": "/jobs/",
+  "job": "/jobs/[url_slug]/",
+  "contact": "/contact-us/",
+  "branches": "/our-branches/",
+  "branch": "/our-branches/[url_slug]/",
+  "employers": "/great-places-to-work/",
+  "employer": "/great-places-to-work/[url_slug]/",
+  "careerAdvice": "/career-advice/",
+  "careerAdviceArticle": "/career-advice/[url_slug]",
+  "recruitmentSolutions": "/recruitment-solutions/",
+  "caseStudies": "/recruitment-solutions/case-studies/",
+  "caseStudy": "/recruitment-solutions/case-studies/[url_slug]"
+}

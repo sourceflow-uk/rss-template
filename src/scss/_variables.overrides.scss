@@ -1,0 +1,70 @@
+@import "bootstrap/scss/variables";
+
+$tertiary: $success;
+$quaternary: $danger;
+$gray-300: #d6d6d6;
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "tertiary": $tertiary,
+  "quaternary": $quaternary,
+  "light": $light,
+  "dark": $dark,
+);
+
+$headings-font-weight: $font-weight-bold;
+$btn-padding-x: $spacer * 3;
+
+$text-color: $black;
+$overlay-text-color: $black;
+
+$card-img-overlay-color: $black;
+$card-text-color: $white;
+
+$transition-base: 0.3s;
+
+@mixin img-overlay__container {
+  position: relative;
+  overflow: hidden;
+}
+
+@mixin img-overlay__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: $transition-base;
+  object-fit: cover;
+  z-index: 1;
+}
+
+@mixin img-overlay__body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba($card-img-overlay-color, 0) 0%, rgba($card-img-overlay-color, 0.5) 100%);
+  color: $card-text-color;
+  z-index: 2;
+}
+
+@mixin card-hover-rise {
+  transition: $transition-base;
+
+  &:hover {
+    transform: translateY(-0.5em);
+    box-shadow: $box-shadow-sm;
+  }
+}
+
+@mixin darken-on-hover {
+  transition: $transition-base;
+
+  &:hover,
+  &:focus {
+    background-color: rgba($black, 0.025);
+  }
+}

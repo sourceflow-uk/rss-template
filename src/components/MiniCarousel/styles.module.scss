@@ -1,0 +1,32 @@
+@import "src/scss/module";
+
+.mini {
+  &__carousel {
+    display: flex;
+    height: 100%;
+    margin-left: $spacer * -3;
+    margin-right: $spacer * -3;
+
+    [class*="carousel-control-"] {
+      position: relative;
+      width: $spacer * 3;
+
+      svg {
+        fill: var(#{--bs-primary});
+      }
+    }
+
+    [class="carousel-control-prev"] {
+      order: 1;
+    }
+
+    [class="carousel-inner"] {
+      border: 1px solid;
+      order: 2;
+    }
+
+    [class="carousel-control-next"] {
+      order: 3;
+    }
+  }
+}

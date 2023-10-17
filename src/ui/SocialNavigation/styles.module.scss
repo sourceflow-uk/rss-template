@@ -1,0 +1,31 @@
+@import "../../scss/module";
+
+.socials {
+  width: 68px;
+  border-top-right-radius: var(#{--bs-border-radius});
+  border-bottom-right-radius: var(#{--bs-border-radius});
+  border: 1px solid #d6d6d6;
+  position: fixed;
+  background-color: $white;
+  box-shadow: $box-shadow-sm;
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: $spacer;
+    @include darken-on-hover;
+
+    svg {
+      transition: $transition-base;
+      fill: var(#{--bs-tertiary});
+    }
+
+    &:hover,
+    &:focus {
+      svg {
+        scale: 1.1;
+      }
+    }
+  }
+}

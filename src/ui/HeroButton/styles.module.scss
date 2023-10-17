@@ -1,0 +1,36 @@
+@import "src/scss/module";
+
+.button {
+  @include img-overlay__container;
+  display: block;
+  padding-top: 100%;
+  flex-basis: 160px;
+  border: 0;
+  transition: 0.3s;
+  background-color: var(#{--bs-primary});
+
+  &:hover {
+    scale: 1.025;
+    box-shadow: $box-shadow-sm;
+  }
+
+  &__img {
+    @include img-overlay__img;
+  }
+
+  &:hover &__img {
+    scale: 1.025;
+  }
+
+  &__body {
+    @include img-overlay__body;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    h5 {
+      font-weight: $font-weight-medium;
+      color: $card-text-color;
+    }
+  }
+}

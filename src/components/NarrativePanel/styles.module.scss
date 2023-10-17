@@ -1,0 +1,32 @@
+@import "src/scss/module";
+
+.panel {
+  p {
+    text-transform: capitalize;
+  }
+
+  a[role="button"] {
+    text-transform: capitalize;
+  }
+
+  figure {
+    @include img-overlay__container;
+    padding-top: calc(9 / 16 * 100%);
+
+    img {
+      @include img-overlay__img;
+    }
+
+    div {
+      @include img-overlay__body;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      svg {
+        fill: $card-text-color;
+      }
+    }
+  }
+}

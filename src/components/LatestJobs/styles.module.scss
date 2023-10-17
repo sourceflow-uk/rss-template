@@ -1,0 +1,42 @@
+@import "src/scss/module";
+
+.jobs {
+  [class*="carousel-control-"] {
+    svg {
+      fill: var(#{--bs-primary});
+    }
+  }
+
+  [class="carousel-control-prev"] {
+    left: initial;
+    right: 30px;
+    bottom: initial;
+    width: 30px;
+    top: -50px;
+  }
+
+  [class="carousel-control-next"] {
+    bottom: initial;
+    width: 30px;
+    top: -50px;
+  }
+
+  [class="carousel-inner"] {
+    padding-top: $spacer * 0.5;
+  }
+
+  &__footer {
+    text-align: right;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    color: var(#{--bs-primary});
+    text-decoration: none;
+
+    & svg {
+      fill: var(#{--bs-primary});
+    }
+  }
+}

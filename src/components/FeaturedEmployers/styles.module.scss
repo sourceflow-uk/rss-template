@@ -1,0 +1,29 @@
+@import "src/scss/module";
+
+.featured {
+  &__carousel {
+    display: flex;
+
+    [class*="carousel-control-"] {
+      position: relative;
+      width: $spacer * 5;
+
+      svg {
+        fill: var(#{--bs-primary});
+      }
+    }
+
+    [class="carousel-control-prev"] {
+      order: 1;
+    }
+
+    [class="carousel-inner"] {
+      order: 2;
+      padding-top: $spacer;
+    }
+
+    [class="carousel-control-next"] {
+      order: 3;
+    }
+  }
+}

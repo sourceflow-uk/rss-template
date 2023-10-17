@@ -1,0 +1,24 @@
+@import "src/scss/module";
+
+.promotional {
+  &__carousel {
+    display: flex;
+
+    [class*="carousel-control-"] {
+      position: relative;
+      width: $spacer * 10;
+    }
+
+    [class="carousel-control-prev"] {
+      order: 1;
+    }
+
+    [class="carousel-inner"] {
+      order: 2;
+    }
+
+    [class="carousel-control-next"] {
+      order: 3;
+    }
+  }
+}

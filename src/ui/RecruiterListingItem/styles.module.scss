@@ -1,0 +1,31 @@
+@import "src/scss/module";
+
+.item {
+  img {
+    border-radius: 100px;
+  }
+
+  dl {
+    display: flex;
+    gap: $spacer * 0.5;
+
+    dd {
+      text-transform: capitalize;
+    }
+  }
+
+  a {
+    color: $text-color;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__email {
+    a {
+      text-transform: none;
+    }
+  }
+}
