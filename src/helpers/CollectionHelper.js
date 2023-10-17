@@ -31,4 +31,20 @@ export default class CollectionHelper {
   toPaths(iterator = (i) => ({ params: { url_slug: i.url_slug } })) {
     return this.collection.getItems().map(iterator);
   }
+
+  toNestedPaths(
+    iterator = (i) => {
+      let url_slugs = [i.url_slug];
+      let page = { ...i };
+
+      while (page?.parent?.id) {
+        page = this.find(page.parent.id, "id");
+        url_slugs = [page.url_slug, ...url_slugs];
+      }
+
+      return { params: { url_slugs } };
+    },
+  ) {
+    return this.collection.getItems().map(iterator);
+  }
 }

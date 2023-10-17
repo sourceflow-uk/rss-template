@@ -1,7 +1,7 @@
 import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
 import unslug from "unslug";
-import { generateBody } from "@/faker/generateBody";
+import { simple_pages_helper } from "@/helpers/simple_pages_helper";
 
 export default function Page({ content }) {
   return (
@@ -18,9 +18,9 @@ export async function getStaticProps({ params: { url_slugs } }) {
     href: getRoute("dynamic", { url_slugs: url_slugs.slice(0, k + 1) }),
   }));
   const [page, prevPage] = [...pages].reverse();
+  const item = simple_pages_helper.find(page.url_slug);
 
   return {
-    notFound: true,
     props: {
       meta: {},
       content: [
@@ -33,7 +33,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
         {
           component: "Header",
           props: {
-            title: page.label,
+            title: item.title,
             back: prevPage
               ? {
                   path: `page.${prevPage.url_slug}.component.Header.back`,
@@ -49,7 +49,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
         },
         {
           component: "RichText",
-          props: { body: generateBody() },
+          props: { body: item.body },
         },
       ],
     },
@@ -57,5 +57,8 @@ export async function getStaticProps({ params: { url_slugs } }) {
 }
 
 export async function getStaticPaths() {
-  return { paths: [], fallback: true };
+  return {
+    paths: simple_pages_helper.toNestedPaths(),
+    fallback: false,
+  };
 }
