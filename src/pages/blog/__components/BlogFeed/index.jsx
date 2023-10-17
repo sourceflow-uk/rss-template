@@ -12,7 +12,7 @@ export default function BlogArticleFeed({ className }) {
 
   return (
     <div className={clsx(className, classes.feed)}>
-      <Container className="mw-xl">
+      <Container className="mw-xxl">
         <Row>
           {items.map(({ title, image, publish_date, url_slug }, k) => (
             <Col key={k} xs={12} md={4} className="mb-4">
