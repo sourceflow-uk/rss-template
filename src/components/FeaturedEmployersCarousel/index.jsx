@@ -10,7 +10,7 @@ import { employer_helper } from "@/helpers/employer_helper";
 import { getRoute } from "@/getters/getRoute";
 
 export default function FeaturedEmployersCarousel({ className, title, visibleCount, button }) {
-  const items = employer_helper.fetch().filter((i) => !!i.featured);
+  const items = employer_helper.fetch().filter((i) => !!i["featured"]);
 
   return (
     <div className={clsx(className, classes.employers)}>
