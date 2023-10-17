@@ -49,7 +49,7 @@ export async function getStaticProps() {
           component: "PromoSection",
           props: {
             items: [
-              ...career_advice_helper.fetch().map((i) => ({
+              ...career_advice_helper.fetch({ limit: 4, featured: true }).map((i) => ({
                 title: i.title,
                 img: i.card_image ?? null,
                 href: getRoute("careerAdviceArticle", { url_slug: i.url_slug }),
