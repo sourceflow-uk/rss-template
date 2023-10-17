@@ -1,3 +1,3 @@
 module.exports = {
-  siteUrl: "<SITE_URL>",
+  siteUrl: "https://bluearrow.co.uk/",
 };
