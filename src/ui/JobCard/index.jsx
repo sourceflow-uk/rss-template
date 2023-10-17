@@ -5,8 +5,12 @@ import { trimText } from "@/functions/trimText";
 import Location from "@/assets/Location.svg";
 import Contract from "@/assets/Contract.svg";
 import { CTA } from "@/ui";
+import { getRoute } from "@/getters/getRoute";
+import { jobs_helper } from "@/helpers/jobs_helper";
 
-export default function JobCard({ className, title, location, salary_package, role_type, href }) {
+export default function JobCard({ className, title, location, salary_package, categories, url_slug }) {
+  const role_types = jobs_helper.getCategoryValues("275d8990-bd9e-4f79-a0e2-d81bb734c855", { categories });
+
   return (
     <div className={clsx(className, classes.card, "p-4")}>
       <div className={classes.card__body}>
@@ -29,9 +33,9 @@ export default function JobCard({ className, title, location, salary_package, ro
             <span className="visually-hidden">Role Type</span>
             <Contract width="25" height="25" />
           </dt>
-          <dd>{role_type}</dd>
+          <dd>{role_types.map((i) => i.name).join(", ")}</dd>
         </dl>
-        <CTA className="mt-5" variant="secondary" href={href} label="View this job" />
+        <CTA className="mt-5" variant="secondary" href={getRoute("job", { url_slug })} label="View this job" />
       </div>
     </div>
   );
@@ -39,16 +43,8 @@ export default function JobCard({ className, title, location, salary_package, ro
 
 JobCard.defaultProps = {
   className: "bg-light",
-  title: "",
-  salary_package: "",
-  role_type: "",
-  href: "",
 };
 
 JobCard.propTypes = {
-  title: PropTypes.string,
-  location: PropTypes.string,
-  salary_package: PropTypes.string,
-  role_type: PropTypes.string,
-  href: PropTypes.string,
+  className: PropTypes.string,
 };

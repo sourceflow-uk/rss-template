@@ -7,15 +7,18 @@ import ChevronRight from "@/assets/ChevronRight.svg";
 import ChevronLeft from "@/assets/ChevronLeft.svg";
 import { JobCard, Title } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
+import { jobs_helper } from "@/helpers/jobs_helper";
 
-export default function LatestJobs({ className, title, items, button, visibleCount }) {
+export default function LatestJobs({ className, title, button, visibleCount }) {
+  const items = jobs_helper.fetch();
+
   return (
     <div className={clsx(className, classes.jobs)}>
       <Container className="mw-xxl">
         <Title title={title} />
         <Carousel
           className="mb-4"
-          controls={true}
+          controls={items.length > visibleCount}
           indicators={false}
           prevIcon={<ChevronLeft width="14" height="25" />}
           nextIcon={<ChevronRight width="14" height="25" />}
@@ -23,19 +26,9 @@ export default function LatestJobs({ className, title, items, button, visibleCou
           {chunk(items, visibleCount).map((items, k) => (
             <Carousel.Item key={k}>
               <Row>
-                {items.map(({ title, sectors, location, logo, salary_package, role_type, published_at, href }, k) => (
+                {items.map((job, k) => (
                   <Col key={k} xs={12} md={12 / visibleCount}>
-                    <JobCard
-                      className="bg-light h-100"
-                      title={title}
-                      sectors={sectors}
-                      location={location}
-                      logo={logo}
-                      salary_package={salary_package}
-                      role_type={role_type}
-                      published_at={published_at}
-                      href={href}
-                    />
+                    <JobCard className="bg-light h-100" {...job} />
                   </Col>
                 ))}
               </Row>
@@ -59,7 +52,6 @@ LatestJobs.defaultProps = {
   className: "py-5",
   title: null,
   visibleCount: 3,
-  items: [],
   button: {
     label: "View more jobs",
     href: getRoute("jobs"),
@@ -75,15 +67,6 @@ LatestJobs.propTypes = {
     }),
     PropTypes.string,
   ]),
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      location: PropTypes.string,
-      salary_package: PropTypes.string,
-      role_type: PropTypes.string,
-      href: PropTypes.string,
-    })
-  ),
   button: PropTypes.shape({
     label: PropTypes.string,
     href: PropTypes.string,
