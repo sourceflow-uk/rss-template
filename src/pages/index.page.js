@@ -3,8 +3,6 @@ import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateArticle } from "@/faker/generateArticle";
 import { generateJob } from "@/faker/generateJob";
 import { generateMiniCarouselCard } from "@/faker/generateMiniCarouselCard";
-import { generatePromoItem } from "@/faker/generatePromoItem";
-import { generateLogoCard } from "@/faker/generateLogoCard";
 import { career_advice_helper } from "@/helpers/career_advice_helper";
 import { getRoute } from "@/getters/getRoute";
 import { getAsset } from "@/getters/getAsset";
@@ -36,12 +34,14 @@ export async function getStaticProps({}) {
           props: {
             title: { path: "page.home.component.PromoSection.title", placeholder: "Careers Advice" },
             items: [
-              ...career_advice_helper.fetch({ limit: 4 }).map(({ title, content, card_image, url_slug }) => ({
-                title,
-                img: card_image ?? null,
-                description: trimText(content),
-                href: getRoute("careerAdviceArticle", { url_slug }),
-              })),
+              ...career_advice_helper
+                .fetch({ limit: 4, featured: true })
+                .map(({ title, content, card_image, url_slug }) => ({
+                  title,
+                  img: card_image ?? null,
+                  description: trimText(content),
+                  href: getRoute("careerAdviceArticle", { url_slug }),
+                })),
               {
                 title: {
                   path: "page.home.component.PromoSection.blog.title",

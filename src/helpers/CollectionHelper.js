@@ -10,8 +10,12 @@ export default class CollectionHelper {
     return this.collection.getItems().find((i) => i[key] === value);
   }
 
-  fetch({ limit, exclude = [] } = {}) {
+  fetch({ limit = null, featured = null, exclude = [] } = {}) {
     let items = this.collection.getItems();
+
+    if (featured) {
+      items = items.filter((i) => i.featured === featured);
+    }
 
     if (exclude) {
       items = items.filter((i) => !exclude.includes(i.id));
