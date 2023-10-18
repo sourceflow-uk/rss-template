@@ -1,0 +1,80 @@
+@import "src/scss/module";
+
+.feed {
+  :global {
+    .js {
+      &-form {
+        border: 0;
+        padding: 0;
+      }
+
+      &-total-count {
+        font-weight: $font-weight-bold;
+      }
+
+      &-input {
+        &-wrapper-query {
+          width: 100%;
+        }
+        &-query {
+          padding: $spacer;
+        }
+      }
+
+      &-filter {
+        &-box {
+          border: 0;
+          padding: 0;
+        }
+
+        &-title {
+          background-color: var(#{--bs-primary});
+          color: $white;
+          padding: $spacer * 0.5 $spacer * 1;
+          border-radius: var(#{--bs-border-radius-sm});
+          font-weight: $font-weight-bold;
+          margin-bottom: 0;
+        }
+
+        &-values-section {
+          padding: 0;
+          margin: 0;
+        }
+
+        &-value {
+          width: 100%;
+          padding: $spacer * 0.5 $spacer;
+          border-bottom: 1px solid #d6d6d6;
+
+          &-name {
+            margin-right: auto;
+            margin-left: $spacer;
+          }
+
+          &-content {
+            width: 100%;
+
+            .form-check-input {
+              width: $spacer * 1.75;
+              height: $spacer * 1.75;
+              margin: 0;
+
+              &:checked {
+                background-color: var(#{--bs-primary});
+                border-color: var(#{--bs-primary});
+              }
+            }
+          }
+        }
+
+        &-count {
+          background-color: var(#{--bs-quaternary});
+        }
+      }
+
+      &-columns-container {
+        margin-top: $spacer * 4;
+      }
+    }
+  }
+}
