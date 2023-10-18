@@ -1,11 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
 import { paginate } from "@/functions/paginate";
 
-export const useLoadMore = (items) => {
+export const useLoadMore = (_rawItems) => {
+  const [items, setItems] = useState(_rawItems);
+  const [computedItems, setComputedItems] = useState([]);
   const [page, setPage] = useState(0);
   const [pages, setPages] = useState(0);
   const [perPage, _setPerPage] = useState(9);
-  const [computedItems, setComputedItems] = useState([]);
 
   const loadMore = useCallback(() => {
     const data = paginate(items, perPage, page + 1);
@@ -21,5 +22,11 @@ export const useLoadMore = (items) => {
     }
   }, [computedItems, loadMore]);
 
-  return [computedItems, loadMore, page, pages];
+  useEffect(() => {
+    setPage(0);
+    setPages(0);
+    setComputedItems([]);
+  }, [items]);
+
+  return [computedItems, setItems, loadMore, page, pages];
 };

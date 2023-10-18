@@ -29,6 +29,7 @@ export async function getStaticProps() {
         {
           component: "Header",
           props: {
+            className: "text-tertiary",
             title: {
               path: "page.blogs.component.Header.title",
               placeholder: "Blue Arrow Blog",
