@@ -46,8 +46,10 @@ export default function BlogArticleFeed({ className }) {
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                   <Dropdown.Item onClick={() => setCategoryFilter(null)}>Select Category</Dropdown.Item>
-                  {categories.map((c) => (
-                    <Dropdown.Item onClick={() => setCategoryFilter(c)}>{c}</Dropdown.Item>
+                  {categories.map((c, k) => (
+                    <Dropdown.Item key={k} onClick={() => setCategoryFilter(c)}>
+                      {c}
+                    </Dropdown.Item>
                   ))}
                 </Dropdown.Menu>
               </Dropdown>
@@ -58,8 +60,10 @@ export default function BlogArticleFeed({ className }) {
                 <Dropdown.Toggle variant="white">{tagFilter ?? "Select Tag"}</Dropdown.Toggle>
                 <Dropdown.Menu>
                   <Dropdown.Item onClick={() => setTagFilter(null)}>Select Tag</Dropdown.Item>
-                  {tags.map((c) => (
-                    <Dropdown.Item onClick={() => setTagFilter(c)}>{c}</Dropdown.Item>
+                  {tags.map((c, k) => (
+                    <Dropdown.Item key={k} onClick={() => setTagFilter(c)}>
+                      {c}
+                    </Dropdown.Item>
                   ))}
                 </Dropdown.Menu>
               </Dropdown>

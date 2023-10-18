@@ -20,6 +20,7 @@ export default function JobsFeed({ className, sector }) {
               filterSelectedElement: <FormCheck checked />,
               exclude: {
                 "a82e2fc2-7013-4836-98aa-02667db9d824": true,
+                "3186657c-e89c-4a6f-9157-35eb7fe0b379": [sector],
               },
             },
             searchResultsOptions: {

@@ -25,8 +25,10 @@ export default function CaseStudyFeed({ className }) {
                 <Dropdown.Toggle variant="white">{categoryFilter ?? "Select Category"}</Dropdown.Toggle>
                 <Dropdown.Menu>
                   <Dropdown.Item onClick={() => setCategoryFilter(null)}>Select Category</Dropdown.Item>
-                  {categories.map((c) => (
-                    <Dropdown.Item onClick={() => setCategoryFilter(c)}>{c}</Dropdown.Item>
+                  {categories.map((c, k) => (
+                    <Dropdown.Item key={k} onClick={() => setCategoryFilter(c)}>
+                      {c}
+                    </Dropdown.Item>
                   ))}
                 </Dropdown.Menu>
               </Dropdown>
