@@ -38,6 +38,9 @@ export async function getStaticProps({}) {
             img: generateImage({ width: 1440, height: 300 }),
           },
         },
+        {
+          component: "JobsFeed",
+        },
       ],
     },
   };

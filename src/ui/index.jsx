@@ -15,7 +15,7 @@ export const DynamicHtml = lazy(() => import("./DynamicHtml"));
 export const DynamicText = lazy(() => import("./DynamicText"));
 export const FeaturedEmployerCard = lazy(() => import("./FeaturedEmployerCard"));
 export const Form = lazy(() => import("./Form"));
-export const HeroButton = lazy(() => import("./HeroButton"));
+export const GridButton = lazy(() => import("./GridButton"));
 export const HeroCarouselCard = lazy(() => import("./HeroCarouselCard"));
 export const JobCard = lazy(() => import("./JobCard"));
 export const LatestBlogCard = lazy(() => import("./LatestBlogCard"));

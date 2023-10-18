@@ -3,7 +3,7 @@ import clsx from "classnames";
 import PropTypes from "prop-types";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 
-export default function HeroButton({ className, title, img, href }) {
+export default function GridButton({ className, title, img, href }) {
   return (
     <a className={clsx(className, classes.button)} href={href}>
       <SourceFlowImage className={classes.button__img} src={img} size="160x160" alt={title} />
@@ -14,14 +14,14 @@ export default function HeroButton({ className, title, img, href }) {
   );
 }
 
-HeroButton.defaultProps = {
+GridButton.defaultProps = {
   className: "",
   title: "",
   img: "",
   href: "",
 };
 
-HeroButton.propTypes = {
+GridButton.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
   img: PropTypes.string,

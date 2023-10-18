@@ -9,8 +9,8 @@ import { JobCard, Title } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
 import { jobs_helper } from "@/helpers/jobs_helper";
 
-export default function LatestJobs({ className, title, button, visibleCount }) {
-  const items = jobs_helper.fetch();
+export default function LatestJobs({ className, title, button, visibleCount, sector = null }) {
+  const items = jobs_helper.fetch({ filter: (i) => (sector ? JSON.stringify(i).includes(sector) : true) });
 
   return (
     <div className={clsx(className, classes.jobs)}>

@@ -2,6 +2,10 @@ import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
 import unslug from "unslug";
 import { simple_pages_helper } from "@/helpers/simple_pages_helper";
+import { sector_helper } from "@/helpers/sector_helper";
+import { generateMiniCarouselCard } from "@/faker/generateMiniCarouselCard";
+import { generateArrayOf } from "@/faker/generateArrayOf";
+import { generatePromoItem } from "@/faker/generatePromoItem";
 
 export default function Page({ content }) {
   return (
@@ -18,9 +22,16 @@ export async function getStaticProps({ params: { url_slugs } }) {
     href: getRoute("dynamic", { url_slugs: url_slugs.slice(0, k + 1) }),
   }));
   const [page, prevPage] = [...pages].reverse();
-  const item = simple_pages_helper.find(page.url_slug);
+
+  let isSector = false;
+  let item = simple_pages_helper.find(page.url_slug);
+  if (!item) {
+    item = sector_helper.find(page.url_slug);
+    isSector = true;
+  }
 
   return {
+    notFound: !item,
     props: {
       meta: {},
       content: [
@@ -33,7 +44,9 @@ export async function getStaticProps({ params: { url_slugs } }) {
         {
           component: "Header",
           props: {
+            className: "text-tertiary",
             title: item.title,
+            description: item.description ?? null,
             back: prevPage
               ? {
                   path: `page.${prevPage.url_slug}.component.Header.back`,
@@ -47,10 +60,33 @@ export async function getStaticProps({ params: { url_slugs } }) {
                 },
           },
         },
-        {
-          component: "RichText",
-          props: { body: item.body },
-        },
+        ...(isSector
+          ? [
+              {
+                component: "JobsFeed",
+                props: {
+                  sector: item.id,
+                },
+              },
+              {
+                component: "MiniCarousel",
+                props: {
+                  items: generateArrayOf(generateMiniCarouselCard, { count: 2 }),
+                },
+              },
+              {
+                component: "PromoSection",
+                props: {
+                  title: {
+                    path: `page.${item.url_slug}.component.PromoSection.title`,
+                    placeholder: "Also in this section",
+                  },
+                  items: generateArrayOf(generatePromoItem, { count: 8 }),
+                  md: 3,
+                },
+              },
+            ]
+          : [{ component: "RichText", props: { body: item.body } }]),
       ],
     },
   };
@@ -58,7 +94,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
 
 export async function getStaticPaths() {
   return {
-    paths: simple_pages_helper.toNestedPaths(),
+    paths: [...simple_pages_helper.toNestedPaths(), ...sector_helper.toNestedPaths()],
     fallback: false,
   };
 }
