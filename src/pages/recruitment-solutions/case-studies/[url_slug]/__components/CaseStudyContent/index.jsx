@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import clsx from "classnames";
 import { Col, Container, Row } from "react-bootstrap";
-import { BlockQuoteCard, DynamicText } from "@/ui";
+import { BlockQuoteCard, DynamicText, Form, Title } from "@/ui";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 import classes from "./styles.module.scss";
 
@@ -168,6 +168,12 @@ export default function CaseStudyContent({
       <div className="py-5">
         <Container>
           <BlockQuoteCard quote={testimonial} />
+        </Container>
+      </div>
+      <div className="bg-light py-5">
+        <Container>
+          <Title title="Need help finding staff?" />
+          <Form formId="fc80821d-9e46-4316-8047-3c305815c1c2" />
         </Container>
       </div>
     </div>
