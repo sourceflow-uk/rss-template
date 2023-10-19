@@ -6,7 +6,11 @@ export default class CollectionHelper {
     this.collection = new BaseCollection(data, "en");
   }
 
-  find(value, key = "url_slug") {
+  find(value, key = "url_slug", includes = false) {
+    if (includes) {
+      return this.collection.getItems().find((i) => value.toLowerCase().includes(i[key].toLowerCase().trim()));
+    }
+
     return this.collection.getItems().find((i) => i[key] === value);
   }
 

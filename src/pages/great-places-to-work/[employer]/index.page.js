@@ -1,16 +1,11 @@
 import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
-import unslug from "unslug";
 import { generateBody } from "@/faker/generateBody";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateTitle } from "@/faker/generateTitle";
-import { generateNarrativePanel } from "@/faker/generateNarrativePanel";
 import { generateJob } from "@/faker/generateJob";
 import { generatePromoItem } from "@/faker/generatePromoItem";
 import { employer_helper } from "@/helpers/employer_helper";
-import { generateImage } from "@/faker/generateImage";
-import { generateDescription } from "@/faker/generateDescription";
-import { generateCTA } from "@/faker/generateCTA";
 
 export default function EmployerPage({ content }) {
   return (
@@ -20,8 +15,8 @@ export default function EmployerPage({ content }) {
   );
 }
 
-export async function getStaticProps({ params: { url_slug } }) {
-  const employer = employer_helper.find(url_slug);
+export async function getStaticProps({ params }) {
+  const employer = employer_helper.find(params.employer);
 
   return {
     props: {
@@ -33,7 +28,7 @@ export async function getStaticProps({ params: { url_slug } }) {
             items: [
               { label: "Find a Job", href: getRoute("jobs") },
               { label: "Great Places To Work", href: getRoute("employers") },
-              { label: employer.name, href: getRoute("employer", { url_slug }) },
+              { label: employer.name, href: getRoute("employer", { url_slug: employer.url_slug }) },
             ],
           },
         },
@@ -42,7 +37,7 @@ export async function getStaticProps({ params: { url_slug } }) {
           props: {
             className: employer.cover_image ? "text-white" : "text-tertiary",
             title: {
-              path: `page.${url_slug}.component.Header.title`,
+              path: `page.${employer.url_slug}.component.Header.title`,
               placeholder: `Working with ${employer.name}`,
             },
             img: employer.cover_image ?? null,
@@ -60,8 +55,8 @@ export async function getStaticProps({ params: { url_slug } }) {
           props: {
             className: "text-center py-5",
             title: {
-              path: `page.${url_slug}.component.Accordion.title`,
-              placeholder: `Roles with ${unslug(url_slug)}`,
+              path: `page.${employer.url_slug}.component.Accordion.title`,
+              placeholder: `Roles with ${employer.name}`,
             },
             items: generateArrayOf(
               () => ({
@@ -78,11 +73,11 @@ export async function getStaticProps({ params: { url_slug } }) {
           props: {
             className: "py-5 bg-light",
             title: {
-              path: `page.${url_slug}.component.NarrativePanel.title`,
+              path: `page.${employer.url_slug}.component.NarrativePanel.title`,
               placeholder: "Why is Royal Mail a great place to work?",
             },
             description: {
-              path: `page.${url_slug}.component.NarrativePanel.description`,
+              path: `page.${employer.url_slug}.component.NarrativePanel.description`,
               placeholder:
                 "Lorem ipsum dolor sit amet consectetur. In magna risus condimentum tellus est. Pulvinar laoreet dui felis venenatis nam sed a erat. ",
             },
@@ -94,8 +89,8 @@ export async function getStaticProps({ params: { url_slug } }) {
           component: "LatestJobs",
           props: {
             title: {
-              path: `page.${url_slug}.component.LatestJobs.title`,
-              placeholder: `Latest ${unslug(url_slug)} Jobs`,
+              path: `page.${employer.url_slug}.component.LatestJobs.title`,
+              placeholder: `Latest ${employer.name} Jobs`,
             },
             items: generateArrayOf(generateJob, { count: 12 }),
             visibleCount: 4,
@@ -108,7 +103,7 @@ export async function getStaticProps({ params: { url_slug } }) {
           component: "PromoSection",
           props: {
             title: {
-              path: `page.${url_slug}.component.PromoSection.title`,
+              path: `page.${employer.url_slug}.component.PromoSection.title`,
               placeholder: `Also in this section`,
             },
             items: generateArrayOf(generatePromoItem, { count: 5 }),
@@ -120,5 +115,8 @@ export async function getStaticProps({ params: { url_slug } }) {
 }
 
 export async function getStaticPaths() {
-  return { paths: employer_helper.toPaths(), fallback: false };
+  return {
+    paths: employer_helper.toPaths((i) => ({ params: { employer: i.url_slug } })),
+    fallback: false,
+  };
 }

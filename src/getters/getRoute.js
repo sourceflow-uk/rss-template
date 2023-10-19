@@ -13,12 +13,12 @@ export const getRoute = (key, params = {}) => {
     return route;
   }
 
-  if ("url_slug" in params) {
-    route = route.replace("[url_slug]", params.url_slug);
-  }
-
   if ("url_slugs" in params) {
     route = `${route}${params.url_slugs.join("/")}/`;
+  } else {
+    Object.keys(params).forEach((p) => {
+      route = route.replace(`[${p}]`, params[p]);
+    });
   }
 
   return `${config.basePath}${route}`;
