@@ -98,11 +98,6 @@
             width: $spacer * 1.75;
             height: $spacer * 1.75;
             margin: 0;
-
-            &:checked {
-              background-color: var(#{--bs-primary});
-              border-color: var(#{--bs-primary});
-            }
           }
         }
       }

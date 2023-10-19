@@ -300,6 +300,13 @@ hr {
   &-control {
     border-radius: var(#{--bs-border-radius-sm});
   }
+
+  &-check-input {
+    &:checked {
+      background-color: var(#{--bs-primary});
+      border-color: var(#{--bs-primary});
+    }
+  }
 }
 
 .card {
