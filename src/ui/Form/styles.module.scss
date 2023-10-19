@@ -10,11 +10,6 @@
     }
   }
 
-  [ref="input"] {
-    border: 1px solid $gray-600;
-    border-radius: var(#{--bs-border-radius-sm});
-  }
-
   [ref="component"] {
     margin-bottom: $spacer;
   }
@@ -24,6 +19,13 @@
   }
 
   :global {
+    .formio-form {
+      .form-control {
+        border: 1px solid $gray-600;
+        border-radius: var(#{--bs-border-radius-sm});
+      }
+    }
+
     .formio-component-file {
       .list-group-item {
         &:only-child {
