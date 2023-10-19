@@ -132,8 +132,92 @@ hr {
 }
 
 .btn {
+  --bs-btn-font-family: var(#{--bs-font-family-button});
+
   &-block {
     width: 100%;
+  }
+
+  &-outline {
+    &-primary {
+      --bs-btn-color: var(#{--bs-primary}) !important;
+      --bs-btn-border-color: var(#{--bs-primary}) !important;
+      --bs-btn-hover-bg: var(#{--bs-primary}) !important;
+      --bs-btn-hover-border-color: var(#{--bs-primary}) !important;
+      --bs-btn-active-bg: var(#{--bs-primary-active}) !important;
+      --bs-btn-active-border-color: var(#{--bs-primary-active}) !important;
+
+      svg {
+        transition: $transition-base;
+        stroke: var(#{--bs-primary});
+      }
+
+      &:hover {
+        svg {
+          stroke: #fff;
+        }
+      }
+    }
+
+    &-secondary {
+      --bs-btn-color: var(#{--bs-secondary}) !important;
+      --bs-btn-border-color: var(#{--bs-secondary}) !important;
+      --bs-btn-hover-bg: var(#{--bs-secondary}) !important;
+      --bs-btn-hover-border-color: var(#{--bs-secondary}) !important;
+      --bs-btn-active-bg: var(#{--bs-secondary-active}) !important;
+      --bs-btn-active-border-color: var(#{--bs-secondary-active}) !important;
+
+      svg {
+        transition: $transition-base;
+        stroke: var(#{--bs-secondary});
+      }
+
+      &:hover {
+        svg {
+          stroke: #fff;
+        }
+      }
+    }
+
+    &-tertiary {
+      --bs-btn-color: var(#{--bs-tertiary}) !important;
+      --bs-btn-border-color: var(#{--bs-tertiary}) !important;
+      --bs-btn-hover-bg: var(#{--bs-tertiary}) !important;
+      --bs-btn-hover-border-color: var(#{--bs-tertiary}) !important;
+      --bs-btn-active-bg: var(#{--bs-tertiary-active}) !important;
+      --bs-btn-active-border-color: var(#{--bs-tertiary-active}) !important;
+
+      svg {
+        transition: $transition-base;
+        stroke: var(#{--bs-tertiary});
+      }
+
+      &:hover {
+        svg {
+          stroke: #fff;
+        }
+      }
+    }
+
+    &-quaternary {
+      --bs-btn-color: var(#{--bs-quaternary}) !important;
+      --bs-btn-border-color: var(#{--bs-quaternary}) !important;
+      --bs-btn-hover-bg: var(#{--bs-quaternary}) !important;
+      --bs-btn-hover-border-color: var(#{--bs-quaternary}) !important;
+      --bs-btn-active-bg: var(#{--bs-quaternary-active}) !important;
+      --bs-btn-active-border-color: var(#{--bs-quaternary-active}) !important;
+
+      svg {
+        transition: $transition-base;
+        stroke: var(#{--bs-quaternary});
+      }
+
+      &:hover {
+        svg {
+          stroke: #fff;
+        }
+      }
+    }
   }
 
   &-primary {

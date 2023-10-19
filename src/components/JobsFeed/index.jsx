@@ -1,9 +1,11 @@
+import "@sourceflow-uk/job-search/dist/bundle.css";
+import JobSearch from "@sourceflow-uk/job-search";
 import PropTypes from "prop-types";
 import clsx from "classnames";
 import { Container, FormCheck } from "react-bootstrap";
-import JobSearch from "@sourceflow-uk/job-search";
-import "@sourceflow-uk/job-search/dist/bundle.css";
 import classes from "./styles.module.scss";
+import { CTA } from "@/ui";
+import { formatDistanceToNowStrict } from "date-fns";
 
 export default function JobsFeed({ className, sector }) {
   return (
@@ -23,9 +25,22 @@ export default function JobsFeed({ className, sector }) {
                 "3186657c-e89c-4a6f-9157-35eb7fe0b379": [sector],
               },
             },
+            jobsPerPage: 2,
             searchResultsOptions: {
               resultNewTab: false,
+              resultLinks: ({ href, label, target, job }) => (
+                <>
+                  <time className="me-auto">{`Posted ${formatDistanceToNowStrict(
+                    new Date(job.published_at),
+                  )} ago`}</time>
+                  <CTA href={href} label={label} target={target} variant="secondary" />
+                  <CTA href={`${href}#apply`} label="Apply now" target={target} variant="outline-secondary" />
+                </>
+              ),
             },
+          }}
+          translations={{
+            "searchResults.buttonText": "View job",
           }}
         />
       </Container>

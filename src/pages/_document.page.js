@@ -45,6 +45,7 @@ export default function Document() {
               --bs-border-radius: ${global["_theme.border.radius"]} !important;
               --bs-border-radius-sm: ${global["_theme.border.radius.sm"]} !important;
               --bs-font-family: ${global["_theme.font.family.default"]} !important;
+              --bs-font-family-button: ${global["_theme.font.family.button"]} !important;
               --bs-font-family-h1: ${global["_theme.font.family.h1"]} !important;
               --bs-font-family-h2: ${global["_theme.font.family.h2"]} !important;
               --bs-font-family-h3: ${global["_theme.font.family.h3"]} !important;

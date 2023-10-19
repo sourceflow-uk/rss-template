@@ -4,6 +4,9 @@
   text-transform: capitalize;
 
   a {
+    min-width: 145px;
+    padding-left: $spacer;
+    padding-right: $spacer;
     display: inline-flex;
     gap: $spacer * 0.5;
     align-items: center;

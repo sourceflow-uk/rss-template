@@ -12,7 +12,7 @@
     "@faker-js/faker": "^8.1.0",
     "@next/env": "^13.5.4",
     "@react-hook/media-query": "^1.1.1",
-    "@sourceflow-uk/job-search": "^3.5",
+    "@sourceflow-uk/job-search": "^3.7.1",
     "@sourceflow-uk/sourceflow-head": "^1.1.5",
     "@sourceflow-uk/sourceflow-sdk": "^0.13.0",
     "@sourceflow-uk/sourceflowapplicationform": "^2.0.1",

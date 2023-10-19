@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 import classes from "./styles.module.scss";
 import ArrowRight from "@/assets/ArrowRight.svg";
 
-export default function CTA({ className, label, href, variant }) {
+export default function CTA({ className, label, href, target, variant }) {
   return (
     <div className={clsx(className, classes.cta)}>
-      <Button variant={variant} href={href}>
+      <Button variant={variant} href={href} target={target}>
         {label}
         <ArrowRight />
       </Button>
@@ -19,6 +19,7 @@ CTA.defaultProps = {
   className: "",
   label: "",
   href: "",
+  target: "_self",
   variant: "dark",
 };
 
@@ -26,5 +27,6 @@ CTA.propTypes = {
   className: PropTypes.string,
   label: PropTypes.string,
   href: PropTypes.string,
+  target: PropTypes.string,
   variant: PropTypes.string,
 };
