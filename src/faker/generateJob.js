@@ -22,7 +22,7 @@ export const generateJob = () => ({
     dec: 0,
   })} per hour`,
   role_type: "Permanent",
-  body: generateBody(),
+  description: generateBody(),
   published_at: faker.date.past().toISOString(),
   href: "#",
   external_reference: faker.database.mongodbObjectId(),

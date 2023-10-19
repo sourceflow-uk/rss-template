@@ -1,6 +1,6 @@
 import { Card, Col, Container, Row, Stack } from "react-bootstrap";
 import PropTypes from "prop-types";
-import { CTA, Phone, SocialShare, Tag } from "@/ui";
+import { CTA, Form, Phone, SocialShare, Tag, Title } from "@/ui";
 import Calendar from "@/assets/Calendar.svg";
 import Contract from "@/assets/Contract.svg";
 import Location from "@/assets/Location.svg";
@@ -13,7 +13,8 @@ import { RelatedJobs } from "@/components";
 
 export default function JobPageContent({
   className,
-  body,
+  id,
+  description,
   img,
   role_type,
   location,
@@ -30,7 +31,7 @@ export default function JobPageContent({
       <Container className="mw-xxl">
         <Row>
           <Col xs={12} md={9}>
-            <Card className={classes.content__details}>
+            <Card className={clsx(classes.content__details, "mb-5")}>
               <Card.Header>
                 <h3>Job Details</h3>
               </Card.Header>
@@ -86,7 +87,11 @@ export default function JobPageContent({
                   </div>
                 </div>
                 <CTA className={classes.content__details__cta} label="Apply now" href="#Apply" variant="secondary" />
-                <div className="p-4" dangerouslySetInnerHTML={{ __html: body }} />
+                <div className="p-4" dangerouslySetInnerHTML={{ __html: description }} />
+                <div className="bg-light p-4">
+                  <Title title="Apply now" />
+                  <Form jobId={id} />
+                </div>
               </Card.Body>
             </Card>
           </Col>
@@ -112,7 +117,7 @@ export default function JobPageContent({
 
 JobPageContent.defaultProps = {
   className: "pb-4",
-  body: null,
+  description: null,
   img: null,
   role_type: null,
   location: null,
@@ -124,14 +129,14 @@ JobPageContent.defaultProps = {
 
 JobPageContent.propTypes = {
   className: PropTypes.string,
-  body: PropTypes.string,
+  description: PropTypes.string,
   img: PropTypes.string,
   role_type: PropTypes.string,
   location: PropTypes.string,
   sectors: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
-    })
+    }),
   ),
   salary_package: PropTypes.string,
   external_reference: PropTypes.string,

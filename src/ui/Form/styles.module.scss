@@ -10,11 +10,76 @@
     }
   }
 
+  [ref="input"] {
+    border: 1px solid $gray-600;
+    border-radius: var(#{--bs-border-radius-sm});
+  }
+
   [ref="component"] {
     margin-bottom: $spacer;
   }
 
   [ref="autocompleteInput"] {
     display: none;
+  }
+
+  :global {
+    .formio-component-file {
+      .list-group-item {
+        &:only-child {
+          display: none;
+        }
+      }
+
+      [ref="fileDrop"] {
+        height: 280px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid $gray-600;
+        border-radius: var(#{--bs-border-radius-sm});
+        gap: $spacer * 0.3;
+        background-color: $white;
+        text-align: center;
+        color: $gray-400;
+        padding-top: 36px;
+
+        i {
+          font-size: 36px;
+          position: absolute;
+          transform: translateY(-100%);
+        }
+
+        a {
+          color: inherit;
+        }
+      }
+    }
+
+    .formio-component-button {
+      margin-top: $spacer;
+
+      [ref="button"] {
+        width: 100%;
+        border-radius: var(#{--bs-border-radius-sm});
+        background-color: var(#{--bs-secondary});
+        border-color: var(#{--bs-secondary});
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: $spacer * 0.5;
+
+        &::after {
+          display: block;
+          content: "";
+          width: 10px;
+          height: 10px;
+          background-image: escape-svg(
+            url('data:image/svg+xml,<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.25 5.00065H8.75M8.75 5.00065L5.20833 1.45898M8.75 5.00065L5.20833 8.54232" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+          );
+        }
+      }
+    }
   }
 }

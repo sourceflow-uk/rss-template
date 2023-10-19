@@ -34,7 +34,7 @@ export default function JobsFeed({ className, sector }) {
                     new Date(job.published_at),
                   )} ago`}</time>
                   <CTA href={href} label={label} target={target} variant="secondary" />
-                  <CTA href={`${href}#apply`} label="Apply now" target={target} variant="outline-secondary" />
+                  <CTA href={`${href}#Apply`} label="Apply now" target={target} variant="outline-secondary" />
                 </>
               ),
             },

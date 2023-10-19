@@ -1,9 +1,7 @@
 import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
-import { generateJob } from "@/faker/generateJob";
-import { generateArrayOf } from "@/faker/generateArrayOf";
+import { jobs_helper } from "@/helpers/jobs_helper";
 import * as additionalComponents from "./__components";
-import unslug from "unslug";
 
 export default function JobPage({ content }) {
   return (
@@ -14,8 +12,9 @@ export default function JobPage({ content }) {
 }
 
 export async function getStaticProps({ params: { url_slug } }) {
-  const job = generateJob();
-  const related = generateArrayOf(generateJob, { count: 5 });
+  const job = jobs_helper.find(url_slug);
+  const related = jobs_helper.fetch({ exclude: [job.id] }); // TODO filter by sector
+  const similar = jobs_helper.fetch({ exclude: [job.id] }); // TODO filter by similar pay
 
   return {
     props: {
@@ -30,7 +29,7 @@ export async function getStaticProps({ params: { url_slug } }) {
                 href: getRoute("jobs"),
               },
               {
-                label: unslug(url_slug),
+                label: job.title,
                 href: getRoute("job", { url_slug }),
               },
             ],
@@ -39,7 +38,8 @@ export async function getStaticProps({ params: { url_slug } }) {
         {
           component: "Header",
           props: {
-            title: unslug(url_slug),
+            className: "text-tertiary",
+            title: job.title,
             back: {
               path: "page.job.component.Header.back",
               placeholder: "Back to job search",
@@ -47,7 +47,7 @@ export async function getStaticProps({ params: { url_slug } }) {
             },
           },
         },
-        { component: "SimilarJobs", props: { items: generateArrayOf(generateJob, { count: 4 }) } },
+        { component: "SimilarJobs", props: { items: similar } },
         { component: "JobPageContent", props: { ...job, related } },
       ],
     },
