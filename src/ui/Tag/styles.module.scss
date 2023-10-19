@@ -3,8 +3,6 @@
 .tag {
   flex-grow: 0;
   border-radius: var(#{--bs-border-radius-sm});
-  color: $dark;
-  background-color: var(#{--bs-light});
   text-decoration: none;
   padding: 3px 6px;
   font-size: 14px;
@@ -14,9 +12,54 @@
   text-transform: capitalize;
   transition: $transition-base;
 
-  &:hover,
-  &:focus {
-    background-color: var(#{--bs-quaternary});
+  &[data-variant="light"] {
+    color: $dark;
+    background-color: var(#{--bs-light});
+
+    &:hover,
+    &:focus {
+      background-color: var(#{--bs-quaternary});
+      color: $white;
+    }
+  }
+
+  &[data-variant="primary"] {
     color: $white;
+    background-color: var(#{--bs-primary});
+
+    &:hover,
+    &:focus {
+      background-color: var(#{--bs-primary-active});
+    }
+  }
+
+  &[data-variant="secondary"] {
+    color: $white;
+    background-color: var(#{--bs-secondary});
+
+    &:hover,
+    &:focus {
+      background-color: var(#{--bs-secondary-active});
+    }
+  }
+
+  &[data-variant="tertiary"] {
+    color: $white;
+    background-color: var(#{--bs-tertiary});
+
+    &:hover,
+    &:focus {
+      background-color: var(#{--bs-tertiary-active});
+    }
+  }
+
+  &[data-variant="quaternary"] {
+    color: $white;
+    background-color: var(#{--bs-quaternary});
+
+    &:hover,
+    &:focus {
+      background-color: var(#{--bs-quaternary-active});
+    }
   }
 }

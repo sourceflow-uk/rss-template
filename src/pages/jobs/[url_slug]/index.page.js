@@ -48,7 +48,13 @@ export async function getStaticProps({ params: { url_slug } }) {
           },
         },
         { component: "SimilarJobs", props: { items: similar } },
-        { component: "JobPageContent", props: { ...job, related } },
+        {
+          component: "JobPageContent",
+          props: {
+            ...job,
+            related,
+          },
+        },
       ],
     },
   };

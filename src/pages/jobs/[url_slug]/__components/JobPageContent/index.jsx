@@ -10,20 +10,22 @@ import clsx from "classnames";
 import { getGlobal } from "@/getters/getGlobal";
 import { formatDistanceToNowStrict } from "date-fns";
 import { RelatedJobs } from "@/components";
+import { jobs_helper } from "@/helpers/jobs_helper";
 
 export default function JobPageContent({
   className,
   id,
   description,
   img,
-  role_type,
+  categories,
   location,
-  sectors,
   salary_package,
   external_reference,
   published_at,
   related,
 }) {
+  const role_types = jobs_helper.getCategoryValues("275d8990-bd9e-4f79-a0e2-d81bb734c855", { categories });
+  const sectors = jobs_helper.getCategoryValues("3186657c-e89c-4a6f-9157-35eb7fe0b379", { categories });
   const global = getGlobal();
 
   return (
@@ -51,7 +53,7 @@ export default function JobPageContent({
                       <dl>
                         <dt>
                           <span className="visually-hidden">Location</span>
-                          <Location />
+                          <Location width={16} height={20} />
                         </dt>
                         <dd>{location}</dd>
                       </dl>
@@ -62,7 +64,7 @@ export default function JobPageContent({
                           <span className="visually-hidden">Role Type</span>
                           <Contract />
                         </dt>
-                        <dd>{role_type}</dd>
+                        <dd>{role_types.map((i) => i.name).join(", ")}</dd>
                       </dl>
                       <dl>
                         <dt>
@@ -77,8 +79,8 @@ export default function JobPageContent({
                     </Col>
                   </Row>
                   <Stack className="flex-row mb-3" gap={2}>
-                    {sectors.map(({ label }, k) => (
-                      <Tag key={k} label={label} />
+                    {sectors.map(({ name }, k) => (
+                      <Tag key={k} label={name} variant="primary" />
                     ))}
                   </Stack>
                   <div>
@@ -88,6 +90,7 @@ export default function JobPageContent({
                 </div>
                 <CTA className={classes.content__details__cta} label="Apply now" href="#Apply" variant="secondary" />
                 <div className="p-4" dangerouslySetInnerHTML={{ __html: description }} />
+                <a id="Apply" />
                 <div className="bg-light p-4">
                   <Title title="Apply now" />
                   <Form jobId={id} />
@@ -119,9 +122,7 @@ JobPageContent.defaultProps = {
   className: "pb-4",
   description: null,
   img: null,
-  role_type: null,
   location: null,
-  sectors: [],
   salary_package: null,
   external_reference: null,
   published_at: null,
@@ -131,13 +132,7 @@ JobPageContent.propTypes = {
   className: PropTypes.string,
   description: PropTypes.string,
   img: PropTypes.string,
-  role_type: PropTypes.string,
   location: PropTypes.string,
-  sectors: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string,
-    }),
-  ),
   salary_package: PropTypes.string,
   external_reference: PropTypes.string,
   published_at: PropTypes.string,
