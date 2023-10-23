@@ -7,6 +7,7 @@ import { career_advice_helper } from "@/helpers/career_advice_helper";
 import { getRoute } from "@/getters/getRoute";
 import { trimText } from "@/functions/trimText";
 import { getAsset } from "@/getters/getAsset";
+import { mini_carousel_helper } from "@/helpers/mini_carousel_helper";
 
 export default function Page({ content }) {
   return (
@@ -43,10 +44,12 @@ export async function getStaticProps({}) {
             visibleCount: 4,
           },
         },
+        { component: "Divider" },
         {
           component: "PromoSection",
           props: {
             title: { path: "page.home.component.PromoSection.title", placeholder: "Careers Advice" },
+            md: 3,
             items: career_advice_helper
               .fetch({ limit: 4, featured: true })
               .map(({ title, content, card_image, url_slug }) => ({
@@ -62,7 +65,7 @@ export async function getStaticProps({}) {
           component: "MiniCarousel",
           props: {
             title: { path: "page.home.component.MiniCarousel.title", placeholder: "" },
-            items: generateArrayOf(generateMiniCarouselCard, { count: 3 }),
+            items: mini_carousel_helper.fetch({ filter: (i) => i.tags.toLowerCase().includes("home") }),
           },
         },
         { component: "Divider" },

@@ -18,9 +18,14 @@ export default function MiniCarousel({ className, title, items }) {
           prevIcon={<ChevronLeft width="14" height="25" />}
           nextIcon={<ChevronRight width="14" height="25" />}
         >
-          {items.map(({ title, description, img, cta }, k) => (
+          {items.map(({ title, description, image, link }, k) => (
             <Carousel.Item key={k}>
-              <MiniCarouselCard title={title} description={description} img={img} cta={cta} />
+              <MiniCarouselCard
+                title={title}
+                description={description}
+                img={image}
+                cta={{ label: "Find out more", href: link, variant: "secondary" }}
+              />
             </Carousel.Item>
           ))}
         </Carousel>
@@ -43,13 +48,8 @@ MiniCarousel.propTypes = {
       className: PropTypes.string,
       title: PropTypes.string,
       description: PropTypes.string,
-      img: PropTypes.string,
-      cta: PropTypes.shape({
-        className: PropTypes.string,
-        label: PropTypes.string,
-        href: PropTypes.string,
-        variant: PropTypes.string,
-      }),
-    })
+      image: PropTypes.string,
+      link: PropTypes.string,
+    }),
   ),
 };
