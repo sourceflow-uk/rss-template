@@ -25,6 +25,27 @@
     padding-top: $spacer * 0.5;
   }
 
+  &__filter {
+    align-items: center;
+
+    a {
+      background-color: $white;
+      color: $gray-600;
+      text-decoration: none;
+      border-radius: var(#{--bs-border-radius});
+      border: 1px solid $gray-600;
+      padding: $spacer * 0.5 $spacer;
+      cursor: pointer;
+      font-weight: 600;
+
+      &[class*="active"] {
+        background-color: $white;
+        color: var(#{--bs-secondary});
+        border-color: var(#{--bs-secondary});
+      }
+    }
+  }
+
   &__footer {
     text-align: right;
   }

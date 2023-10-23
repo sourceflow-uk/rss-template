@@ -77,6 +77,7 @@ export async function getStaticProps({}) {
             title: { path: "page.home.component.LatestJobs.title", placeholder: "Latest Jobs" },
             items: generateArrayOf(generateJob, { count: 12 }),
             visibleCount: 4,
+            filters: true,
           },
         },
         { component: "Divider" },
