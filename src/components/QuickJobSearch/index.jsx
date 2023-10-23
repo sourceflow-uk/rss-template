@@ -26,7 +26,7 @@ export default function QuickJobSearch({ className }) {
     });
 
     let urlFilters = [];
-    let url = getRoute("jobs");
+    let url = `${getRoute("jobs")}?${params.toString()}`;
 
     if (sector) {
       urlFilters = [...urlFilters, sector];
@@ -40,11 +40,7 @@ export default function QuickJobSearch({ className }) {
       url = `${url}#/${urlFilters.join("/")}`;
     }
 
-    url = `${url}/?${params.toString()}`.toLowerCase();
-
-    console.log(url);
-
-    window.location.href = url;
+    window.location.href = `${url}/`.toLowerCase();
   }, [query, sector, location, job_type, salary, radius]);
 
   return (
