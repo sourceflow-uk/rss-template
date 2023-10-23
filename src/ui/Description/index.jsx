@@ -4,21 +4,21 @@ import { DynamicHtml } from "@/ui";
 import classes from "./styles.module.scss";
 import React from "react";
 
-export default function Description({ className, description }) {
+export default function Description({ className, description, tag }) {
   if (!description) {
     return null;
   }
 
   if (typeof description === "string") {
-    return React.createElement("div", {
+    return React.createElement(tag, {
       className: clsx(classes.description, className),
       dangerouslySetInnerHTML: { __html: description },
     });
   }
 
   return (
-    <DynamicHtml className={clsx(classes.description, className)} path={description.path}>
-      <div dangerouslySetInnerHTML={{ __html: description.placeholder }} />
+    <DynamicHtml className={clsx(classes.description, className)} path={description.path} tag={tag}>
+      <span dangerouslySetInnerHTML={{ __html: description.placeholder }} />
     </DynamicHtml>
   );
 }
@@ -26,6 +26,7 @@ export default function Description({ className, description }) {
 Description.defaultProps = {
   className: "",
   description: null,
+  tag: "div",
 };
 
 Description.propTypes = {

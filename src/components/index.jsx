@@ -13,6 +13,7 @@ export const FeaturedEmployers = lazy(() => import("./FeaturedEmployers"));
 export const FeatureTabsList = lazy(() => import("./FeatureTabsList"));
 export const GridButtonsGrid = lazy(() => import("./GridButtonsGrid"));
 export const Header = lazy(() => import("./Header"));
+export const Hero = lazy(() => import("./Hero"));
 export const HeroCarousel = lazy(() => import("./HeroCarousel"));
 export const HorizontalListings = lazy(() => import("./HorizontalListings"));
 export const JobsFeed = lazy(() => import("./JobsFeed"));

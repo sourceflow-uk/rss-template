@@ -5,8 +5,8 @@ import { generateJob } from "@/faker/generateJob";
 import { generateMiniCarouselCard } from "@/faker/generateMiniCarouselCard";
 import { career_advice_helper } from "@/helpers/career_advice_helper";
 import { getRoute } from "@/getters/getRoute";
-import { getAsset } from "@/getters/getAsset";
 import { trimText } from "@/functions/trimText";
+import { getAsset } from "@/getters/getAsset";
 
 export default function Page({ content }) {
   return (
@@ -21,6 +21,20 @@ export async function getStaticProps({}) {
     props: {
       meta: {},
       content: [
+        {
+          component: "Hero",
+          props: {
+            img: getAsset("page.home.component.Hero.img"),
+            title: {
+              path: "page.home.component.Hero.title",
+              placeholder: "Flexible Work",
+            },
+            subtitle: {
+              path: "page.home.component.Hero.subtitle",
+              placeholder: "That’s All About <i>You</i>",
+            },
+          },
+        },
         { component: "QuickJobSearch", props: {} },
         {
           component: "FeaturedEmployersCarousel",
