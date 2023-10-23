@@ -12,7 +12,7 @@ export default function RelatedJobs({ className, title, items }) {
         </DynamicText>
       </Card.Header>
       <Card.Body>
-        {items.map(({ title, sectors, location, salary_package, role_type, published_at, href }, k) => (
+        {items.map(({ title, sectors, location, salary_package, job_type, published_at, href }, k) => (
           <RelatedJobCard
             key={k}
             className="h-100"
@@ -20,7 +20,7 @@ export default function RelatedJobs({ className, title, items }) {
             sectors={sectors}
             location={location}
             salary_package={salary_package}
-            role_type={role_type}
+            job_type={job_type}
             published_at={published_at}
             href={href}
           />
@@ -45,13 +45,13 @@ RelatedJobs.propTypes = {
       sectors: PropTypes.arrayOf(
         PropTypes.shape({
           label: PropTypes.string,
-        })
+        }),
       ),
       location: PropTypes.string,
       salary_package: PropTypes.string,
-      role_type: PropTypes.string,
+      job_type: PropTypes.string,
       published_at: PropTypes.string,
       href: PropTypes.string,
-    })
+    }),
   ),
 };

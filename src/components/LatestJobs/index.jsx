@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import clsx from "classnames";
-import { Button, Carousel, Col, Container, Row, Stack } from "react-bootstrap";
+import { Carousel, Col, Container, Row, Stack } from "react-bootstrap";
 import { chunk } from "lodash";
 import classes from "./styles.module.scss";
 import ChevronRight from "@/assets/ChevronRight.svg";
@@ -41,7 +41,7 @@ export default function LatestJobs({ className, title, button, visibleCount, sec
               <h3 className="h6 mb-0">Show me jobs for</h3>
               <Stack className="flex-row flex-grow-0 justify-content-center" gap={3}>
                 {sectors.map(({ id, title }) => (
-                  <a onClick={() => setSector(id)} className={clsx({ active: sectorFilter === id })}>
+                  <a key={id} onClick={() => setSector(id)} className={clsx({ active: sectorFilter === id })}>
                     {title}
                   </a>
                 ))}
@@ -94,13 +94,7 @@ LatestJobs.defaultProps = {
 
 LatestJobs.propTypes = {
   className: PropTypes.string,
-  title: PropTypes.oneOf([
-    PropTypes.shape({
-      label: PropTypes.string,
-      placeholder: PropTypes.string,
-    }),
-    PropTypes.string,
-  ]),
+  title: PropTypes.any,
   filters: PropTypes.bool,
   sector: PropTypes.string,
   visibleCount: PropTypes.number,

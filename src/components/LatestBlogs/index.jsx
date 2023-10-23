@@ -53,7 +53,7 @@ LatestBlogs.defaultProps = {
 
 LatestBlogs.propTypes = {
   className: PropTypes.string,
-  title: PropTypes.string,
+  title: PropTypes.any,
   button: PropTypes.shape({
     label: PropTypes.string,
     href: PropTypes.string,

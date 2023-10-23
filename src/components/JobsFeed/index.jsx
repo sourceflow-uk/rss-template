@@ -6,6 +6,8 @@ import { Container, FormCheck } from "react-bootstrap";
 import classes from "./styles.module.scss";
 import { CTA } from "@/ui";
 import { formatDistanceToNowStrict } from "date-fns";
+import JobType from "@/../.sourceflow/jobs-Job Type.json";
+import Sector from "@/../.sourceflow/jobs-Sector.json";
 
 export default function JobsFeed({ className, sector }) {
   return (
@@ -13,9 +15,19 @@ export default function JobsFeed({ className, sector }) {
       <Container>
         <JobSearch
           options={{
-            searchSubmitButton: false,
+            jobsUrl: "/jobs/",
             prefilters: {
               "3186657c-e89c-4a6f-9157-35eb7fe0b379": [sector],
+            },
+            urlFilters: {
+              mode: "active",
+              jobCategories: [Sector, JobType],
+              changeURLOnFilterChange: true,
+            },
+            searchInput: {
+              queryInput: true,
+              locationInput: true,
+              radiusInput: true,
             },
             searchFiltersOptions: {
               filterUnselectedElement: <FormCheck />,
@@ -25,7 +37,6 @@ export default function JobsFeed({ className, sector }) {
                 "3186657c-e89c-4a6f-9157-35eb7fe0b379": [sector],
               },
             },
-            jobsPerPage: 2,
             searchResultsOptions: {
               resultNewTab: false,
               resultLinks: ({ href, label, target, job }) => (

@@ -24,7 +24,7 @@ export default function JobPageContent({
   published_at,
   related,
 }) {
-  const role_types = jobs_helper.getCategoryValues("275d8990-bd9e-4f79-a0e2-d81bb734c855", { categories });
+  const job_types = jobs_helper.getCategoryValues("275d8990-bd9e-4f79-a0e2-d81bb734c855", { categories });
   const sectors = jobs_helper.getCategoryValues("3186657c-e89c-4a6f-9157-35eb7fe0b379", { categories });
   const global = getGlobal();
 
@@ -64,7 +64,7 @@ export default function JobPageContent({
                           <span className="visually-hidden">Role Type</span>
                           <Contract />
                         </dt>
-                        <dd>{role_types.map((i) => i.name).join(", ")}</dd>
+                        <dd>{job_types.map((i) => i.name).join(", ")}</dd>
                       </dl>
                       <dl>
                         <dt>

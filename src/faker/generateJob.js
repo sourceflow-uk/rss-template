@@ -21,7 +21,7 @@ export const generateJob = () => ({
     max: 18,
     dec: 0,
   })} per hour`,
-  role_type: "Permanent",
+  job_type: "Permanent",
   description: generateBody(),
   published_at: faker.date.past().toISOString(),
   href: "#",

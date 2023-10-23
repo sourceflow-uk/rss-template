@@ -6,7 +6,7 @@ import Location from "@/assets/Location.svg";
 import Contract from "@/assets/Contract.svg";
 import { CTA, Time } from "@/ui";
 
-export default function SimilarJobCard({ className, title, location, salary_package, role_type, href, published_at }) {
+export default function SimilarJobCard({ className, title, location, salary_package, job_type, href, published_at }) {
   return (
     <div className={clsx(className, classes.card, "bg-light p-4")}>
       <div className={classes.card__body}>
@@ -29,7 +29,7 @@ export default function SimilarJobCard({ className, title, location, salary_pack
             <span className="visually-hidden">Role Type</span>
             <Contract width="25" height="25" />
           </dt>
-          <dd>{role_type}</dd>
+          <dd>{job_type}</dd>
         </dl>
         <Time className="py-4" date={published_at} icon={false} />
         <CTA variant="secondary" href={href} label="View this job" />
@@ -42,7 +42,7 @@ SimilarJobCard.defaultProps = {
   className: "",
   title: "",
   salary_package: "",
-  role_type: "",
+  job_type: "",
   href: "",
   published_at: "",
 };
@@ -51,7 +51,7 @@ SimilarJobCard.propTypes = {
   title: PropTypes.string,
   location: PropTypes.string,
   salary_package: PropTypes.string,
-  role_type: PropTypes.string,
+  job_type: PropTypes.string,
   href: PropTypes.string,
   published_at: PropTypes.string,
 };

@@ -23,7 +23,7 @@ export default function SimilarJobs({ className, title, items }) {
         <Collapse className={classes.similar__collapse} in={open}>
           <div>
             <Row className="py-4">
-              {items.slice(0, 4).map(({ title, href, location, salary_package, role_type, published_at }, k) => (
+              {items.slice(0, 4).map(({ title, href, location, salary_package, job_type, published_at }, k) => (
                 <Col key={k} xs={12} md={3}>
                   <SimilarJobCard
                     className="h-100"
@@ -31,7 +31,7 @@ export default function SimilarJobs({ className, title, items }) {
                     href={href}
                     location={location}
                     salary_package={salary_package}
-                    role_type={role_type}
+                    job_type={job_type}
                     published_at={published_at}
                   />
                 </Col>
@@ -58,9 +58,9 @@ SimilarJobs.propTypes = {
       title: PropTypes.string,
       location: PropTypes.string,
       salary_package: PropTypes.string,
-      role_type: PropTypes.string,
+      job_type: PropTypes.string,
       href: PropTypes.string,
       published_at: PropTypes.string,
-    })
+    }),
   ),
 };

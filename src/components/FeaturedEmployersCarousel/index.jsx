@@ -59,6 +59,6 @@ FeaturedEmployersCarousel.defaultProps = {
 
 FeaturedEmployersCarousel.propTypes = {
   className: PropTypes.string,
-  title: PropTypes.string,
+  title: PropTypes.any,
   visibleCount: PropTypes.number,
 };

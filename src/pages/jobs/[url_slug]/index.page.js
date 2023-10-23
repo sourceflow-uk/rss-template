@@ -7,8 +7,8 @@ import * as additionalComponents from "./__components";
 
 export default function JobPage({ job, content }) {
   const global = getGlobal();
-  const role_types = jobs_helper.getCategoryValues("275d8990-bd9e-4f79-a0e2-d81bb734c855", job);
-  const [employment_type] = role_types.map(
+  const job_types = jobs_helper.getCategoryValues("275d8990-bd9e-4f79-a0e2-d81bb734c855", job);
+  const [employment_type] = job_types.map(
     (i) =>
       ({
         "03ae7fb9-715c-44bd-9c2e-ed484c5a1828": "FULL_TIME", // Permanent

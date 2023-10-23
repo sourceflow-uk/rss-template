@@ -48,15 +48,9 @@ Header.defaultProps = {
 
 Header.propTypes = {
   className: PropTypes.string,
-  title: PropTypes.shape({
-    path: PropTypes.string,
-    placeholder: PropTypes.string,
-  }),
+  title: PropTypes.any,
   img: PropTypes.string,
-  description: PropTypes.shape({
-    path: PropTypes.string,
-    placeholder: PropTypes.string,
-  }),
+  description: PropTypes.any,
   cta: PropTypes.shape({
     className: PropTypes.string,
     label: PropTypes.string,

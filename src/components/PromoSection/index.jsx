@@ -30,7 +30,7 @@ PromoSection.defaultProps = {
 
 PromoSection.propTypes = {
   className: PropTypes.string,
-  title: PropTypes.string,
+  title: PropTypes.any,
   items: PropTypes.arrayOf(
     PropTypes.shape({
       className: PropTypes.string,

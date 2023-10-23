@@ -3,18 +3,49 @@ import clsx from "classnames";
 import ArrowRight from "@/assets/ArrowRight.svg";
 import classes from "./styles.module.scss";
 import { useCallback, useState } from "react";
+import { sector_helper } from "@/helpers/sector_helper";
+import { getRoute } from "@/getters/getRoute";
+import { job_type_helper } from "@/helpers/job_type_helper";
 
 export default function QuickJobSearch({ className }) {
-  const [query, setQuery] = useState();
-  const [sector, setSector] = useState();
-  const [location, setLocation] = useState();
-  const [type, setType] = useState();
-  const [salary, setSalary] = useState();
-  const [radius, setRadius] = useState();
+  const [sectors] = useState(sector_helper.fetch());
+  const [job_types] = useState(job_type_helper.fetch());
+
+  const [query, setQuery] = useState("");
+  const [sector, setSector] = useState("");
+  const [location, setLocation] = useState("");
+  const [job_type, setJobType] = useState([]);
+  const [salary, _setSalary] = useState("");
+  const [radius, setRadius] = useState("");
 
   const handleSubmit = useCallback(() => {
-    // TODO: handle submit
-  }, [query, sector, location, type, salary, radius]);
+    const params = new URLSearchParams({
+      query,
+      location,
+      radius,
+    });
+
+    let urlFilters = [];
+    let url = getRoute("jobs");
+
+    if (sector) {
+      urlFilters = [...urlFilters, sector];
+    }
+
+    if (job_type) {
+      urlFilters = [...urlFilters, ...job_type];
+    }
+
+    if (urlFilters.length > 0) {
+      url = `${url}#/${urlFilters.join("/")}`;
+    }
+
+    url = `${url}/?${params.toString()}`.toLowerCase();
+
+    console.log(url);
+
+    window.location.href = url;
+  }, [query, sector, location, job_type, salary, radius]);
 
   return (
     <div className={clsx(className, classes.search)}>
@@ -40,6 +71,11 @@ export default function QuickJobSearch({ className }) {
                       <Form.Label>Sector</Form.Label>
                       <Form.Select value={sector} onChange={(e) => setSector(e.target.value)}>
                         <option value="">Select</option>
+                        {sectors.map(({ title }) => (
+                          <option key={title} value={title}>
+                            {title}
+                          </option>
+                        ))}
                       </Form.Select>
                     </Form.Group>
                   </Col>
@@ -59,21 +95,19 @@ export default function QuickJobSearch({ className }) {
                     <Form.Group>
                       <Form.Label>Job type</Form.Label>
                       <Row>
-                        <Col xs={12} md={6}>
-                          <Form.Check label="Contract" />
-                        </Col>
-                        <Col xs={12} md={6}>
-                          <Form.Check label="Full-time" />
-                        </Col>
-                        <Col xs={12} md={6}>
-                          <Form.Check label="Permanent" />
-                        </Col>
-                        <Col xs={12} md={6}>
-                          <Form.Check label="Part-time" />
-                        </Col>
-                        <Col xs={12} md={6}>
-                          <Form.Check label="Temporary" />
-                        </Col>
+                        {job_types.map(({ title }) => (
+                          <Col key={title} xs={12} md={6}>
+                            <Form.Check
+                              value={title}
+                              label={title}
+                              onChange={(e) => {
+                                setJobType(
+                                  e.target.checked ? [...job_type, title] : job_type.filter((i) => i !== title),
+                                );
+                              }}
+                            />
+                          </Col>
+                        ))}
                       </Row>
                     </Form.Group>
                   </Col>
@@ -91,10 +125,12 @@ export default function QuickJobSearch({ className }) {
                         <Form.Group>
                           <Form.Label>Within</Form.Label>
                           <Form.Select value={radius} onChange={(e) => setRadius(e.target.value)}>
-                            <option value="5">5 Miles</option>
-                            <option value="10">10 Miles</option>
-                            <option value="15">15 Miles</option>
-                            <option value="20">20 Miles</option>
+                            <option value="5">5 miles</option>
+                            <option value="10">10 miles</option>
+                            <option value="20">20 miles</option>
+                            <option value="30">30 miles</option>
+                            <option value="40">40 miles</option>
+                            <option value="50">50 miles</option>
                           </Form.Select>
                         </Form.Group>
                       </Col>
@@ -102,7 +138,7 @@ export default function QuickJobSearch({ className }) {
                   </Col>
                 </Row>
               </div>
-              <Button variant="secondary">
+              <Button variant="secondary" onClick={handleSubmit}>
                 Search Jobs
                 <ArrowRight />
               </Button>
