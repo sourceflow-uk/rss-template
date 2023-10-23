@@ -18,7 +18,7 @@ export default class CollectionHelper {
     return this.fetch({ filter });
   }
 
-  fetch({ limit = null, featured = null, exclude = [], filter = null } = {}) {
+  fetch({ limit = null, featured = null, exclude = null, filter = null } = {}) {
     let items = this.collection.getItems();
 
     if (filter) {

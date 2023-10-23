@@ -115,5 +115,5 @@ export default function QuickJobSearch({ className }) {
 }
 
 QuickJobSearch.defaultProps = {
-  className: "py-5",
+  className: "",
 };
