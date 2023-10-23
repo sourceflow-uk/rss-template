@@ -65,7 +65,9 @@ export async function getStaticProps({}) {
           component: "MiniCarousel",
           props: {
             title: { path: "page.home.component.MiniCarousel.title", placeholder: "" },
-            items: mini_carousel_helper.fetch({ filter: (i) => i.tags.toLowerCase().includes("home") }),
+            items: mini_carousel_helper.fetch({
+              filter: (i) => i.tags.toLowerCase().includes("home") || i.tags.includes("*"),
+            }),
           },
         },
         { component: "Divider" },

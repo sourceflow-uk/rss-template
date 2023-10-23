@@ -6,6 +6,7 @@ import { sector_helper } from "@/helpers/sector_helper";
 import { generateMiniCarouselCard } from "@/faker/generateMiniCarouselCard";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generatePromoItem } from "@/faker/generatePromoItem";
+import { mini_carousel_helper } from "@/helpers/mini_carousel_helper";
 
 export default function Page({ content }) {
   return (
@@ -71,7 +72,9 @@ export async function getStaticProps({ params: { url_slugs } }) {
               {
                 component: "MiniCarousel",
                 props: {
-                  items: generateArrayOf(generateMiniCarouselCard, { count: 2 }),
+                  items: mini_carousel_helper.fetch({
+                    filter: (i) => i.tags.toLowerCase().includes(item.url_slug.toLowerCase()) || i.tags.includes("*"),
+                  }),
                 },
               },
               {
