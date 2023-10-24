@@ -189,6 +189,12 @@
     }
 
     .js-result {
+      padding: 1em;
+
+      @include media-breakpoint-up(md) {
+        padding: 2em;
+      }
+
       &-details {
         display: inline;
       }
@@ -208,15 +214,29 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        gap: $spacer * 0.5;
+        flex-wrap: wrap;
+        gap: $spacer * 0.3333;
+
+        @include media-breakpoint-up(md) {
+          gap: $spacer * 0.5;
+        }
 
         [role="button"] {
           height: 48px;
           font-weight: $font-weight-bold;
+          max-width: 100%;
         }
 
         time {
           opacity: 0.75;
+          text-align: left;
+          width: 100%;
+          margin-bottom: $spacer;
+
+          @include media-breakpoint-up(lg) {
+            width: auto;
+            margin-bottom: 0;
+          }
         }
       }
     }
