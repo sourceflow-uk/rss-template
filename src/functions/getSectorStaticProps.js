@@ -4,7 +4,7 @@ import { trimText } from "@/functions/trimText";
 import { getAsset } from "@/getters/getAsset";
 import { sector_helper } from "@/helpers/sector_helper";
 
-export const getSectorStaticProps = (sector_id, pages_helper) => {
+export const getSectorStaticProps = ({ sector_id, pages_helper }) => {
   const sector = sector_helper.find(sector_id, "id");
   const pages = pages_helper.fetch();
 

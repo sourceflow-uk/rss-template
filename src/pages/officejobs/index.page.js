@@ -11,5 +11,8 @@ export default function OfficeSectorPage({ content }) {
 }
 
 export async function getStaticProps() {
-  return getSectorStaticProps("d5e71b93-2910-4cbf-84d4-a140d12a6d64", office_jobs_pages_helper);
+  return getSectorStaticProps({
+    sector_id: "d5e71b93-2910-4cbf-84d4-a140d12a6d64",
+    pages_helper: office_jobs_pages_helper,
+  });
 }

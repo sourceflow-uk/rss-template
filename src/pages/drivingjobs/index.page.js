@@ -11,5 +11,8 @@ export default function DrivingSectorPage({ content }) {
 }
 
 export async function getStaticProps() {
-  return getSectorStaticProps("741e7908-0c11-4a62-91c1-dd23b02c8cd7", driving_jobs_pages_helper);
+  return getSectorStaticProps({
+    sector_id: "741e7908-0c11-4a62-91c1-dd23b02c8cd7",
+    pages_helper: driving_jobs_pages_helper,
+  });
 }

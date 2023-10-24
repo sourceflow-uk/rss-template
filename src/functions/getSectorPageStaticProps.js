@@ -1,8 +1,12 @@
 import { getRoute } from "@/getters/getRoute";
 import { sector_helper } from "@/helpers/sector_helper";
+import { trimText } from "@/functions/trimText";
+import { getAsset } from "@/getters/getAsset";
 
-export const getSectorPageStaticProps = (sector_id, page) => {
+export const getSectorPageStaticProps = ({ sector_id, url_slug, pages_helper }) => {
   const sector = sector_helper.find(sector_id, "id");
+  const page = pages_helper.find(url_slug);
+  const pages = pages_helper.fetch({ exclude: [page.id] });
 
   return {
     props: {
@@ -34,6 +38,22 @@ export const getSectorPageStaticProps = (sector_id, page) => {
           component: "RichText",
           props: {
             body: page.body,
+          },
+        },
+        {
+          component: "PromoSection",
+          props: {
+            title: {
+              path: `page.${sector.url_slug}.component.PromoSection.title`,
+              placeholder: "Also in this section",
+            },
+            items: pages.map((i) => ({
+              title: i.name,
+              description: trimText(i.body),
+              img: i.cover_image ?? getAsset("_theme.card.img.fallback") ?? null,
+              href: getRoute("sectorPage", { sector: sector.url_slug, page: i.url_slug }),
+            })),
+            md: 3,
           },
         },
       ],
