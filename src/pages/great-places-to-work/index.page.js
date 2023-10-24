@@ -35,14 +35,44 @@ export async function getStaticProps() {
           },
         },
         {
+          component: "Header",
+          props: {
+            className: "text-white bg-primary",
+            title: {
+              path: "page.employers.component.Header.title",
+              placeholder: "Great Places To Work",
+            },
+            description: {
+              path: "page.employers.component.Header.description",
+              placeholder:
+                "We understand the importance in finding a great company to work at to support you and your career. Below is a small selection of fabulous companies who have lots of vacancies for talented staff.",
+            },
+            img: getAsset("page.employers.component.Header.img") ?? null,
+            contain: true,
+          },
+        },
+        {
           component: "PromoSection",
           props: {
             items: employers.map((i) => ({
               title: i.name,
               description: trimText(i.description),
               img: i.card_image ?? i.cover_image ?? getAsset("_theme.card.img.fallback") ?? null,
-              href: getRoute("employer", { url_slug: i.url_slug }),
+              href: getRoute("employer", { employer: i.url_slug }),
             })),
+          },
+        },
+        { component: "Divider" },
+        {
+          component: "FeaturedEmployersCarousel",
+          props: {
+            className: "text-center py-5",
+            title: {
+              path: "page.employers.component.FeaturedEmployersCarousel.title",
+              placeholder: "Top-rated places to work by Blue Arrow candidates",
+            },
+            visibleCount: 4,
+            button: null,
           },
         },
       ],

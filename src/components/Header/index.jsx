@@ -7,14 +7,14 @@ import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 import { CTA, Description, DynamicText, Title, VideoModal } from "@/ui";
 import ArrowLeft from "@/assets/ArrowLeft.svg";
 
-export default function Header({ className, title, img, description, cta, video_embed_url, back }) {
+export default function Header({ className, title, img, contain, description, cta, video_embed_url, back }) {
   return (
-    <div className={clsx(className, classes.header, { "has-img": img })}>
+    <div className={clsx(className, classes.header, { "has-img": img, contain })}>
       {img && <SourceFlowImage className={classes.header__img} src={img} size="1440x300" alt="Header image" />}
       <div className={clsx(classes.header__body, "p-5")}>
         <Container className="mw-xxl">
           <Row className="h-100">
-            <Col xs={12} md={7} className="d-flex flex-column justify-content-center h-100">
+            <Col xs={12} md={6} className="d-flex flex-column justify-content-center h-100">
               {back && (
                 <a className={clsx(classes.header__back, "mb-3")} href={back.href}>
                   <ArrowLeft />
@@ -40,6 +40,7 @@ export default function Header({ className, title, img, description, cta, video_
 Header.defaultProps = {
   title: null,
   img: null,
+  contain: false,
   description: null,
   cta: null,
   video_embed_url: null,

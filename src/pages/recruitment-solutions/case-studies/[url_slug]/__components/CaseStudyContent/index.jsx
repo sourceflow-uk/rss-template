@@ -4,6 +4,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { BlockQuoteCard, DynamicText, Form, Title } from "@/ui";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 import classes from "./styles.module.scss";
+import { getAsset } from "@/getters/getAsset";
 
 export default function CaseStudyContent({
   className,
@@ -94,7 +95,7 @@ export default function CaseStudyContent({
                 Company Background
               </DynamicText>
               <div dangerouslySetInnerHTML={{ __html: company_background }} />
-              <aside className="bg-light text-tertiary p-4">
+              <aside className={clsx(classes.content__features, "bg-light text-tertiary p-4")}>
                 <DynamicText path={`page.${url_slug}.component.CaseStudyContent.features.title`} tag="h3">
                   Key Features
                 </DynamicText>
@@ -153,7 +154,10 @@ export default function CaseStudyContent({
           </Row>
         </Container>
       </div>
-      <div className="bg-tertiary text-white py-5">
+      <div
+        className={clsx(classes.content__result, "bg-tertiary text-white py-5")}
+        style={{ backgroundImage: `url(${getAsset("page.caseStudy.component.CaseStudyContent.result.bg")})` }}
+      >
         <Container>
           <Row>
             <Col xs={12} md={{ span: 8, offset: 2 }}>

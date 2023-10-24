@@ -6,6 +6,9 @@ import { generateTitle } from "@/faker/generateTitle";
 import { generateJob } from "@/faker/generateJob";
 import { generatePromoItem } from "@/faker/generatePromoItem";
 import { employer_helper } from "@/helpers/employer_helper";
+import { employer_page_helper } from "@/helpers/employer_page_helper";
+import { getAsset } from "@/getters/getAsset";
+import { trimText } from "@/functions/trimText";
 
 export default function EmployerPage({ content }) {
   return (
@@ -106,7 +109,12 @@ export async function getStaticProps({ params }) {
               path: `page.${employer.url_slug}.component.PromoSection.title`,
               placeholder: `Also in this section`,
             },
-            items: generateArrayOf(generatePromoItem, { count: 5 }),
+            items: employer_page_helper.fetch().map((i) => ({
+              title: i.title,
+              img: i.cover_image ?? getAsset("_theme.card.img.fallback") ?? null,
+              description: trimText(i.body),
+              href: getRoute("employerPage", { employer: employer.url_slug, page: i.url_slug }),
+            })),
           },
         },
       ],

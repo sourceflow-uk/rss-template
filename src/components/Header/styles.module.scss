@@ -24,9 +24,13 @@
     z-index: 1;
   }
 
-  &[class*="has-img"]:hover &__img {
-    scale: 1.05;
+  &[class*="contain"] &__img {
+    object-fit: contain;
   }
+
+  //&[class*="has-img"]:hover &__img {
+  //  scale: 1.05;
+  //}
 
   &[class*="has-img"]::after {
     position: absolute;
