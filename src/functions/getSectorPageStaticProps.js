@@ -30,8 +30,9 @@ export const getSectorPageStaticProps = ({ sector_id, url_slug, pages_helper }) 
         {
           component: "Header",
           props: {
-            className: "text-tertiary",
+            className: page.cover_image ? "text-white" : "text-tertiary",
             title: page.name,
+            img: page.cover_image ?? null,
           },
         },
         {
