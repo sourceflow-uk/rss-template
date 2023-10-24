@@ -1,9 +1,16 @@
 import PropTypes from "prop-types";
-import clsx from "classnames";
-import { Col, Container, Row } from "react-bootstrap";
-import { BlockQuoteCard, DynamicText, Form, Title } from "@/ui";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
+import Business from "./assets/Business.svg";
+import Client from "./assets/Client.svg";
+import Contact from "./assets/Contact.svg";
+import Employees from "./assets/Employees.svg";
+import Globe from "./assets/Globe.svg";
+import Staffing from "./assets/Staffing.svg";
+import Turnover from "./assets/Turnover.svg";
+import { BlockQuoteCard, DynamicText, Form, Title } from "@/ui";
+import { Col, Container, Row } from "react-bootstrap";
 import classes from "./styles.module.scss";
+import clsx from "classnames";
 import { getAsset } from "@/getters/getAsset";
 
 export default function CaseStudyContent({
@@ -36,12 +43,14 @@ export default function CaseStudyContent({
               <aside className={clsx(classes.content__info, "bg-primary text-white p-4")}>
                 <dl>
                   <dt>
+                    <Client />
                     <DynamicText path={`page.${url_slug}.component.CaseStudyContent.client.title`}>Client</DynamicText>
                   </dt>
                   <dd>{client}</dd>
                 </dl>
                 <dl>
                   <dt>
+                    <Contact />
                     <DynamicText path={`page.${url_slug}.component.CaseStudyContent.contact.title`}>
                       Contact
                     </DynamicText>
@@ -50,6 +59,7 @@ export default function CaseStudyContent({
                 </dl>
                 <dl>
                   <dt>
+                    <Business />
                     <DynamicText path={`page.${url_slug}.component.CaseStudyContent.business_type.title`}>
                       Business type
                     </DynamicText>
@@ -58,6 +68,7 @@ export default function CaseStudyContent({
                 </dl>
                 <dl>
                   <dt>
+                    <Staffing />
                     <DynamicText path={`page.${url_slug}.component.CaseStudyContent.staffing_type.title`}>
                       Staffing type
                     </DynamicText>
@@ -66,6 +77,7 @@ export default function CaseStudyContent({
                 </dl>
                 <dl>
                   <dt>
+                    <Globe />
                     <DynamicText path={`page.${url_slug}.component.CaseStudyContent.geographical_footprint.title`}>
                       Geographical footprint
                     </DynamicText>
@@ -74,6 +86,7 @@ export default function CaseStudyContent({
                 </dl>
                 <dl>
                   <dt>
+                    <Employees />
                     <DynamicText path={`page.${url_slug}.component.CaseStudyContent.number_of_employees.title`}>
                       Number of employees
                     </DynamicText>
@@ -82,6 +95,7 @@ export default function CaseStudyContent({
                 </dl>
                 <dl>
                   <dt>
+                    <Turnover />
                     <DynamicText path={`page.${url_slug}.component.CaseStudyContent.turnover.title`}>
                       Turnover
                     </DynamicText>

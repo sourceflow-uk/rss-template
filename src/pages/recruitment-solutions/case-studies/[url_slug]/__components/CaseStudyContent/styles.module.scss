@@ -7,14 +7,23 @@
 
   &__info {
     border-radius: var(#{--bs-border-radius});
+    display: flex;
+    flex-direction: column;
+    gap: $spacer * 1.5;
 
     dl {
+      margin-bottom: 0;
+
       dt {
-        font-weight: $font-weight-base;
+        font-weight: $font-weight-bold;
+        display: flex;
+        align-items: center;
+        gap: $spacer * 0.5;
+        margin-bottom: $spacer * 0.5;
       }
 
       dd {
-        font-weight: $font-weight-bold;
+        font-weight: $font-weight-base;
       }
     }
   }
