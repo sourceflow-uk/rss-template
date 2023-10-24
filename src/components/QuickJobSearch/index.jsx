@@ -6,10 +6,12 @@ import { useCallback, useState } from "react";
 import { sector_helper } from "@/helpers/sector_helper";
 import { getRoute } from "@/getters/getRoute";
 import { job_type_helper } from "@/helpers/job_type_helper";
+import { salary_helper } from "@/helpers/salary_helper";
 
 export default function QuickJobSearch({ className }) {
   const [sectors] = useState(sector_helper.fetch());
   const [job_types] = useState(job_type_helper.fetch());
+  const [salaries] = useState(salary_helper.fetch());
 
   const [query, setQuery] = useState("");
   const [sector, setSector] = useState("");
@@ -114,6 +116,11 @@ export default function QuickJobSearch({ className }) {
                           <Form.Label>Salary</Form.Label>
                           <Form.Select>
                             <option value="">Select</option>
+                            {salaries.map(({ title }) => (
+                              <option key={title} value={title}>
+                                {title}
+                              </option>
+                            ))}
                           </Form.Select>
                         </Form.Group>
                       </Col>

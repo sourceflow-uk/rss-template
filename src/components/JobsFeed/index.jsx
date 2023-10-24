@@ -1,15 +1,16 @@
 import "@sourceflow-uk/job-search/dist/bundle.css";
+import ArrowRight from "@/assets/ArrowRight.svg";
 import JobSearch from "@sourceflow-uk/job-search";
-import PropTypes from "prop-types";
-import clsx from "classnames";
-import { Container, FormCheck } from "react-bootstrap";
-import classes from "./styles.module.scss";
-import { CTA } from "@/ui";
-import { formatDistanceToNowStrict } from "date-fns";
 import JobType from "@/../.sourceflow/jobs-Job Type.json";
 import Sector from "@/../.sourceflow/jobs-Sector.json";
+import PropTypes from "prop-types";
+import { Container, FormCheck, Stack } from "react-bootstrap";
+import { CTA } from "@/ui";
+import classes from "./styles.module.scss";
+import clsx from "classnames";
+import { formatDistanceToNowStrict } from "date-fns";
 
-export default function JobsFeed({ className, sector }) {
+export default function JobsFeed({ className, sector, changeURLOnFilterChange }) {
   return (
     <div className={clsx(className, classes.feed)}>
       <Container>
@@ -22,7 +23,7 @@ export default function JobsFeed({ className, sector }) {
             urlFilters: {
               mode: "active",
               jobCategories: [Sector, JobType],
-              changeURLOnFilterChange: true,
+              changeURLOnFilterChange: changeURLOnFilterChange,
             },
             searchInput: {
               queryInput: true,
@@ -52,6 +53,11 @@ export default function JobsFeed({ className, sector }) {
           }}
           translations={{
             "searchResults.buttonText": "View job",
+            "button.text": (
+              <Stack className="flex-row align-items-center px-3" gap={2}>
+                Search <ArrowRight />
+              </Stack>
+            ),
           }}
         />
       </Container>
@@ -62,6 +68,7 @@ export default function JobsFeed({ className, sector }) {
 JobsFeed.defaultProps = {
   className: "py-5",
   sector: null,
+  changeURLOnFilterChange: true,
 };
 
 JobsFeed.propTypes = {

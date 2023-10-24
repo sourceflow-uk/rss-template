@@ -1,6 +1,8 @@
 {
   "dynamic": "/",
   "home": "/",
+  "sector": "/[url_slug]",
+  "sectorPage": "/[sector]/[page]",
   "blog": "/blog/",
   "blogPost": "/blog/[url_slug]/",
   "jobs": "/jobs/",

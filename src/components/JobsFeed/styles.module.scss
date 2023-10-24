@@ -6,21 +6,46 @@
       font-family: var(#{--bs-font-family});
     }
 
-    .js-form {
-      border: 0;
-      padding: 0;
+    .js-columns-container {
+      margin-top: $spacer * 4;
     }
 
     .js-total-count {
       font-weight: $font-weight-bold;
     }
 
-    .js-input {
-      &-wrapper-query {
-        width: 100%;
+    .js-form {
+      border: 0;
+      padding: 0;
+
+      &-input-wrapper {
+        .js-button {
+          background-color: var(#{--bs-secondary});
+          border-color: var(#{--bs-secondary});
+          margin-left: 1em;
+          font-weight: $font-weight-bold;
+          border-radius: var(#{--bs-border-radius});
+
+          &:hover {
+            background-color: var(#{--bs-secondary-active});
+            border-color: var(#{--bs-secondary-active});
+          }
+        }
       }
-      &-query {
-        padding: $spacer;
+    }
+
+    .js-input {
+      border-radius: var(#{--bs-border-radius});
+      padding: $spacer;
+
+      &-wrapper {
+        &-query {
+          width: 100%;
+        }
+
+        &-radius {
+          max-width: 200px;
+        }
       }
     }
 
@@ -105,10 +130,6 @@
       &-count {
         background-color: var(#{--bs-quaternary});
       }
-    }
-
-    .js-columns-container {
-      margin-top: $spacer * 4;
     }
 
     .js-results {

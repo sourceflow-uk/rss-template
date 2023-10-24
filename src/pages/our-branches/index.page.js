@@ -26,6 +26,7 @@ export async function getStaticProps() {
         {
           component: "Header",
           props: {
+            className: "text-tertiary",
             title: {
               path: "page.branches.component.Header.title",
               placeholder: "Our Branches",

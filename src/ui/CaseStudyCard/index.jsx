@@ -9,7 +9,7 @@ export default function CaseStudyCard({ className, title, img, href }) {
     <a className={clsx(className, classes.card)} href={href}>
       <SourceFlowImage
         className={classes.card__img}
-        src={img ?? getAsset("_theme.caseStudy.card.img.fallback")}
+        src={img ?? getAsset("_theme.card.img.fallback")}
         size="300x300"
         alt={title}
       />

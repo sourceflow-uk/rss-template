@@ -8,7 +8,7 @@ export default function RichText({ className, body }) {
   }
   return (
     <div className={clsx(className, classes.text)}>
-      <Container className="mw-lg">
+      <Container className="mw-xxl">
         <Row>
           <Col xs={12} dangerouslySetInnerHTML={{ __html: body }} />
         </Row>

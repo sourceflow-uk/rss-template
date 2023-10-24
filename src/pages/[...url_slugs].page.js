@@ -3,7 +3,6 @@ import { getRoute } from "@/getters/getRoute";
 import unslug from "unslug";
 import { simple_pages_helper } from "@/helpers/simple_pages_helper";
 import { sector_helper } from "@/helpers/sector_helper";
-import { generateMiniCarouselCard } from "@/faker/generateMiniCarouselCard";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generatePromoItem } from "@/faker/generatePromoItem";
 import { mini_carousel_helper } from "@/helpers/mini_carousel_helper";
@@ -67,6 +66,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
                 component: "JobsFeed",
                 props: {
                   sector: item.id,
+                  changeURLOnFilterChange: false,
                 },
               },
               {

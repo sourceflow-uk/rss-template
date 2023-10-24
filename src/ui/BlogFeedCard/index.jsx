@@ -10,7 +10,7 @@ export default function BlogFeedCard({ className, title, published_at, img, href
     <a className={clsx(className, classes.card)} href={href}>
       <SourceFlowImage
         className={classes.card__img}
-        src={img ?? getAsset("_theme.blog.card.img.fallback")}
+        src={img ?? getAsset("_theme.card.img.fallback")}
         size="300x300"
         alt={title}
       />
