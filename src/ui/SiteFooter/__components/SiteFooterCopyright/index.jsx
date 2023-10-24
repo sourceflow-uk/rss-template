@@ -1,8 +1,10 @@
 import PropTypes from "prop-types";
 import { format } from "date-fns";
 import { Stack } from "react-bootstrap";
+import { getGlobal } from "@/getters/getGlobal";
 
 export default function SiteFooterCopyright({ className }) {
+  const global = getGlobal();
   const company_name = global["_theme.company.name"];
   const company_number = global["_theme.company.number"];
   const vat_number = global["_theme.company.vat.number"];

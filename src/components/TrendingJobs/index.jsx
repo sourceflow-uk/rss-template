@@ -49,7 +49,7 @@ export default function TrendingJobs({ className, title }) {
 }
 
 TrendingJobs.defaultProps = {
-  className: "py-5",
+  className: "py-4 py-md-5",
   title: "Trending Jobs",
   items: [],
 };
@@ -61,6 +61,6 @@ TrendingJobs.propTypes = {
     PropTypes.shape({
       title: PropTypes.string,
       href: PropTypes.string,
-    })
+    }),
   ),
 };

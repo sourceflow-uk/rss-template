@@ -17,7 +17,7 @@ export default function LatestBlogs({ className, title, button }) {
         <Title title={title} />
         <Row className="mb-4">
           {items.map(({ title, body, image, publish_date, url_slug }, k) => (
-            <Col key={k} xs={12} md={4}>
+            <Col key={k} xs={12} md={4} className="mb-4 mb-md-0">
               <LatestBlogCard
                 className="h-100"
                 title={title}
@@ -43,7 +43,7 @@ export default function LatestBlogs({ className, title, button }) {
 }
 
 LatestBlogs.defaultProps = {
-  className: "py-5",
+  className: "py-4 py-md-5",
   title: null,
   button: {
     label: "View more blogs",

@@ -20,7 +20,7 @@ export default function MultiTiles({ className, items }) {
 }
 
 MultiTiles.defaultProps = {
-  className: "py-5",
+  className: "py-4 py-md-5",
   items: [],
 };
 
@@ -32,6 +32,6 @@ MultiTiles.propTypes = {
       title: PropTypes.string,
       img: PropTypes.string,
       href: PropTypes.string,
-    })
+    }),
   ),
 };

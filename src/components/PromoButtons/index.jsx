@@ -21,7 +21,7 @@ export default function PromoButtons({ className, items }) {
 }
 
 PromoButtons.defaultProps = {
-  className: "py-5",
+  className: "py-4 py-md-5",
   items: [],
 };
 
@@ -32,6 +32,6 @@ PromoButtons.propTypes = {
       className: PropTypes.string,
       title: PropTypes.string,
       href: PropTypes.string,
-    })
+    }),
   ),
 };

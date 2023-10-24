@@ -26,7 +26,7 @@ export default function BranchLocations({ className, branches }) {
 }
 
 BranchLocations.defaultProps = {
-  className: "py-5",
+  className: "py-4 py-md-5",
   branches: [],
 };
 
@@ -40,6 +40,6 @@ BranchLocations.propTypes = {
       email: PropTypes.string,
       map_embed_url: PropTypes.string,
       opening_hours: PropTypes.string,
-    })
+    }),
   ),
 };

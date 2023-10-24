@@ -32,7 +32,7 @@ export default function CollapsibleSection({ className, title, description, item
 }
 
 CollapsibleSection.defaultProps = {
-  className: "py-5",
+  className: "py-4 py-md-5",
   title: "",
   description: "",
   items: [],
@@ -50,7 +50,7 @@ CollapsibleSection.propTypes = {
       body: PropTypes.string,
       eventKey: PropTypes.number,
       onClick: PropTypes.func,
-    })
+    }),
   ),
   defaultActiveKey: PropTypes.number,
 };

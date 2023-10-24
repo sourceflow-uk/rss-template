@@ -66,7 +66,7 @@ export default function JobsFeed({ className, sector, changeURLOnFilterChange })
 }
 
 JobsFeed.defaultProps = {
-  className: "py-5",
+  className: "py-4 py-md-5",
   sector: null,
   changeURLOnFilterChange: true,
 };

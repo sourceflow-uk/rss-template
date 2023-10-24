@@ -20,7 +20,7 @@ export default function CollapsibleContent({ className, title, body }) {
 }
 
 CollapsibleContent.defaultProps = {
-  className: "py-5",
+  className: "py-4 py-md-5",
   title: "",
   body: "",
 };

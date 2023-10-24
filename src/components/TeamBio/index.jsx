@@ -84,7 +84,7 @@ export default function TeamBio({
 }
 
 TeamBio.defaultProps = {
-  className: "py-5",
+  className: "py-4 py-md-5",
   name: "",
   role: "",
   email: "",

@@ -14,7 +14,7 @@ export default function SectionHeading({ className, title }) {
 }
 
 SectionHeading.defaultProps = {
-  className: "py-5",
+  className: "py-4 py-md-5",
   title: "",
 };
 

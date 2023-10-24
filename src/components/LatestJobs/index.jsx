@@ -39,7 +39,7 @@ export default function LatestJobs({ className, title, button, visibleCount, sec
               gap={3}
             >
               <h3 className="h6 mb-0">Show me jobs for</h3>
-              <Stack className="flex-row flex-grow-0 justify-content-center" gap={3}>
+              <Stack className="flex-row flex-grow-0 justify-content-center" gap={2}>
                 {sectors.map(({ id, title }) => (
                   <a key={id} onClick={() => setSector(id)} className={clsx({ active: sectorFilter === id })}>
                     {title}
@@ -81,7 +81,7 @@ export default function LatestJobs({ className, title, button, visibleCount, sec
 }
 
 LatestJobs.defaultProps = {
-  className: "py-5",
+  className: "py-4 py-md-5",
   title: null,
   filters: false,
   sector: null,

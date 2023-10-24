@@ -10,8 +10,8 @@ export default function PromoSection({ className, title, items, md }) {
       <Container className="mw-xxl">
         <Title title={title} />
         <Row>
-          {items.map(({ title, description, img, href }, k) => (
-            <Col key={k} xs={12} md={md} className="mb-4">
+          {[...items, ...items, ...items, ...items].map(({ title, description, img, href }, k) => (
+            <Col key={k} xs={12} md={md} className="mb-4 mb-md-5">
               <PromoItem className="h-100" title={title} description={description} img={img} href={href} />
             </Col>
           ))}
@@ -22,7 +22,7 @@ export default function PromoSection({ className, title, items, md }) {
 }
 
 PromoSection.defaultProps = {
-  className: "py-5",
+  className: "pt-4 pt-md-5",
   title: null,
   items: [],
   md: 4,

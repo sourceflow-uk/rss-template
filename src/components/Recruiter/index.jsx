@@ -75,7 +75,7 @@ export default function Recruiter({
 }
 
 Recruiter.defaultProps = {
-  className: "py-5",
+  className: "py-4 py-md-5",
   name: "",
   title: "",
   email: "",
@@ -99,7 +99,7 @@ Recruiter.propTypes = {
       className: PropTypes.string,
       label: PropTypes.string,
       href: PropTypes.string,
-    })
+    }),
   ),
   phone: PropTypes.string,
   profile_pic: PropTypes.string,

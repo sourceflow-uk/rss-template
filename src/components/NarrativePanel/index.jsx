@@ -47,7 +47,7 @@ export default function NarrativePanel({ className, title, description, img, cta
 }
 
 NarrativePanel.defaultProps = {
-  className: "py-5",
+  className: "py-4 py-md-5",
   title: null,
   description: null,
   img: null,

@@ -47,7 +47,7 @@ export default function FeaturedEmployers({ className, title, description, items
 }
 
 FeaturedEmployers.defaultProps = {
-  className: "py-5",
+  className: "py-4 py-md-5",
   title: "Featured Employers",
   description: "",
   items: [],
@@ -63,6 +63,6 @@ FeaturedEmployers.propTypes = {
       title: PropTypes.string,
       img: PropTypes.string,
       href: PropTypes.string,
-    })
+    }),
   ),
 };

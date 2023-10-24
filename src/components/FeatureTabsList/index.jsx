@@ -39,7 +39,7 @@ export default function FeatureTabsList({ className, items, defaultActiveKey, ve
 }
 
 FeatureTabsList.defaultProps = {
-  className: "py-5",
+  className: "py-4 py-md-5",
   items: [],
   defaultActiveKey: 0,
   vertical: false,
@@ -53,7 +53,7 @@ FeatureTabsList.propTypes = {
       icon: PropTypes.string,
       img: PropTypes.string,
       body: PropTypes.string,
-    })
+    }),
   ),
   defaultActiveKey: PropTypes.number,
   vertical: PropTypes.bool,

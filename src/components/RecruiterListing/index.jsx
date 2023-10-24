@@ -28,7 +28,7 @@ export default function RecruiterListing({ className, items }) {
 }
 
 RecruiterListing.defaultProps = {
-  className: "py-5",
+  className: "py-4 py-md-5",
   items: [],
 };
 
@@ -44,6 +44,6 @@ RecruiterListing.propTypes = {
       phone: PropTypes.string,
       profile_pic: PropTypes.string,
       description: PropTypes.string,
-    })
+    }),
   ),
 };

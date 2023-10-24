@@ -22,7 +22,7 @@ export default function CaseStudies({ className, title, items }) {
 }
 
 CaseStudies.defaultProps = {
-  className: "py-5",
+  className: "py-4 py-md-5",
   title: null,
   items: [],
 };
@@ -34,6 +34,6 @@ CaseStudies.propTypes = {
     PropTypes.shape({
       title: PropTypes.string,
       href: PropTypes.string,
-    })
+    }),
   ),
 };

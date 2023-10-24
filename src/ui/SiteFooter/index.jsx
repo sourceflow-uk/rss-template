@@ -25,7 +25,7 @@ export default function SiteFooter({ className }) {
         <SiteFooterSocials
           className={clsx(classes.footer__socials, "justify-content-center justify-content-lg-start mb-4")}
         />
-        <Stack className="flex-lg-row justify-content-between align-items-center">
+        <Stack className="flex-lg-row justify-content-between align-items-center" gap={3}>
           <SiteFooterDetails className={clsx(classes.footer__details, "flex-lg-row")} />
           <a className={classes.footer__brand} href={getRoute("home")}>
             <SourceFlowImage src={company_logo} size="260x44" alt={company_name} />

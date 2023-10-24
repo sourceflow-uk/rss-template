@@ -35,7 +35,7 @@ export default function MiniCarousel({ className, title, items }) {
 }
 
 MiniCarousel.defaultProps = {
-  className: "py-5 text-white",
+  className: "py-4 py-md-5 text-white",
   title: null,
   items: [],
 };

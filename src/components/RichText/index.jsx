@@ -18,6 +18,6 @@ export default function RichText({ className, body }) {
 }
 
 RichText.defaultProps = {
-  className: "py-5",
+  className: "py-4 py-md-5",
   body: null,
 };

@@ -8,9 +8,19 @@ import classes from "./styles.module.scss";
 import { LogoCard, Title } from "@/ui";
 import { employer_helper } from "@/helpers/employer_helper";
 import { getRoute } from "@/getters/getRoute";
+import { useEffect, useState } from "react";
+import { useMediaQuery } from "@react-hook/media-query";
 
-export default function FeaturedEmployersCarousel({ className, title, visibleCount, button }) {
+export default function FeaturedEmployersCarousel({ className, title, visibleCount: desktopVisibleCount, button }) {
   const items = employer_helper.fetch({ featured: true });
+  const [visibleCount, setVisibleCount] = useState(1);
+  const xl = useMediaQuery("only screen and (min-width: 1200px)");
+  const lg = useMediaQuery("only screen and (min-width: 992px)");
+  const md = useMediaQuery("only screen and (min-width: 768px)");
+
+  useEffect(() => {
+    setVisibleCount(xl ? desktopVisibleCount : lg ? 3 : md ? 2 : 1);
+  }, [xl, lg, md, desktopVisibleCount]);
 
   return (
     <div className={clsx(className, classes.employers)}>
@@ -48,7 +58,7 @@ export default function FeaturedEmployersCarousel({ className, title, visibleCou
 }
 
 FeaturedEmployersCarousel.defaultProps = {
-  className: "py-5",
+  className: "py-4 py-md-5",
   title: null,
   visibleCount: 5,
   button: {

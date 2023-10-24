@@ -36,7 +36,7 @@ export default function HorizontalListings({ className, title, items }) {
 }
 
 HorizontalListings.defaultProps = {
-  className: "py-5",
+  className: "py-4 py-md-5",
   title: "",
   items: [],
 };
@@ -49,6 +49,6 @@ HorizontalListings.propTypes = {
       title: PropTypes.string,
       img: PropTypes.string,
       description: PropTypes.string,
-    })
+    }),
   ),
 };

@@ -22,7 +22,7 @@ export default function GridButtonsGrid({ className, title, items }) {
 }
 
 GridButtonsGrid.defaultProps = {
-  className: "py-5",
+  className: "py-4 py-md-5",
   title: "",
   items: [],
 };

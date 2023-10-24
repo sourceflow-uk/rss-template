@@ -28,7 +28,7 @@ export default function Accordion({ className, title, items, defaultActiveKey })
 }
 
 Accordion.defaultProps = {
-  className: "py-5",
+  className: "py-4 py-md-5",
   title: null,
   items: [],
   defaultActiveKey: 0,
@@ -50,7 +50,7 @@ Accordion.propTypes = {
       body: PropTypes.string,
       eventKey: PropTypes.number,
       onClick: PropTypes.func,
-    })
+    }),
   ),
   defaultActiveKey: PropTypes.number,
 };

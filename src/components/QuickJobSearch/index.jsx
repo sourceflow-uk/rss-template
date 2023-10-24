@@ -53,8 +53,8 @@ export default function QuickJobSearch({ className }) {
             <Form className={clsx(classes.search__form)} onSubmit={handleSubmit}>
               <div className="p-4">
                 <h3>Quick Job Search</h3>
-                <Row className="mb-4">
-                  <Col xs={12} md={4}>
+                <Row className="mb-lg-4">
+                  <Col xs={12} lg={4} className="mb-2 mb-lg-0">
                     <Form.Group>
                       <Form.Label>Job Title / keywords</Form.Label>
                       <Form.Control
@@ -64,7 +64,7 @@ export default function QuickJobSearch({ className }) {
                       />
                     </Form.Group>
                   </Col>
-                  <Col xs={12} md={4}>
+                  <Col xs={12} lg={4} className="mb-2 mb-lg-0">
                     <Form.Group>
                       <Form.Label>Sector</Form.Label>
                       <Form.Select value={sector} onChange={(e) => setSector(e.target.value)}>
@@ -77,7 +77,7 @@ export default function QuickJobSearch({ className }) {
                       </Form.Select>
                     </Form.Group>
                   </Col>
-                  <Col xs={12} md={4}>
+                  <Col xs={12} lg={4} className="mb-2 mb-lg-0">
                     <Form.Group>
                       <Form.Label>Location / Postcode</Form.Label>
                       <Form.Control
@@ -94,7 +94,7 @@ export default function QuickJobSearch({ className }) {
                       <Form.Label>Job type</Form.Label>
                       <Row>
                         {job_types.map(({ title }) => (
-                          <Col key={title} xs={12} md={6}>
+                          <Col key={title} xs={6} sm={12} xl={6}>
                             <Form.Check
                               value={title}
                               label={title}
@@ -109,9 +109,9 @@ export default function QuickJobSearch({ className }) {
                       </Row>
                     </Form.Group>
                   </Col>
-                  <Col xs={12} md={4}>
+                  <Col xs={12} md={8} xxl={4}>
                     <Row>
-                      <Col xs={12} md={6}>
+                      <Col xs={6} md={12} lg={6}>
                         <Form.Group>
                           <Form.Label>Salary</Form.Label>
                           <Form.Select>
@@ -124,7 +124,7 @@ export default function QuickJobSearch({ className }) {
                           </Form.Select>
                         </Form.Group>
                       </Col>
-                      <Col xs={12} md={6}>
+                      <Col xs={6} md={12} lg={6}>
                         <Form.Group>
                           <Form.Label>Within</Form.Label>
                           <Form.Select value={radius} onChange={(e) => setRadius(e.target.value)}>

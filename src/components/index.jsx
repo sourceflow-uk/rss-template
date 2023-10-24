@@ -37,5 +37,6 @@ export const RichText = lazy(() => import("./RichText"));
 export const SectionHeading = lazy(() => import("./SectionHeading"));
 export const SimilarJobs = lazy(() => import("./SimilarJobs"));
 export const SocialVideo = lazy(() => import("./SocialVideo"));
+export const Spacer = lazy(() => import("./Spacer"));
 export const TeamBio = lazy(() => import("./TeamBio"));
 export const TrendingJobs = lazy(() => import("./TrendingJobs"));

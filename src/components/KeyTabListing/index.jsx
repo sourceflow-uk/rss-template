@@ -33,7 +33,7 @@ export default function KeyTabListing({ className, items }) {
 }
 
 KeyTabListing.defaultProps = {
-  className: "py-5",
+  className: "py-4 py-md-5",
   items: [],
 };
 
@@ -44,6 +44,6 @@ KeyTabListing.propTypes = {
       title: PropTypes.string,
       icon: PropTypes.string,
       body: PropTypes.string,
-    })
+    }),
   ),
 };

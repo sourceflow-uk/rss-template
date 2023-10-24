@@ -6,7 +6,10 @@
 
     [class*="carousel-control-"] {
       position: relative;
-      width: $spacer * 10;
+
+      @include media-breakpoint-up(md) {
+        width: $spacer * 10;
+      }
 
       svg {
         fill: var(#{--bs-primary});

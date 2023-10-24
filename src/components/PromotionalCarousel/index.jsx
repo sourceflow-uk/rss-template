@@ -35,7 +35,7 @@ export default function PromotionalCarousel({ className, items }) {
 }
 
 PromotionalCarousel.defaultProps = {
-  className: "py-5",
+  className: "py-4 py-md-5",
   items: [],
 };
 
@@ -53,6 +53,6 @@ PromotionalCarousel.propTypes = {
         variant: PropTypes.string,
       }),
       video_embed_url: PropTypes.string,
-    })
+    }),
   ),
 };
