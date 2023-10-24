@@ -7,7 +7,11 @@
     }
 
     .js-columns-container {
-      margin-top: $spacer * 4;
+      margin-top: 0;
+
+      @include media-breakpoint-up(md) {
+        margin-top: $spacer * 4;
+      }
     }
 
     .js-total-count {
@@ -19,10 +23,18 @@
       padding: 0;
 
       &-input-wrapper {
+        flex-direction: column;
+        gap: $spacer * 0.5;
+
+        @include media-breakpoint-up(sm) {
+          flex-direction: row;
+          gap: $spacer;
+        }
+
         .js-button {
           background-color: var(#{--bs-secondary});
           border-color: var(#{--bs-secondary});
-          margin-left: 1em;
+          margin-left: 0;
           font-weight: $font-weight-bold;
           border-radius: var(#{--bs-border-radius});
 
@@ -36,15 +48,24 @@
 
     .js-input {
       border-radius: var(#{--bs-border-radius});
-      padding: $spacer;
+      padding: $spacer * 0.5 $spacer * 0.75;
+
+      @include media-breakpoint-up(md) {
+        padding: $spacer;
+      }
 
       &-wrapper {
+        margin: 0;
+        width: auto;
+
         &-query {
           width: 100%;
         }
 
         &-radius {
-          max-width: 200px;
+          @include media-breakpoint-up(md) {
+            flex-basis: 200px;
+          }
         }
       }
     }
@@ -52,6 +73,7 @@
     .js-filters-toggle-button {
       background-color: var(#{--bs-primary});
       border-color: var(#{--bs-primary});
+      border-radius: var(#{--bs-border-radius-sm});
 
       &:hover {
         background-color: var(#{--bs-primary-active});

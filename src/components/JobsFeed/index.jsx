@@ -54,7 +54,7 @@ export default function JobsFeed({ className, sector, changeURLOnFilterChange })
           translations={{
             "searchResults.buttonText": "View job",
             "button.text": (
-              <Stack className="flex-row align-items-center px-3" gap={2}>
+              <Stack className="flex-row align-items-center justify-content-center px-3" gap={2}>
                 Search <ArrowRight />
               </Stack>
             ),
