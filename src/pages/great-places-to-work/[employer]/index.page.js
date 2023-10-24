@@ -4,7 +4,6 @@ import { generateBody } from "@/faker/generateBody";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateTitle } from "@/faker/generateTitle";
 import { generateJob } from "@/faker/generateJob";
-import { generatePromoItem } from "@/faker/generatePromoItem";
 import { employer_helper } from "@/helpers/employer_helper";
 import { employer_page_helper } from "@/helpers/employer_page_helper";
 import { getAsset } from "@/getters/getAsset";
@@ -124,7 +123,7 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   return {
-    paths: employer_helper.toPaths((i) => ({ params: { employer: i.url_slug } })),
+    paths: employer_helper.toPaths({ iterator: (i) => ({ params: { employer: i.url_slug } }) }),
     fallback: false,
   };
 }

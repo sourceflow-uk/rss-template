@@ -40,11 +40,15 @@ export default class CollectionHelper {
     return items;
   }
 
-  toPaths(iterator = (i) => ({ params: { url_slug: i.url_slug } })) {
-    return this.collection.getItems().map(iterator);
+  toPaths({ exclude = [], iterator = (i) => ({ params: { url_slug: i.url_slug } }) } = {}) {
+    return this.collection
+      .getItems()
+      .filter((i) => !exclude.includes(i.id))
+      .map(iterator);
   }
 
-  toNestedPaths(
+  toNestedPaths({
+    exclude = [],
     iterator = (i) => {
       let url_slugs = [i.url_slug];
       let page = { ...i };
@@ -56,7 +60,7 @@ export default class CollectionHelper {
 
       return { params: { url_slugs } };
     },
-  ) {
-    return this.toPaths(iterator);
+  } = {}) {
+    return this.toPaths({ exclude, iterator });
   }
 }
