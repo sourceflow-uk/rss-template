@@ -27,8 +27,18 @@
     z-index: 1;
   }
 
+  &[class*="contain"] {
+    background-color: var(#{--bs-primary});
+  }
+
   &[class*="contain"] &__img {
-    object-fit: contain;
+    display: none;
+
+    @include media-breakpoint-up(md) {
+      display: block;
+      object-fit: contain;
+      object-position: center;
+    }
   }
 
   //&[class*="has-img"]:hover &__img {

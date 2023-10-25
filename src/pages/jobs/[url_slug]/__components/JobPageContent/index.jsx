@@ -78,7 +78,7 @@ export default function JobPageContent({
                       {img && <img className="ms-auto d-block" src={img} alt="" />}
                     </Col>
                   </Row>
-                  <Stack className="flex-row mb-3" gap={2}>
+                  <Stack className="flex-row flex-wrap flex-md-nowrap mb-3" gap={2}>
                     {sectors.map(({ name }, k) => (
                       <Tag key={k} label={name} variant="primary" />
                     ))}

@@ -7,9 +7,11 @@
     padding: $spacer;
     color: $white;
     display: flex;
+    align-items: center;
 
     svg {
       stroke: $white;
+      flex-shrink: 0;
     }
   }
 
