@@ -1,7 +1,6 @@
 import { getRoute } from "@/getters/getRoute";
 import { mini_carousel_helper } from "@/helpers/mini_carousel_helper";
 import { trimText } from "@/functions/trimText";
-import { getAsset } from "@/getters/getAsset";
 import { sector_helper } from "@/helpers/sector_helper";
 
 export const getSectorStaticProps = ({ sector_id, pages_helper }) => {
@@ -70,7 +69,7 @@ export const getSectorStaticProps = ({ sector_id, pages_helper }) => {
             items: pages.map((i) => ({
               title: i.name,
               description: trimText(i.body),
-              img: i.cover_image ?? getAsset("_theme.card.img.fallback") ?? null,
+              img: i.cover_image ?? null,
               href: getRoute("sectorPage", { sector: sector.url_slug, page: i.url_slug }),
             })),
             md: 3,

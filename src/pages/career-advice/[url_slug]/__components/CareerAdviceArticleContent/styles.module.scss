@@ -1,0 +1,22 @@
+@import "src/scss/module";
+
+.content {
+  &:not([class*="text-white"]) {
+    h3 {
+      &,
+      & * {
+        color: var(#{--bs-tertiary}) !important;
+      }
+    }
+
+    a {
+      color: var(#{--bs-primary});
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
+  }
+}

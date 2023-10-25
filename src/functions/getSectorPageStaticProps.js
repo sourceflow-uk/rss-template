@@ -1,7 +1,6 @@
 import { getRoute } from "@/getters/getRoute";
 import { sector_helper } from "@/helpers/sector_helper";
 import { trimText } from "@/functions/trimText";
-import { getAsset } from "@/getters/getAsset";
 
 export const getSectorPageStaticProps = ({ sector_id, url_slug, pages_helper }) => {
   const sector = sector_helper.find(sector_id, "id");
@@ -51,7 +50,7 @@ export const getSectorPageStaticProps = ({ sector_id, url_slug, pages_helper }) 
             items: pages.map((i) => ({
               title: i.name,
               description: trimText(i.body),
-              img: i.cover_image ?? getAsset("_theme.card.img.fallback") ?? null,
+              img: i.cover_image ?? null,
               href: getRoute("sectorPage", { sector: sector.url_slug, page: i.url_slug }),
             })),
             md: 3,

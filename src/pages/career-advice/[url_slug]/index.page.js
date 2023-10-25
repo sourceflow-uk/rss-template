@@ -37,7 +37,9 @@ export async function getStaticProps({ params: { url_slug } }) {
         {
           component: "Header",
           props: {
+            className: page.cover_image ? "text-white" : "text-tertiary",
             title: page.title,
+            img: page.cover_image ?? null,
           },
         },
         {

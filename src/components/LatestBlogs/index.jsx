@@ -15,7 +15,7 @@ export default function LatestBlogs({ className, title, button }) {
     <div className={clsx(className, classes.blogs)}>
       <Container className="mw-xxl">
         <Title title={title} />
-        <Row className="mb-4">
+        <Row className="mb-md-4">
           {items.map(({ title, body, image, publish_date, url_slug }, k) => (
             <Col key={k} xs={12} md={4} className="mb-4 mb-md-0">
               <LatestBlogCard

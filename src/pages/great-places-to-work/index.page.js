@@ -57,7 +57,7 @@ export async function getStaticProps() {
             items: employers.map((i) => ({
               title: i.name,
               description: trimText(i.description),
-              img: i.card_image ?? i.cover_image ?? getAsset("_theme.card.img.fallback") ?? null,
+              img: i.card_image ?? i.cover_image ?? null,
               href: getRoute("employer", { employer: i.url_slug }),
             })),
           },

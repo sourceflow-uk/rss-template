@@ -53,7 +53,7 @@ export async function getStaticProps({}) {
               .fetch({ limit: 4, featured: true })
               .map(({ title, content, card_image, url_slug }) => ({
                 title,
-                img: card_image ?? getAsset("_theme.card.img.fallback") ?? null,
+                img: card_image ?? null,
                 description: trimText(content),
                 href: getRoute("careerAdviceArticle", { url_slug }),
               })),

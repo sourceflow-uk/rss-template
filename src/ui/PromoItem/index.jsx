@@ -3,11 +3,14 @@ import clsx from "classnames";
 import classes from "./styles.module.scss";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 import { Description, Title } from "@/ui";
+import { getAsset } from "@/getters/getAsset";
 
 export default function PromoItem({ className, title, img, description, href }) {
   return (
     <a href={href} className={clsx(className, classes.card)}>
-      <figure>{img && <SourceFlowImage src={img} size="380x220" alt="Cover image" />}</figure>
+      <figure>
+        <SourceFlowImage src={img ?? getAsset("_theme.card.img.fallback")} size="380x220" alt="Cover image" />
+      </figure>
       <div className={classes.card__body}>
         <Title title={title} tag="h5" />
         <Description description={description} />

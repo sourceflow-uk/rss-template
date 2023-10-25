@@ -4,12 +4,13 @@ import { Col, Container, Row } from "react-bootstrap";
 import { SidebarNavigation } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
 import { career_advice_helper } from "@/helpers/career_advice_helper";
+import classes from "./styles.module.scss";
 
 export default function CareerAdviceArticleContent({ className, id, body }) {
-  const items = career_advice_helper.fetch({ exclude: [] });
+  const items = career_advice_helper.fetch({ exclude: [id] });
 
   return (
-    <div className={clsx(className)}>
+    <div className={clsx(className, classes.content)}>
       <Container className="mw-xxl">
         <Row>
           <Col xs={12} md={8}>
