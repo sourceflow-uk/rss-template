@@ -12,12 +12,10 @@ export default function SiteFooter({ className }) {
   const global = getGlobal();
   const company_name = global["_theme.company.name"];
   const company_logo = getAsset("_theme.company.logo.white");
+  const footer_bg = getAsset("_theme.footer.bg");
 
   return (
-    <div
-      className={clsx(className, classes.footer, "pt-5 pb-4")}
-      style={{ backgroundImage: `url(${getAsset("_theme.footer.bg")})` }}
-    >
+    <div className={clsx(className, classes.footer, "pt-5 pb-4")} style={{ backgroundImage: `url(${footer_bg})` }}>
       <Container>
         <SiteFooterNav className={clsx(classes.footer__nav, "flex-md-row mb-4")} />
       </Container>
