@@ -24,13 +24,20 @@
 
   &__body {
     flex-grow: 1;
-    padding: $spacer * 2 $spacer $spacer;
+    padding: $spacer;
     border-top: 1px solid lightgray;
+
+    @include media-breakpoint-up(md) {
+      padding: $spacer * 2 $spacer $spacer;
+    }
 
     h5 {
       min-height: 48px;
       color: var(#{--bs-primary});
-      margin-bottom: 0;
+
+      @include media-breakpoint-up(md) {
+        margin-bottom: 0;
+      }
     }
   }
 }

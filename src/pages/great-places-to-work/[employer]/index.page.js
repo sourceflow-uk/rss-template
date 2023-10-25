@@ -3,11 +3,11 @@ import { getRoute } from "@/getters/getRoute";
 import { generateBody } from "@/faker/generateBody";
 import { generateArrayOf } from "@/faker/generateArrayOf";
 import { generateTitle } from "@/faker/generateTitle";
-import { generateJob } from "@/faker/generateJob";
 import { employer_helper } from "@/helpers/employer_helper";
 import { employer_page_helper } from "@/helpers/employer_page_helper";
 import { getAsset } from "@/getters/getAsset";
 import { trimText } from "@/functions/trimText";
+import { jobs_helper } from "@/helpers/jobs_helper";
 
 export default function EmployerPage({ content }) {
   return (
@@ -48,14 +48,14 @@ export async function getStaticProps({ params }) {
         {
           component: "RichText",
           props: {
-            className: "bg-primary text-white py-5",
+            className: "bg-primary text-white py-4 py-md-5",
             body: employer.content,
           },
         },
         {
           component: "Accordion",
           props: {
-            className: "text-center py-5",
+            className: "text-center py-4 py-md-5",
             title: {
               path: `page.${employer.url_slug}.component.Accordion.title`,
               placeholder: `Roles with ${employer.name}`,
@@ -73,7 +73,7 @@ export async function getStaticProps({ params }) {
         {
           component: "NarrativePanel",
           props: {
-            className: "py-5 bg-light",
+            className: "py-4 py-md-5 bg-light",
             title: {
               path: `page.${employer.url_slug}.component.NarrativePanel.title`,
               placeholder: "Why is Royal Mail a great place to work?",
@@ -94,7 +94,7 @@ export async function getStaticProps({ params }) {
               path: `page.${employer.url_slug}.component.LatestJobs.title`,
               placeholder: `Latest ${employer.name} Jobs`,
             },
-            items: generateArrayOf(generateJob, { count: 12 }),
+            items: jobs_helper.fetch({ filter: (i) => JSON.stringify(i).includes(employer.id) }),
             visibleCount: 4,
           },
         },

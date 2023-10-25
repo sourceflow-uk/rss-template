@@ -6,7 +6,7 @@ import { getRoute } from "@/getters/getRoute";
 import { employer_page_helper } from "@/helpers/employer_page_helper";
 
 export default function EmployerPageArticleContent({ className, id, employer, body }) {
-  const items = employer_page_helper.fetch({ exclude: [] });
+  const items = employer_page_helper.fetch({ exclude: [id] });
 
   return (
     <div className={clsx(className)}>
@@ -37,7 +37,7 @@ export default function EmployerPageArticleContent({ className, id, employer, bo
 }
 
 EmployerPageArticleContent.defaultProps = {
-  className: "py-5",
+  className: "py-4 py-md-5",
   body: null,
 };
 

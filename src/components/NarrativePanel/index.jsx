@@ -30,7 +30,7 @@ export default function NarrativePanel({ className, title, description, img, cta
           </Col>
           <Col xs={12} md={6} className="d-flex flex-column justify-content-center">
             {image && (
-              <figure className="my-4 my-md-0 position-relative">
+              <figure className="mb-4 mb-md-0 position-relative">
                 <SourceFlowImage className="mw-100" src={image} size="540x291" alt={title} />
                 {video_embed_url && (
                   <VideoModal video_embed_url={video_embed_url}>
