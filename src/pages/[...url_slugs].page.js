@@ -3,8 +3,6 @@ import { getRoute } from "@/getters/getRoute";
 import unslug from "unslug";
 import { simple_pages_helper } from "@/helpers/simple_pages_helper";
 import { sector_helper } from "@/helpers/sector_helper";
-import { generateArrayOf } from "@/faker/generateArrayOf";
-import { generatePromoItem } from "@/faker/generatePromoItem";
 import { mini_carousel_helper } from "@/helpers/mini_carousel_helper";
 
 export default function Page({ content }) {
@@ -77,17 +75,11 @@ export async function getStaticProps({ params: { url_slugs } }) {
                   }),
                 },
               },
-              {
-                component: "PromoSection",
-                props: {
-                  title: {
-                    path: `page.${item.url_slug}.component.PromoSection.title`,
-                    placeholder: "Also in this section",
-                  },
-                  items: generateArrayOf(generatePromoItem, { count: 8 }),
-                  md: 3,
-                },
-              },
+              // NOTE:
+              //
+              // If sector pages are added for a section create a new sector page and add sector id to the excluded list below.
+              //
+              // See /drivingjobs folder for example sector page
             ]
           : [{ component: "RichText", props: { body: item.body } }]),
       ],

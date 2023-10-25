@@ -267,6 +267,10 @@
       padding: $spacer * 3 0;
       border: 0;
 
+      &:empty {
+        display: none;
+      }
+
       .js-button {
         width: 100%;
         display: block;
