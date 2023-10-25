@@ -1,4 +1,5 @@
 import { lazy } from "react";
+export { default as SiteHeader } from "./SiteHeader";
 
 export const AccordionItem = lazy(() => import("./AccordionItem"));
 export const BlockQuoteCard = lazy(() => import("./BlockQuoteCard"));
@@ -36,7 +37,6 @@ export const RelatedJobCard = lazy(() => import("./RelatedJobCard"));
 export const SidebarNavigation = lazy(() => import("./SidebarNavigation"));
 export const SimilarJobCard = lazy(() => import("./SimilarJobCard"));
 export const SiteFooter = lazy(() => import("./SiteFooter"));
-export const SiteHeader = lazy(() => import("./SiteHeader"));
 export const SocialLinks = lazy(() => import("./SocialLinks"));
 export const SocialNavigation = lazy(() => import("./SocialNavigation"));
 export const SocialShare = lazy(() => import("./SocialShare"));

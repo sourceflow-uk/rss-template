@@ -1,7 +1,6 @@
-import PropTypes from "prop-types";
-import clsx from "classnames";
-import { Dropdown, Nav } from "react-bootstrap";
 import ChevronDown from "@/assets/ChevronDown.svg";
+import PropTypes from "prop-types";
+import { Dropdown, Nav } from "react-bootstrap";
 import { getHeaderMenu } from "@/getters/getHeaderMenu";
 import { useState } from "react";
 
@@ -10,20 +9,23 @@ export default function SiteHeaderNav({ className }) {
   const [show, setShow] = useState(null);
 
   return (
-    <Nav className={clsx(className)}>
+    <Nav className={className}>
       {nav.map(({ label, children, href, target }, k) =>
         children ? (
           <Dropdown
-            as={Nav.Item}
             key={k}
             align={nav.length - 1 === k ? "end" : "start"}
             onMouseEnter={() => setShow(k)}
             onMouseLeave={() => setShow(null)}
           >
-            <Dropdown.Toggle as={Nav.Link} href={href} target={target}>
-              {label}
-              <ChevronDown />
-            </Dropdown.Toggle>
+            <Nav.Item>
+              <Nav.Link href={href} target={target}>
+                {label}
+              </Nav.Link>
+              <Dropdown.Toggle variant={false}>
+                <ChevronDown onClick={() => setShow(k)} />
+              </Dropdown.Toggle>
+            </Nav.Item>
             <Dropdown.Menu show={show === k}>
               {children.map(({ label, href, target }, k) => (
                 <Dropdown.Item as={Nav.Item} key={k} className="bg-tertiary hover-bg-quaternary text-white">
@@ -40,7 +42,7 @@ export default function SiteHeaderNav({ className }) {
               {label}
             </Nav.Link>
           </Nav.Item>
-        )
+        ),
       )}
     </Nav>
   );
