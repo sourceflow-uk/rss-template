@@ -11,6 +11,7 @@ export const CollapsibleSection = lazy(() => import("./CollapsibleSection"));
 export const Divider = lazy(() => import("./Divider"));
 export const FeaturedEmployers = lazy(() => import("./FeaturedEmployers"));
 export const FeatureTabsList = lazy(() => import("./FeatureTabsList"));
+export const Form = lazy(() => import("./Form"));
 export const GridButtonsGrid = lazy(() => import("./GridButtonsGrid"));
 export const Header = lazy(() => import("./Header"));
 export const Hero = lazy(() => import("./Hero"));

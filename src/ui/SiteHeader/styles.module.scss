@@ -6,6 +6,10 @@
   overflow-y: scroll;
   max-height: 100vh;
 
+  @include media-breakpoint-up(md) {
+    overflow-y: initial;
+  }
+
   &__brand {
     img {
       width: 174px;
