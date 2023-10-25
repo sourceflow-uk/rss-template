@@ -21,7 +21,7 @@ export default function ContactPageForm({ className, title }) {
 }
 
 ContactPageForm.defaultProps = {
-  className: "py-5",
+  className: "py-4 py-md-5",
 };
 
 ContactPageForm.propTypes = {

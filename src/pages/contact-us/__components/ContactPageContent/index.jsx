@@ -32,7 +32,7 @@ export default function ContactPageContent({ className }) {
             <Detail icon={<Contact width={22} height={22} />} value={<a href="#form">Send us a message (below)</a>} />
           </Col>
           <Col xs={12} md={4}>
-            <SocialLinks />
+            <SocialLinks className="mt-3 mt-md-0" />
           </Col>
         </Row>
       </Container>
@@ -41,7 +41,7 @@ export default function ContactPageContent({ className }) {
 }
 
 ContactPageContent.defaultProps = {
-  className: "py-5",
+  className: "py-4 py-md-5",
 };
 
 ContactPageContent.propTypes = {

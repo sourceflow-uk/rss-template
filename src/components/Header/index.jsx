@@ -11,7 +11,7 @@ export default function Header({ className, title, img, contain, description, ct
   return (
     <div className={clsx(className, classes.header, { "has-img": img, contain })}>
       {img && <SourceFlowImage className={classes.header__img} src={img} size="1440x300" alt="Header image" />}
-      <div className={clsx(classes.header__body, "p-3 p-md-5")}>
+      <div className={clsx(classes.header__body, "py-3 p-md-5")}>
         <Container className="mw-xxl">
           <Row className="h-100">
             <Col xs={12} md={6} className="d-flex flex-column justify-content-center h-100">

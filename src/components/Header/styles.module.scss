@@ -4,12 +4,13 @@
   position: relative;
   min-height: 180px;
   background-color: var(#{--bs-light});
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   &[class*="has-img"] {
-    display: flex;
     overflow: hidden;
     justify-content: center;
-    align-items: center;
 
     @include media-breakpoint-up(md) {
       height: 300px;
