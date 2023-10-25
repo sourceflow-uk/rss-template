@@ -4,10 +4,22 @@
   padding-top: $spacer * 0.75;
   padding-bottom: $spacer * 0.75;
 
+  nav {
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
   ol {
     margin: 0;
+    flex-wrap: nowrap;
 
     li {
+      white-space: nowrap;
+      flex-shrink: 0;
+
       &:last-of-type {
         a {
           color: inherit;
