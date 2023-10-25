@@ -14,7 +14,10 @@ export default function SiteFooter({ className }) {
   const company_logo = getAsset("_theme.company.logo.white");
 
   return (
-    <div className={clsx(className, classes.footer, "pt-5 pb-4")}>
+    <div
+      className={clsx(className, classes.footer, "pt-5 pb-4")}
+      style={{ backgroundImage: `url(${getAsset("_theme.footer.bg")})` }}
+    >
       <Container>
         <SiteFooterNav className={clsx(classes.footer__nav, "flex-md-row mb-4")} />
       </Container>

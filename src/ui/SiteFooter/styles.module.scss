@@ -1,6 +1,8 @@
 @import "src/scss/module";
 
 .footer {
+  background-size: cover;
+
   &__nav {
     & > div {
       flex-basis: 240px;
