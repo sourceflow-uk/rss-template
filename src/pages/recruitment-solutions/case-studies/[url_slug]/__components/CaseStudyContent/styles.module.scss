@@ -3,6 +3,7 @@
 .content {
   img {
     border-radius: var(#{--bs-border-radius});
+    max-width: 100%;
   }
 
   &__info {
@@ -19,7 +20,10 @@
         display: flex;
         align-items: center;
         gap: $spacer * 0.5;
-        margin-bottom: $spacer * 0.5;
+
+        @include media-breakpoint-up(md) {
+          margin-bottom: $spacer * 0.5;
+        }
       }
 
       dd {

@@ -36,11 +36,11 @@ export default function CaseStudyContent({
 }) {
   return (
     <div className={clsx(className, classes.content)}>
-      <div className="py-5">
+      <div className="py-4 py-md-5">
         <Container>
           <Row>
             <Col xs={12} md={3}>
-              <aside className={clsx(classes.content__info, "bg-primary text-white p-4")}>
+              <aside className={clsx(classes.content__info, "bg-primary text-white p-4 mb-4")}>
                 <dl>
                   <dt>
                     <Client />
@@ -123,7 +123,7 @@ export default function CaseStudyContent({
           </Row>
         </Container>
       </div>
-      <div className="bg-light py-5">
+      <div className="bg-light py-4 py-md-5">
         <Container>
           <Row>
             <Col xs={12} md={6}>
@@ -138,10 +138,10 @@ export default function CaseStudyContent({
           </Row>
         </Container>
       </div>
-      <div className="py-5">
+      <div className="py-4 py-md-5">
         <Container>
           <Row>
-            <Col xs={12} md={6} className="d-flex justify-content-start align-items-center">
+            <Col xs={12} md={6} className="d-flex justify-content-start align-items-center mb-4">
               {solution_image && <SourceFlowImage src={solution_image} size="540x" alt="Solution image" />}
             </Col>
             <Col xs={12} md={6}>
@@ -153,7 +153,7 @@ export default function CaseStudyContent({
           </Row>
         </Container>
       </div>
-      <div className="bg-primary text-white py-5">
+      <div className="bg-primary text-white py-4 py-md-5">
         <Container>
           <Row>
             <Col xs={12} md={6}>
@@ -169,7 +169,7 @@ export default function CaseStudyContent({
         </Container>
       </div>
       <div
-        className={clsx(classes.content__result, "bg-tertiary text-white py-5")}
+        className={clsx(classes.content__result, "bg-tertiary text-white py-4 py-md-5")}
         style={{ backgroundImage: `url(${getAsset("page.caseStudy.component.CaseStudyContent.result.bg")})` }}
       >
         <Container>
@@ -188,7 +188,7 @@ export default function CaseStudyContent({
           <BlockQuoteCard quote={testimonial} />
         </Container>
       </div>
-      <div className="bg-light py-5">
+      <div className="bg-light py-4 py-md-5">
         <Container>
           <Title title="Need help finding staff?" />
           <Form formId="fc80821d-9e46-4316-8047-3c305815c1c2" />
@@ -199,7 +199,7 @@ export default function CaseStudyContent({
 }
 
 CaseStudyContent.defaultProps = {
-  className: "py-5",
+  className: "py-4 py-md-5",
 };
 
 CaseStudyContent.propTypes = {
