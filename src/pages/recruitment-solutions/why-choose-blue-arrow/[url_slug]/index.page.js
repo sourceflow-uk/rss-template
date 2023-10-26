@@ -1,5 +1,9 @@
 import { Content } from "@/ui";
 import { product_helper } from "@/helpers/product_helper";
+import { generateTitle } from "@/faker/generateTitle";
+import { generateDescription } from "@/faker/generateDescription";
+import { generateArrayOf } from "@/faker/generateArrayOf";
+import { generateFeaturedTabListItem } from "@/faker/generateFeaturedTabListItem";
 
 export default function ServicePage({ content }) {
   return (
@@ -32,6 +36,39 @@ export async function getStaticProps({ params: { url_slug } }) {
           props: {
             className: "bg-white py-5",
             video_embed_url: product.video_embed_url,
+          },
+        },
+        ...new Array(product.narrative_panel_count).fill(null).map((i, k) => ({
+          component: "NarrativePanel",
+          props: {
+            className: `${k % 2 === 0 ? "bg-light" : "bg-primary text-white"} py-4 py-md-5`,
+            title: {
+              path: `page.${url_slug}.component.NarrativePanel.${k + 1}.title`,
+              placeholder: generateTitle(),
+            },
+            description: {
+              path: `page.${url_slug}.component.NarrativePanel.${k + 1}.description`,
+              placeholder: generateDescription(),
+            },
+            img: {
+              path: `page.${url_slug}.component.NarrativePanel.${k + 1}.img`,
+            },
+            reverse: k % 2 === 0,
+          },
+        })),
+        {
+          component: "FeatureTabsList",
+          props: {
+            title: {
+              path: `page.${url_slug}.component.FeatureTabsList.title`,
+              placeholder: generateTitle(),
+            },
+            description: {
+              path: `page.${url_slug}.component.FeatureTabsList.description`,
+              placeholder: generateDescription(),
+            },
+            items: generateArrayOf(generateFeaturedTabListItem, { count: 4 }),
+            defaultActiveKey: -1,
           },
         },
         {

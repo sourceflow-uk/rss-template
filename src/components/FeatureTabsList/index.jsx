@@ -4,11 +4,14 @@ import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 import { trimText } from "@/functions/trimText";
 import PropTypes from "prop-types";
 import classes from "./styles.module.scss";
+import { Description, Title } from "@/ui";
 
-export default function FeatureTabsList({ className, items, defaultActiveKey, vertical }) {
+export default function FeatureTabsList({ className, title, description, items, defaultActiveKey, vertical }) {
   return (
     <div className={clsx(className, classes.featured, { vertical })}>
       <Container>
+        <Title title={title} />
+        <Description className="mb-4" description={description} />
         <Tab.Container defaultActiveKey={defaultActiveKey}>
           <Stack className={clsx({ "flex-row": vertical })}>
             <Nav variant="pills" className={clsx({ "flex-column": vertical })}>
@@ -40,6 +43,8 @@ export default function FeatureTabsList({ className, items, defaultActiveKey, ve
 
 FeatureTabsList.defaultProps = {
   className: "py-4 py-md-5",
+  title: null,
+  description: null,
   items: [],
   defaultActiveKey: 0,
   vertical: false,
@@ -47,6 +52,8 @@ FeatureTabsList.defaultProps = {
 
 FeatureTabsList.propTypes = {
   className: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
   items: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,

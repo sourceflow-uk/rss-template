@@ -10,7 +10,7 @@ import ArrowLeft from "@/assets/ArrowLeft.svg";
 export default function Header({ className, title, img, contain, description, cta, video_embed_url, back }) {
   return (
     <div className={clsx(className, classes.header, { "has-img": img, contain })}>
-      {img && <SourceFlowImage className={classes.header__img} src={img} size="1440x300" alt="Header image" />}
+      {img && <SourceFlowImage className={classes.header__img} src={img} size="x370" alt="Header image" />}
       <div className={clsx(classes.header__body, "py-3 p-md-5")}>
         <Container className="mw-xxl">
           <Row className="h-100">

@@ -2,24 +2,13 @@ import clsx from "classnames";
 import { Container } from "react-bootstrap";
 import classes from "./styles.module.scss";
 import PropTypes from "prop-types";
-import { useYoutubeVideoEmbedUrl } from "@/hooks/useYoutubeVideoEmbedUrl";
+import { Video } from "@/ui";
 
 export default function SocialVideo({ className, video_embed_url }) {
-  const video = useYoutubeVideoEmbedUrl(video_embed_url);
-
   return (
     <div className={clsx(className, classes.video)}>
       <Container>
-        <div className="ratio ratio-16x9">
-          <iframe
-            width="1920"
-            height="1080"
-            src={video}
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          />
-        </div>
+        <Video video_embed_url={video_embed_url} />
       </Container>
     </div>
   );
@@ -27,7 +16,7 @@ export default function SocialVideo({ className, video_embed_url }) {
 
 SocialVideo.defaultProps = {
   className: "bg-light py-5",
-  video_embed_url: "",
+  video_embed_url: null,
   img: null,
 };
 

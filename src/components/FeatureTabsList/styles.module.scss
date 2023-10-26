@@ -15,14 +15,14 @@
     border-bottom-right-radius: 0;
 
     &[aria-selected="true"] {
-      background-color: rgba($black, 0.1);
+      background-color: transparent;
       color: inherit;
     }
   }
 
   [role="tabpanel"] {
     height: 100%;
-    background-color: rgba($black, 0.1);
+    background-color: transparent;
 
     article {
       display: flex;
