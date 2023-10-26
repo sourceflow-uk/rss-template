@@ -4,6 +4,7 @@ export { default as SiteHeader } from "./SiteHeader";
 export const AccordionItem = lazy(() => import("./AccordionItem"));
 export const BlockQuoteCard = lazy(() => import("./BlockQuoteCard"));
 export const BlogFeedCard = lazy(() => import("./BlogFeedCard"));
+export const Body = lazy(() => import("./Body"));
 export const BranchLocationCard = lazy(() => import("./BranchLocationCard"));
 export const BranchLocator = lazy(() => import("./BranchLocator"));
 export const CaseStudyCard = lazy(() => import("./CaseStudyCard"));

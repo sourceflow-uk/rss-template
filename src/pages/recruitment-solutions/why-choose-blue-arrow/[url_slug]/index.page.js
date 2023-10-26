@@ -58,6 +58,7 @@ export async function getStaticProps({ params: { url_slug } }) {
         {
           component: "FeatureTabsList",
           props: {
+            className: "text-center py-4 py-md-5",
             title: {
               path: `page.${url_slug}.component.FeatureTabsList.title`,
               placeholder: generateTitle(),
@@ -71,11 +72,10 @@ export async function getStaticProps({ params: { url_slug } }) {
                 path: `page.${url_slug}.component.FeatureTabsList.item.${k + 1}.title`,
                 placeholder: generateTitle(2),
               },
-              body: generateBody(2),
-              // body: {
-              //   path: `page.${url_slug}.component.FeatureTabsList.item.${k + 1}.body`,
-              //   placeholder: generateBody(2),
-              // },
+              body: {
+                path: `page.${url_slug}.component.FeatureTabsList.item.${k + 1}.body`,
+                placeholder: generateBody(2),
+              },
               icon: {
                 path: `page.${url_slug}.component.FeatureTabsList.item.${k + 1}.icon`,
               },

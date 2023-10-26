@@ -1,0 +1,7 @@
+@import "src/scss/module";
+
+.body {
+  &:has([data-sourceflow-path]:empty) {
+    display: none;
+  }
+}

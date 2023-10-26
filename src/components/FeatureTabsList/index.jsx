@@ -2,7 +2,7 @@ import { Container, Nav, Stack, Tab } from "react-bootstrap";
 import clsx from "classnames";
 import PropTypes from "prop-types";
 import classes from "./styles.module.scss";
-import { Description, Image, Title } from "@/ui";
+import { Body, Description, Image, Title } from "@/ui";
 
 export default function FeatureTabsList({ className, title, description, items, defaultActiveKey, vertical }) {
   return (
@@ -24,9 +24,9 @@ export default function FeatureTabsList({ className, title, description, items, 
             </Nav>
             <Tab.Content>
               {items.map(({ title, img, body }, k) => (
-                <Tab.Pane key={k} eventKey={k} className="p-5">
+                <Tab.Pane key={k} eventKey={k} className="text-start p-5">
                   <Stack as="article" className="flex-row" gap="3">
-                    <div dangerouslySetInnerHTML={{ __html: body }} />
+                    <Body body={body} />
                     <Image img={img} size="420x291" />
                   </Stack>
                 </Tab.Pane>
