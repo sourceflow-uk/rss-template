@@ -1,0 +1,9 @@
+@import "src/scss/module";
+
+.details {
+  dl {
+    display: flex;
+    align-items: center;
+    gap: $spacer * 0.75;
+  }
+}

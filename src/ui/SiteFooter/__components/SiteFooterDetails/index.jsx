@@ -1,30 +1,34 @@
 import PropTypes from "prop-types";
+import ArrowRight from "@/assets/ArrowRight.svg";
+import Location from "@/assets/Location.svg";
 import { Stack } from "react-bootstrap";
 import { getGlobal } from "@/getters/getGlobal";
+import { getRoute } from "@/getters/getRoute";
+import classes from "./styles.module.scss";
+import clsx from "classnames";
 
 export default function SiteFooterDetails({ className }) {
   const global = getGlobal();
-  const website = global["_theme.company.website"];
-  const phone = global["_theme.company.phone"];
   const address = global["_theme.company.address"];
 
   return (
-    <Stack className={className} gap={{ xs: 2, lg: 4 }}>
+    <Stack className={clsx(className, classes.details)} gap={{ xs: 2, lg: 4 }}>
       <dl>
         <dt className="visually-hidden">Website</dt>
         <dd>
-          <a href={`//${website}`}>{website}</a>
+          <a href={getRoute("contact")}>
+            Get in touch <ArrowRight className="ms-2 mb-1" />
+          </a>
         </dd>
       </dl>
       <dl>
-        <dt className="visually-hidden">Phone</dt>
+        <dt>
+          <span className="visually-hidden">Address</span>
+        </dt>
         <dd>
-          <a href={`tel:${phone.replaceAll(" ", "")}`}>{phone}</a>
+          <Location width={16} height={20} className="me-2 mb-1" />
+          {address}
         </dd>
-      </dl>
-      <dl>
-        <dt className="visually-hidden">Address</dt>
-        <dd>{address}</dd>
       </dl>
     </Stack>
   );
