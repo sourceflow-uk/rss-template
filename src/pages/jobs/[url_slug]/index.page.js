@@ -39,7 +39,7 @@ export default function JobPage({ job, content }) {
         job={job}
         employment_type={employment_type}
         site_name={global["_theme.company.name"]}
-        site_domain_link={global["_theme.company.website"]}
+        site_domain_link={global["_theme.company.domain"]}
         site_google_logo_link={global["_theme.company.logo"]}
       />
       <Content items={content} additionalComponents={additionalComponents} />
