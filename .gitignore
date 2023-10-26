@@ -41,3 +41,4 @@ yarn-error.log*
 .source_flow
 .sourceflow
 /public/sitemap*
+/public/indeed-jobs.xml

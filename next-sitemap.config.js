@@ -1,3 +1,3 @@
 module.exports = {
-  siteUrl: "https://bluearrow.co.uk/",
+  siteUrl: "https://www.bluearrow.co.uk/",
 };

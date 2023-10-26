@@ -3,7 +3,7 @@
   "private": true,
   "homepage": "https://sourceflow-uk.github.io/rss-template",
   "scripts": {
-    "build": "next build && next-sitemap && next export",
+    "build": "next build && next-sitemap && node ./src/scripts/indeed-xml.mjs && next export",
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start"
