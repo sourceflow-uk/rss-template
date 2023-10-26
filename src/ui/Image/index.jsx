@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
+import imagesMetaData from "@/../.sourceflow/image_metadata.json";
 
 export default function Image({ className, img, size, alt }) {
   if (!img) {
@@ -11,10 +12,12 @@ export default function Image({ className, img, size, alt }) {
   }
 
   if (typeof img === "object") {
-    return <SourceFlowImage className={className} path={img.path} size={size} />;
+    console.log(img);
+
+    return <SourceFlowImage className={className} path={img.path} size={size} imagesMetaData={imagesMetaData} />;
   }
 
-  return null;
+  return <h1>NOT WORKING</h1>;
 }
 
 Image.defaultProps = {

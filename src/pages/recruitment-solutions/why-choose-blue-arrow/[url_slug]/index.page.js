@@ -2,8 +2,7 @@ import { Content } from "@/ui";
 import { product_helper } from "@/helpers/product_helper";
 import { generateTitle } from "@/faker/generateTitle";
 import { generateDescription } from "@/faker/generateDescription";
-import { generateArrayOf } from "@/faker/generateArrayOf";
-import { generateFeaturedTabListItem } from "@/faker/generateFeaturedTabListItem";
+import { generateBody } from "@/faker/generateBody";
 
 export default function ServicePage({ content }) {
   return (
@@ -67,7 +66,23 @@ export async function getStaticProps({ params: { url_slug } }) {
               path: `page.${url_slug}.component.FeatureTabsList.description`,
               placeholder: generateDescription(),
             },
-            items: generateArrayOf(generateFeaturedTabListItem, { count: 4 }),
+            items: new Array(product.featured_tabs_count).fill(null).map((i, k) => ({
+              title: {
+                path: `page.${url_slug}.component.FeatureTabsList.item.${k + 1}.title`,
+                placeholder: generateTitle(2),
+              },
+              body: generateBody(2),
+              // body: {
+              //   path: `page.${url_slug}.component.FeatureTabsList.item.${k + 1}.body`,
+              //   placeholder: generateBody(2),
+              // },
+              icon: {
+                path: `page.${url_slug}.component.FeatureTabsList.item.${k + 1}.icon`,
+              },
+              img: {
+                path: `page.${url_slug}.component.FeatureTabsList.item.${k + 1}.img`,
+              },
+            })),
             defaultActiveKey: -1,
           },
         },

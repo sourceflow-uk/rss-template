@@ -124,7 +124,7 @@ hr {
   opacity: 0.25;
 }
 
-[data-sourceflow-path]:empty {
+[data-sourceflow-path]:not(img):empty {
   display: none;
 }
 

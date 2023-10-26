@@ -1,10 +1,8 @@
 import { Container, Nav, Stack, Tab } from "react-bootstrap";
 import clsx from "classnames";
-import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
-import { trimText } from "@/functions/trimText";
 import PropTypes from "prop-types";
 import classes from "./styles.module.scss";
-import { Description, Title } from "@/ui";
+import { Description, Image, Title } from "@/ui";
 
 export default function FeatureTabsList({ className, title, description, items, defaultActiveKey, vertical }) {
   return (
@@ -18,8 +16,8 @@ export default function FeatureTabsList({ className, title, description, items, 
               {items.map(({ title, icon }, k) => (
                 <Nav.Item key={k} className={clsx({ "flex-grow-1": !vertical })}>
                   <Nav.Link eventKey={k} className="p-3 gap-2">
-                    <SourceFlowImage src={icon} size="75x75" alt={title} />
-                    <span>{trimText(title, 24)}</span>
+                    <Image img={icon} size="75x75" />
+                    <Title title={title} tag="h6" className="fw-semibold" />
                   </Nav.Link>
                 </Nav.Item>
               ))}
@@ -29,7 +27,7 @@ export default function FeatureTabsList({ className, title, description, items, 
                 <Tab.Pane key={k} eventKey={k} className="p-5">
                   <Stack as="article" className="flex-row" gap="3">
                     <div dangerouslySetInnerHTML={{ __html: body }} />
-                    <SourceFlowImage src={img} size="420x291" alt={title} />
+                    <Image img={img} size="420x291" />
                   </Stack>
                 </Tab.Pane>
               ))}
