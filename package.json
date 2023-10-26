@@ -6,8 +6,7 @@
     "build": "next build && next-sitemap && npm run build-indeed && next export",
     "build-indeed": "node ./src/scripts/indeed-xml.mjs",
     "dev": "next dev",
-    "lint": "next lint",
-    "start": "next start"
+    "dev-reset": "npx sourceflow reset && next dev"
   },
   "dependencies": {
     "@faker-js/faker": "^8.1.0",
