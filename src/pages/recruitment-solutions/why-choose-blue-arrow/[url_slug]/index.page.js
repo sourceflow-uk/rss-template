@@ -3,6 +3,7 @@ import { product_helper } from "@/helpers/product_helper";
 import { generateTitle } from "@/faker/generateTitle";
 import { generateDescription } from "@/faker/generateDescription";
 import { generateBody } from "@/faker/generateBody";
+import { getRoute } from "@/getters/getRoute";
 
 export default function ServicePage({ content }) {
   return (
@@ -19,6 +20,16 @@ export async function getStaticProps({ params: { url_slug } }) {
     props: {
       meta: {},
       content: [
+        {
+          component: "BreadcrumbNavigation",
+          props: {
+            items: [
+              { label: "Recruitment Solutions", href: getRoute("recruitmentSolutions") },
+              { label: "Why choose Blue Arrow?", href: getRoute("products") },
+              { label: product.title, href: getRoute("productPage", { url_slug }) },
+            ],
+          },
+        },
         {
           component: "Header",
           props: {

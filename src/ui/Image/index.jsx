@@ -12,7 +12,13 @@ export default function Image({ className, img, size, alt }) {
   }
 
   if (typeof img === "object") {
-    return <SourceFlowImage className={className} path={img.path} size={size} imagesMetaData={imagesMetaData} />;
+    if ("path" in img) {
+      return <SourceFlowImage className={className} path={img.path} size={size} imagesMetaData={imagesMetaData} />;
+    }
+
+    if ("src" in img && img.src) {
+      return <SourceFlowImage className={className} src={img.src} alt={img.alt ?? "tbd"} size={size} />;
+    }
   }
 
   return null;

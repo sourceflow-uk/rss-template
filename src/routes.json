@@ -17,5 +17,7 @@
   "careerAdviceArticle": "/career-advice/[url_slug]",
   "recruitmentSolutions": "/recruitment-solutions/",
   "caseStudies": "/recruitment-solutions/case-studies/",
-  "caseStudy": "/recruitment-solutions/case-studies/[url_slug]"
+  "caseStudy": "/recruitment-solutions/case-studies/[url_slug]",
+  "products": "/recruitment-solutions/why-choose-blue-arrow/",
+  "productPage": "/recruitment-solutions/why-choose-blue-arrow/[url_slug]"
 }
