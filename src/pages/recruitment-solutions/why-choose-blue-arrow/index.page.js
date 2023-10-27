@@ -2,6 +2,7 @@ import { Content } from "@/ui";
 import { product_helper } from "@/helpers/product_helper";
 import { getRoute } from "@/getters/getRoute";
 import { generateDescription } from "@/faker/generateDescription";
+import { createTitle } from "@/functions/createTitle";
 
 export default function ProductsPage({ content }) {
   return (
@@ -12,18 +13,21 @@ export default function ProductsPage({ content }) {
 }
 
 export async function getStaticProps() {
+  const title = "Why choose Blue Arrow?";
   const products = product_helper.fetch();
 
   return {
     props: {
-      meta: {},
+      meta: {
+        title: createTitle(title, "Recruitment Solutions"),
+      },
       content: [
         {
           component: "BreadcrumbNavigation",
           props: {
             items: [
               { label: "Recruitment Solutions", href: getRoute("recruitmentSolutions") },
-              { label: "Why choose Blue Arrow?", href: getRoute("products") },
+              { label: title, href: getRoute("products") },
             ],
           },
         },
@@ -33,7 +37,7 @@ export async function getStaticProps() {
             className: "text-tertiary",
             title: {
               path: "page.why-choose-blue-arrow.component.Header.title",
-              placeholder: "Why choose Blue Arrow?",
+              placeholder: title,
             },
             description: {
               path: "page.why-choose-blue-arrow.component.Header.description",

@@ -1,5 +1,4 @@
 import { Content } from "@/ui";
-import { driving_jobs_pages_helper } from "@/helpers/driving_jobs_pages_helper";
 import { getSectorStaticProps } from "@/functions/getSectorStaticProps";
 
 export default function DrivingSectorPage({ content }) {

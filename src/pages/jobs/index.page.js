@@ -2,6 +2,7 @@ import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
 import { generateImage } from "@/faker/generateImage";
 import { generateDescription } from "@/faker/generateDescription";
+import { createTitle } from "@/functions/createTitle";
 
 export default function JobsPage({ content }) {
   return (
@@ -12,16 +13,20 @@ export default function JobsPage({ content }) {
 }
 
 export async function getStaticProps({}) {
+  const title = "Find a Job";
+
   return {
     props: {
-      meta: {},
+      meta: {
+        title: createTitle(title),
+      },
       content: [
         {
           component: "BreadcrumbNavigation",
           props: {
             items: [
               {
-                label: "Find a Job",
+                label: title,
                 href: getRoute("jobs"),
               },
             ],
@@ -33,7 +38,7 @@ export async function getStaticProps({}) {
             className: "text-white",
             title: {
               path: "page.jobs.component.Header.title",
-              placeholder: "Find a Job",
+              placeholder: title,
             },
             description: generateDescription({ min: 2, max: 2 }),
             img: generateImage({ width: 1440, height: 300 }),

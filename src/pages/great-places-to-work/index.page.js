@@ -3,6 +3,7 @@ import { getRoute } from "@/getters/getRoute";
 import { employer_helper } from "@/helpers/employer_helper";
 import { getAsset } from "@/getters/getAsset";
 import { trimText } from "@/functions/trimText";
+import { createTitle } from "@/functions/createTitle";
 
 export default function EmployersPage({ content }) {
   return (
@@ -14,10 +15,13 @@ export default function EmployersPage({ content }) {
 
 export async function getStaticProps() {
   const employers = employer_helper.fetch();
+  const title = "Great Places To Work";
 
   return {
     props: {
-      meta: {},
+      meta: {
+        title: createTitle(title),
+      },
       content: [
         {
           component: "BreadcrumbNavigation",
@@ -28,7 +32,7 @@ export async function getStaticProps() {
                 href: getRoute("jobs"),
               },
               {
-                label: "Great Places To Work",
+                label: title,
                 href: getRoute("employers"),
               },
             ],
@@ -40,7 +44,7 @@ export async function getStaticProps() {
             className: "text-white bg-primary",
             title: {
               path: "page.employers.component.Header.title",
-              placeholder: "Great Places To Work",
+              placeholder: title,
             },
             description: {
               path: "page.employers.component.Header.description",

@@ -6,6 +6,7 @@ import { career_advice_helper } from "@/helpers/career_advice_helper";
 import { getRoute } from "@/getters/getRoute";
 import { trimText } from "@/functions/trimText";
 import { getAsset } from "@/getters/getAsset";
+import { createTitle } from "@/functions/createTitle";
 import { mini_carousel_helper } from "@/helpers/mini_carousel_helper";
 
 export default function Page({ content }) {
@@ -19,7 +20,9 @@ export default function Page({ content }) {
 export async function getStaticProps({}) {
   return {
     props: {
-      meta: {},
+      meta: {
+        title: createTitle("Home"),
+      },
       content: [
         {
           component: "Hero",

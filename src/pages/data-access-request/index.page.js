@@ -1,4 +1,6 @@
 import { Content } from "@/ui";
+import { createTitle } from "@/functions/createTitle";
+import { getRoute } from "@/getters/getRoute";
 
 export default function DateAccessRequestPage({ content }) {
   return (
@@ -11,8 +13,21 @@ export default function DateAccessRequestPage({ content }) {
 export async function getStaticProps() {
   return {
     props: {
-      meta: {},
+      meta: {
+        title: createTitle("Data Access Request"),
+      },
       content: [
+        {
+          component: "BreadcrumbNavigation",
+          props: {
+            items: [
+              {
+                label: "Data Access Request",
+                href: getRoute("/data-access-request"),
+              },
+            ],
+          },
+        },
         {
           component: "Header",
           props: {

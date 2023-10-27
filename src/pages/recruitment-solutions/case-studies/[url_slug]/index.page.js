@@ -2,6 +2,7 @@ import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
 import { case_study_helper } from "@/helpers/case_study_helper";
 import * as additionalComponents from "./__components";
+import { createTitle } from "@/functions/createTitle";
 
 export default function CaseStudyPage({ content }) {
   return (
@@ -16,7 +17,9 @@ export async function getStaticProps({ params: { url_slug } }) {
 
   return {
     props: {
-      meta: {},
+      meta: {
+        title: createTitle(casestudy.title, "Case Studies", "Recruitment Solutions"),
+      },
       content: [
         {
           component: "BreadcrumbNavigation",

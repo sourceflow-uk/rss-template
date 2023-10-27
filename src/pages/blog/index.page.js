@@ -1,5 +1,6 @@
 import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
+import { createTitle } from "@/functions/createTitle";
 import * as additionalComponents from "./__components";
 
 export default function BlogsPage({ content }) {
@@ -13,7 +14,9 @@ export default function BlogsPage({ content }) {
 export async function getStaticProps() {
   return {
     props: {
-      meta: {},
+      meta: {
+        title: createTitle("Blog"),
+      },
       content: [
         {
           component: "BreadcrumbNavigation",

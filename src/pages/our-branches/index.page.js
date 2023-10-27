@@ -1,5 +1,6 @@
 import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
+import { createTitle } from "@/functions/createTitle";
 
 export default function BranchesPage({ content }) {
   return (
@@ -10,16 +11,20 @@ export default function BranchesPage({ content }) {
 }
 
 export async function getStaticProps() {
+  const title = "Our Branches";
+
   return {
     props: {
-      meta: {},
+      meta: {
+        title: createTitle(title),
+      },
       content: [
         {
           component: "BreadcrumbNavigation",
           props: {
             items: [
               { label: "Contact us", href: getRoute("contact") },
-              { label: "Our Branches", href: getRoute("branches") },
+              { label: title, href: getRoute("branches") },
             ],
           },
         },
@@ -29,7 +34,7 @@ export async function getStaticProps() {
             className: "text-tertiary",
             title: {
               path: "page.branches.component.Header.title",
-              placeholder: "Our Branches",
+              placeholder: title,
             },
             description: {
               path: "page.branches.component.Header.title",

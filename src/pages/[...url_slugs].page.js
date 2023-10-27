@@ -4,6 +4,7 @@ import unslug from "unslug";
 import { simple_pages_helper } from "@/helpers/simple_pages_helper";
 import { sector_helper } from "@/helpers/sector_helper";
 import { mini_carousel_helper } from "@/helpers/mini_carousel_helper";
+import { createTitle } from "@/functions/createTitle";
 
 export default function Page({ content }) {
   return (
@@ -31,7 +32,9 @@ export async function getStaticProps({ params: { url_slugs } }) {
   return {
     notFound: !item,
     props: {
-      meta: {},
+      meta: {
+        title: createTitle(...pages.map((i) => i.label).reverse()),
+      },
       content: [
         {
           component: "BreadcrumbNavigation",

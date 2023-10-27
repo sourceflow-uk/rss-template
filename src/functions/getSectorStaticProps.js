@@ -2,6 +2,7 @@ import { getRoute } from "@/getters/getRoute";
 import { mini_carousel_helper } from "@/helpers/mini_carousel_helper";
 import { trimText } from "@/functions/trimText";
 import { sector_helper } from "@/helpers/sector_helper";
+import { createTitle } from "@/functions/createTitle";
 
 export const getSectorStaticProps = ({ sector_id, pages_helper = null } = {}) => {
   const sector = sector_helper.find(sector_id, "id");
@@ -84,7 +85,9 @@ export const getSectorStaticProps = ({ sector_id, pages_helper = null } = {}) =>
 
   return {
     props: {
-      meta: {},
+      meta: {
+        title: createTitle(`${sector.title} Jobs`),
+      },
       content,
     },
   };

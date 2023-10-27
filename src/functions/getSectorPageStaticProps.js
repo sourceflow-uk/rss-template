@@ -1,6 +1,7 @@
 import { getRoute } from "@/getters/getRoute";
 import { sector_helper } from "@/helpers/sector_helper";
 import { trimText } from "@/functions/trimText";
+import { createTitle } from "@/functions/createTitle";
 
 export const getSectorPageStaticProps = ({ sector_id, url_slug, pages_helper }) => {
   const sector = sector_helper.find(sector_id, "id");
@@ -9,7 +10,9 @@ export const getSectorPageStaticProps = ({ sector_id, url_slug, pages_helper }) 
 
   return {
     props: {
-      meta: {},
+      meta: {
+        title: createTitle(page.name, `${sector.title} Jobs`),
+      },
       content: [
         {
           component: "BreadcrumbNavigation",

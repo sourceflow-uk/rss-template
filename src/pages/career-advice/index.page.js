@@ -3,6 +3,7 @@ import { getRoute } from "@/getters/getRoute";
 import { career_advice_helper } from "@/helpers/career_advice_helper";
 import { getAsset } from "@/getters/getAsset";
 import { trimText } from "@/functions/trimText";
+import { createTitle } from "@/functions/createTitle";
 
 export default function CareersAdvicePage({ content }) {
   return (
@@ -15,7 +16,9 @@ export default function CareersAdvicePage({ content }) {
 export async function getStaticProps() {
   return {
     props: {
-      meta: {},
+      meta: {
+        title: createTitle("Career Advice"),
+      },
       content: [
         {
           component: "BreadcrumbNavigation",

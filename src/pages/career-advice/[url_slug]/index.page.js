@@ -2,6 +2,7 @@ import { Content } from "@/ui";
 import { career_advice_helper } from "@/helpers/career_advice_helper";
 import { getRoute } from "@/getters/getRoute";
 import * as additionalComponents from "./__components";
+import { createTitle } from "@/functions/createTitle";
 
 export default function CareerAdviceSubPage({ content }) {
   return (
@@ -16,7 +17,9 @@ export async function getStaticProps({ params: { url_slug } }) {
 
   return {
     props: {
-      meta: {},
+      meta: {
+        title: createTitle(page.title, "Career Advice"),
+      },
       content: [
         {
           component: "BreadcrumbNavigation",

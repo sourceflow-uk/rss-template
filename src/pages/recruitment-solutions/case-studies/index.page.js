@@ -2,6 +2,7 @@ import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
 import * as additionalComponents from "./__components";
 import { getAsset } from "@/getters/getAsset";
+import { createTitle } from "@/functions/createTitle";
 
 export default function CaseStudiesPage({ content }) {
   return (
@@ -12,16 +13,20 @@ export default function CaseStudiesPage({ content }) {
 }
 
 export async function getStaticProps() {
+  const title = "Case Studies";
+
   return {
     props: {
-      meta: {},
+      meta: {
+        title: createTitle(title, "Recruitment Solutions"),
+      },
       content: [
         {
           component: "BreadcrumbNavigation",
           props: {
             items: [
               { label: "Recruitment Solutions", href: getRoute("recruitmentSolutions") },
-              { label: "Case Studies", href: getRoute("caseStudies") },
+              { label: title, href: getRoute("caseStudies") },
             ],
           },
         },
@@ -31,7 +36,7 @@ export async function getStaticProps() {
             className: "text-white",
             title: {
               path: "page.caseStudies.component.Header.title",
-              placeholder: "Case Studies",
+              placeholder: title,
             },
             img: getAsset("page.caseStudies.component.Header.img"),
           },

@@ -4,6 +4,7 @@ import { generateJob } from "@/faker/generateJob";
 import { getRoute } from "@/getters/getRoute";
 import { branch_helper } from "@/helpers/branch_helper";
 import * as additionalComponents from "./__components";
+import { createTitle } from "@/functions/createTitle";
 
 export default function BranchPage({ content }) {
   return (
@@ -18,7 +19,9 @@ export async function getStaticProps({ params: { url_slug } }) {
 
   return {
     props: {
-      meta: {},
+      meta: {
+        title: createTitle(branch.name, "Our Branches"),
+      },
       content: [
         {
           component: "BreadcrumbNavigation",

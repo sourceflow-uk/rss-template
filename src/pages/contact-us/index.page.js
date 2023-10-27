@@ -1,6 +1,7 @@
 import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
 import * as additionalComponents from "./__components";
+import { createTitle } from "@/functions/createTitle";
 
 export default function ContactPage({ content }) {
   return (
@@ -13,7 +14,9 @@ export default function ContactPage({ content }) {
 export async function getStaticProps() {
   return {
     props: {
-      meta: {},
+      meta: {
+        title: createTitle("Contact us"),
+      },
       content: [
         {
           component: "BreadcrumbNavigation",

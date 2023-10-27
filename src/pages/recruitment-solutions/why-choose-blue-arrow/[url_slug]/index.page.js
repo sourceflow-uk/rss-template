@@ -4,6 +4,7 @@ import { generateTitle } from "@/faker/generateTitle";
 import { generateDescription } from "@/faker/generateDescription";
 import { generateBody } from "@/faker/generateBody";
 import { getRoute } from "@/getters/getRoute";
+import { createTitle } from "@/functions/createTitle";
 
 export default function ServicePage({ content }) {
   return (
@@ -18,7 +19,9 @@ export async function getStaticProps({ params: { url_slug } }) {
 
   return {
     props: {
-      meta: {},
+      meta: {
+        title: createTitle(product.title, "Why choose Blue Arrow?", "Recruitment Solutions"),
+      },
       content: [
         {
           component: "BreadcrumbNavigation",
