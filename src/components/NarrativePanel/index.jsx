@@ -20,7 +20,7 @@ export default function NarrativePanel({ className, title, description, img, cta
             {video_embed_url ? (
               <Video video_embed_url={video_embed_url} />
             ) : img ? (
-              <figure className="mb-4 mb-md-0 position-relative">
+              <figure className="mb-4 mb-md-0">
                 <Image className="mw-100" img={img} size="540x" />
               </figure>
             ) : null}
