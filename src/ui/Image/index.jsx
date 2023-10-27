@@ -12,12 +12,10 @@ export default function Image({ className, img, size, alt }) {
   }
 
   if (typeof img === "object") {
-    console.log(img);
-
     return <SourceFlowImage className={className} path={img.path} size={size} imagesMetaData={imagesMetaData} />;
   }
 
-  return <h1>NOT WORKING</h1>;
+  return null;
 }
 
 Image.defaultProps = {
