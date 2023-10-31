@@ -5,6 +5,8 @@ import { simple_pages_helper } from "@/helpers/simple_pages_helper";
 import { sector_helper } from "@/helpers/sector_helper";
 import { mini_carousel_helper } from "@/helpers/mini_carousel_helper";
 import { createTitle } from "@/functions/createTitle";
+import { generateTitle } from "@/faker/generateTitle";
+import { generateDescription } from "@/faker/generateDescription";
 
 export default function Page({ content }) {
   return (
@@ -84,7 +86,27 @@ export async function getStaticProps({ params: { url_slugs } }) {
               //
               // See /drivingjobs folder for example sector page
             ]
-          : [{ component: "RichText", props: { body: item.body } }]),
+          : [
+              { component: "RichText", props: { body: item.body } },
+              ...new Array(item.narrative_panel_count ?? 0).fill(null).map((i, k) => ({
+                component: "NarrativePanel",
+                props: {
+                  className: `${k % 2 === 0 ? "bg-light" : "bg-primary text-white"} py-4 py-md-5`,
+                  title: {
+                    path: `page.${item.url_slug}.component.NarrativePanel.${k + 1}.title`,
+                    placeholder: generateTitle(),
+                  },
+                  description: {
+                    path: `page.${item.url_slug}.component.NarrativePanel.${k + 1}.description`,
+                    placeholder: generateDescription(),
+                  },
+                  img: {
+                    path: `page.${item.url_slug}.component.NarrativePanel.${k + 1}.img`,
+                  },
+                  reverse: k % 2 === 0,
+                },
+              })),
+            ]),
       ],
     },
   };
