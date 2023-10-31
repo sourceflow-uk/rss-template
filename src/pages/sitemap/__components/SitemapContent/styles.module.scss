@@ -1,0 +1,10 @@
+@import "src/scss/module";
+
+.sitemap {
+  a {
+    &:hover {
+      background-color: var(#{--bs-primary});
+      color: $white;
+    }
+  }
+}

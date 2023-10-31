@@ -1,3 +1,5 @@
 module.exports = {
-  siteUrl: "https://www.bluearrow.co.uk/",
+  siteUrl: "https://blue-arrow.sites.sourceflow.co.uk/",
+  // TODO: use live url
+  // siteUrl: "https://www.bluearrow.co.uk/"
 };
