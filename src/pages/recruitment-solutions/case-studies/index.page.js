@@ -1,7 +1,6 @@
 import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
 import * as additionalComponents from "./__components";
-import { getAsset } from "@/getters/getAsset";
 import { createTitle } from "@/functions/createTitle";
 
 export default function CaseStudiesPage({ content }) {
@@ -38,7 +37,9 @@ export async function getStaticProps() {
               path: "page.caseStudies.component.Header.title",
               placeholder: title,
             },
-            img: getAsset("page.caseStudies.component.Header.img"),
+            img: {
+              path: "page.caseStudies.component.Header.img",
+            },
           },
         },
         { component: "CaseStudyFeed" },

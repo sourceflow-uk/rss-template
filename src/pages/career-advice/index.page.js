@@ -1,7 +1,6 @@
 import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
 import { career_advice_helper } from "@/helpers/career_advice_helper";
-import { getAsset } from "@/getters/getAsset";
 import { trimText } from "@/functions/trimText";
 import { createTitle } from "@/functions/createTitle";
 
@@ -65,7 +64,9 @@ export async function getStaticProps() {
                   path: "page.careerAdvice.component.PromoSection.blog.title",
                   placeholder: "Our Blogs",
                 },
-                img: getAsset("_theme.blog.promoItem.img"),
+                img: {
+                  path: "page.careerAdvice.component.PromoSection.blog.img",
+                },
                 description: {
                   path: "page.careerAdvice.component.PromoSection.blog.description",
                   placeholder:
@@ -78,7 +79,9 @@ export async function getStaticProps() {
                   path: "page.careerAdvice.component.PromoSection.branches.title",
                   placeholder: "Your local Blue Arrow branch",
                 },
-                img: getAsset("_theme.branches.promoItem.img"),
+                img: {
+                  path: "page.careerAdvice.component.PromoSection.branches.img",
+                },
                 description: {
                   path: "page.careerAdvice.component.PromoSection.branches.description",
                   placeholder: "Find and contact your local branch for opportunities.",
@@ -100,7 +103,9 @@ export async function getStaticProps() {
               path: `page.careerAdvice.component.NarrativePanel.description`,
               placeholder: "Learn more about what to consider when looking for a great place to work.",
             },
-            img: getAsset("page.careerAdvice.component.NarrativePanel.img"),
+            img: {
+              path: "page.careerAdvice.component.NarrativePanel.img",
+            },
             cta: {
               label: "Find out more",
               href: getRoute("employers"),

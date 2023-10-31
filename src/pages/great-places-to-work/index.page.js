@@ -1,7 +1,6 @@
 import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
 import { employer_helper } from "@/helpers/employer_helper";
-import { getAsset } from "@/getters/getAsset";
 import { trimText } from "@/functions/trimText";
 import { createTitle } from "@/functions/createTitle";
 
@@ -51,7 +50,9 @@ export async function getStaticProps() {
               placeholder:
                 "We understand the importance in finding a great company to work at to support you and your career. Below is a small selection of fabulous companies who have lots of vacancies for talented staff.",
             },
-            img: getAsset("page.employers.component.Header.img") ?? null,
+            img: {
+              path: "page.employers.component.Header.img",
+            },
             contain: true,
           },
         },

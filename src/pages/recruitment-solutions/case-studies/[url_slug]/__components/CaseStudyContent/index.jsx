@@ -11,7 +11,7 @@ import { BlockQuoteCard, DynamicText, Form, Title } from "@/ui";
 import { Col, Container, Row } from "react-bootstrap";
 import classes from "./styles.module.scss";
 import clsx from "classnames";
-import { getAsset } from "@/getters/getAsset";
+import { getGlobal } from "@/getters/getGlobal";
 
 export default function CaseStudyContent({
   className,
@@ -34,6 +34,8 @@ export default function CaseStudyContent({
   testimonial,
   url_slug,
 }) {
+  const global = getGlobal();
+
   return (
     <div className={clsx(className, classes.content)}>
       <div className="py-4 py-md-5">
@@ -170,7 +172,7 @@ export default function CaseStudyContent({
       </div>
       <div
         className={clsx(classes.content__result, "bg-tertiary text-white py-4 py-md-5")}
-        style={{ backgroundImage: `url(${getAsset("page.caseStudy.component.CaseStudyContent.result.bg")})` }}
+        style={{ backgroundImage: `url(${global["page.caseStudy.component.CaseStudyContent.result.bg"]})` }}
       >
         <Container>
           <Row>

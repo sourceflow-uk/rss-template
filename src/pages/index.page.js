@@ -5,7 +5,6 @@ import { generateJob } from "@/faker/generateJob";
 import { career_advice_helper } from "@/helpers/career_advice_helper";
 import { getRoute } from "@/getters/getRoute";
 import { trimText } from "@/functions/trimText";
-import { getAsset } from "@/getters/getAsset";
 import { createTitle } from "@/functions/createTitle";
 import { mini_carousel_helper } from "@/helpers/mini_carousel_helper";
 
@@ -27,7 +26,9 @@ export async function getStaticProps({}) {
         {
           component: "Hero",
           props: {
-            img: getAsset("page.home.component.Hero.img"),
+            img: {
+              path: "page.home.component.Hero.img",
+            },
             title: {
               path: "page.home.component.Hero.title",
               placeholder: "Flexible Work",
