@@ -6,13 +6,13 @@ import ChevronLeft from "@/assets/ChevronLeft.svg";
 import ChevronRight from "@/assets/ChevronRight.svg";
 import classes from "./styles.module.scss";
 import { LogoCard, Title } from "@/ui";
-import { employer_helper } from "@/helpers/employer_helper";
 import { getRoute } from "@/getters/getRoute";
 import { useEffect, useState } from "react";
 import { useMediaQuery } from "@react-hook/media-query";
+import { employer_page_helper } from "@/helpers/employer_page_helper";
 
 export default function FeaturedEmployersCarousel({ className, title, visibleCount: desktopVisibleCount, button }) {
-  const items = employer_helper.fetch({ featured: true });
+  const items = employer_page_helper.fetch({ featured: true, filter: (i) => i.parent.id === null });
   const [visibleCount, setVisibleCount] = useState(1);
   const xl = useMediaQuery("only screen and (min-width: 1200px)");
   const lg = useMediaQuery("only screen and (min-width: 992px)");
@@ -37,7 +37,11 @@ export default function FeaturedEmployersCarousel({ className, title, visibleCou
               <Row>
                 {items.map(({ card_image, name, url_slug }, k) => (
                   <Col key={k} className="py-3">
-                    <LogoCard logo={card_image} name={name} href={getRoute("employer", { url_slug })} />
+                    <LogoCard
+                      logo={card_image}
+                      name={name}
+                      href={getRoute("employerPage", { url_slugs: [url_slug] })}
+                    />
                   </Col>
                 ))}
               </Row>

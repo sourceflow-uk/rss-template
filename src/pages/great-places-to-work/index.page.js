@@ -1,8 +1,8 @@
 import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
-import { employer_helper } from "@/helpers/employer_helper";
 import { trimText } from "@/functions/trimText";
 import { createTitle } from "@/functions/createTitle";
+import { employer_page_helper } from "@/helpers/employer_page_helper";
 
 export default function EmployersPage({ content }) {
   return (
@@ -13,7 +13,7 @@ export default function EmployersPage({ content }) {
 }
 
 export async function getStaticProps() {
-  const employers = employer_helper.fetch();
+  const employers = employer_page_helper.fetch({ filter: (i) => i.parent.id === null });
   const title = "Great Places To Work";
 
   return {
@@ -60,10 +60,10 @@ export async function getStaticProps() {
           component: "PromoSection",
           props: {
             items: employers.map((i) => ({
-              title: i.name,
+              title: i.title,
               description: trimText(i.description),
-              img: i.card_image ?? i.cover_image ?? null,
-              href: getRoute("employer", { employer: i.url_slug }),
+              img: i.card_image ?? null,
+              href: getRoute("employerPage", { url_slugs: [i.url_slug] }),
             })),
           },
         },
