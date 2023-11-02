@@ -11,8 +11,10 @@ import { jobs_helper } from "@/helpers/jobs_helper";
 import { sector_helper } from "@/helpers/sector_helper";
 import { useEffect, useState } from "react";
 
-export default function LatestJobs({ className, title, button, visibleCount, sector, filters }) {
-  const [items] = useState(jobs_helper.fetch({ filter: (i) => (sector ? JSON.stringify(i).includes(sector) : true) }));
+export default function LatestJobs({ className, title, button, items: _items, visibleCount, sector, filters }) {
+  const [items] = useState(
+    _items ? _items : jobs_helper.fetch({ filter: (i) => (sector ? JSON.stringify(i).includes(sector) : true) }),
+  );
   const [sectors] = useState(sector_helper.fetch({ filter: (i) => i.is_carousel_filter === true }));
   const [sectorFilter, setSector] = useState("");
   const [computedItems, setComputedItems] = useState([]);

@@ -9,6 +9,7 @@ import { trimText } from "@/functions/trimText";
 import * as additionalComponents from "./__components";
 import { jobs_helper } from "@/helpers/jobs_helper";
 import { generateBody } from "@/faker/generateBody";
+import { employer_helper } from "@/helpers/employer_helper";
 
 export default function EmployerPage({ content }) {
   return (
@@ -24,8 +25,12 @@ export async function getStaticProps({ params: { url_slugs } }) {
     label: unslug(url_slug),
     href: getRoute("employerPage", { url_slugs: url_slugs.slice(0, k + 1) }),
   }));
+  const [rootPage] = pages;
   const [currentPage, prevPage] = [...pages].reverse();
   const page = employer_page_helper.find(currentPage.url_slug);
+  const root = employer_page_helper.find(rootPage.url_slug);
+  const [employerName] = root.employer ?? [null];
+  const employer = employerName ? employer_helper.find(employerName, "name") : null;
   const parent = employer_page_helper.find(page.parent.id, "id");
   const children = employer_page_helper.fetch({ filter: (i) => i.parent.id === page.id });
   const siblings = employer_page_helper.fetch({ exclude: [page.id], filter: (i) => i.parent.id === page.parent.id });
@@ -151,14 +156,14 @@ export async function getStaticProps({ params: { url_slugs } }) {
           },
         ...(page.parent.id === null
           ? [
-              {
+              employer && {
                 component: "LatestJobs",
                 props: {
                   title: {
                     path: `page.${url_slugs.join(".")}.component.LatestJobs.title`,
-                    placeholder: `Latest ${page.title} Jobs`,
+                    placeholder: `Latest ${employer.name} Jobs`,
                   },
-                  items: jobs_helper.fetch({ filter: (i) => JSON.stringify(i).includes(page.id) }),
+                  items: jobs_helper.fetch({ filter: (i) => JSON.stringify(i).includes(employer.id) }),
                   visibleCount: 4,
                 },
               },
