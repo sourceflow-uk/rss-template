@@ -220,6 +220,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
     },
   };
 }
+
 export async function getStaticPaths() {
   return {
     paths: employer_page_helper.toNestedPaths(),
