@@ -78,7 +78,6 @@ export async function getStaticProps({}) {
           component: "LatestJobs",
           props: {
             title: { path: "page.home.component.LatestJobs.title", placeholder: "Latest Jobs" },
-            items: generateArrayOf(generateJob, { count: 12 }),
             visibleCount: 4,
             filters: true,
           },
@@ -88,7 +87,6 @@ export async function getStaticProps({}) {
           component: "LatestBlogs",
           props: {
             title: { path: "page.home.component.LatestBlogs.title", placeholder: "Latest Blogs" },
-            items: generateArrayOf(generateArticle, { count: 3 }),
           },
         },
         { component: "Spacer" },
