@@ -93,7 +93,14 @@ export default function JobPageContent({
                 <a id="Apply" />
                 <div className="bg-light p-4">
                   <Title title="Apply now" />
-                  <Form jobId={id} />
+                  <Form
+                    jobId={id}
+                    onSubmitDone={() => {
+                      if (typeof window !== "undefined") {
+                        window.location.href = `${window.location.href}/application-complete`;
+                      }
+                    }}
+                  />
                 </div>
               </Card.Body>
             </Card>
