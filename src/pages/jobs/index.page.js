@@ -40,8 +40,13 @@ export async function getStaticProps({}) {
               path: "page.jobs.component.Header.title",
               placeholder: title,
             },
-            description: generateDescription({ min: 2, max: 2 }),
-            img: generateImage({ width: 1440, height: 300 }),
+            description: {
+              path: "page.jobs.component.Header.description",
+              placeholder: "",
+            },
+            img: {
+              path: "page.jobs.component.Header.img",
+            },
           },
         },
         {
