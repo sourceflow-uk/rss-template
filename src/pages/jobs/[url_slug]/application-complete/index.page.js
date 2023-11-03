@@ -1,6 +1,7 @@
 import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
 import { jobs_helper } from "@/helpers/jobs_helper";
+import { createTitle } from "@/functions/createTitle";
 
 export default function ApplyThankYouPage({ content }) {
   return (
@@ -16,7 +17,9 @@ export async function getStaticProps({ params: { url_slug } }) {
 
   return {
     props: {
-      meta: {},
+      meta: {
+        title: createTitle("Application Complete", job.title),
+      },
       content: [
         {
           component: "BreadcrumbNavigation",

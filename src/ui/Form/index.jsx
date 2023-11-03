@@ -10,7 +10,16 @@ import clsx from "classnames";
  * @returns {JSX.Element}
  * @constructor
  */
-export default function Form({ className, formId = null, jobId = null, onSubmitDone = () => {} }) {
+export default function Form({
+  className,
+  formId = null,
+  jobId = null,
+  onSubmitDone = () => {
+    if (typeof window !== "undefined") {
+      window.location.href = `/submission-complete`;
+    }
+  },
+}) {
   if (formId === null && jobId == null) {
     return null;
   }
