@@ -53,7 +53,6 @@ export async function getStaticProps() {
             img: {
               path: "page.employers.component.Header.img",
             },
-            contain: true,
           },
         },
         {
