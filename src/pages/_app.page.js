@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { SiteFooter, SiteHeader } from "@/ui";
 import SourceFlowHead from "@sourceflow-uk/sourceflow-head";
 import metaObject from "../../.sourceflow/metadata.json";
+import ReciteMeWidget from "@/ui/ReciteMeWidget";
 
 export default function App({ Component, pageProps }) {
   const global = getGlobal();
@@ -18,6 +19,7 @@ export default function App({ Component, pageProps }) {
         <Component {...pageProps} />
       </main>
       <SiteFooter className={global["_theme.footer.classes"]} />
+      <ReciteMeWidget />
     </Suspense>
   );
 }

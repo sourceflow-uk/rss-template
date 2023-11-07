@@ -20,7 +20,7 @@ module.exports = {
       use: ["@svgr/webpack"],
     });
     config.module.rules.push({
-      test: /\.(jpe?g|png|gif|ico|eot|ttf|woff|woff2|mp4|pdf|webm)$/,
+      test: /\.(jpe?g|png|gif|ico|eot|ttf|woff|woff2|mp4|pdf|webm|webp)$/,
       type: "asset",
       generator: {
         filename: "static/chunks/[path][name].[hash][ext]",
