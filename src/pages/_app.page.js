@@ -1,10 +1,9 @@
 import "@/scss/styles.scss";
 import { getGlobal } from "@/getters/getGlobal";
 import { Suspense } from "react";
-import { SiteFooter, SiteHeader } from "@/ui";
+import { SiteFooter, SiteHeader, ReciteMeWidget } from "@/ui";
 import SourceFlowHead from "@sourceflow-uk/sourceflow-head";
 import metaObject from "../../.sourceflow/metadata.json";
-import ReciteMeWidget from "@/ui/ReciteMeWidget";
 
 export default function App({ Component, pageProps }) {
   const global = getGlobal();

@@ -32,6 +32,7 @@ export const PromoButton = lazy(() => import("./PromoButton"));
 export const PromoItem = lazy(() => import("./PromoItem"));
 export const PromotionalCarouselItem = lazy(() => import("./PromotionalCarouselItem"));
 export const PromotionalPanelCard = lazy(() => import("./PromotionalPanelCard"));
+export const ReciteMeWidget = lazy(() => import("./ReciteMeWidget"));
 export const RecruiterListingItem = lazy(() => import("./RecruiterListingItem"));
 export const RelatedArticleCard = lazy(() => import("./RelatedArticleCard"));
 export const RelatedArticles = lazy(() => import("./RelatedArticles"));
