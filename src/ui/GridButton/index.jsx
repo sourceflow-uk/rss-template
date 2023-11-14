@@ -1,12 +1,12 @@
 import classes from "./styles.module.scss";
 import clsx from "classnames";
 import PropTypes from "prop-types";
-import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
+import Image from "../Image";
 
 export default function GridButton({ className, title, img, href }) {
   return (
     <a className={clsx(className, classes.button)} href={href}>
-      <SourceFlowImage className={classes.button__img} src={img} size="160x160" alt={title} />
+      <Image className={classes.button__img} img={img} size="160x160" alt={title} />
       <div className={classes.button__body}>
         <h5 className="p-4 mx-auto mb-0">{title}</h5>
       </div>
