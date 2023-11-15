@@ -12,16 +12,18 @@
       min-height: 38px;
     }
 
-    a {
-      text-transform: capitalize;
-      color: inherit;
-      margin-left: -$spacer;
-      margin-right: -$spacer;
-
-      &:focus,
-      &:hover {
+    [class="nav-item"] {
+      a {
+        text-transform: capitalize;
         color: inherit;
-        background-color: rgba($black, 0.025);
+        margin-left: -$spacer;
+        margin-right: -$spacer;
+
+        &:focus,
+        &:hover {
+          color: inherit;
+          background-color: rgba($black, 0.025);
+        }
       }
     }
   }

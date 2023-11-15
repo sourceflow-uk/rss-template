@@ -7,9 +7,11 @@ export default function SiteFooterNav({ className }) {
 
   return (
     <Stack className={className} gap={{ xs: 3, lg: 5 }}>
-      {nav.map(({ label, children }, k) => (
+      {nav.map(({ label, href, children }, k) => (
         <div key={k}>
-          <h3 className="h6 mb-2">{label}</h3>
+          <h3 className="h6 mb-2">
+            <a href={href}>{label}</a>
+          </h3>
           <Nav className="flex-column">
             {children.map(({ label, href, target }, k) => (
               <Nav.Item key={k}>
