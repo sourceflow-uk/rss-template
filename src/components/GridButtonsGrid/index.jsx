@@ -4,14 +4,14 @@ import { Col, Container, Row } from "react-bootstrap";
 import classes from "./styles.module.scss";
 import { GridButton, Title } from "@/ui";
 
-export default function GridButtonsGrid({ className, title, items }) {
+export default function GridButtonsGrid({ className, title, items, md }) {
   return (
     <div className={clsx(className, classes.grid)}>
       <Container className="mw-lg">
         <Title title={title} className="text-center" />
         <Row>
           {items.map(({ title, img, href }, k) => (
-            <Col key={k} md={3} className="p-2">
+            <Col key={k} md={md} className="p-2">
               <GridButton className="text-center" title={title} img={img} href={href} />
             </Col>
           ))}
@@ -25,6 +25,7 @@ GridButtonsGrid.defaultProps = {
   className: "py-4 py-md-5",
   title: "",
   items: [],
+  md: 3,
 };
 
 GridButtonsGrid.propTypes = {

@@ -87,6 +87,27 @@ export async function getStaticProps({ params: { url_slugs } }) {
               // See /drivingjobs folder for example sector page
             ]
           : [
+              {
+                component: "RichText",
+                id: "Intro",
+                props: {
+                  className: "bg-primary text-white py-4 py-md-5",
+                  body: item.intro ?? null,
+                },
+              },
+              Array.isArray(item.grid_buttons) && {
+                component: "GridButtonsGrid",
+                id: "GridButtonsGrid",
+                props: {
+                  // title: page.grid_buttons_title ?? null,
+                  items: item.grid_buttons.map((i) => ({
+                    title: i["Title"],
+                    img: i["Image"] ?? null,
+                    href: i["Link"] ?? "#",
+                  })),
+                  md: 4,
+                },
+              },
               { component: "RichText", props: { body: item.body } },
               ...new Array(item.narrative_panel_count ?? 0).fill(null).map((i, k) => ({
                 component: "NarrativePanel",
@@ -106,6 +127,18 @@ export async function getStaticProps({ params: { url_slugs } }) {
                   reverse: k % 2 === 0,
                 },
               })),
+              ...(Array.isArray(page.form)
+                ? page.form.map((i, k) => ({
+                    component: "Form",
+                    id: `Form-${k}`,
+                    props: {
+                      className: k % 2 === 0 ? "py-4 py-md-5 bg-light" : "py-4 py-md-5 bg-white",
+                      title: i["Title"],
+                      description: i["Description"],
+                      formId: i["Form ID"],
+                    },
+                  }))
+                : []),
             ]),
       ],
     },
