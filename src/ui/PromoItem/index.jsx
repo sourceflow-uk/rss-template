@@ -10,7 +10,11 @@ export default function PromoItem({ className, title, img, description, href }) 
   return (
     <a href={href} className={clsx(className, classes.card)}>
       <figure>
-        <Image img={img ?? global["_theme.card.img.fallback"]} size="380x220" alt="Cover image" />
+        {img ? (
+          <Image img={img} size="380x220" alt="Cover image" />
+        ) : (
+          <img src={global["_theme.card.img.fallback"]} alt="" />
+        )}
       </figure>
       <div className={classes.card__body}>
         <Title title={title} tag="h5" />
