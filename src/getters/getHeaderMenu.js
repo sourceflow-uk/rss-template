@@ -51,6 +51,7 @@ export const getHeaderMenu = (locale = "en") => {
     },
     {
       label: "About Us",
+      href: getRoute("/enhancing-your-everyday"),
       children: [
         { label: "Our CSR Agenda", href: getRoute("/enhancing-your-everyday/our-csr-agenda") },
         { label: "Our EDI Strategy", href: getRoute("/our-edi-strategy") },
