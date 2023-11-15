@@ -97,7 +97,7 @@ export default function JobPageContent({
                     jobId={id}
                     onSubmitDone={() => {
                       if (typeof window !== "undefined") {
-                        window.location.href = `${window.location.href}/application-complete`;
+                        window.location.href = `${window.location.href}application-complete`;
                       }
                     }}
                   />
