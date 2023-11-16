@@ -41,8 +41,26 @@ export async function getStaticProps() {
             },
             description: {
               path: "page.why-choose-blue-arrow.component.Header.description",
-              placeholder: generateDescription(),
+              placeholder: "",
             },
+          },
+        },
+        {
+          component: "GridButtonsGrid",
+          props: {
+            title: {
+              path: "page.why-choose-blue-arrow.component.GridButtonsGrid.title",
+              placeholder: "Blue Arrow offers a range of recruitment solutions:",
+            },
+            description: {
+              path: "page.why-choose-blue-arrow.component.GridButtonsGrid.description",
+              placeholder: "",
+            },
+            items: products.map((i, k) => ({
+              title: i.title,
+              img: i.icon_image ?? null,
+              href: getRoute("productPage", { url_slug: i.url_slug }),
+            })),
           },
         },
         ...products.map((i, k) => ({

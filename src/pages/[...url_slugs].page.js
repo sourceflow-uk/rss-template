@@ -140,18 +140,6 @@ export async function getStaticProps({ params: { url_slugs } }) {
                     },
                   }))
                 : []),
-              ...(Array.isArray(page.form)
-                ? page.form.map((i, k) => ({
-                    component: "Form",
-                    id: `Form-${k}`,
-                    props: {
-                      className: k % 2 === 0 ? "py-4 py-md-5 bg-light" : "py-4 py-md-5 bg-white",
-                      title: i["Title"],
-                      description: i["Description"],
-                      formId: i["Form ID"],
-                    },
-                  }))
-                : []),
               Array.isArray(page.promo_section) && {
                 component: "PromoSection",
                 id: "PromoSection",
@@ -164,6 +152,18 @@ export async function getStaticProps({ params: { url_slugs } }) {
                   })),
                 },
               },
+              ...(Array.isArray(page.form)
+                ? page.form.map((i, k) => ({
+                    component: "Form",
+                    id: `Form-${k}`,
+                    props: {
+                      className: k % 2 === 0 ? "py-4 py-md-5 bg-light" : "py-4 py-md-5 bg-white",
+                      title: i["Title"],
+                      description: i["Description"],
+                      formId: i["Form ID"],
+                    },
+                  }))
+                : []),
             ]),
       ],
     },
@@ -179,6 +179,7 @@ export async function getStaticPaths() {
           "42ee49b6-cfc2-4b42-a5b5-cf9a17009a6f",
           "741e7908-0c11-4a62-91c1-dd23b02c8cd7",
           "d5e71b93-2910-4cbf-84d4-a140d12a6d64",
+          "9dc7694d-93b5-4ddd-a464-405f77d71cb1",
         ],
       }),
     ],
