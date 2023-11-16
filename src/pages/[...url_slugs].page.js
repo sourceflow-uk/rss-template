@@ -125,18 +125,17 @@ export async function getStaticProps({ params: { url_slugs } }) {
                     component: "NarrativePanel",
                     id: `NarrativePanel-${k}`,
                     props: {
-                      className: `py-4 py-md-5 bg-${i["Background Color"] ?? "white"} text-${
-                        i["Text Color"] ?? "dark"
-                      }`,
+                      className: `py-4 py-md-5 ${k % 2 === 0 ? "bg-white" : "bg-light"}`,
                       title: i["Title"],
                       description: i["Description"],
                       img: i["Image"] ?? null,
+                      video_embed_url: i["Video Embed Url"] ?? null,
                       cta: {
                         label: i["Button Label"] ?? "Read more",
                         href: i["Button Link"] ?? "#",
-                        variant: i["Button Variant"] ?? "secondary",
+                        variant: "secondary",
                       },
-                      reverse: i["Reverse"] ?? false,
+                      reverse: k % 2 === 0,
                     },
                   }))
                 : []),
