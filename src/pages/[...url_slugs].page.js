@@ -109,24 +109,44 @@ export async function getStaticProps({ params: { url_slugs } }) {
                 },
               },
               { component: "RichText", props: { body: item.body } },
-              ...new Array(item.narrative_panel_count ?? 0).fill(null).map((i, k) => ({
-                component: "NarrativePanel",
-                props: {
-                  className: `${k % 2 === 0 ? "bg-light" : "bg-primary text-white"} py-4 py-md-5`,
-                  title: {
-                    path: `page.${item.url_slug}.component.NarrativePanel.${k + 1}.title`,
-                    placeholder: generateTitle(),
-                  },
-                  description: {
-                    path: `page.${item.url_slug}.component.NarrativePanel.${k + 1}.description`,
-                    placeholder: generateDescription(),
-                  },
-                  img: {
-                    path: `page.${item.url_slug}.component.NarrativePanel.${k + 1}.img`,
-                  },
-                  reverse: k % 2 === 0,
-                },
-              })),
+              // ...new Array(item.narrative_panel_count ?? 0).fill(null).map((i, k) => ({
+              //   component: "NarrativePanel",
+              //   props: {
+              //     className: `${k % 2 === 0 ? "bg-light" : "bg-primary text-white"} py-4 py-md-5`,
+              //     title: {
+              //       path: `page.${item.url_slug}.component.NarrativePanel.${k + 1}.title`,
+              //       placeholder: generateTitle(),
+              //     },
+              //     description: {
+              //       path: `page.${item.url_slug}.component.NarrativePanel.${k + 1}.description`,
+              //       placeholder: generateDescription(),
+              //     },
+              //     img: {
+              //       path: `page.${item.url_slug}.component.NarrativePanel.${k + 1}.img`,
+              //     },
+              //     reverse: k % 2 === 0,
+              //   },
+              // })),
+              ...(Array.isArray(page.narrative_panels)
+                ? page.narrative_panels.map((i, k) => ({
+                    component: "NarrativePanel",
+                    id: `NarrativePanel-${k}`,
+                    props: {
+                      className: `py-4 py-md-5 bg-${i["Background Color"] ?? "white"} text-${
+                        i["Text Color"] ?? "dark"
+                      }`,
+                      title: i["Title"],
+                      description: i["Description"],
+                      img: i["Image"] ?? null,
+                      cta: {
+                        label: i["Button Label"] ?? "Read more",
+                        href: i["Button Link"] ?? "#",
+                        variant: i["Button Variant"] ?? "secondary",
+                      },
+                      reverse: i["Reverse"] ?? false,
+                    },
+                  }))
+                : []),
               ...(Array.isArray(page.form)
                 ? page.form.map((i, k) => ({
                     component: "Form",
