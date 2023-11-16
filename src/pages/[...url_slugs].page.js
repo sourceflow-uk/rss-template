@@ -107,24 +107,19 @@ export async function getStaticProps({ params: { url_slugs } }) {
                 },
               },
               { component: "RichText", props: { body: item.body } },
-              // ...new Array(item.narrative_panel_count ?? 0).fill(null).map((i, k) => ({
-              //   component: "NarrativePanel",
-              //   props: {
-              //     className: `${k % 2 === 0 ? "bg-light" : "bg-primary text-white"} py-4 py-md-5`,
-              //     title: {
-              //       path: `page.${item.url_slug}.component.NarrativePanel.${k + 1}.title`,
-              //       placeholder: generateTitle(),
-              //     },
-              //     description: {
-              //       path: `page.${item.url_slug}.component.NarrativePanel.${k + 1}.description`,
-              //       placeholder: generateDescription(),
-              //     },
-              //     img: {
-              //       path: `page.${item.url_slug}.component.NarrativePanel.${k + 1}.img`,
-              //     },
-              //     reverse: k % 2 === 0,
-              //   },
-              // })),
+              Array.isArray(page.collapsible_section_items) && {
+                component: "CollapsibleSection",
+                id: "CollapsibleSection",
+                props: {
+                  title: page.collapsible_section_title ?? null,
+                  description: page.collapsible_section_description ?? null,
+                  items: page.collapsible_section_items.map((i) => ({
+                    title: i["Title"] ?? null,
+                    body: i["Body"] ?? null,
+                  })),
+                  md: 12,
+                },
+              },
               ...(Array.isArray(page.narrative_panels)
                 ? page.narrative_panels.map((i, k) => ({
                     component: "NarrativePanel",
