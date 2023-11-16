@@ -173,13 +173,12 @@ export async function getStaticProps({ params: { url_slugs } }) {
 export async function getStaticPaths() {
   return {
     paths: [
-      ...simple_pages_helper.toNestedPaths(),
+      ...simple_pages_helper.toNestedPaths({ exclude: ["9dc7694d-93b5-4ddd-a464-405f77d71cb1"] }),
       ...sector_helper.toNestedPaths({
         exclude: [
           "42ee49b6-cfc2-4b42-a5b5-cf9a17009a6f",
           "741e7908-0c11-4a62-91c1-dd23b02c8cd7",
           "d5e71b93-2910-4cbf-84d4-a140d12a6d64",
-          "9dc7694d-93b5-4ddd-a464-405f77d71cb1",
         ],
       }),
     ],
