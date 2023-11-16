@@ -12,12 +12,7 @@ export default function SiteHeaderNav({ className }) {
     <Nav className={className}>
       {nav.map(({ label, children, href, target }, k) =>
         children ? (
-          <Dropdown
-            key={k}
-            align={nav.length - 1 === k ? "end" : "start"}
-            onMouseEnter={() => setShow(k)}
-            onMouseLeave={() => setShow(null)}
-          >
+          <div className="dropdown" key={k} onMouseEnter={() => setShow(k)} onMouseOver={() => setShow(k)}>
             <Nav.Item>
               <Nav.Link href={href} target={target}>
                 {label}
@@ -35,7 +30,7 @@ export default function SiteHeaderNav({ className }) {
                 </Dropdown.Item>
               ))}
             </Dropdown.Menu>
-          </Dropdown>
+          </div>
         ) : (
           <Nav.Item key={k}>
             <Nav.Link href={href} target={target}>
