@@ -24,8 +24,8 @@ export default function FeatureTabsList({ className, title, description, items, 
             </Nav>
             <Tab.Content>
               {items.map(({ title, body }, k) => (
-                <Tab.Pane key={k} eventKey={k} className="text-start p-5">
-                  <Body body={body} />
+                <Tab.Pane key={k} eventKey={k}>
+                  <Body body={body} className="text-start p-5" />
                 </Tab.Pane>
               ))}
             </Tab.Content>
