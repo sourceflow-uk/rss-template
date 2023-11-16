@@ -23,8 +23,8 @@ export default function Content({ items, additionalComponents, demoMode }) {
         {items.map(({ component, id, props }, k) => (
           <FadeIn
             from="bottom"
-            positionOffset={0}
-            triggerOffset={0}
+            positionOffset={-50}
+            triggerOffset={1000}
             durationInMilliseconds={500}
             delayInMilliseconds={100}
             key={k}
