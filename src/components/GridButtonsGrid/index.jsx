@@ -5,6 +5,15 @@ import classes from "./styles.module.scss";
 import { GridButton, Title } from "@/ui";
 
 export default function GridButtonsGrid({ className, title, items, md }) {
+  if (
+    items
+      .map((i) => i.title)
+      .join()
+      .trim().length === 0
+  ) {
+    return null;
+  }
+
   return (
     <div className={clsx(className, classes.grid)}>
       <Container className="mw-lg">
