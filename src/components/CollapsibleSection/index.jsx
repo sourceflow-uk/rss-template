@@ -5,7 +5,7 @@ import { useState } from "react";
 import classes from "./styles.module.scss";
 import { CollapsibleSectionItem } from "@/ui";
 
-export default function CollapsibleSection({ className, title, description, items, defaultActiveKey }) {
+export default function CollapsibleSection({ className, title, description, items, defaultActiveKey, md }) {
   const [active, setActive] = useState(defaultActiveKey);
 
   return (
@@ -14,7 +14,7 @@ export default function CollapsibleSection({ className, title, description, item
         <h2>{title}</h2>
         <div dangerouslySetInnerHTML={{ __html: description }} />
         <Row>
-          <Col xs={12} md={8}>
+          <Col xs={12} md={md}>
             {items.map(({ title, body }, k) => (
               <CollapsibleSectionItem
                 key={k}
@@ -37,6 +37,7 @@ CollapsibleSection.defaultProps = {
   description: "",
   items: [],
   defaultActiveKey: 0,
+  md: 8,
 };
 
 CollapsibleSection.propTypes = {

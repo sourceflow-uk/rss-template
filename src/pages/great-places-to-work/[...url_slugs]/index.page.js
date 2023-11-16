@@ -94,6 +94,19 @@ export async function getStaticProps({ params: { url_slugs } }) {
                 },
               },
             ]),
+        Array.isArray(page.collapsible_section_items) && {
+          component: "CollapsibleSection",
+          id: "CollapsibleSection",
+          props: {
+            title: page.collapsible_section_title ?? null,
+            description: page.collapsible_section_description ?? null,
+            items: page.collapsible_section_items.map((i) => ({
+              title: i["Title"] ?? null,
+              body: i["Body"] ?? null,
+            })),
+            md: 12,
+          },
+        },
         ...("narrative_panel_count" in page && page.narrative_panel_count > 0
           ? [
               ...new Array(page.narrative_panel_count).fill(null).map((i, k) => ({
@@ -116,27 +129,27 @@ export async function getStaticProps({ params: { url_slugs } }) {
               })),
             ]
           : []),
-        "accordion_item_count" in page &&
-          page.accordion_item_count > 0 && {
-            component: "Accordion",
-            props: {
-              className: "text-center py-5",
-              title: {
-                path: `page.${url_slugs.join(".")}.component.Accordion.title`,
-                placeholder: generateTitle(),
-              },
-              items: new Array(page.accordion_item_count).fill(null).map((i, k) => ({
-                title: {
-                  path: `page.${url_slugs.join(".")}.component.Accordion.item.${k + 1}.title`,
-                  placeholder: generateTitle(),
-                },
-                body: {
-                  path: `page.${url_slugs.join(".")}.component.Accordion.item.${k + 1}.body`,
-                  placeholder: generateBody(),
-                },
-              })),
-            },
-          },
+        // "accordion_item_count" in page &&
+        //   page.accordion_item_count > 0 && {
+        //     component: "Accordion",
+        //     props: {
+        //       className: "text-center py-5",
+        //       title: {
+        //         path: `page.${url_slugs.join(".")}.component.Accordion.title`,
+        //         placeholder: generateTitle(),
+        //       },
+        //       items: new Array(page.accordion_item_count).fill(null).map((i, k) => ({
+        //         title: {
+        //           path: `page.${url_slugs.join(".")}.component.Accordion.item.${k + 1}.title`,
+        //           placeholder: generateTitle(),
+        //         },
+        //         body: {
+        //           path: `page.${url_slugs.join(".")}.component.Accordion.item.${k + 1}.body`,
+        //           placeholder: generateBody(),
+        //         },
+        //       })),
+        //     },
+        //   },
         "video_embed_url" in page &&
           page.video_embed_url && {
             component: "NarrativePanel",
@@ -144,11 +157,11 @@ export async function getStaticProps({ params: { url_slugs } }) {
               className: "py-4 py-md-5 bg-light",
               title: {
                 path: `page.${url_slugs.join(".")}.component.NarrativePanel.title`,
-                placeholder: generateTitle(),
+                placeholder: "",
               },
               description: {
                 path: `page.${url_slugs.join(".")}.component.NarrativePanel.description`,
-                placeholder: generateDescription(),
+                placeholder: "",
               },
               video_embed_url: page.video_embed_url,
               reverse: true,

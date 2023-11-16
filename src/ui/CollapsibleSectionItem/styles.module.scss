@@ -17,7 +17,7 @@
     &:hover,
     &:focus {
       h4 {
-        color: $primary;
+        color: var(#{--bs-primary});
       }
     }
   }
@@ -47,10 +47,10 @@
   }
 
   header:hover &__toggle {
-    border-color: $primary;
+    border-color: var(#{--bs-primary});
 
     span {
-      background-color: $primary;
+      background-color: var(#{--bs-primary});
     }
   }
 
@@ -63,11 +63,11 @@
   &--active {
     header {
       h4 {
-        color: $primary;
+        color: var(#{--bs-primary});
       }
 
       span {
-        background-color: $primary;
+        background-color: var(#{--bs-primary});
 
         &:last-of-type {
           left: calc(50% - 1px);
@@ -83,6 +83,6 @@
   }
 
   &--active &__toggle {
-    border-color: $primary;
+    border-color: var(#{--bs-primary});
   }
 }
