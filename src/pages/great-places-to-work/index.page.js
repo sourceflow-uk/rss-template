@@ -60,10 +60,14 @@ export async function getStaticProps() {
           props: {
             items: employers.map((i) => ({
               title: i.title,
-              description: trimText(i.description, 300),
+              description: `${i.description}`,
               img: i.card_image ?? null,
               href: getRoute("employerPage", { url_slugs: [i.url_slug] }),
               featured: i.featured,
+              cta: {
+                label: "See available jobs",
+                href: getRoute("employerPage", { url_slugs: [i.url_slug] }),
+              },
             })),
           },
         },

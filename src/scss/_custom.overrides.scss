@@ -256,6 +256,22 @@ hr {
     --bs-btn-active-bg: var(#{--bs-quaternary-active}) !important;
     --bs-btn-active-border-color: var(#{--bs-quaternary-active}) !important;
   }
+
+  &-white {
+    --bs-btn-color: var(#{--bs-primary}) !important;
+    --bs-btn-hover-color: var(#{--bs-primary-active}) !important;
+
+    svg {
+      transition: $transition-base;
+      stroke: var(#{--bs-primary});
+    }
+
+    &:hover {
+      svg {
+        stroke: var(#{--bs-primary-active});
+      }
+    }
+  }
 }
 
 .hover-bg {
