@@ -129,27 +129,6 @@ export async function getStaticProps({ params: { url_slugs } }) {
               })),
             ]
           : []),
-        // "accordion_item_count" in page &&
-        //   page.accordion_item_count > 0 && {
-        //     component: "Accordion",
-        //     props: {
-        //       className: "text-center py-5",
-        //       title: {
-        //         path: `page.${url_slugs.join(".")}.component.Accordion.title`,
-        //         placeholder: generateTitle(),
-        //       },
-        //       items: new Array(page.accordion_item_count).fill(null).map((i, k) => ({
-        //         title: {
-        //           path: `page.${url_slugs.join(".")}.component.Accordion.item.${k + 1}.title`,
-        //           placeholder: generateTitle(),
-        //         },
-        //         body: {
-        //           path: `page.${url_slugs.join(".")}.component.Accordion.item.${k + 1}.body`,
-        //           placeholder: generateBody(),
-        //         },
-        //       })),
-        //     },
-        //   },
         "video_embed_url" in page &&
           page.video_embed_url && {
             component: "NarrativePanel",

@@ -1,6 +1,5 @@
 import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
-import { trimText } from "@/functions/trimText";
 import { createTitle } from "@/functions/createTitle";
 import { employer_page_helper } from "@/helpers/employer_page_helper";
 
