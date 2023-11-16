@@ -5,8 +5,6 @@ import { simple_pages_helper } from "@/helpers/simple_pages_helper";
 import { sector_helper } from "@/helpers/sector_helper";
 import { mini_carousel_helper } from "@/helpers/mini_carousel_helper";
 import { createTitle } from "@/functions/createTitle";
-import { generateTitle } from "@/faker/generateTitle";
-import { generateDescription } from "@/faker/generateDescription";
 
 export default function Page({ content }) {
   return (
