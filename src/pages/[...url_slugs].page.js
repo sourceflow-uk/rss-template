@@ -106,7 +106,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
                   md: 4,
                 },
               },
-              { component: "RichText", props: { body: item.body } },
+              { component: "RichText", props: { body: item.body ?? null } },
               Array.isArray(page.collapsible_section_items) && {
                 component: "CollapsibleSection",
                 id: "CollapsibleSection",
@@ -126,8 +126,8 @@ export async function getStaticProps({ params: { url_slugs } }) {
                     id: `NarrativePanel-${k}`,
                     props: {
                       className: `py-4 py-md-5 ${k % 2 === 0 ? "bg-white" : "bg-light"}`,
-                      title: i["Title"],
-                      description: i["Description"],
+                      title: i["Title"] ?? null,
+                      description: i["Description"] ?? null,
                       img: i["Image"] ?? null,
                       video_embed_url: i["Video Embed Url"] ?? null,
                       cta: {
