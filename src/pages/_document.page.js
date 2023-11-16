@@ -11,19 +11,19 @@ export default function Document() {
     <Html lang="en">
       <Head>
         {gtag && (
-          <>
-            <Script id="gtm" src={`https://www.googletagmanager.com/gtag/js?id=${gtag}`} strategy="beforeInteractive" />
-            <Script id="gtm_script" strategy="beforeInteractive">
-              {`
+          <Script id="gtm" src={`https://www.googletagmanager.com/gtag/js?id=${gtag}`} strategy="beforeInteractive" />
+        )}
+        {gtag && (
+          <Script id="gtm_script" strategy="beforeInteractive">
+            {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', '${gtag}');
               `}
-            </Script>
-          </>
+          </Script>
         )}
-        <style key="theme">
+        <style id="theme">
           {`
             :root {
               --bs-primary: ${global["_theme.color.primary"]} !important;

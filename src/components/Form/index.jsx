@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import clsx from "classnames";
-import { Form as FormComponent, Title } from "@/ui";
+import { Description, Form as FormComponent, Title } from "@/ui";
 import { Container } from "react-bootstrap";
 
-export default function Form({ className, title, formClassName, formId }) {
+export default function Form({ className, title, description, formClassName, formId }) {
   if (!formId) {
     return null;
   }
@@ -13,6 +13,7 @@ export default function Form({ className, title, formClassName, formId }) {
       <Container>
         <div className={formClassName}>
           <Title title={title} />
+          <Description description={description} />
           <FormComponent formId={formId} />
         </div>
       </Container>
