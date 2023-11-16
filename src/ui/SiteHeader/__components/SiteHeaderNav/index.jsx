@@ -29,7 +29,7 @@ export default function SiteHeaderNav({ className }) {
             <Dropdown.Menu show={show === k}>
               {children.map(({ label, href, target }, k) => (
                 <Dropdown.Item as={Nav.Item} key={k} className="bg-tertiary hover-bg-quaternary text-white">
-                  <Nav.Link href={href} target={target}>
+                  <Nav.Link href={href} target={target} onClick={() => setShow(null)}>
                     {label}
                   </Nav.Link>
                 </Dropdown.Item>
