@@ -120,7 +120,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
                 cta: {
                   label: i["Button Label"] ?? "Read more",
                   href: i["Button Link"] ?? "#",
-                  variant: "quaternary",
+                  variant: k % 2 === 0 ? "quaternary" : "primary",
                 },
                 reverse: k % 2 === 0,
               },

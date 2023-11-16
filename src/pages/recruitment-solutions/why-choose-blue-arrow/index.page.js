@@ -15,6 +15,8 @@ export async function getStaticProps() {
   const title = "Why choose Blue Arrow?";
   const pages = simple_pages_helper.fetch({ parent: "9dc7694d-93b5-4ddd-a464-405f77d71cb1" });
 
+  console.log(pages);
+
   return {
     props: {
       meta: {
@@ -64,21 +66,30 @@ export async function getStaticProps() {
               })),
           },
         },
-        ...pages.map((i, k) => ({
-          component: "NarrativePanel",
-          props: {
-            className: k % 2 === 0 ? "bg-white py-4 py-md-5" : "bg-light py-4 py-md-5",
-            title: i.title,
-            description: i.description ?? null,
-            reverse: k % 2 === 0,
-            video_embed_url: i.video_embed_url ?? null,
-            cta: {
-              label: "Discover more",
-              href: getRoute("productPage", { url_slug: i.url_slug }),
-              variant: "quaternary",
+        ...pages
+          .filter((i) =>
+            [
+              "fac7e1fb-f81c-4289-b861-4d5f19d2ebe0",
+              "6dfaa9f0-3836-4349-8966-dd3aa726a46c",
+              "d20e9d98-07a5-4b09-aabe-c030ce7b7e91",
+              "17b927dc-594d-4c2c-acaa-9dbf9cda621d",
+            ].includes(i.id),
+          )
+          .map((i, k) => ({
+            component: "NarrativePanel",
+            props: {
+              className: k % 2 === 0 ? "bg-light py-4 py-md-5" : "bg-white py-4 py-md-5",
+              title: i.title,
+              description: i.description ?? null,
+              reverse: k % 2 === 0,
+              video_embed_url: i.video ?? null,
+              cta: {
+                label: "Discover more",
+                href: getRoute("productPage", { url_slug: i.url_slug }),
+                variant: k % 2 === 0 ? "quaternary" : "primary",
+              },
             },
-          },
-        })),
+          })),
         {
           component: "Form",
           props: {
