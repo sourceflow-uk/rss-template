@@ -3,13 +3,19 @@ import clsx from "classnames";
 import classes from "./styles.module.scss";
 import { Description, Image, Title } from "@/ui";
 import { getGlobal } from "@/getters/getGlobal";
+import Trophy from "@/assets/Trophy.svg";
 
-export default function PromoItem({ className, title, img, description, href }) {
+export default function PromoItem({ className, title, img, description, featured, href }) {
   const global = getGlobal();
 
   return (
     <a href={href} className={clsx(className, classes.card)}>
       <figure>
+        {featured && (
+          <i className="small">
+            <Trophy /> Top rated
+          </i>
+        )}
         {img ? (
           <Image img={img} size="380x220" alt="Cover image" />
         ) : (

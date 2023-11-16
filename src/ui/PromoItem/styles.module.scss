@@ -15,6 +15,18 @@
 
   figure {
     margin: 0;
+    text-align: right;
+
+    i {
+      display: inline-block;
+      background-color: var(#{--bs-primary});
+      color: $white;
+      font-style: normal;
+      font-weight: $font-weight-medium;
+      border-radius: var(#{--bs-border-radius-sm});
+      padding: $spacer * 0.5;
+      margin: $spacer * 0.5;
+    }
 
     img {
       width: 100%;

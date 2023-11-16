@@ -10,9 +10,16 @@ export default function PromoSection({ className, title, items, md }) {
       <Container className="mw-xxl">
         <Title title={title} />
         <Row>
-          {items.map(({ title, description, img, href }, k) => (
+          {items.map(({ title, description, img, featured, href }, k) => (
             <Col key={k} xs={12} md={md} className="mb-4 mb-md-5">
-              <PromoItem className="h-100" title={title} description={description} img={img} href={href} />
+              <PromoItem
+                className="h-100"
+                title={title}
+                description={description}
+                img={img}
+                href={href}
+                featured={featured}
+              />
             </Col>
           ))}
         </Row>

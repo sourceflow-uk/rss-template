@@ -63,6 +63,7 @@ export async function getStaticProps() {
               description: trimText(i.description),
               img: i.card_image ?? null,
               href: getRoute("employerPage", { url_slugs: [i.url_slug] }),
+              featured: i.featured,
             })),
           },
         },
