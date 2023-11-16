@@ -2,9 +2,9 @@ import PropTypes from "prop-types";
 import clsx from "classnames";
 import { Col, Container, Row } from "react-bootstrap";
 import classes from "./styles.module.scss";
-import { GridButton, Title } from "@/ui";
+import { Description, GridButton, Title } from "@/ui";
 
-export default function GridButtonsGrid({ className, title, items, md }) {
+export default function GridButtonsGrid({ className, title, description, items, md }) {
   if (
     items
       .map((i) => i.title)
@@ -18,6 +18,7 @@ export default function GridButtonsGrid({ className, title, items, md }) {
     <div className={clsx(className, classes.grid)}>
       <Container className="mw-lg">
         <Title title={title} className="text-center" />
+        <Description description={description} className="text-center" />
         <Row>
           {items.map(({ title, img, href }, k) => (
             <Col key={k} md={md} className="p-2">

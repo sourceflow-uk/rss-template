@@ -97,7 +97,8 @@ export async function getStaticProps({ params: { url_slugs } }) {
                 component: "GridButtonsGrid",
                 id: "GridButtonsGrid",
                 props: {
-                  // title: page.grid_buttons_title ?? null,
+                  title: page.grid_buttons_title ?? null,
+                  description: page.grid_buttons_description ?? null,
                   items: page.grid_buttons.map((i) => ({
                     title: i["Title"],
                     img: i["Image"] ?? null,
