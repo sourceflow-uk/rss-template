@@ -18,7 +18,7 @@ export default class CollectionHelper {
     return this.fetch({ filter });
   }
 
-  fetch({ limit = null, featured = null, exclude = null, filter = null } = {}) {
+  fetch({ limit = null, featured = null, parent = null, exclude = null, filter = null } = {}) {
     let items = this.collection.getItems();
 
     if (filter) {
@@ -27,6 +27,10 @@ export default class CollectionHelper {
 
     if (featured) {
       items = items.filter((i) => i.featured === featured);
+    }
+
+    if (parent) {
+      items = items.filter((i) => i.parent.id === parent);
     }
 
     if (exclude) {

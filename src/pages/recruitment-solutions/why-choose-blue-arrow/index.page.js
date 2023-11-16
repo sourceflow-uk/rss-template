@@ -3,6 +3,7 @@ import { product_helper } from "@/helpers/product_helper";
 import { getRoute } from "@/getters/getRoute";
 import { generateDescription } from "@/faker/generateDescription";
 import { createTitle } from "@/functions/createTitle";
+import { simple_pages_helper } from "@/helpers/simple_pages_helper";
 
 export default function ProductsPage({ content }) {
   return (
@@ -15,6 +16,7 @@ export default function ProductsPage({ content }) {
 export async function getStaticProps() {
   const title = "Why choose Blue Arrow?";
   const products = product_helper.fetch();
+  const pages = simple_pages_helper.fetch({ parent: "9dc7694d-93b5-4ddd-a464-405f77d71cb1" });
 
   return {
     props: {
@@ -56,11 +58,20 @@ export async function getStaticProps() {
               path: "page.why-choose-blue-arrow.component.GridButtonsGrid.description",
               placeholder: "",
             },
-            items: products.map((i, k) => ({
-              title: i.title,
-              img: i.icon_image ?? null,
-              href: getRoute("productPage", { url_slug: i.url_slug }),
-            })),
+            items: [
+              ...products
+                .filter((i) => i.icon_image)
+                .map((i, k) => ({
+                  title: i.title,
+                  img: i.icon_image ?? null,
+                  href: getRoute("productPage", { url_slug: i.url_slug }),
+                })),
+              ...pages.map((i, k) => ({
+                title: i.title,
+                img: i.icon_image ?? null,
+                href: getRoute("productPage", { url_slug: i.url_slug }),
+              })),
+            ],
           },
         },
         ...products.map((i, k) => ({
