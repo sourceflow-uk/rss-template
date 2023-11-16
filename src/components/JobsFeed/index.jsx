@@ -1,14 +1,16 @@
 import "@sourceflow-uk/job-search/dist/bundle.css";
 import ArrowRight from "@/assets/ArrowRight.svg";
 import JobSearch from "@sourceflow-uk/job-search";
-import JobType from "@/../.sourceflow/jobs-Job Type.json";
-import Sector from "@/../.sourceflow/jobs-Sector.json";
 import PropTypes from "prop-types";
 import { Container, FormCheck, Stack } from "react-bootstrap";
 import { CTA } from "@/ui";
 import classes from "./styles.module.scss";
 import clsx from "classnames";
 import { formatDistanceToNowStrict } from "date-fns";
+
+import Branches from "@/../.sourceflow/jobs-Branches.json";
+import JobType from "@/../.sourceflow/jobs-Job Type.json";
+import Sector from "@/../.sourceflow/jobs-Sector.json";
 
 export default function JobsFeed({ className, sector, changeURLOnFilterChange }) {
   return (
@@ -22,7 +24,7 @@ export default function JobsFeed({ className, sector, changeURLOnFilterChange })
             },
             urlFilters: {
               mode: "active",
-              jobCategories: [Sector, JobType],
+              jobCategories: [Branches, Sector, JobType],
               changeURLOnFilterChange: changeURLOnFilterChange,
             },
             searchInput: {
@@ -34,7 +36,8 @@ export default function JobsFeed({ className, sector, changeURLOnFilterChange })
               filterUnselectedElement: <FormCheck />,
               filterSelectedElement: <FormCheck checked />,
               exclude: {
-                "a82e2fc2-7013-4836-98aa-02667db9d824": true,
+                "af83ff7d-ff72-43c0-aba5-ccac084aec2d": true,
+                "1df83e15-03f4-4ce7-9f8d-9b20d0ea1538": true,
                 "3186657c-e89c-4a6f-9157-35eb7fe0b379": [sector],
               },
             },
