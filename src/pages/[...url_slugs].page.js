@@ -20,17 +20,17 @@ export async function getStaticProps({ params: { url_slugs } }) {
     label: unslug(url_slug),
     href: getRoute("dynamic", { url_slugs: url_slugs.slice(0, k + 1) }),
   }));
-  const [page, prevPage] = [...pages].reverse();
+  const [_page, prevPage] = [...pages].reverse();
 
   let isSector = false;
-  let item = simple_pages_helper.find(page.url_slug);
-  if (!item) {
-    item = sector_helper.find(page.url_slug);
+  let page = simple_pages_helper.find(_page.url_slug);
+  if (!page) {
+    page = sector_helper.find(_page.url_slug);
     isSector = true;
   }
 
   return {
-    notFound: !item,
+    notFound: !page,
     props: {
       meta: {
         title: createTitle(...pages.map((i) => i.label).reverse()),
@@ -46,8 +46,8 @@ export async function getStaticProps({ params: { url_slugs } }) {
           component: "Header",
           props: {
             className: "text-tertiary",
-            title: item.title,
-            description: item.description ?? null,
+            title: page.title,
+            description: page.description ?? null,
             back: prevPage
               ? {
                   path: `page.${prevPage.url_slug}.component.Header.back`,
@@ -66,7 +66,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
               {
                 component: "JobsFeed",
                 props: {
-                  sector: item.id,
+                  sector: page.id,
                   changeURLOnFilterChange: false,
                 },
               },
@@ -74,7 +74,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
                 component: "MiniCarousel",
                 props: {
                   items: mini_carousel_helper.fetch({
-                    filter: (i) => i.tags.toLowerCase().includes(item.url_slug.toLowerCase()) || i.tags.includes("*"),
+                    filter: (i) => i.tags.toLowerCase().includes(page.url_slug.toLowerCase()) || i.tags.includes("*"),
                   }),
                 },
               },
@@ -90,15 +90,15 @@ export async function getStaticProps({ params: { url_slugs } }) {
                 id: "Intro",
                 props: {
                   className: "bg-primary text-white py-4 py-md-5",
-                  body: item.intro ?? null,
+                  body: page.intro ?? null,
                 },
               },
-              Array.isArray(item.grid_buttons) && {
+              Array.isArray(page.grid_buttons) && {
                 component: "GridButtonsGrid",
                 id: "GridButtonsGrid",
                 props: {
                   // title: page.grid_buttons_title ?? null,
-                  items: item.grid_buttons.map((i) => ({
+                  items: page.grid_buttons.map((i) => ({
                     title: i["Title"],
                     img: i["Image"] ?? null,
                     href: i["Link"] ?? "#",
@@ -106,7 +106,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
                   md: 4,
                 },
               },
-              { component: "RichText", props: { body: item.body ?? null } },
+              { component: "RichText", props: { body: page.body ?? null } },
               Array.isArray(page.collapsible_section_items) && {
                 component: "CollapsibleSection",
                 id: "CollapsibleSection",
