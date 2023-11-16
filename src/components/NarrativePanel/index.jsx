@@ -5,7 +5,7 @@ import classes from "./styles.module.scss";
 import { CTA, Description, Image, Title, Video } from "@/ui";
 
 export default function NarrativePanel({ className, title, description, img, cta, video_embed_url, reverse }) {
-  if (!title && !description && !img) {
+  if (!title && !description && !img && !video_embed_url) {
     return null;
   }
 

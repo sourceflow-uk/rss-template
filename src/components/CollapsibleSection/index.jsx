@@ -8,6 +8,15 @@ import { CollapsibleSectionItem } from "@/ui";
 export default function CollapsibleSection({ className, title, description, items, defaultActiveKey, md }) {
   const [active, setActive] = useState(defaultActiveKey);
 
+  if (
+    items
+      .map((i) => i.title)
+      .join("")
+      .trim().length === 0
+  ) {
+    return null;
+  }
+
   return (
     <div className={clsx(className, classes.collapsible)}>
       <Container className="mw-xl">
