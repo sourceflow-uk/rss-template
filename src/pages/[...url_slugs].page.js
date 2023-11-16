@@ -131,11 +131,13 @@ export async function getStaticProps({ params: { url_slugs } }) {
                       description: i["Description"] ?? null,
                       img: i["Image"] ?? null,
                       video_embed_url: i["Video Embed Url"] ?? null,
-                      cta: {
-                        label: i["Button Label"] ?? "Read more",
-                        href: i["Button Link"] ?? "#",
-                        variant: k % 2 === 0 ? "quaternary" : "primary",
-                      },
+                      cta: i["Button Link"]
+                        ? {
+                            label: i["Button Label"] ?? null,
+                            href: i["Button Link"] ?? null,
+                            variant: k % 2 === 0 ? "quaternary" : "primary",
+                          }
+                        : null,
                       reverse: k % 2 === 0,
                     },
                   }))
