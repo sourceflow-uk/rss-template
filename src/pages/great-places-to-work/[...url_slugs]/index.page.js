@@ -8,7 +8,6 @@ import { generateDescription } from "@/faker/generateDescription";
 import { trimText } from "@/functions/trimText";
 import * as additionalComponents from "./__components";
 import { jobs_helper } from "@/helpers/jobs_helper";
-import { generateBody } from "@/faker/generateBody";
 import { employer_helper } from "@/helpers/employer_helper";
 
 export default function EmployerPage({ content }) {
@@ -107,45 +106,25 @@ export async function getStaticProps({ params: { url_slugs } }) {
             md: 12,
           },
         },
-        ...("narrative_panel_count" in page && page.narrative_panel_count > 0
-          ? [
-              ...new Array(page.narrative_panel_count).fill(null).map((i, k) => ({
-                component: "NarrativePanel",
-                props: {
-                  className: `${k % 2 === 0 ? "bg-white" : "bg-light"} py-4 py-md-5`,
-                  title: {
-                    path: `page.${url_slugs.join(".")}.component.NarrativePanel.${k + 1}.title`,
-                    placeholder: generateTitle(),
-                  },
-                  description: {
-                    path: `page.${url_slugs.join(".")}.component.NarrativePanel.${k + 1}.description`,
-                    placeholder: generateDescription(),
-                  },
-                  img: {
-                    path: `page.${url_slugs.join(".")}.component.NarrativePanel.${k + 1}.img`,
-                  },
-                  reverse: k % 2 === 0,
+        ...(Array.isArray(page.narrative_panels)
+          ? page.narrative_panels.map((i, k) => ({
+              component: "NarrativePanel",
+              id: `NarrativePanel-${k}`,
+              props: {
+                className: `py-4 py-md-5 ${k % 2 === 0 ? "bg-light" : "bg-white"}`,
+                title: i["Title"],
+                description: i["Description"],
+                img: i["Image"] ?? null,
+                video_embed_url: i["Video Embed Url"] ?? null,
+                cta: {
+                  label: i["Button Label"] ?? "Read more",
+                  href: i["Button Link"] ?? "#",
+                  variant: "quaternary",
                 },
-              })),
-            ]
+                reverse: k % 2 === 0,
+              },
+            }))
           : []),
-        "video_embed_url" in page &&
-          page.video_embed_url && {
-            component: "NarrativePanel",
-            props: {
-              className: "py-4 py-md-5 bg-light",
-              title: {
-                path: `page.${url_slugs.join(".")}.component.NarrativePanel.title`,
-                placeholder: "",
-              },
-              description: {
-                path: `page.${url_slugs.join(".")}.component.NarrativePanel.description`,
-                placeholder: "",
-              },
-              video_embed_url: page.video_embed_url,
-              reverse: true,
-            },
-          },
         ...(page.parent.id === null
           ? [
               employer && {
