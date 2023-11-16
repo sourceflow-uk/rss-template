@@ -151,6 +151,17 @@ export async function getStaticProps({ params: { url_slugs } }) {
                     },
                   }))
                 : []),
+              Array.isArray(page.promo_section) && {
+                component: "PromoSection",
+                id: "PromoSection",
+                props: {
+                  items: page.promo_section.map((i) => ({
+                    title: i["Title"],
+                    img: i["Image"] ?? null,
+                    href: i["Link"] ?? "#",
+                  })),
+                },
+              },
             ]),
       ],
     },
