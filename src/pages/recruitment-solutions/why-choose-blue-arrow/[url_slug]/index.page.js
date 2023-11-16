@@ -51,24 +51,25 @@ export async function getStaticProps({ params: { url_slug } }) {
             video_embed_url: product.video_embed_url,
           },
         },
-        ...new Array(product.narrative_panel_count).fill(null).map((i, k) => ({
-          component: "NarrativePanel",
-          props: {
-            className: `${k % 2 === 0 ? "bg-light" : "bg-primary text-white"} py-4 py-md-5`,
-            title: {
-              path: `page.${url_slug}.component.NarrativePanel.${k + 1}.title`,
-              placeholder: generateTitle(),
-            },
-            description: {
-              path: `page.${url_slug}.component.NarrativePanel.${k + 1}.description`,
-              placeholder: generateDescription(),
-            },
-            img: {
-              path: `page.${url_slug}.component.NarrativePanel.${k + 1}.img`,
-            },
-            reverse: k % 2 === 0,
-          },
-        })),
+        ...(Array.isArray(product.narrative_panels)
+          ? product.narrative_panels.map((i, k) => ({
+              component: "NarrativePanel",
+              id: `NarrativePanel-${k}`,
+              props: {
+                className: `py-4 py-md-5 ${k % 2 === 0 ? "bg-white" : "bg-light"}`,
+                title: i["Title"] ?? null,
+                description: i["Description"] ?? null,
+                img: i["Image"] ?? null,
+                video_embed_url: i["Video Embed Url"] ?? null,
+                cta: {
+                  label: i["Button Label"] ?? "Read more",
+                  href: i["Button Link"] ?? "#",
+                  variant: k % 2 === 0 ? "quaternary" : "primary",
+                },
+                reverse: k % 2 === 0,
+              },
+            }))
+          : []),
         {
           component: "FeatureTabsList",
           props: {
