@@ -70,37 +70,24 @@ export async function getStaticProps({ params: { url_slug } }) {
               },
             }))
           : []),
-        {
-          component: "FeatureTabsList",
-          props: {
-            className: "text-center py-4 py-md-5",
-            title: {
-              path: `page.${url_slug}.component.FeatureTabsList.title`,
-              placeholder: generateTitle(),
-            },
-            description: {
-              path: `page.${url_slug}.component.FeatureTabsList.description`,
-              placeholder: generateDescription(),
-            },
-            items: new Array(product.featured_tabs_count).fill(null).map((i, k) => ({
-              title: {
-                path: `page.${url_slug}.component.FeatureTabsList.item.${k + 1}.title`,
-                placeholder: generateTitle(2),
+        ...(product.featured_tabs_items
+          ? [
+              {
+                component: "FeatureTabsList",
+                props: {
+                  className: "text-center py-4 py-md-5",
+                  title: product.featured_tabs_title ?? null,
+                  description: product.featured_tabs_description ?? null,
+                  items: product.featured_tabs_items.map((i, k) => ({
+                    title: i["Title"] ?? null,
+                    body: i["Body"] ?? null,
+                    icon: i["Icon"] ?? null,
+                  })),
+                  defaultActiveKey: -1,
+                },
               },
-              body: {
-                path: `page.${url_slug}.component.FeatureTabsList.item.${k + 1}.body`,
-                placeholder: generateBody(2),
-              },
-              icon: {
-                path: `page.${url_slug}.component.FeatureTabsList.item.${k + 1}.icon`,
-              },
-              img: {
-                path: `page.${url_slug}.component.FeatureTabsList.item.${k + 1}.img`,
-              },
-            })),
-            defaultActiveKey: -1,
-          },
-        },
+            ]
+          : []),
         {
           component: "Form",
           props: {

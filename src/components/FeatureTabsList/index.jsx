@@ -23,12 +23,9 @@ export default function FeatureTabsList({ className, title, description, items, 
               ))}
             </Nav>
             <Tab.Content>
-              {items.map(({ title, img, body }, k) => (
+              {items.map(({ title, body }, k) => (
                 <Tab.Pane key={k} eventKey={k} className="text-start p-5">
-                  <Stack as="article" className="flex-row" gap="3">
-                    <Body body={body} />
-                    <Image img={img} size="420x291" />
-                  </Stack>
+                  <Body body={body} />
                 </Tab.Pane>
               ))}
             </Tab.Content>
