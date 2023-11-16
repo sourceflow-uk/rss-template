@@ -48,6 +48,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
             className: "text-tertiary",
             title: page.title,
             description: page.description ?? null,
+            img: page.cover_image ?? null,
             back: prevPage
               ? {
                   path: `page.${prevPage.url_slug}.component.Header.back`,
