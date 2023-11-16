@@ -59,6 +59,10 @@
     max-height: 0vh;
     overflow: hidden;
     transition: 0.4s;
+
+    a {
+      color: var(#{--bs-primary});
+    }
   }
 
   &--active {
