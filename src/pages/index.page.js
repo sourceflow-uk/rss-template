@@ -1,7 +1,4 @@
 import { Content } from "@/ui";
-import { generateArrayOf } from "@/faker/generateArrayOf";
-import { generateArticle } from "@/faker/generateArticle";
-import { generateJob } from "@/faker/generateJob";
 import { career_advice_helper } from "@/helpers/career_advice_helper";
 import { getRoute } from "@/getters/getRoute";
 import { trimText } from "@/functions/trimText";
