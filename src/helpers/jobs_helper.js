@@ -6,7 +6,7 @@ class JobsCollectionHelper extends CollectionHelper {
     const category = categories.find((i) => i.id === search || i.name === search);
 
     if (!category) {
-      return null;
+      return [];
     }
 
     return category.values;
