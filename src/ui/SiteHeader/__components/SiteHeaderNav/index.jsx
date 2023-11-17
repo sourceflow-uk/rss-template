@@ -12,7 +12,14 @@ export default function SiteHeaderNav({ className }) {
     <Nav className={className}>
       {nav.map(({ label, children, href, target }, k) =>
         children ? (
-          <div className="dropdown" key={k} onMouseEnter={() => setShow(k)} onMouseOver={() => setShow(k)}>
+          <div
+            className="dropdown"
+            key={k}
+            onMouseEnter={() => setShow(k)}
+            onMouseOver={() => setShow(k)}
+            onMouseLeave={() => setShow(null)}
+            onMouseOut={() => setShow(null)}
+          >
             <Nav.Item>
               <Nav.Link href={href} target={target}>
                 {label}
