@@ -24,6 +24,30 @@ export default function Document() {
           </Script>
         )}
         <Script
+          id="fpp"
+          type="text/javascript"
+          src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js"
+          strategy="beforeInteractive"
+        />
+        <Script id="fpp_script" type="text/javascript" strategy="beforeInteractive">
+          {`
+            document.addEventListener('DOMContentLoaded', function () {
+              cookieconsent.run({
+                  "notice_banner_type": "simple",
+                  "consent_type": "express",
+                  "palette": "light",
+                  "language": "en",
+                  "page_load_consent_levels": ["strictly-necessary"],
+                  "notice_banner_reject_button_hide": false,
+                  "preferences_center_close_button_hide": false,
+                  "page_refresh_confirmation_buttons": false,
+                  "website_name":"www.bluearrow.co.uk",
+                  "website_privacy_policy_url":"https://www.rssglobal.com/cookie-policy/"
+              });
+            });
+          `}
+        </Script>
+        <Script
           id="leadoo"
           async
           src="https://bot.leadoo.com/bot/visual.js?code=9f570568#seamless"
