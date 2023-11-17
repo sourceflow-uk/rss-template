@@ -72,6 +72,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
           ? [
               {
                 component: "JobsFeed",
+                id: "Jobs",
                 props: {
                   sector: page.id,
                   changeURLOnFilterChange: false,

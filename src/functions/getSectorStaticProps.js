@@ -41,6 +41,7 @@ export const getSectorStaticProps = ({ sector_id, pages_helper = null } = {}) =>
     },
     {
       component: "JobsFeed",
+      id: "Jobs",
       props: {
         sector: sector.id,
         changeURLOnFilterChange: false,

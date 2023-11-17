@@ -51,6 +51,7 @@ export async function getStaticProps({}) {
         },
         {
           component: "JobsFeed",
+          id: "Jobs",
         },
       ],
     },
