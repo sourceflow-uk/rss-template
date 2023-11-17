@@ -10,7 +10,7 @@
   "contact": "/contact-us/",
   "branches": "/our-branches/",
   "branch": "/our-branches/[url_slug]/",
-  "employers": "/great-places-to-work/",
+  "employers": "/featured-employers/",
   "employerPage": "/featured-employers/",
   "careerAdvice": "/career-advice/",
   "careerAdviceArticle": "/career-advice/[url_slug]",
