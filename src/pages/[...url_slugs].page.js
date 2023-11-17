@@ -29,8 +29,6 @@ export async function getStaticProps({ params: { url_slugs } }) {
     isSector = true;
   }
 
-  console.log(page);
-
   return {
     notFound: !page,
     props: {

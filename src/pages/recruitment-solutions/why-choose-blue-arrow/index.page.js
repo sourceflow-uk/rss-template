@@ -15,8 +15,6 @@ export async function getStaticProps() {
   const title = "Why choose Blue Arrow?";
   const pages = simple_pages_helper.fetch({ parent: "9dc7694d-93b5-4ddd-a464-405f77d71cb1" });
 
-  console.log(pages);
-
   return {
     props: {
       meta: {
