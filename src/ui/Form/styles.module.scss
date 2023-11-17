@@ -3,11 +3,11 @@
 .form {
   [ref="label"] {
     font-weight: $font-weight-semibold;
+  }
 
-    &[class*="field-required"]:after {
-      content: "*";
-      color: $danger;
-    }
+  [class*="field-required"]:after {
+    content: "*";
+    color: $danger;
   }
 
   [ref="component"] {
