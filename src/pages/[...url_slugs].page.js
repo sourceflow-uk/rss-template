@@ -18,7 +18,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
   const pages = url_slugs.map((url_slug, k) => ({
     url_slug,
     label: unslug(url_slug),
-    href: getRoute("dynamic", { url_slugs: url_slugs.slice(0, k + 1) }),
+    href: url_slug === "recruitment-solutions" ? "#" : getRoute("dynamic", { url_slugs: url_slugs.slice(0, k + 1) }),
   }));
   const [_page, prevPage] = [...pages].reverse();
 
