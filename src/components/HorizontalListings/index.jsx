@@ -3,8 +3,7 @@ import clsx from "classnames";
 import classes from "./styles.module.scss";
 import { Col, Container, Row } from "react-bootstrap";
 import { trimText } from "@/functions/trimText";
-import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
-import { DynamicText } from "@/ui";
+import { DynamicText, Image } from "@/ui";
 
 export default function HorizontalListings({ className, title, items }) {
   return (
@@ -19,7 +18,7 @@ export default function HorizontalListings({ className, title, items }) {
               <div className={classes.listings__item}>
                 <div>
                   <figure className="ratio ratio-1x1">
-                    <SourceFlowImage src={img} alt={title} size="64x64" />
+                    <Image img={img} alt={title} size="64x64" />
                   </figure>
                 </div>
                 <div>

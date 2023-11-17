@@ -4,8 +4,8 @@ import Email from "@/assets/Email.svg";
 import LinkedIn from "@/assets/LinkedIn.svg";
 import Phone from "@/assets/Phone.svg";
 import classes from "./styles.module.scss";
-import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 import PropTypes from "prop-types";
+import { Image } from "@/ui";
 
 export default function TeamBio({
   className,
@@ -25,7 +25,7 @@ export default function TeamBio({
         <Row className={clsx("flex-column", { "flex-md-row": !reverse, "flex-md-row-reverse": reverse })}>
           <Col xs={12} md={4}>
             <figure>
-              <SourceFlowImage src={photo} size="291x291" alt={name} />
+              <Image img={photo} size="291x291" alt={name} />
             </figure>
           </Col>
           <Col xs={12} md={8}>

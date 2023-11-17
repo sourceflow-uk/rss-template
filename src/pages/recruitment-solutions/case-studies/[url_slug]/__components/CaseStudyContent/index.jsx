@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 import Business from "./assets/Business.svg";
 import Client from "./assets/Client.svg";
 import Contact from "./assets/Contact.svg";
@@ -7,7 +6,7 @@ import Employees from "./assets/Employees.svg";
 import Globe from "./assets/Globe.svg";
 import Staffing from "./assets/Staffing.svg";
 import Turnover from "./assets/Turnover.svg";
-import { BlockQuoteCard, DynamicText, Form, Title } from "@/ui";
+import { BlockQuoteCard, DynamicText, Form, Image, Title } from "@/ui";
 import { Col, Container, Row } from "react-bootstrap";
 import classes from "./styles.module.scss";
 import clsx from "classnames";
@@ -158,7 +157,7 @@ export default function CaseStudyContent({
                 <div dangerouslySetInnerHTML={{ __html: challenge }} />
               </Col>
               <Col xs={12} md={6} className="d-flex justify-content-end align-items-center">
-                {challenge_image && <SourceFlowImage src={challenge_image} size="540x" alt="Challenge image" />}
+                {challenge_image && <Image img={challenge_image} size="540x" alt="Challenge image" />}
               </Col>
             </Row>
           </Container>
@@ -169,7 +168,7 @@ export default function CaseStudyContent({
           <Container>
             <Row>
               <Col xs={12} md={6} className="d-flex justify-content-start align-items-center mb-4">
-                {solution_image && <SourceFlowImage src={solution_image} size="540x" alt="Solution image" />}
+                {solution_image && <Image img={solution_image} size="540x" alt="Solution image" />}
               </Col>
               <Col xs={12} md={6}>
                 <DynamicText path={`page.${url_slug}.component.CaseStudyContent.solution.title`} tag="h2">
@@ -192,7 +191,7 @@ export default function CaseStudyContent({
                 <div dangerouslySetInnerHTML={{ __html: journey }} />
               </Col>
               <Col xs={12} md={6} className="d-flex justify-content-end align-items-center">
-                {journey_image && <SourceFlowImage src={journey_image} size="540x" alt="Journey image" />}
+                {journey_image && <Image img={journey_image} size="540x" alt="Journey image" />}
               </Col>
             </Row>
           </Container>

@@ -1,16 +1,15 @@
 import { Col, Container, Row, Stack } from "react-bootstrap";
 import clsx from "classnames";
-import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 import classes from "./styles.module.scss";
 import PropTypes from "prop-types";
-import { RelatedArticles, SocialNavigation, Tag, Time } from "@/ui";
+import { Image, RelatedArticles, SocialNavigation, Tag, Time } from "@/ui";
 
 export default function BlogArticleContent({ className, title, body, image, tags, publish_date, related }) {
   return (
     <article className={clsx(className, classes.article)}>
       <header className={clsx(classes.article__header)}>
         <SocialNavigation className={classes.article__share} />
-        <SourceFlowImage src={image} size="1440x360" alt={title} />
+        <Image img={image} size="1440x360" alt={title} />
         <Container className="mw-xxl">
           <Row>
             <Col xs={12} md={6}>

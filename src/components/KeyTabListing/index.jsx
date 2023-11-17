@@ -3,7 +3,7 @@ import clsx from "classnames";
 import classes from "./styles.module.scss";
 import { Container, Tab, Tabs } from "react-bootstrap";
 import { trimText } from "@/functions/trimText";
-import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
+import { Image } from "@/ui";
 
 export default function KeyTabListing({ className, items }) {
   return (
@@ -16,7 +16,7 @@ export default function KeyTabListing({ className, items }) {
               title={
                 <div className="d-flex py-1 gap-2">
                   <figure className="ratio ratio-1x1">
-                    <SourceFlowImage src={icon} size="25x25" alt={title} />
+                    <Image img={icon} size="25x25" alt={title} />
                   </figure>
                   <span className="flex-grow-1">{trimText(title, 20)}</span>
                 </div>

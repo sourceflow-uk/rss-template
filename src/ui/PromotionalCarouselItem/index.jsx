@@ -3,9 +3,8 @@ import Play from "@/assets/Play.svg";
 import PropTypes from "prop-types";
 import classes from "./styles.module.scss";
 import clsx from "classnames";
-import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 import { trimText } from "@/functions/trimText";
-import { CTA, VideoModal } from "@/ui";
+import { CTA, Image, VideoModal } from "@/ui";
 
 export default function PromotionalCarouselItem({ className, title, description, img, video_embed_url, cta }) {
   return (
@@ -13,7 +12,7 @@ export default function PromotionalCarouselItem({ className, title, description,
       <Row>
         <Col xs={12} md={6}>
           <figure className="my-4 my-md-0">
-            <SourceFlowImage className="mw-100" src={img} size="540x291" alt={title} />
+            <Image className="mw-100" img={img} size="540x291" alt={title} />
             {video_embed_url && (
               <VideoModal video_embed_url={video_embed_url}>
                 <Play width={30} height={31} />

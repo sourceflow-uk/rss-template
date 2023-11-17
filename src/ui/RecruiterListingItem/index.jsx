@@ -2,11 +2,11 @@ import clsx from "classnames";
 import PropTypes from "prop-types";
 import { Col, Row, Stack } from "react-bootstrap";
 import classes from "./styles.module.scss";
-import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 import { trimText } from "@/functions/trimText";
 import Email from "@/assets/Email.svg";
 import Phone from "@/assets/Phone.svg";
 import LinkedIn from "@/assets/LinkedIn.svg";
+import { Image } from "@/ui";
 
 export default function RecruiterListingItem({
   className,
@@ -24,7 +24,7 @@ export default function RecruiterListingItem({
         <Col xs={12} md={6}>
           <Stack className="flex-row" gap={4}>
             <div>
-              <SourceFlowImage src={profile_pic} size="167x167" alt={name} />
+              <Image img={profile_pic} size="167x167" alt={name} />
             </div>
             <div>
               <h4 className="h6">{name}</h4>

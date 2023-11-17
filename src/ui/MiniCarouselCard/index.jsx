@@ -1,10 +1,9 @@
-import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 import { Col, Row } from "react-bootstrap";
 import PropTypes from "prop-types";
 import clsx from "classnames";
 import classes from "./styles.module.scss";
 import { trimText } from "@/functions/trimText";
-import { CTA } from "@/ui";
+import { CTA, Image } from "@/ui";
 
 export default function MiniCarouselCard({ className, title, description, cta, img }) {
   return (
@@ -16,7 +15,7 @@ export default function MiniCarouselCard({ className, title, description, cta, i
           {cta && <CTA label={cta.label} href={cta.href} variant={cta.variant} />}
         </Col>
         <Col xs={12} sm={7} className="p-0">
-          <SourceFlowImage src={img} size="703x352" alt={title} />
+          <Image img={img} size="703x352" alt={title} />
         </Col>
       </Row>
     </div>

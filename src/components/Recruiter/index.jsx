@@ -1,9 +1,8 @@
-import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 import PropTypes from "prop-types";
 import { Col, Container, Row } from "react-bootstrap";
 import clsx from "classnames";
 import classes from "./styles.module.scss";
-import { Tag } from "@/ui";
+import { Image, Tag } from "@/ui";
 
 export default function Recruiter({
   className,
@@ -22,7 +21,7 @@ export default function Recruiter({
       <Container className="mw-xl">
         <Row>
           <Col xs={12}>
-            <SourceFlowImage className="mb-4" src={profile_pic} size="167x167" alt={name} />
+            <Image className="mb-4" src={profile_pic} size="167x167" alt={name} />
             <h2>{name}</h2>
           </Col>
           <Col xs={12} md={8}>

@@ -3,14 +3,13 @@ import Play from "@/assets/Play.svg";
 import clsx from "classnames";
 import classes from "./styles.module.scss";
 import { trimText } from "@/functions/trimText";
-import SourceFlowImage from "@sourceflow-uk/sourceflowimage";
 import PropTypes from "prop-types";
-import { VideoModal } from "@/ui";
+import { Image, VideoModal } from "@/ui";
 
 export default function HeroCarouselCard({ className, title, description, img, video_embed_url }) {
   return (
     <div className={clsx(className, classes.card)}>
-      <SourceFlowImage className={classes.card__img} src={img} size="1440x300" alt={title} />
+      <Image className={classes.card__img} img={img} size="1440x300" alt={title} />
       <div className={clsx(classes.card__body, "p-5")}>
         <Row className="h-100">
           <Col xs={5} className="d-flex flex-column justify-content-center h-100">
