@@ -186,6 +186,7 @@ export async function getStaticPaths() {
           "9dc7694d-93b5-4ddd-a464-405f77d71cb1",
           "5baeed81-34de-4673-b0f3-2405a5682c22", // contact-us
           "5867167d-704a-4155-8b6d-7df842ef40f1", //
+          "6cbbc5e3-5dcd-44a4-ba81-136d3f90ae0d", // featured-employers
         ],
       }),
       ...sector_helper.toNestedPaths({
