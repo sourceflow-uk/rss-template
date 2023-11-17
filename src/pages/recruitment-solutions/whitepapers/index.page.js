@@ -16,7 +16,7 @@ export async function getStaticProps() {
   return {
     props: {
       meta: {
-        title: createTitle("Industry Insights"),
+        title: createTitle("Whitepapers"),
       },
       content: [
         {
@@ -24,7 +24,7 @@ export async function getStaticProps() {
           props: {
             items: [
               { label: "Recruitment Solutions", href: "#" },
-              { label: "Industry Insights", href: getRoute("industryInsights") },
+              { label: "Whitepapers", href: getRoute("whitepapers") },
             ],
           },
         },
@@ -33,19 +33,19 @@ export async function getStaticProps() {
           props: {
             className: "text-tertiary",
             title: {
-              path: "page.recruitment-solutions.industry-insights.component.Header.title",
-              placeholder: "Industry Insights",
+              path: "page.recruitment-solutions.whitepapers.component.Header.title",
+              placeholder: "Whitepapers",
             },
             description: {
-              path: "page.recruitment-solutions.industry-insights.component.Header.description",
+              path: "page.recruitment-solutions.whitepapers.component.Header.description",
               placeholder: "",
             },
           },
         },
         {
-          component: "IndustryInsightsFeed",
+          component: "WhitepapersFeed",
           props: {
-            items: simple_pages_helper.fetch({ parent: "3ac0b752-94d4-49ee-b17a-c45aac2c5eda" }).map((i) => ({
+            items: simple_pages_helper.fetch({ parent: "ccf8d981-4a1d-46f9-8c3a-0e4c0807e9f6" }).map((i) => ({
               title: i.title,
               image: i.card_image ?? null,
               url_slug: i.url_slug,

@@ -1,0 +1,49 @@
+@import "src/scss/module";
+
+.feed {
+  &__filters {
+    background-color: var(#{--bs-primary});
+    color: $white;
+    border-radius: var(#{--bs-border-radius});
+
+    [class="dropdown"] {
+      width: 100%;
+    }
+
+    [class*="dropdown-menu"] {
+      width: 100%;
+    }
+
+    [class*="dropdown-item"] {
+      &:hover {
+        background-color: var(#{--bs-light});
+      }
+
+      &:focus {
+        background-color: var(#{--bs-primary});
+      }
+    }
+
+    [class*="form-label"],
+    [class*="dropdown-header"] {
+      margin: 0;
+      font-size: 1em;
+      font-weight: $font-weight-bold;
+    }
+
+    [class*="form-control"],
+    [class*="dropdown-toggle"] {
+      width: 100%;
+      background-color: $white;
+      color: var(#{--bs-tertiary});
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: $spacer * 0.5 $spacer;
+      border-radius: var(#{--bs-border-radius-sm});
+    }
+  }
+
+  &__footer {
+  }
+}

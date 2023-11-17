@@ -7,6 +7,8 @@
   "blogPost": "/blog/[url_slug]/",
   "industryInsights": "/recruitment-solutions/industry-insights/",
   "industryInsightPage": "/recruitment-solutions/industry-insights/[url_slug]/",
+  "whitepapers": "/recruitment-solutions/whitepapers/",
+  "whitepapersPage": "/recruitment-solutions/whitepapers/[url_slug]/",
   "jobs": "/jobs/",
   "job": "/jobs/[url_slug]/",
   "contact": "/contact-us/",

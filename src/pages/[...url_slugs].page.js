@@ -188,6 +188,7 @@ export async function getStaticPaths() {
           "5867167d-704a-4155-8b6d-7df842ef40f1", //
           "6cbbc5e3-5dcd-44a4-ba81-136d3f90ae0d", // featured-employers
           "3ac0b752-94d4-49ee-b17a-c45aac2c5eda", // industry-insights
+          "ccf8d981-4a1d-46f9-8c3a-0e4c0807e9f6", // whitepapers
         ],
       }),
       ...sector_helper.toNestedPaths({
