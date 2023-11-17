@@ -3,7 +3,7 @@ import ArrowRight from "@/assets/ArrowRight.svg";
 import JobSearch from "@sourceflow-uk/job-search";
 import PropTypes from "prop-types";
 import { Container, FormCheck, Stack } from "react-bootstrap";
-import { CTA } from "@/ui";
+import { CTA, Image } from "@/ui";
 import classes from "./styles.module.scss";
 import clsx from "classnames";
 import { formatDistanceToNowStrict, fromUnixTime } from "date-fns";
@@ -11,6 +11,8 @@ import { formatDistanceToNowStrict, fromUnixTime } from "date-fns";
 import Branches from "@/../.sourceflow/jobs-Branches.json";
 import JobType from "@/../.sourceflow/jobs-Job Type.json";
 import Sector from "@/../.sourceflow/jobs-Sector.json";
+import { jobs_helper } from "@/helpers/jobs_helper";
+import { employer_helper } from "@/helpers/employer_helper";
 
 export default function JobsFeed({ className, sector, changeURLOnFilterChange }) {
   return (
@@ -43,15 +45,29 @@ export default function JobsFeed({ className, sector, changeURLOnFilterChange })
             },
             searchResultsOptions: {
               resultNewTab: false,
-              resultLinks: ({ href, label, target, job }) => (
-                <>
-                  <time className="me-auto">{`Posted ${formatDistanceToNowStrict(
-                    fromUnixTime(job.published_at),
-                  )} ago`}</time>
-                  <CTA href={href} label={label} target={target} variant="secondary" />
-                  <CTA href={`${href}#Apply`} label="Apply now" target={target} variant="outline-secondary" />
-                </>
-              ),
+              resultLinks: ({ href, label, target, job }) => {
+                let logo = null;
+                const [employerID] = jobs_helper.getCategoryValueIds("1df83e15-03f4-4ce7-9f8d-9b20d0ea1538", job);
+                if (employerID) {
+                  const employer = employer_helper.find(employerID, "id");
+                  if (employer) {
+                    if ("logo" in employer) {
+                      logo = employer.logo;
+                    }
+                  }
+                }
+
+                return (
+                  <>
+                    {logo && <img className="js-results-details-employer-logo" src={logo} alt="" />}
+                    <time className="me-auto">{`Posted ${formatDistanceToNowStrict(
+                      fromUnixTime(job.published_at),
+                    )} ago`}</time>
+                    <CTA href={href} label={label} target={target} variant="secondary" />
+                    <CTA href={`${href}#Apply`} label="Apply now" target={target} variant="outline-secondary" />
+                  </>
+                );
+              },
             },
           }}
           translations={{
