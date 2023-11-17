@@ -5,6 +5,7 @@ import { getRoute } from "@/getters/getRoute";
 import { branch_helper } from "@/helpers/branch_helper";
 import * as additionalComponents from "./__components";
 import { createTitle } from "@/functions/createTitle";
+import { jobs_helper } from "@/helpers/jobs_helper";
 
 export default function BranchPage({ content }) {
   return (
@@ -36,6 +37,7 @@ export async function getStaticProps({ params: { url_slug } }) {
         {
           component: "Header",
           props: {
+            className: "text-tertiary",
             title: {
               path: `page.branch.${url_slug}.component.Header.title`,
               placeholder: `${branch.name} Branch`,
@@ -55,7 +57,7 @@ export async function getStaticProps({ params: { url_slug } }) {
           component: "LatestJobs",
           props: {
             title: `Latest Jobs in ${branch.name}`,
-            items: generateArrayOf(generateJob, { count: 8 }),
+            items: jobs_helper.filter((i) => JSON.stringify(i).includes(branch.id)),
             visibleCount: 4,
           },
         },
