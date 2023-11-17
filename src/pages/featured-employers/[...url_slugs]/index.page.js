@@ -132,7 +132,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
           : []),
         ...(page.parent.id === null
           ? [
-              employer && {
+              typeof employer !== "undefined" && {
                 component: "LatestJobs",
                 props: {
                   title: {
