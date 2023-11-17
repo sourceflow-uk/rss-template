@@ -13,7 +13,7 @@ export default function LatestBlogCard({ className, title, description, img, pub
       </figure>
       <div className={classes.card__body}>
         <h4>{trimText(title, 50)}</h4>
-        <time>{format(new Date(published_at), "dd/MM/yyyy")}</time>
+        <time>{published_at && format(new Date(published_at), "dd/MM/yyyy")}</time>
         <p>{trimText(description, 180)}</p>
       </div>
     </a>
