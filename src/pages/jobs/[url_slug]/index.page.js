@@ -104,7 +104,10 @@ export async function getStaticProps({ params: { url_slug } }) {
           component: "JobPageContent",
           props: {
             ...job,
-            related,
+            related: related.map((i) => ({
+              ...i,
+              href: getRoute("job", { url_slug: i.url_slug }),
+            })),
           },
         },
       ],
