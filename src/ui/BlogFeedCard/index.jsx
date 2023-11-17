@@ -9,7 +9,11 @@ export default function BlogFeedCard({ className, title, published_at, img, href
 
   return (
     <a className={clsx(className, classes.card)} href={href}>
-      <Image className={classes.card__img} img={img ?? global["_theme.card.img.fallback"]} size="300x300" alt={title} />
+      {img ? (
+        <Image className={classes.card__img} img={img} size="300x300" alt={title} />
+      ) : (
+        <img className={classes.card__img} src={global["_theme.card.img.fallback"]} alt="" />
+      )}
       <div className={classes.card__body}>
         <h4>{title}</h4>
         <Time date={published_at} icon={false} className="text-white" />

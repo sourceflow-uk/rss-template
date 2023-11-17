@@ -5,6 +5,8 @@
   "sectorPage": "/[sector]/[page]",
   "blog": "/blog/",
   "blogPost": "/blog/[url_slug]/",
+  "industryInsights": "/recruitment-solutions/industry-insights/",
+  "industryInsightPage": "/recruitment-solutions/industry-insights/[url_slug]/",
   "jobs": "/jobs/",
   "job": "/jobs/[url_slug]/",
   "contact": "/contact-us/",
