@@ -19,7 +19,7 @@ export default function RelatedArticleCard({ className, title, image, tags, publ
         </Stack>
         <Stack className="flex-row flex-wrap align-items-center" gap={2}>
           <Time className="mb-0" date={publish_date} />
-          {tags && tags.map(({ label, href }, k) => <Tag key={k} label={label} href={href} />)}
+          {Array.isArray(tags) && tags.map(({ label, href }, k) => <Tag key={k} label={label} href={href} />)}
         </Stack>
       </div>
     </div>

@@ -17,9 +17,7 @@ export default function BlogArticleContent({ className, title, body, image, tags
               <h1 className="text-white mb-3">{title}</h1>
               <Stack className="flex-row align-items-center mb-3" gap={2}>
                 <Time className={classes.article__published} date={publish_date} />
-                {tags.map(({ label, href }, k) => (
-                  <Tag key={k} label={label} href={href} />
-                ))}
+                {Array.isArray(tags) && tags.map(({ label, href }, k) => <Tag key={k} label={label} href={href} />)}
               </Stack>
             </Col>
           </Row>
@@ -61,7 +59,7 @@ BlogArticleContent.propTypes = {
       className: PropTypes.string,
       label: PropTypes.string,
       href: PropTypes.string,
-    })
+    }),
   ),
   publish_date: PropTypes.string,
   related: PropTypes.arrayOf(
@@ -75,10 +73,10 @@ BlogArticleContent.propTypes = {
           label: PropTypes.string,
           href: PropTypes.string,
           variant: PropTypes.string,
-        })
+        }),
       ),
       publish_date: PropTypes.string,
       url_slug: PropTypes.string,
-    })
+    }),
   ),
 };
