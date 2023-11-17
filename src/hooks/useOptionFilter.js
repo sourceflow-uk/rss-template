@@ -6,7 +6,9 @@ export const useOptionFilter = (items, key, setFunction) => {
 
   useEffect(() => {
     setFunction(
-      items.filter((i) => (filterValue ? i[key].toLowerCase().trim() === filterValue.toLowerCase().trim() : true)),
+      items.filter((i) =>
+        filterValue ? key in i && i[key].toLowerCase().trim() === filterValue.toLowerCase().trim() : true,
+      ),
     );
   }, [filterValue]);
 
