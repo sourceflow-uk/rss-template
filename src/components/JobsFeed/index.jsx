@@ -6,7 +6,7 @@ import { Container, FormCheck, Stack } from "react-bootstrap";
 import { CTA } from "@/ui";
 import classes from "./styles.module.scss";
 import clsx from "classnames";
-import { formatDistanceToNowStrict } from "date-fns";
+import { formatDistanceToNowStrict, fromUnixTime } from "date-fns";
 
 import Branches from "@/../.sourceflow/jobs-Branches.json";
 import JobType from "@/../.sourceflow/jobs-Job Type.json";
@@ -46,7 +46,7 @@ export default function JobsFeed({ className, sector, changeURLOnFilterChange })
               resultLinks: ({ href, label, target, job }) => (
                 <>
                   <time className="me-auto">{`Posted ${formatDistanceToNowStrict(
-                    new Date(job.published_at),
+                    fromUnixTime(job.published_at),
                   )} ago`}</time>
                   <CTA href={href} label={label} target={target} variant="secondary" />
                   <CTA href={`${href}#Apply`} label="Apply now" target={target} variant="outline-secondary" />
