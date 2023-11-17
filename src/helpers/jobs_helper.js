@@ -11,6 +11,10 @@ class JobsCollectionHelper extends CollectionHelper {
 
     return category.values;
   }
+
+  getCategoryValueIds(search, { categories }) {
+    return this.getCategoryValues(search, { categories }).map((i) => i.id);
+  }
 }
 
 export const jobs_helper = new JobsCollectionHelper(data.jobs);

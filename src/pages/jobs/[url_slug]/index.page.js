@@ -4,6 +4,7 @@ import { getRoute } from "@/getters/getRoute";
 import { getGlobal } from "@/getters/getGlobal";
 import { jobs_helper } from "@/helpers/jobs_helper";
 import * as additionalComponents from "./__components";
+import { sector_helper } from "@/helpers/sector_helper";
 
 export default function JobPage({ job, content }) {
   const global = getGlobal();
@@ -48,9 +49,17 @@ export default function JobPage({ job, content }) {
 }
 
 export async function getStaticProps({ params: { url_slug } }) {
+  const sectorCategoryID = "3186657c-e89c-4a6f-9157-35eb7fe0b379";
   const job = jobs_helper.find(url_slug);
-  const related = jobs_helper.fetch({ exclude: [job.id] }); // TODO filter by sector
-  const similar = jobs_helper.fetch({ exclude: [job.id] }); // TODO filter by similar pay
+  const sectorsIds = jobs_helper.getCategoryValueIds(sectorCategoryID, job);
+  const related = jobs_helper.fetch({
+    exclude: [job.id],
+    filter: (i) => sectorsIds.some((s) => JSON.stringify(i.categories).includes(s)),
+  });
+  const similar = jobs_helper.fetch({
+    exclude: [job.id],
+    filter: (i) => sectorsIds.some((s) => JSON.stringify(i.categories).includes(s)),
+  });
 
   return {
     props: {
@@ -84,7 +93,15 @@ export async function getStaticProps({ params: { url_slug } }) {
             },
           },
         },
-        { component: "SimilarJobs", props: { items: similar } },
+        {
+          component: "SimilarJobs",
+          props: {
+            items: similar.map((i) => ({
+              ...i,
+              href: getRoute("job", { url_slug: i.url_slug }),
+            })),
+          },
+        },
         {
           component: "JobPageContent",
           props: {
