@@ -29,6 +29,8 @@ export async function getStaticProps({ params: { url_slugs } }) {
     isSector = true;
   }
 
+  console.log(page);
+
   return {
     notFound: !page,
     props: {
@@ -45,7 +47,11 @@ export async function getStaticProps({ params: { url_slugs } }) {
         {
           component: "Header",
           props: {
-            className: page.header_classes ?? page.cover_image ? "bg-tertiary text-white" : "bg-light text-tertiary",
+            className: page.header_classes
+              ? page.header_classes
+              : page.cover_image
+              ? "bg-tertiary text-white"
+              : "bg-light text-tertiary",
             title: page.title,
             description: page.description ?? null,
             img: page.cover_image ?? null,
