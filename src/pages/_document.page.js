@@ -23,6 +23,12 @@ export default function Document() {
               `}
           </Script>
         )}
+        <Script
+          id="leadoo"
+          async
+          src="https://bot.leadoo.com/bot/visual.js?code=9f570568#seamless"
+          strategy="beforeInteractive"
+        />
         <style id="theme">
           {`
             :root {
