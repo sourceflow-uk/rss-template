@@ -1,20 +1,18 @@
 import PropTypes from "prop-types";
 import clsx from "classnames";
-import { Container } from "react-bootstrap";
-import { Form, Title } from "@/ui";
-import { getGlobal } from "@/getters/getGlobal";
+import Script from "next/script";
 
-export default function ContactPageForm({ className, title }) {
-  const global = getGlobal();
-
+export default function ContactPageForm({ className }) {
   return (
     <>
       <a id="form" />
       <div className={clsx(className)}>
-        <Container>
-          <Title title={title} />
-          <Form formId={global["_theme.contact.form.id"]} />
-        </Container>
+        <Script
+          type="text/javascript"
+          src="https://bot.leadoo.com/bot/visual.js?code=9f570568#seamless"
+          strategy="afterInteractive"
+        />
+        <ld-slot name="Contact-Us-slot" />
       </div>
     </>
   );
