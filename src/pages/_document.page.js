@@ -23,7 +23,7 @@ export default function Document() {
               `}
           </Script>
         )}
-        <Script
+        <script
           id="fpp"
           type="text/javascript"
           src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js"
