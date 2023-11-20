@@ -6,7 +6,7 @@ import { getRoute } from "@/getters/getRoute";
 import { career_advice_helper } from "@/helpers/career_advice_helper";
 import classes from "./styles.module.scss";
 
-export default function CareerAdviceArticleContent({ className, id, body }) {
+export default function CareerAdviceArticleContent({ className, id, body, embed_media }) {
   const items = career_advice_helper.fetch({ exclude: [id] });
 
   return (
@@ -15,6 +15,7 @@ export default function CareerAdviceArticleContent({ className, id, body }) {
         <Row>
           <Col xs={12} md={8}>
             <div dangerouslySetInnerHTML={{ __html: body }} />
+            { embed_media && <div dangerouslySetInnerHTML={{ __html: embed_media }} /> }
           </Col>
           <Col xs={12} md={4}>
             <SidebarNavigation

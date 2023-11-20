@@ -50,6 +50,7 @@ export async function getStaticProps({ params: { url_slug } }) {
           props: {
             id: page.id,
             body: page.content,
+            embed_media: page.embed_media ?? null,
           },
         },
       ],
