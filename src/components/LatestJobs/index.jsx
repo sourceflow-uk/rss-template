@@ -20,38 +20,45 @@ export default function LatestJobs({ className, title, button, items: _items, vi
   const [computedItems, setComputedItems] = useState([]);
 
   useEffect(() => {
-    if (sectors.length > 0) {
+    if (sectors.length > 0 && filters) {
       setSector(sectors[0].id);
     }
-  }, [sectors]);
+  }, [sectors, filters]);
 
   useEffect(() => {
-    setComputedItems(items.filter((i) => JSON.stringify(i).includes(sectorFilter)));
-  }, [sectorFilter, items]);
+    if(sectorFilter){
+      setComputedItems(items.filter((i) => JSON.stringify(i).includes(sectorFilter)));
+    } else {
+      setComputedItems(items)
+    }
+  }, [sectorFilter, items, filters]);
 
   return (
     <div className={clsx(className, classes.jobs)}>
       <Container className="mw-xxl">
-        <Stack className="flex-md-row justify-content-between mb-4">
-          <Title title={title} className="mb-md-0 text-center text-md-start" />
-          {filters && (
-            <Stack
-              as="aside"
-              className={clsx(classes.jobs__filter, "flex-md-row justify-content-end flex-grow-0")}
-              gap={3}
-            >
-              <h3 className="h6 mb-0">Show me jobs for</h3>
-              <Stack className="flex-row flex-grow-0 justify-content-center" gap={2}>
-                {sectors.map(({ id, title }) => (
-                  <a key={id} onClick={() => setSector(id)} className={clsx({ active: sectorFilter === id })}>
-                    {title}
-                  </a>
-                ))}
+        { (title || filters) && (
+          <Stack className="flex-md-row justify-content-between mb-4">
+            <Title title={title} className="mb-md-0 text-center text-md-start" />
+            {filters && (
+              <Stack
+                as="aside"
+                className={clsx(classes.jobs__filter, "flex-md-row justify-content-end flex-grow-0")}
+                gap={3}
+              >
+                <h3 className="h6 mb-0">Show me jobs for</h3>
+                <Stack className="flex-row flex-grow-0 justify-content-center" gap={2}>
+                  {sectors.map(({ id, title }) => (
+                    <a key={id} onClick={() => setSector(id)} className={clsx({ active: sectorFilter === id })}>
+                      {title}
+                    </a>
+                  ))}
+                </Stack>
               </Stack>
-            </Stack>
-          )}
-        </Stack>
+            )}
+          </Stack>
+        )}
         <Carousel
+          id='jobs'
           controls={computedItems.length > visibleCount}
           indicators={false}
           prevIcon={<ChevronLeft width="14" height="25" />}

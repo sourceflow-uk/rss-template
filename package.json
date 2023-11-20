@@ -14,7 +14,7 @@
     "@react-hook/media-query": "^1.1.1",
     "@sourceflow-uk/job-search": "^3.7.1",
     "@sourceflow-uk/sourceflow-head": "^1.1.5",
-    "@sourceflow-uk/sourceflow-sdk": "^0.13.0",
+    "@sourceflow-uk/sourceflow-sdk": "^0.14.0",
     "@sourceflow-uk/sourceflowapplicationform": "^2.0.1",
     "@sourceflow-uk/sourceflowform": "^1.5.4",
     "@sourceflow-uk/sourceflowimage": "^0.3.0",

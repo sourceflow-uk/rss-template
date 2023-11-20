@@ -5,8 +5,9 @@ import { Detail } from "@/ui";
 import Phone from "@/assets/Phone.svg";
 import Contact from "@/assets/Contact.svg";
 import Location from "@/assets/Location.svg";
+import Calendar from "@/assets/Calendar.svg";
 
-export default function BranchPageContent({ className, content, address, email, phone, opening_hours }) {
+export default function BranchPageContent({ className, content, address, email, phone, opening_times }) {
   return (
     <div className={clsx(className)}>
       <Container className="mw-xxl">
@@ -16,7 +17,7 @@ export default function BranchPageContent({ className, content, address, email, 
             <Card>
               <Card.Header>Contact this branch</Card.Header>
               <Card.Body>
-                {[email, phone, opening_hours].some((i) => !!i) ? (
+                {[email, phone, address, opening_times].some((i) => !!i) ? (
                   <>
                     <Detail
                       icon={<Phone width={24} height={24} />}
@@ -32,6 +33,11 @@ export default function BranchPageContent({ className, content, address, email, 
                       icon={<Location width={24} height={24} />}
                       value={<span dangerouslySetInnerHTML={{ __html: address }} />}
                       label="Address"
+                    />
+                    <Detail
+                      icon={<Calendar width={24} height={24} />}
+                      value={<span dangerouslySetInnerHTML={{ __html: opening_times }} />}
+                      label="Opening Times"
                     />
                   </>
                 ) : (
