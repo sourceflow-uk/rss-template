@@ -9,7 +9,7 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  text-transform: capitalize;
+
   transition: $transition-base;
 
   &[data-variant="light"] {

@@ -42,7 +42,6 @@
 
         span {
           flex-grow: 1;
-          text-transform: capitalize;
         }
       }
     }
@@ -52,7 +51,6 @@
     background-color: var(#{--bs-tertiary-active});
     color: $white;
     text-align: center;
-    text-transform: capitalize;
     border-bottom-right-radius: var(#{--bs-border-radius});
     border-bottom-left-radius: var(#{--bs-border-radius});
 
