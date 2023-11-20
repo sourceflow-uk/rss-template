@@ -35,7 +35,7 @@ export async function getStaticProps({}) {
         {
           component: "Header",
           props: {
-            className: "text-white",
+            className: "text-tertiary",
             title: {
               path: "page.jobs.component.Header.title",
               placeholder: title,
