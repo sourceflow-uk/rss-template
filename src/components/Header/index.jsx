@@ -12,8 +12,8 @@ export default function Header({ className, title, img, contain, description, ct
       <Image className={classes.header__img} img={img} size="1920x370" alt="Header image" />
       <div className={clsx(classes.header__body, "py-3 p-md-5")}>
         <Container className="mw-xxl">
-          <Row className="h-100">
-            <Col xs={12} md={6} className="d-flex flex-column justify-content-center h-100">
+          <Row>
+            <Col xs={12} md={6}>
               {back && (
                 <a className={clsx(classes.header__back, "mb-3")} href={back.href}>
                   <ArrowLeft />
@@ -21,6 +21,10 @@ export default function Header({ className, title, img, contain, description, ct
                 </a>
               )}
               <Title className="mb-0" title={title} tag="h1" />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} md={4}>
               <Description className="mt-4" description={description} />
               {cta && <CTA className="mt-4" label={cta.label} href={cta.href} variant={cta.variant} />}
             </Col>
