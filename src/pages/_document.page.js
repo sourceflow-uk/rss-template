@@ -29,14 +29,14 @@ export default function Document() {
           src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js"
           strategy="beforeInteractive"
         />
-        <Script id="fpp_script" type="text/javascript" strategy="beforeInteractive">
-          {`
+        <script id="fpp_script" type="text/javascript" strategy="beforeInteractive" dangerouslySetInnerHTML= {{ __html:
+          `
             document.addEventListener('DOMContentLoaded', function () {
               cookieconsent.run({
                   "notice_banner_type": "simple",
                   "consent_type": "express",
                   "palette": "light",
-                  "language": "en",
+                  "language": "en_gb",
                   "page_load_consent_levels": ["strictly-necessary"],
                   "notice_banner_reject_button_hide": false,
                   "preferences_center_close_button_hide": false,
@@ -45,8 +45,7 @@ export default function Document() {
                   "website_privacy_policy_url":"https://www.rssglobal.com/cookie-policy/"
               });
             });
-          `}
-        </Script>
+          `}} />
         <style id="theme">
           {`
             :root {
