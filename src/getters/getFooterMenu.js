@@ -6,6 +6,21 @@ import { getRoute } from "@/getters/getRoute";
 export const getFooterMenu = (locale = "en") => {
   return [
     {
+      label: "Jobs",
+      href: getRoute("jobs"),
+      children: [
+        { label: "Catering Jobs", href: getRoute("/hospitality-and-catering") },
+        { label: "Driving Jobs", href: getRoute("/drivingjobs") },
+        { label: "Facilities Jobs", href: getRoute("/facilitiesjobs") },
+        { label: "Manufacturing Jobs", href: getRoute("/manufacturing") },
+        { label: "Office Jobs", href: getRoute("/officejobs") },
+        { label: "Retail Jobs", href: getRoute("/retailjobs") },
+        { label: "Warehouse Jobs", href: getRoute("/warehousejobs") },
+        { label: "Great Places To Work", href: getRoute("employers") },
+        { label: "Career Advice", href: getRoute("careerAdvice") },
+      ],
+    },
+    {
       label: "Recruitment Solutions",
       href: getRoute("/recruitment-solutions/why-choose-blue-arrow"),
       children: [

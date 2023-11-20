@@ -58,33 +58,33 @@ export const getHeaderMenu = (locale = "en") => {
         { label: "Our Branches", href: getRoute("branches") },
       ],
     },
-    {
-      label: "Corporate Governance",
-      children: [
-        { label: "Accessibility", href: getRoute("/accessibility") },
-        { label: "Terms", href: getRoute("/terms") },
-        { label: "Privacy", href: "https://www.rssglobal.com/privacy-policy/", target: "_blank" },
-        {
-          label: "Modern Slavery Compliance",
-          href: "https://www.rssglobal.com/modern-slavery-statement/",
-          target: "_blank",
-        },
-        { label: "Gender Pay Gap Report", href: getRoute("/gender-pay-gap-2022") },
-        {
-          label: "Carbon Reduction Plan",
-          href: "https://www.rssglobal.com/carbon-reduction-plan/",
-          target: "_blank",
-        },
-        { label: "Cookie Policy", href: "https://www.rssglobal.com/cookie-policy/", target: "_blank" },
-        { label: "Data Access Request", href: getRoute("/data-access-request") },
-        { label: "EDI Statement", href: "https://www.rssglobal.com/edi_statement/", target: "_blank" },
-        {
-          label: "Whistleblowing Policy",
-          href: "https://www.rssglobal.com/whistleblowing-policy/",
-          target: "_blank",
-        },
-      ],
-    },
+    // {
+    //   label: "Corporate Governance",
+    //   children: [
+    //     { label: "Accessibility", href: getRoute("/accessibility") },
+    //     { label: "Terms", href: getRoute("/terms") },
+    //     { label: "Privacy", href: "https://www.rssglobal.com/privacy-policy/", target: "_blank" },
+    //     {
+    //       label: "Modern Slavery Compliance",
+    //       href: "https://www.rssglobal.com/modern-slavery-statement/",
+    //       target: "_blank",
+    //     },
+    //     { label: "Gender Pay Gap Report", href: getRoute("/gender-pay-gap-2022") },
+    //     {
+    //       label: "Carbon Reduction Plan",
+    //       href: "https://www.rssglobal.com/carbon-reduction-plan/",
+    //       target: "_blank",
+    //     },
+    //     { label: "Cookie Policy", href: "https://www.rssglobal.com/cookie-policy/", target: "_blank" },
+    //     { label: "Data Access Request", href: getRoute("/data-access-request") },
+    //     { label: "EDI Statement", href: "https://www.rssglobal.com/edi_statement/", target: "_blank" },
+    //     {
+    //       label: "Whistleblowing Policy",
+    //       href: "https://www.rssglobal.com/whistleblowing-policy/",
+    //       target: "_blank",
+    //     },
+    //   ],
+    // },
     {
       label: "Contact Us",
       href: getRoute("contact"),

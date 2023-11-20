@@ -70,19 +70,19 @@ export async function getStaticProps() {
             })),
           },
         },
-        { component: "Divider" },
-        {
-          component: "FeaturedEmployersCarousel",
-          props: {
-            className: "text-center py-5",
-            title: {
-              path: "page.employers.component.FeaturedEmployersCarousel.title",
-              placeholder: "Top-rated places to work by Blue Arrow candidates",
-            },
-            visibleCount: 4,
-            button: null,
-          },
-        },
+        // { component: "Divider" },
+        // {
+        //   component: "FeaturedEmployersCarousel",
+        //   props: {
+        //     className: "text-center py-5",
+        //     title: {
+        //       path: "page.employers.component.FeaturedEmployersCarousel.title",
+        //       placeholder: "Top-rated places to work by Blue Arrow candidates",
+        //     },
+        //     visibleCount: 4,
+        //     button: null,
+        //   },
+        // },
       ],
     },
   };
