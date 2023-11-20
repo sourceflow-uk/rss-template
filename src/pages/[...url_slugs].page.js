@@ -29,6 +29,8 @@ export async function getStaticProps({ params: { url_slugs } }) {
     isSector = true;
   }
 
+  console.log(page);
+
   return {
     notFound: !page,
     props: {
@@ -106,9 +108,9 @@ export async function getStaticProps({ params: { url_slugs } }) {
                   title: page.grid_buttons_title ?? null,
                   description: page.grid_buttons_description ?? null,
                   items: page.grid_buttons.map((i) => ({
-                    title: i["Title"] ?? null,
-                    img: i["Image"] ?? null,
-                    href: i["Link"] ?? "#",
+                    title: i.title ?? null,
+                    img: i.image ?? null,
+                    href: i.link ?? "#",
                   })),
                   md: 4,
                 },
@@ -121,8 +123,8 @@ export async function getStaticProps({ params: { url_slugs } }) {
                   title: page.collapsible_section_title ?? null,
                   description: page.collapsible_section_description ?? null,
                   items: page.collapsible_section_items.map((i) => ({
-                    title: i["Title"] ?? null,
-                    body: i["Body"] ?? null,
+                    title: i.title ?? null,
+                    body: i.body ?? null,
                   })),
                   md: 12,
                 },
@@ -133,14 +135,14 @@ export async function getStaticProps({ params: { url_slugs } }) {
                     id: `NarrativePanel-${k}`,
                     props: {
                       className: `py-4 py-md-5 ${k % 2 === 0 ? "bg-white" : "bg-light"}`,
-                      title: i["Title"] ?? null,
-                      description: i["Description"] ?? null,
-                      img: i["Image"] ?? null,
-                      video_embed_url: i["Video Embed Url"] ?? null,
-                      cta: i["Button Link"]
+                      title: i.title ?? null,
+                      description: i.description ?? null,
+                      img: i.image ?? null,
+                      video_embed_url: i.video_embed_url ?? null,
+                      cta: i["button_link"]
                         ? {
-                            label: i["Button Label"] ?? null,
-                            href: i["Button Link"] ?? null,
+                            label: i["button_label"] ?? null,
+                            href: i["button_link"] ?? null,
                             variant: k % 2 === 0 ? "quaternary" : "primary",
                           }
                         : null,
@@ -153,10 +155,10 @@ export async function getStaticProps({ params: { url_slugs } }) {
                 id: "PromoSection",
                 props: {
                   items: page.promo_section.map((i) => ({
-                    title: i["Title"] ?? null,
-                    description: i["Description"] ?? null,
-                    img: i["Image"] ?? null,
-                    href: i["Link"] ?? "#",
+                    title: i.title ?? null,
+                    description: i.description ?? null,
+                    img: i.image ?? null,
+                    href: i.link ?? "#",
                   })),
                 },
               },
@@ -166,9 +168,9 @@ export async function getStaticProps({ params: { url_slugs } }) {
                     id: `Form-${k}`,
                     props: {
                       className: k % 2 === 0 ? "py-4 py-md-5 bg-light" : "py-4 py-md-5 bg-white",
-                      title: i["Title"] ?? null,
-                      description: i["Description"] ?? null,
-                      formId: i["Form ID"] ?? null,
+                      title: i.title ?? null,
+                      description: i.description ?? null,
+                      formId: i.form_id ?? null,
                     },
                   }))
                 : []),

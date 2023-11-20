@@ -25,7 +25,7 @@ export default function NarrativePanel({ className, title, description, img, cta
               <Video video_embed_url={video_embed_url} />
             ) : img ? (
               <figure className="mb-4 mb-md-0">
-                <Image className="mw-100" img={img} size="540x" />
+                <Image className="mw-100" img={img} size="540x" alt="" />
               </figure>
             ) : null}
           </Col>
