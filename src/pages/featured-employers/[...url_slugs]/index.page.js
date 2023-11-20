@@ -117,8 +117,8 @@ export async function getStaticProps({ params: { url_slugs } }) {
               id: `NarrativePanel-${k}`,
               props: {
                 className: `py-4 py-md-5 ${k % 2 === 0 ? "bg-light" : "bg-white"}`,
-                title: i["Title"],
-                description: i["Description"],
+                title: i["Title"] ?? null,
+                description: i["Description"] ?? null,
                 img: i["Image"] ?? null,
                 video_embed_url: i["Video Embed Url"] ?? null,
                 cta: {
@@ -156,7 +156,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
                           placeholder: `In this section`,
                         },
                         items: children.map((i) => ({
-                          title: i.title,
+                          title: i.title ?? null,
                           img: i.card_image ?? null,
                           description: trimText(i.body),
                           href: getRoute("employerPage", { url_slugs: [...url_slugs, i.url_slug] }),
@@ -180,7 +180,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
                           placeholder: `Also in this section`,
                         },
                         items: siblings.map((i) => ({
-                          title: i.title,
+                          title: i.title ?? null,
                           img: i.card_image ?? null,
                           description: trimText(i.body),
                           href: getRoute("employerPage", {

@@ -106,7 +106,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
                   title: page.grid_buttons_title ?? null,
                   description: page.grid_buttons_description ?? null,
                   items: page.grid_buttons.map((i) => ({
-                    title: i["Title"],
+                    title: i["Title"] ?? null,
                     img: i["Image"] ?? null,
                     href: i["Link"] ?? "#",
                   })),
@@ -153,7 +153,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
                 id: "PromoSection",
                 props: {
                   items: page.promo_section.map((i) => ({
-                    title: i["Title"],
+                    title: i["Title"] ?? null,
                     description: i["Description"] ?? null,
                     img: i["Image"] ?? null,
                     href: i["Link"] ?? "#",
@@ -166,9 +166,9 @@ export async function getStaticProps({ params: { url_slugs } }) {
                     id: `Form-${k}`,
                     props: {
                       className: k % 2 === 0 ? "py-4 py-md-5 bg-light" : "py-4 py-md-5 bg-white",
-                      title: i["Title"],
-                      description: i["Description"],
-                      formId: i["Form ID"],
+                      title: i["Title"] ?? null,
+                      description: i["Description"] ?? null,
+                      formId: i["Form ID"] ?? null,
                     },
                   }))
                 : []),
