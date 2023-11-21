@@ -57,7 +57,7 @@ export async function getStaticProps() {
                 title: i.title,
                 description: trimText(i.content),
                 img: i.card_image ?? null,
-                href: getRoute("careerAdviceArticle", { url_slug: i.url_slug }),
+                href: getRoute("careerAdviceArticle", { url_slugs: [i.url_slug] }),
               })),
               {
                 title: {

@@ -17,7 +17,7 @@
   "employers": "/featured-employers/",
   "employerPage": "/featured-employers/",
   "careerAdvice": "/career-advice/",
-  "careerAdviceArticle": "/career-advice/[url_slug]",
+  "careerAdviceArticle": "/career-advice/",
   "recruitmentSolutions": "/recruitment-solutions/",
   "caseStudies": "/recruitment-solutions/case-studies/",
   "caseStudy": "/recruitment-solutions/case-studies/[url_slug]",
