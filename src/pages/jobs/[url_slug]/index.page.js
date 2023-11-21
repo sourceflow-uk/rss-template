@@ -56,7 +56,7 @@ export async function getStaticProps({ params: { url_slug } }) {
     filter: (i) => sectorsIds.some((s) => JSON.stringify(i.categories).includes(s)),
   });
   const similar = jobs_helper.fetch({
-    limit: 10,
+    limit: 4,
     exclude: [job.id],
     filter: (i) => sectorsIds.some((s) => JSON.stringify(i.categories).includes(s)),
   });
