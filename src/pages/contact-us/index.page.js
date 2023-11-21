@@ -45,16 +45,7 @@ export async function getStaticProps() {
           },
         },
         { component: "ContactPageContent" },
-        {
-          component: "ContactPageForm",
-          props: {
-            className: "bg-light py-4 py-md-5",
-            title: {
-              path: "page.contact.component.ContactPageForm.title",
-              placeholder: "Send us a message",
-            },
-          },
-        },
+        { component: "ContactPageForm" },
       ],
     },
   };
