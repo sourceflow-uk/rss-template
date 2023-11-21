@@ -15,6 +15,7 @@ export async function getStaticProps({ params: { url_slug } }) {
   const job = jobs_helper.find(url_slug);
   const sectorsIds = jobs_helper.getCategoryValueIds("3186657c-e89c-4a6f-9157-35eb7fe0b379", job);
   const similar = jobs_helper.fetch({
+    limit: 10,
     exclude: [job.id],
     filter: (i) => sectorsIds.some((s) => JSON.stringify(i.categories).includes(s)),
   });
