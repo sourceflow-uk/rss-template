@@ -45,6 +45,9 @@ export default function JobsFeed({ className, sector, changeURLOnFilterChange })
             },
             searchResultsOptions: {
               resultNewTab: false,
+              resultCategories: {
+                Salary: false,
+              },
               resultLinks: ({ href, label, target, job }) => {
                 let logo = null;
                 const [employerID] = jobs_helper.getCategoryValueIds("1df83e15-03f4-4ce7-9f8d-9b20d0ea1538", job);
