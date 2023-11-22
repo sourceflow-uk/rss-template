@@ -80,7 +80,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
                 component: "RichText",
                 props: {
                   className: "bg-primary text-white py-5",
-                  body: page.body,
+                  body: page.body ?? null,
                 },
               },
             ]
@@ -88,9 +88,9 @@ export async function getStaticProps({ params: { url_slugs } }) {
               {
                 component: "EmployerPageArticleContent",
                 props: {
-                  body: page.body,
-                  title: page.title,
-                  url_slug: page.url_slug,
+                  body: page.body ?? null,
+                  title: page.title ?? null,
+                  url_slug: page.url_slug ?? null,
                   url_slugs,
                   children,
                   siblings,

@@ -19,26 +19,34 @@ export default function BranchPageContent({ className, content, address, email, 
               <Card.Body>
                 {[email, phone, address, opening_times].some((i) => !!i) ? (
                   <>
-                    <Detail
-                      icon={<Phone width={24} height={24} />}
-                      value={<a href={`tel:${phone.replaceAll(" ", "")}`}>{phone}</a>}
-                      label="Phone"
-                    />
-                    <Detail
-                      icon={<Contact width={24} height={24} />}
-                      value={<a href={`mailto:${email}`}>{email}</a>}
-                      label="Email"
-                    />
-                    <Detail
-                      icon={<Location width={24} height={24} />}
-                      value={<span dangerouslySetInnerHTML={{ __html: address }} />}
-                      label="Address"
-                    />
-                    <Detail
-                      icon={<Calendar width={24} height={24} />}
-                      value={<span dangerouslySetInnerHTML={{ __html: opening_times }} />}
-                      label="Opening Times"
-                    />
+                    {phone && (
+                      <Detail
+                        icon={<Phone width={24} height={24} />}
+                        value={<a href={`tel:${phone.replaceAll(" ", "")}`}>{phone}</a>}
+                        label="Phone"
+                      />
+                    )}
+                    {email && (
+                      <Detail
+                        icon={<Contact width={24} height={24} />}
+                        value={<a href={`mailto:${email}`}>{email}</a>}
+                        label="Email"
+                      />
+                    )}
+                    {address && (
+                      <Detail
+                        icon={<Location width={24} height={24} />}
+                        value={<span dangerouslySetInnerHTML={{ __html: address }} />}
+                        label="Address"
+                      />
+                    )}
+                    {opening_times && (
+                      <Detail
+                        icon={<Calendar width={24} height={24} />}
+                        value={<span dangerouslySetInnerHTML={{ __html: opening_times }} />}
+                        label="Opening Times"
+                      />
+                    )}
                   </>
                 ) : (
                   <div dangerouslySetInnerHTML={{ __html: address }} />
