@@ -32,6 +32,9 @@ export const getSectorStaticProps = ({ sector_id, pages_helper = null } = {}) =>
           placeholder:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         },
+        img: {
+          path: `page.${sector.url_slug}.component.Header.img`,
+        },
         back: {
           path: `page.home.component.Header.back`,
           placeholder: `Back to Home`,
