@@ -7,6 +7,8 @@ export const BlogFeedCard = lazy(() => import("./BlogFeedCard"));
 export const Body = lazy(() => import("./Body"));
 export const BranchLocationCard = lazy(() => import("./BranchLocationCard"));
 export const BranchLocator = lazy(() => import("./BranchLocator"));
+export const BranchMap = lazy(() => import("./BranchMap"));
+export const BranchDirections = lazy(() => import("./BranchDirections"));
 export const CaseStudyCard = lazy(() => import("./CaseStudyCard"));
 export const CollapsibleSectionItem = lazy(() => import("./CollapsibleSectionItem"));
 export const Content = lazy(() => import("./Content"));

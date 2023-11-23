@@ -6,15 +6,22 @@ import { useCallback, useState } from "react";
 import { branch_helper } from "@/helpers/branch_helper";
 import { getRoute } from "@/getters/getRoute";
 
-export default function BranchLocator({ className, title }) {
+export default function BranchLocator({ className, title, setAddressFunc }) {
   const branches = branch_helper.fetch();
   const [branch, setBranch] = useState("");
+  const [searchVal, setSearchVal] = useState("");
 
   const handleSearchClick = useCallback(() => {
     if (branch && typeof window !== "undefined") {
       window.location.href = getRoute("branch", { url_slug: branch.url_slug });
     }
-  }, [branch]);
+
+    if (searchVal && setAddressFunc){
+      setAddressFunc(searchVal)
+    }
+  }, [branch, searchVal]);
+
+
 
   return (
     <aside className={clsx(className, classes.locator)}>
@@ -27,21 +34,15 @@ export default function BranchLocator({ className, title }) {
         </svg>
         {title}
       </h3>
-      <Form>
+      <Form onSubmit={(e) => ( e.preventDefault() )}>
         <Form.Group className="mb-3">
           <Form.Label>Enter town</Form.Label>
           <Form.Control
             onChange={(e) => {
-              if (e.target.value.length > 1) {
-                const result = branches.find((i) => i.name.toLowerCase().includes(e.target.value.toLowerCase().trim()));
-
-                if (result) {
-                  setBranch(result);
-                } else {
-                  setBranch("");
-                }
+              if (e.target.value.length > 0) {
+                setSearchVal(e.target.value)
               } else {
-                setBranch("");
+                setSearchVal("");
               }
             }}
           />
@@ -61,7 +62,7 @@ export default function BranchLocator({ className, title }) {
           </Form.Select>
         </Form.Group>
         <Form.Group>
-          <Button className="w-100" variant="secondary" disabled={!branch} onClick={handleSearchClick}>
+          <Button type="button" className="w-100" variant="secondary" disabled={!branch && !searchVal} onClick={handleSearchClick}>
             Search
           </Button>
         </Form.Group>

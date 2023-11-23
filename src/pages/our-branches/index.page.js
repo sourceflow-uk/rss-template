@@ -1,6 +1,7 @@
 import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
 import { createTitle } from "@/functions/createTitle";
+import { branch_helper } from "@/helpers/branch_helper";
 
 export default function BranchesPage({ content }) {
   return (
@@ -12,6 +13,8 @@ export default function BranchesPage({ content }) {
 
 export async function getStaticProps() {
   const title = "Our Branches";
+
+  const branches = branch_helper.fetch();
 
   return {
     props: {
@@ -45,6 +48,9 @@ export async function getStaticProps() {
         },
         {
           component: "BranchLookupPanel",
+          props: {
+            branches: branches,
+          }
         },
       ],
     },

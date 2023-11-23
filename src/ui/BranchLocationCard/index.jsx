@@ -8,17 +8,19 @@ import { trimText } from "@/functions/trimText";
 export default function BranchLocationCard({ className, address, phone, email, map_embed_url, opening_hours }) {
   return (
     <div className={clsx(className, classes.card)}>
-      <div className={classes.card__map}>
-        <iframe
-          src={map_embed_url}
-          width="480"
-          height="480"
-          style={{ border: 0 }}
-          allowFullScreen={false}
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        />
-      </div>
+      { map_embed_url &&
+        <div className={classes.card__map}>
+          <iframe
+            src={map_embed_url}
+            width="480"
+            height="480"
+            style={{ border: 0 }}
+            allowFullScreen={false}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
+      }
       <div className={classes.card__body}>
         <address dangerouslySetInnerHTML={{ __html: address }} />
         <dl className="mb-2">
