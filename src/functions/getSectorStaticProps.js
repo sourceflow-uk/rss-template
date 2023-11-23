@@ -44,10 +44,7 @@ export const getSectorStaticProps = ({ sector_id, pages_helper = null } = {}) =>
       component: "RichText",
       props: {
         className: "bg-primary text-white py-4 py-md-5",
-        body: {
-          path: `page.${sector.url_slug}.component.Intro.body`,
-          placeholder: "",
-        },
+        body: sector.body ?? null,
       },
     },
     {
