@@ -43,6 +43,15 @@ export const getSectorStaticProps = ({ sector_id, pages_helper = null } = {}) =>
       },
     },
     {
+      component: "RichText",
+      props: {
+        body: {
+          path: `page.${sector.url_slug}.component.Intro.body`,
+          placeholder: "",
+        },
+      },
+    },
+    {
       component: "JobsFeed",
       id: "Jobs",
       props: {
