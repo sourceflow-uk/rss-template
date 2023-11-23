@@ -69,6 +69,15 @@ export async function getStaticProps({ params: { url_slugs } }) {
         ...(isSector
           ? [
               {
+                component: "RichText",
+                props: {
+                  body: {
+                    path: `page.${url_slugs.join(".")}.component.Intro.body`,
+                    placeholder: "",
+                  },
+                },
+              },
+              {
                 component: "JobsFeed",
                 id: "Jobs",
                 props: {
