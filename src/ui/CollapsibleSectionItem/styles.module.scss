@@ -1,7 +1,7 @@
 @import "src/scss/module";
 
 .item {
-  border-bottom: 1px solid var(#{--bs-light});
+  border-bottom: 1px solid var(#{--bs-dark});
 
   header {
     cursor: pointer;
