@@ -5,6 +5,7 @@ import { simple_pages_helper } from "@/helpers/simple_pages_helper";
 import { sector_helper } from "@/helpers/sector_helper";
 import { mini_carousel_helper } from "@/helpers/mini_carousel_helper";
 import { createTitle } from "@/functions/createTitle";
+import { getNestedRoutes } from "@/functions/getNestedRoutes";
 
 export default function Page({ content }) {
   return (
@@ -15,11 +16,7 @@ export default function Page({ content }) {
 }
 
 export async function getStaticProps({ params: { url_slugs } }) {
-  const pages = url_slugs.map((url_slug, k) => ({
-    url_slug,
-    label: unslug(url_slug),
-    href: url_slug === "recruitment-solutions" ? "#" : getRoute("dynamic", { url_slugs: url_slugs.slice(0, k + 1) }),
-  }));
+  const pages = getNestedRoutes({ url_slugs, overwrites: { "recruitment-solutions": { href: "#" } } });
   const [_page, prevPage] = [...pages].reverse();
 
   let isSector = false;

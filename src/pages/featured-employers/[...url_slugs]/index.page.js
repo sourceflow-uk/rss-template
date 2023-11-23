@@ -9,6 +9,7 @@ import { trimText } from "@/functions/trimText";
 import * as additionalComponents from "./__components";
 import { jobs_helper } from "@/helpers/jobs_helper";
 import { employer_helper } from "@/helpers/employer_helper";
+import { getNestedRoutes } from "@/functions/getNestedRoutes";
 
 export default function EmployerPage({ content }) {
   return (
@@ -19,11 +20,7 @@ export default function EmployerPage({ content }) {
 }
 
 export async function getStaticProps({ params: { url_slugs } }) {
-  const pages = url_slugs.map((url_slug, k) => ({
-    url_slug,
-    label: unslug(url_slug),
-    href: getRoute("employerPage", { url_slugs: url_slugs.slice(0, k + 1) }),
-  }));
+  const pages = getNestedRoutes({ url_slugs, routePrefix: `/featured-employers/` });
   const [rootPage] = pages;
   const [currentPage, prevPage] = [...pages].reverse();
   const page = employer_page_helper.find(currentPage.url_slug);

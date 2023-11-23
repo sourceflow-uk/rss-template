@@ -2,11 +2,14 @@ import { getRoute } from "@/getters/getRoute";
 import { sector_helper } from "@/helpers/sector_helper";
 import { trimText } from "@/functions/trimText";
 import { createTitle } from "@/functions/createTitle";
+import { getNestedRoutes } from "@/functions/getNestedRoutes";
 
-export const getSectorPageStaticProps = ({ sector_id, url_slug, pages_helper }) => {
+export const getSectorPageStaticProps = ({ sector_id, url_slugs, pages_helper }) => {
   const sector = sector_helper.find(sector_id, "id");
-  const page = pages_helper.find(url_slug);
-  const pages = pages_helper.fetch({ exclude: [page.id] });
+  const pages = getNestedRoutes({ url_slugs, routePrefix: `/${sector.url_slug}/` });
+  const [_page] = [...pages].reverse();
+  const page = pages_helper.find(_page.url_slug);
+  const siblings = pages_helper.fetch({ exclude: [page.id] });
 
   return {
     props: {
@@ -22,10 +25,7 @@ export const getSectorPageStaticProps = ({ sector_id, url_slug, pages_helper }) 
                 label: sector.title,
                 href: getRoute("sector", { url_slug: sector.url_slug }),
               },
-              {
-                label: page.name,
-                href: getRoute("sectorPage", { sector: sector.url_slug, page: page.url_slug }),
-              },
+              ...pages,
             ],
           },
         },
@@ -50,7 +50,7 @@ export const getSectorPageStaticProps = ({ sector_id, url_slug, pages_helper }) 
               path: `page.${sector.url_slug}.component.PromoSection.title`,
               placeholder: "Also in this section",
             },
-            items: pages.map((i) => ({
+            items: siblings.map((i) => ({
               title: i.name,
               description: trimText(i.body),
               img: i.cover_image ?? null,

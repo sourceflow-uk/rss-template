@@ -4,6 +4,7 @@ import { getRoute } from "@/getters/getRoute";
 import * as additionalComponents from "./__components";
 import { createTitle } from "@/functions/createTitle";
 import unslug from "unslug";
+import { getNestedRoutes } from "@/functions/getNestedRoutes";
 
 export default function CareerAdviceSubPage({ content }) {
   return (
@@ -14,11 +15,7 @@ export default function CareerAdviceSubPage({ content }) {
 }
 
 export async function getStaticProps({ params: { url_slugs } }) {
-  const pages = url_slugs.map((url_slug, k) => ({
-    url_slug,
-    label: unslug(url_slug),
-    href: getRoute("careerAdvice", { url_slugs: url_slugs.slice(0, k + 1) }),
-  }));
+  const pages = getNestedRoutes({ url_slugs, routePrefix: `/career-advice/` });
   const [_page, _prevPage] = [...pages].reverse();
   const page = career_advice_helper.find(_page.url_slug);
   const parent = career_advice_helper.find(page.parent.id, "id") ?? null;

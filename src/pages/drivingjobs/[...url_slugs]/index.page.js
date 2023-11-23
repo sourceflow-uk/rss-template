@@ -10,17 +10,17 @@ export default function DrivingSectorPages({ content }) {
   );
 }
 
-export async function getStaticProps({ params: { url_slug } }) {
+export async function getStaticProps({ params: { url_slugs } }) {
   return getSectorPageStaticProps({
     sector_id: "741e7908-0c11-4a62-91c1-dd23b02c8cd7",
-    url_slug,
+    url_slugs,
     pages_helper: driving_jobs_pages_helper,
   });
 }
 
 export async function getStaticPaths() {
   return {
-    paths: driving_jobs_pages_helper.toPaths(),
+    paths: driving_jobs_pages_helper.toNestedPaths(),
     fallback: false,
   };
 }
