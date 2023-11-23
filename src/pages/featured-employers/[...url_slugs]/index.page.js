@@ -166,7 +166,8 @@ export async function getStaticProps({ params: { url_slugs } }) {
                   ]
                 : []),
             ]
-          : [
+          : !children
+          ? [
               ...(siblings.length > 0
                 ? [
                     {
@@ -191,7 +192,8 @@ export async function getStaticProps({ params: { url_slugs } }) {
                     },
                   ]
                 : []),
-            ]),
+            ]
+          : []),
       ],
     },
   };
