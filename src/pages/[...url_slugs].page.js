@@ -71,10 +71,8 @@ export async function getStaticProps({ params: { url_slugs } }) {
               {
                 component: "RichText",
                 props: {
-                  body: {
-                    path: `page.${url_slugs.join(".")}.component.Intro.body`,
-                    placeholder: "",
-                  },
+                  className: "bg-primary text-white py-4 py-md-5",
+                  body: page.body ?? null,
                 },
               },
               {
