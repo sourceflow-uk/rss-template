@@ -1,7 +1,7 @@
 @import "src/scss/module";
 
 .item {
-  border-bottom: 1px solid;
+  border-bottom: 1px solid var(#{--bs-light});
 
   header {
     cursor: pointer;
@@ -32,17 +32,16 @@
 
     span {
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: calc(50% - 1px);
+      left: calc(50% - 5px);
       display: block;
       width: 10px;
       height: 2px;
       background-color: $dark;
       transition: $transition-base;
-      transform: translate(-50%, -50%);
 
       &:last-of-type {
-        transform: translate(-50%, -50%) rotate(90deg);
+        transform: rotate(90deg);
       }
     }
   }
@@ -59,27 +58,9 @@
     max-height: 0vh;
     overflow: hidden;
     transition: 0.4s;
-
-    a {
-      color: var(#{--bs-primary});
-    }
   }
 
   &--active {
-    header {
-      h4 {
-        color: var(#{--bs-primary});
-      }
-
-      span {
-        background-color: var(#{--bs-primary});
-
-        &:last-of-type {
-          width: 2px;
-        }
-      }
-    }
-
     section {
       max-height: 100vh;
       overflow: hidden;
@@ -88,5 +69,14 @@
 
   &--active &__toggle {
     border-color: var(#{--bs-primary});
+
+    span {
+      background-color: var(#{--bs-primary});
+
+      &:last-of-type {
+        left: calc(50% - 1px);
+        width: 1px;
+      }
+    }
   }
 }

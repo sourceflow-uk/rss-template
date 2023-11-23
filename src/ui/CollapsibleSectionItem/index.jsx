@@ -1,18 +1,19 @@
 import clsx from "classnames";
 import classes from "./styles.module.scss";
 import PropTypes from "prop-types";
+import { Body, Title } from "@/ui";
 
 export default function CollapsibleSectionItem({ active, title, body, onClick }) {
   return (
     <article className={clsx(classes.item, active && classes["item--active"])}>
       <header onClick={onClick} className="py-3">
-        <h4>{title}</h4>
+        <Title tag="h4" title={title} />
         <div className={classes.item__toggle}>
           <span />
           <span />
         </div>
       </header>
-      <section dangerouslySetInnerHTML={{ __html: body }} />
+      <Body body={body} tag="section" />
     </article>
   );
 }
