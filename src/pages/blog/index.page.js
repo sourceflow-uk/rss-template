@@ -1,12 +1,12 @@
 import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
 import { createTitle } from "@/functions/createTitle";
-import * as additionalComponents from "./__components";
+import { blog_helper } from "@/helpers/blog_helper";
 
 export default function BlogsPage({ content }) {
   return (
     <>
-      <Content items={content} additionalComponents={additionalComponents} />
+      <Content items={content} />
     </>
   );
 }
@@ -45,7 +45,13 @@ export async function getStaticProps() {
           },
         },
         {
-          component: "BlogFeed",
+          component: "ArticleFeed",
+          props: {
+            items: blog_helper.fetch(),
+            showSearchField: true,
+            showCategoryFilter: true,
+            showTagFilter: true,
+          },
         },
       ],
     },

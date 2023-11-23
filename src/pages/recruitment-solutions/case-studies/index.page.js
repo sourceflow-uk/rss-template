@@ -1,7 +1,7 @@
 import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
-import * as additionalComponents from "./__components";
 import { createTitle } from "@/functions/createTitle";
+import { case_study_helper } from "@/helpers/case_study_helper";
 
 export default function CaseStudiesPage({ content }) {
   return (
@@ -42,7 +42,15 @@ export async function getStaticProps() {
             },
           },
         },
-        { component: "CaseStudyFeed" },
+        {
+          component: "ArticleFeed",
+          props: {
+            items: case_study_helper.fetch(),
+            showSearchField: false,
+            showCategoryFilter: true,
+            showTagFilter: false,
+          },
+        },
       ],
     },
   };
