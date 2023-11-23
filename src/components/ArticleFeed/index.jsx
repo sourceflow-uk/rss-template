@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import clsx from "classnames";
 import { Button, Col, Container, Dropdown, FormControl, FormGroup, FormLabel, Row, Stack } from "react-bootstrap";
 import { BlogFeedCard } from "@/ui";
-import { getRoute } from "@/functions/getRoute";
+import { getRoute } from "@/getters/getRoute";
 import classes from "./styles.module.scss";
 import { useLoadMore } from "@/hooks/useLoadMore";
 import { useEffect, useState } from "react";
