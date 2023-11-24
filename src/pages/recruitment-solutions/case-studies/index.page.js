@@ -6,7 +6,7 @@ import { case_study_helper } from "@/helpers/case_study_helper";
 export default function CaseStudiesPage({ content }) {
   return (
     <>
-      <Content items={content} additionalComponents={additionalComponents} />
+      <Content items={content} />
     </>
   );
 }

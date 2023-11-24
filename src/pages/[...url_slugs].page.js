@@ -106,6 +106,12 @@ export async function getStaticProps({ params: { url_slugs } }) {
               // See /drivingjobs folder for example sector page
             ]
           : [
+              page.video
+                ? {
+                    component: "SocialVideo",
+                    props: { video_embed_url: page.video },
+                  }
+                : null,
               {
                 component: "RichText",
                 id: "Intro",
