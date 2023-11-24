@@ -51,10 +51,6 @@ export default function BranchMap({ branches }) {
   const global = getGlobal();
   const googleMapsApiKey = global["_theme.googleMapsApiKey"];
 
-  if (!googleMapsApiKey) {
-    return null;
-  }
-
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey,
@@ -65,6 +61,10 @@ export default function BranchMap({ branches }) {
   const onUnmount = useCallback(() => {
     setMap(null);
   }, []);
+
+  if (!googleMapsApiKey) {
+    return null;
+  }
 
   if (!isLoaded) {
     return null;

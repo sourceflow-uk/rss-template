@@ -10,10 +10,6 @@ export default function BranchDirections({ address, branches }) {
   const global = getGlobal();
   const googleMapsApiKey = global["_theme.googleMapsApiKey"];
 
-  if (!googleMapsApiKey) {
-    return null;
-  }
-
   useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey,
@@ -22,6 +18,10 @@ export default function BranchDirections({ address, branches }) {
 
   const geocoder = new google.maps.Geocoder();
   const [displayBranch, setDisplayBranch] = useState(null);
+
+  if (!googleMapsApiKey) {
+    return null;
+  }
 
   const destinations = branches.map((branch) => ({
     id: branch.id,

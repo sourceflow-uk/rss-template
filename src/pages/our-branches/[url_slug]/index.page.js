@@ -1,6 +1,4 @@
 import { Content } from "@/ui";
-import { generateArrayOf } from "@/faker/generateArrayOf";
-import { generateJob } from "@/faker/generateJob";
 import { getRoute } from "@/getters/getRoute";
 import { branch_helper } from "@/helpers/branch_helper";
 import * as additionalComponents from "./__components";
