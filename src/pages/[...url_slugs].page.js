@@ -6,6 +6,8 @@ import { sector_helper } from "@/helpers/sector_helper";
 import { mini_carousel_helper } from "@/helpers/mini_carousel_helper";
 import { createTitle } from "@/functions/createTitle";
 import { getNestedRoutes } from "@/functions/getNestedRoutes";
+import { employer_helper } from "@/helpers/employer_helper";
+import { jobs_helper } from "@/helpers/jobs_helper";
 
 export default function Page({ content }) {
   return (
@@ -25,6 +27,16 @@ export async function getStaticProps({ params: { url_slugs } }) {
     page = sector_helper.find(_page.url_slug);
     isSector = true;
   }
+
+  const sector = page["related_sector"] ? sector_helper.find(page["related_sector"], "title") : null;
+  const employer = page["related_employer"] ? employer_helper.find(page["related_employer"], "name") : null;
+  const jobs =
+    sector || employer
+      ? jobs_helper.fetch({
+          sector: sector ? sector.id : null,
+          employer: employer ? employer.id : null,
+        })
+      : null;
 
   return {
     notFound: !page,
@@ -164,6 +176,16 @@ export async function getStaticProps({ params: { url_slugs } }) {
                   })),
                 },
               },
+              ...(jobs && jobs.length > 0
+                ? [
+                    {
+                      component: "LatestJobs",
+                      props: {
+                        items: jobs,
+                      },
+                    },
+                  ]
+                : []),
               ...(Array.isArray(page.form)
                 ? page.form.map((i, k) => ({
                     component: "Form",
