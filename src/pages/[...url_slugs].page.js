@@ -1,6 +1,5 @@
 import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
-import unslug from "unslug";
 import { simple_pages_helper } from "@/helpers/simple_pages_helper";
 import { sector_helper } from "@/helpers/sector_helper";
 import { mini_carousel_helper } from "@/helpers/mini_carousel_helper";
@@ -181,6 +180,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
                     {
                       component: "LatestJobs",
                       props: {
+                        title: page.related_jobs_title ?? null,
                         items: jobs,
                       },
                     },
