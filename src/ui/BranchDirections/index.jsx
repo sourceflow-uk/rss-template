@@ -1,46 +1,53 @@
-import React, { Component, useEffect, useState } from "react";
-import { GoogleMap, Marker, InfoWindow, useJsApiLoader, DistanceMatrixService } from '@react-google-maps/api';
-import haversine from 'haversine-distance';
-import BranchLocationCard from '@/ui/BranchLocationCard';
+import React, { useState } from "react";
+import { useJsApiLoader } from "@react-google-maps/api";
+import haversine from "haversine-distance";
+import BranchLocationCard from "@/ui/BranchLocationCard";
+import { getGlobal } from "@/getters/getGlobal";
 
-const libraries = ["maps", "places"]
+const libraries = ["maps", "places"];
 
 export default function BranchDirections({ address, branches }) {
-  const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyB22hcjzKx-IdKqgbc6ARHR0ngevH02CTA",
-    libraries: libraries,
-  })
+  const global = getGlobal();
+  const googleMapsApiKey = global["_theme.googleMapsApiKey"];
 
-  var geocoder = new google.maps.Geocoder()
+  if (!googleMapsApiKey) {
+    return null;
+  }
 
-  const [displayBranch, setDisplayBranch] = useState(null)
+  useJsApiLoader({
+    id: "google-map-script",
+    googleMapsApiKey,
+    libraries,
+  });
 
-  const destinations = branches.map(branch => ( { id: branch.id, lat: parseFloat(branch.latitude), lng: parseFloat(branch.longitude) } ))
+  const geocoder = new google.maps.Geocoder();
+  const [displayBranch, setDisplayBranch] = useState(null);
 
-  geocoder.geocode({
-    address: address
-  }).then(response => {
-    const loc = response.results[0].geometry.location;
+  const destinations = branches.map((branch) => ({
+    id: branch.id,
+    lat: parseFloat(branch.latitude),
+    lng: parseFloat(branch.longitude),
+  }));
 
-    const searchedLoc = { lat: loc.lat(), lng: loc.lng() }
-
-    const distances = destinations.map(branch => {
-      const distance = haversine(searchedLoc, branch);
-      return { ...branch, distance: distance }
+  geocoder
+    .geocode({
+      address: address,
     })
+    .then((response) => {
+      const loc = response.results[0].geometry.location;
+      const searchedLoc = { lat: loc.lat(), lng: loc.lng() };
 
-    const closest = distances.reduce((prev, curr) => prev.distance < curr.distance ? prev : curr)
+      const distances = destinations.map((branch) => ({ ...branch, distance: haversine(searchedLoc, branch) }));
+      const closest = distances.reduce((prev, curr) => (prev.distance < curr.distance ? prev : curr));
+      const closestBranch = branches.find((branch) => branch.id === closest.id);
 
-    const closestBranch = branches.find(branch => branch.id == closest.id)
+      setDisplayBranch(closestBranch);
+    });
 
-    setDisplayBranch(closestBranch)
-  })
-
-  return(
+  return (
     <>
       <h4>Your nearest branch</h4>
-      { displayBranch &&
+      {displayBranch && (
         <BranchLocationCard
           address={displayBranch.address}
           phone={displayBranch.phone}
@@ -48,7 +55,7 @@ export default function BranchDirections({ address, branches }) {
           map_embed_url={displayBranch.map_embed_url}
           opening_hours={displayBranch.opening_times}
         />
-      }
+      )}
     </>
-  )
+  );
 }

@@ -13,7 +13,6 @@ export default function BranchesPage({ content }) {
 
 export async function getStaticProps() {
   const title = "Our Branches";
-
   const branches = branch_helper.fetch();
 
   return {
@@ -50,7 +49,7 @@ export async function getStaticProps() {
           component: "BranchLookupPanel",
           props: {
             branches: branches,
-          }
+          },
         },
       ],
     },

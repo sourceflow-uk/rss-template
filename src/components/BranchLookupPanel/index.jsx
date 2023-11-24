@@ -6,8 +6,7 @@ import PropTypes from "prop-types";
 
 export default function BranchLookupPanel({ className, branches }) {
   const [address, setAddress] = useState(null);
-
-  const mapBranches = branches.filter(branch => branch.longitude)
+  const mapBranches = branches.filter((branch) => branch.longitude);
 
   return (
     <div className={clsx(className)}>
@@ -17,8 +16,8 @@ export default function BranchLookupPanel({ className, branches }) {
             <BranchLocator setAddressFunc={setAddress} />
           </Col>
           <Col xs={12} md={9}>
-            { !address && <BranchMap branches={mapBranches} /> }
-            { address && <BranchDirections address={address} branches={mapBranches} /> }
+            {!address && <BranchMap branches={mapBranches} />}
+            {address && <BranchDirections address={address} branches={mapBranches} />}
           </Col>
         </Row>
       </Container>
