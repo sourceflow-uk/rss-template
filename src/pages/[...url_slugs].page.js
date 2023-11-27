@@ -39,6 +39,10 @@ export async function getStaticProps({ params: { url_slugs } }) {
       ? jobs_helper.fetch({
           sector: sector ? sector.id : null,
           employer: employer ? employer.id : null,
+          filter: (i) =>
+            "related_jobs_keyword" in page && page["related_jobs_keyword"]
+              ? i.title.toLowerCase().includes(page["related_jobs_keyword"].toLowerCase().trim())
+              : true,
         })
       : null;
 

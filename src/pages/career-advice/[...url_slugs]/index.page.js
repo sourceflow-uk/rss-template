@@ -3,8 +3,10 @@ import { career_advice_helper } from "@/helpers/career_advice_helper";
 import { getRoute } from "@/getters/getRoute";
 import * as additionalComponents from "./__components";
 import { createTitle } from "@/functions/createTitle";
-import unslug from "unslug";
 import { getNestedRoutes } from "@/functions/getNestedRoutes";
+import { sector_helper } from "@/helpers/sector_helper";
+import { employer_helper } from "@/helpers/employer_helper";
+import { jobs_helper } from "@/helpers/jobs_helper";
 
 export default function CareerAdviceSubPage({ content }) {
   return (
@@ -21,6 +23,20 @@ export async function getStaticProps({ params: { url_slugs } }) {
   const parent = career_advice_helper.find(page.parent.id, "id") ?? null;
   const children = career_advice_helper.fetch({ filter: (i) => i.parent.id === page.id });
   const siblings = career_advice_helper.fetch({ exclude: [page.id], filter: (i) => i.parent.id === page.parent.id });
+
+  const sector = page["related_sector"] ? sector_helper.find(page["related_sector"], "title") : null;
+  const employer = page["related_employer"] ? employer_helper.find(page["related_employer"], "name") : null;
+  const jobs =
+    sector || employer
+      ? jobs_helper.fetch({
+          sector: sector ? sector.id : null,
+          employer: employer ? employer.id : null,
+          filter: (i) =>
+            "related_jobs_keyword" in page && page["related_jobs_keyword"]
+              ? i.title.toLowerCase().includes(page["related_jobs_keyword"].toLowerCase().trim())
+              : true,
+        })
+      : null;
 
   return {
     props: {
@@ -58,6 +74,9 @@ export async function getStaticProps({ params: { url_slugs } }) {
             parent,
           },
         },
+        ...(jobs && jobs.length > 0
+          ? [{ component: "LatestJobs", props: { title: page.related_jobs_title ?? null, items: jobs } }]
+          : []),
       ],
     },
   };
