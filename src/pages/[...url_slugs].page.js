@@ -2,13 +2,11 @@ import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
 import { simple_pages_helper } from "@/helpers/simple_pages_helper";
 import { sector_helper } from "@/helpers/sector_helper";
-import { mini_carousel_helper } from "@/helpers/mini_carousel_helper";
 import { createTitle } from "@/functions/createTitle";
 import { getNestedRoutes } from "@/functions/getNestedRoutes";
 import { employer_helper } from "@/helpers/employer_helper";
 import { jobs_helper } from "@/helpers/jobs_helper";
 import { getSectorStaticProps } from "@/functions/getSectorStaticProps";
-import { driving_jobs_pages_helper } from "@/helpers/driving_jobs_pages_helper";
 
 export default function Page({ content }) {
   return (
@@ -47,16 +45,9 @@ export async function getStaticProps({ params: { url_slugs } }) {
   return {
     notFound: !page,
     props: {
-      meta: {
-        title: createTitle(...pages.map((i) => i.label).reverse()),
-      },
+      meta: { title: createTitle(...pages.map((i) => i.label).reverse()) },
       content: [
-        {
-          component: "BreadcrumbNavigation",
-          props: {
-            items: pages,
-          },
-        },
+        { component: "BreadcrumbNavigation", props: { items: pages } },
         {
           component: "Header",
           props: {
@@ -81,23 +72,14 @@ export async function getStaticProps({ params: { url_slugs } }) {
                 },
           },
         },
-        page.video
-          ? {
-              component: "SocialVideo",
-              props: { video_embed_url: page.video },
-            }
-          : null,
+        page.video ? { component: "SocialVideo", props: { video_embed_url: page.video } } : null,
         {
           component: "RichText",
           id: "Intro",
-          props: {
-            className: "bg-primary text-white py-4 py-md-5",
-            body: page.intro ?? null,
-          },
+          props: { className: "bg-primary text-white py-4 py-md-5", body: page.intro ?? null },
         },
         Array.isArray(page.grid_buttons) && {
           component: "GridButtonsGrid",
-          id: "GridButtonsGrid",
           props: {
             title: page.grid_buttons_title ?? null,
             description: page.grid_buttons_description ?? null,
@@ -112,7 +94,6 @@ export async function getStaticProps({ params: { url_slugs } }) {
         { component: "RichText", props: { body: page.body ?? null } },
         Array.isArray(page.collapsible_section_items) && {
           component: "CollapsibleSection",
-          id: "CollapsibleSection",
           props: {
             title: page.collapsible_section_title ?? null,
             description: page.collapsible_section_description ?? null,
@@ -146,7 +127,6 @@ export async function getStaticProps({ params: { url_slugs } }) {
           : []),
         Array.isArray(page.promo_section) && {
           component: "PromoSection",
-          id: "PromoSection",
           props: {
             items: page.promo_section.map((i) => ({
               title: i.title ?? null,
@@ -157,15 +137,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
           },
         },
         ...(jobs && jobs.length > 0
-          ? [
-              {
-                component: "LatestJobs",
-                props: {
-                  title: page.related_jobs_title ?? null,
-                  items: jobs,
-                },
-              },
-            ]
+          ? [{ component: "LatestJobs", props: { title: page.related_jobs_title ?? null, items: jobs } }]
           : []),
         ...(Array.isArray(page.form)
           ? page.form.map((i, k) => ({

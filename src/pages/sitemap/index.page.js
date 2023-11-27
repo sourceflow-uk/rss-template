@@ -14,34 +14,20 @@ export default function SitemapPage({ content }) {
 export async function getStaticProps() {
   return {
     props: {
-      meta: {
-        title: createTitle("Sitemap"),
-      },
+      meta: { title: createTitle("Sitemap") },
       content: [
         {
           component: "BreadcrumbNavigation",
           props: {
-            items: [
-              {
-                label: "Sitemap",
-                href: getRoute("/sitemap"),
-              },
-            ],
+            items: [{ label: "Sitemap", href: getRoute("/sitemap") }],
           },
         },
         {
           component: "Header",
           props: {
             className: "text-tertiary",
-            title: {
-              path: "page.sitemap.component.Header.title",
-              placeholder: "Sitemap",
-            },
-            description: {
-              path: "page.sitemap.component.Header.description",
-              placeholder:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            },
+            title: { path: "page.sitemap.component.Header.title", placeholder: "Sitemap" },
+            description: { path: "page.sitemap.component.Header.description" },
           },
         },
         { component: "SitemapContent" },

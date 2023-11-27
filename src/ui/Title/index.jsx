@@ -18,7 +18,7 @@ export default function Title({ className, title, tag }) {
 
   return (
     <DynamicText className={clsx(classes.title, className)} path={title.path} tag={tag}>
-      {title.placeholder}
+      {title.placeholder ?? ""}
     </DynamicText>
   );
 }

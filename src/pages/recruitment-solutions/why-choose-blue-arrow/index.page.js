@@ -17,9 +17,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      meta: {
-        title: createTitle(title, "Recruitment Solutions"),
-      },
+      meta: { title: createTitle(title, "Recruitment Solutions") },
       content: [
         {
           component: "BreadcrumbNavigation",
@@ -34,14 +32,8 @@ export async function getStaticProps() {
           component: "Header",
           props: {
             className: "text-tertiary",
-            title: {
-              path: "page.why-choose-blue-arrow.component.Header.title",
-              placeholder: title,
-            },
-            description: {
-              path: "page.why-choose-blue-arrow.component.Header.description",
-              placeholder: "",
-            },
+            title: { path: "page.why-choose-blue-arrow.component.Header.title", placeholder: title },
+            description: { path: "page.why-choose-blue-arrow.component.Header.description" },
           },
         },
         {
@@ -51,10 +43,7 @@ export async function getStaticProps() {
               path: "page.why-choose-blue-arrow.component.GridButtonsGrid.title",
               placeholder: "Blue Arrow offers a range of recruitment solutions:",
             },
-            description: {
-              path: "page.why-choose-blue-arrow.component.GridButtonsGrid.description",
-              placeholder: "",
-            },
+            description: { path: "page.why-choose-blue-arrow.component.GridButtonsGrid.description" },
             items: pages
               .filter((i) => !!i.icon_image)
               .map((i) => ({
@@ -92,10 +81,7 @@ export async function getStaticProps() {
           component: "Form",
           props: {
             className: "bg-light py-4 py-md-5",
-            title: {
-              path: `page.why-choose-blue-arrow.component.Form.title`,
-              placeholder: "Request more information",
-            },
+            title: { path: `page.why-choose-blue-arrow.component.Form.title`, placeholder: "Request more information" },
             formId: "98b1af95-4745-46ac-b426-edad7bd527d2",
           },
         },

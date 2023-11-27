@@ -14,9 +14,7 @@ export default function BlogsPage({ content }) {
 export async function getStaticProps() {
   return {
     props: {
-      meta: {
-        title: createTitle("Whitepapers"),
-      },
+      meta: { title: createTitle("Whitepapers") },
       content: [
         {
           component: "BreadcrumbNavigation",

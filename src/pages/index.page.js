@@ -16,24 +16,14 @@ export default function Page({ content }) {
 export async function getStaticProps({}) {
   return {
     props: {
-      meta: {
-        title: createTitle("Home"),
-      },
+      meta: { title: createTitle("Home") },
       content: [
         {
           component: "Hero",
           props: {
-            img: {
-              path: "page.home.component.Hero.img",
-            },
-            title: {
-              path: "page.home.component.Hero.title",
-              placeholder: "Flexible Work",
-            },
-            subtitle: {
-              path: "page.home.component.Hero.subtitle",
-              placeholder: "That’s All About <i>You</i>",
-            },
+            img: { path: "page.home.component.Hero.img" },
+            title: { path: "page.home.component.Hero.title", placeholder: "Flexible Work" },
+            subtitle: { path: "page.home.component.Hero.subtitle", placeholder: "That’s All About <i>You</i>" },
           },
         },
         { component: "QuickJobSearch", props: {} },
@@ -82,9 +72,7 @@ export async function getStaticProps({}) {
         { component: "Divider" },
         {
           component: "LatestBlogs",
-          props: {
-            title: { path: "page.home.component.LatestBlogs.title", placeholder: "Latest Blogs" },
-          },
+          props: { title: { path: "page.home.component.LatestBlogs.title", placeholder: "Latest Blogs" } },
         },
         { component: "Spacer" },
       ],

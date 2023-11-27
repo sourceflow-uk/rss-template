@@ -18,7 +18,7 @@ export default function Description({ className, description, tag }) {
 
   return (
     <DynamicHtml className={clsx(classes.description, className)} path={description.path} tag={tag}>
-      <span dangerouslySetInnerHTML={{ __html: description.placeholder }} />
+      <span dangerouslySetInnerHTML={{ __html: description.placeholder ?? "" }} />
     </DynamicHtml>
   );
 }

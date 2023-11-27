@@ -34,9 +34,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
 
   return {
     props: {
-      meta: {
-        title: createTitle(page.title),
-      },
+      meta: { title: createTitle(page.title) },
       content: [
         {
           component: "BreadcrumbNavigation",
@@ -73,15 +71,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
           },
         },
         ...(page.parent.id === null
-          ? [
-              {
-                component: "RichText",
-                props: {
-                  className: "bg-primary text-white py-5",
-                  body: page.body ?? null,
-                },
-              },
-            ]
+          ? [{ component: "RichText", props: { className: "bg-primary text-white py-5", body: page.body ?? null } }]
           : [
               {
                 component: "EmployerPageArticleContent",
@@ -98,7 +88,6 @@ export async function getStaticProps({ params: { url_slugs } }) {
             ]),
         Array.isArray(page.collapsible_section_items) && {
           component: "CollapsibleSection",
-          id: "CollapsibleSection",
           props: {
             title: page.collapsible_section_title ?? null,
             description: page.collapsible_section_description ?? null,

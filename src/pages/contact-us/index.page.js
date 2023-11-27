@@ -14,29 +14,19 @@ export default function ContactPage({ content }) {
 export async function getStaticProps() {
   return {
     props: {
-      meta: {
-        title: createTitle("Contact us"),
-      },
+      meta: { title: createTitle("Contact us") },
       content: [
         {
           component: "BreadcrumbNavigation",
           props: {
-            items: [
-              {
-                label: "Contact us",
-                href: getRoute("contact"),
-              },
-            ],
+            items: [{ label: "Contact us", href: getRoute("contact") }],
           },
         },
         {
           component: "Header",
           props: {
             className: "text-tertiary",
-            title: {
-              path: "page.contact.component.Header.title",
-              placeholder: "Get in touch",
-            },
+            title: { path: "page.contact.component.Header.title", placeholder: "Get in touch" },
             description: {
               path: "page.contact.component.Header.description",
               placeholder:

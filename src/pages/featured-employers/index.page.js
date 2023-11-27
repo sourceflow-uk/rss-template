@@ -17,22 +17,14 @@ export async function getStaticProps() {
 
   return {
     props: {
-      meta: {
-        title: createTitle(title),
-      },
+      meta: { title: createTitle(title) },
       content: [
         {
           component: "BreadcrumbNavigation",
           props: {
             items: [
-              {
-                label: "Jobs",
-                href: getRoute("jobs"),
-              },
-              {
-                label: title,
-                href: getRoute("employers"),
-              },
+              { label: "Jobs", href: getRoute("jobs") },
+              { label: title, href: getRoute("employers") },
             ],
           },
         },
@@ -40,18 +32,13 @@ export async function getStaticProps() {
           component: "Header",
           props: {
             className: "text-white bg-primary",
-            title: {
-              path: "page.employers.component.Header.title",
-              placeholder: title,
-            },
+            title: { path: "page.employers.component.Header.title", placeholder: title },
             description: {
               path: "page.employers.component.Header.description",
               placeholder:
                 "We understand the importance in finding a great company to work at to support you and your career. Below is a small selection of fabulous companies who have lots of vacancies for talented staff.",
             },
-            img: {
-              path: "page.employers.component.Header.img",
-            },
+            img: { path: "page.employers.component.Header.img" },
           },
         },
         {
@@ -63,10 +50,7 @@ export async function getStaticProps() {
               img: i.card_image ?? null,
               href: getRoute("employerPage", { url_slugs: [i.url_slug] }),
               featured: i.featured,
-              cta: {
-                label: "See available jobs",
-                href: getRoute("employerPage", { url_slugs: [i.url_slug] }),
-              },
+              cta: { label: "See available jobs", href: getRoute("employerPage", { url_slugs: [i.url_slug] }) },
             })),
           },
         },

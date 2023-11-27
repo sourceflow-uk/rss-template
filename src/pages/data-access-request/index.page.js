@@ -13,29 +13,19 @@ export default function DateAccessRequestPage({ content }) {
 export async function getStaticProps() {
   return {
     props: {
-      meta: {
-        title: createTitle("Data Access Request"),
-      },
+      meta: { title: createTitle("Data Access Request") },
       content: [
         {
           component: "BreadcrumbNavigation",
           props: {
-            items: [
-              {
-                label: "Data Access Request",
-                href: getRoute("/data-access-request"),
-              },
-            ],
+            items: [{ label: "Data Access Request", href: getRoute("/data-access-request") }],
           },
         },
         {
           component: "Header",
           props: {
             className: "text-tertiary",
-            title: {
-              path: "page.data-access-request.component.Header.title",
-              placeholder: "Data Access Request",
-            },
+            title: { path: "page.data-access-request.component.Header.title", placeholder: "Data Access Request" },
             description: {
               path: "page.data-access-request.component.Header.description",
               placeholder:
@@ -45,9 +35,7 @@ export async function getStaticProps() {
         },
         {
           component: "Form",
-          props: {
-            formId: "7789ee90-960b-421f-b084-fefda252f9de",
-          },
+          props: { formId: "7789ee90-960b-421f-b084-fefda252f9de" },
         },
       ],
     },

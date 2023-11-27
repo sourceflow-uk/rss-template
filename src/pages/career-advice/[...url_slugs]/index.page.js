@@ -24,22 +24,14 @@ export async function getStaticProps({ params: { url_slugs } }) {
 
   return {
     props: {
-      meta: {
-        title: createTitle(page.title, "Career Advice"),
-      },
+      meta: { title: createTitle(page.title, "Career Advice") },
       content: [
         {
           component: "BreadcrumbNavigation",
           props: {
             items: [
-              {
-                label: "Jobs",
-                href: getRoute("jobs"),
-              },
-              {
-                label: "Career Advice",
-                href: getRoute("careerAdvice"),
-              },
+              { label: "Jobs", href: getRoute("jobs") },
+              { label: "Career Advice", href: getRoute("careerAdvice") },
               ...pages,
             ],
           },

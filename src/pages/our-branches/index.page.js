@@ -34,10 +34,7 @@ export async function getStaticProps() {
           component: "Header",
           props: {
             className: "text-tertiary",
-            title: {
-              path: "page.branches.component.Header.title",
-              placeholder: title,
-            },
+            title: { path: "page.branches.component.Header.title", placeholder: title },
             description: {
               path: "page.branches.component.Header.title",
               placeholder:
@@ -47,9 +44,7 @@ export async function getStaticProps() {
         },
         {
           component: "BranchLookupPanel",
-          props: {
-            branches: branches,
-          },
+          props: { branches },
         },
       ],
     },

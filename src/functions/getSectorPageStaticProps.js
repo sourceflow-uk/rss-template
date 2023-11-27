@@ -14,20 +14,12 @@ export const getSectorPageStaticProps = ({ sector_id, url_slugs, pages_helper })
 
   return {
     props: {
-      meta: {
-        title: createTitle(page.name, `${sector.title} Jobs`),
-      },
+      meta: { title: createTitle(page.name, `${sector.title} Jobs`) },
       content: [
         {
           component: "BreadcrumbNavigation",
           props: {
-            items: [
-              {
-                label: sector.title,
-                href: getRoute("sector", { url_slug: sector.url_slug }),
-              },
-              ...pages,
-            ],
+            items: [{ label: sector.title, href: getRoute("sector", { url_slug: sector.url_slug }) }, ...pages],
           },
         },
         {
@@ -38,12 +30,7 @@ export const getSectorPageStaticProps = ({ sector_id, url_slugs, pages_helper })
             img: page.cover_image ?? null,
           },
         },
-        {
-          component: "RichText",
-          props: {
-            body: page.body,
-          },
-        },
+        { component: "RichText", props: { body: page.body } },
         { component: "Divider" },
         {
           component: "LatestJobs",

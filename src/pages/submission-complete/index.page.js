@@ -13,29 +13,19 @@ export default function SubmissionCompletePage({ content }) {
 export async function getStaticProps() {
   return {
     props: {
-      meta: {
-        title: createTitle("Submission Complete"),
-      },
+      meta: { title: createTitle("Submission Complete") },
       content: [
         {
           component: "BreadcrumbNavigation",
           props: {
-            items: [
-              {
-                label: "Submission Complete",
-                href: getRoute("/submission-complete"),
-              },
-            ],
+            items: [{ label: "Submission Complete", href: getRoute("/submission-complete") }],
           },
         },
         {
           component: "Header",
           props: {
             className: "text-tertiary",
-            title: {
-              path: "page.job.submission-complete.component.Header.title",
-              placeholder: "Thank you!",
-            },
+            title: { path: "page.job.submission-complete.component.Header.title", placeholder: "Thank you!" },
             description: {
               path: "page.job.submission-complete.component.Header.description",
               placeholder: `We've received your submission and will be in touch soon!`,

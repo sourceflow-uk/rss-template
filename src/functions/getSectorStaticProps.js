@@ -11,27 +11,15 @@ export const getSectorStaticProps = ({ sector_id, pages_helper = null } = {}) =>
     {
       component: "BreadcrumbNavigation",
       props: {
-        items: [
-          {
-            label: sector.title,
-            href: getRoute("sector", { url_slug: sector.url_slug }),
-          },
-        ],
+        items: [{ label: sector.title, href: getRoute("sector", { url_slug: sector.url_slug }) }],
       },
     },
     {
       component: "Header",
       props: {
         className: "text-tertiary",
-        title: {
-          path: `page.${sector.url_slug}.component.Header.title`,
-          placeholder: sector.title,
-        },
-        description: {
-          path: `page.${sector.url_slug}.component.Header.description`,
-          placeholder:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        },
+        title: { path: `page.${sector.url_slug}.component.Header.title`, placeholder: sector.title },
+        description: { path: `page.${sector.url_slug}.component.Header.description` },
         img: sector.cover_image ?? null,
         back: {
           path: `page.home.component.Header.back`,
@@ -42,18 +30,12 @@ export const getSectorStaticProps = ({ sector_id, pages_helper = null } = {}) =>
     },
     {
       component: "RichText",
-      props: {
-        className: "bg-primary text-white py-4 py-md-5",
-        body: sector.body ?? null,
-      },
+      props: { className: "bg-primary text-white py-4 py-md-5", body: sector.body ?? null },
     },
     {
       component: "JobsFeed",
       id: "Jobs",
-      props: {
-        sector: sector.id,
-        changeURLOnFilterChange: false,
-      },
+      props: { sector: sector.id, changeURLOnFilterChange: false },
     },
     {
       component: "MiniCarousel",
@@ -76,10 +58,7 @@ export const getSectorStaticProps = ({ sector_id, pages_helper = null } = {}) =>
       {
         component: "PromoSection",
         props: {
-          title: {
-            path: `page.${sector.url_slug}.component.PromoSection.title`,
-            placeholder: "Also in this section",
-          },
+          title: { path: `page.${sector.url_slug}.component.PromoSection.title`, placeholder: "Also in this section" },
           items: pages.map((i) => ({
             title: i.name,
             description: trimText(i.body),
@@ -94,9 +73,7 @@ export const getSectorStaticProps = ({ sector_id, pages_helper = null } = {}) =>
 
   return {
     props: {
-      meta: {
-        title: createTitle(`${sector.title} Jobs`),
-      },
+      meta: { title: createTitle(`${sector.title} Jobs`) },
       content,
     },
   };

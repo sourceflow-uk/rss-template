@@ -24,35 +24,19 @@ export async function getStaticProps({}) {
         {
           component: "BreadcrumbNavigation",
           props: {
-            items: [
-              {
-                label: title,
-                href: getRoute("jobs"),
-              },
-            ],
+            items: [{ label: title, href: getRoute("jobs") }],
           },
         },
         {
           component: "Header",
           props: {
             className: "text-tertiary",
-            title: {
-              path: "page.jobs.component.Header.title",
-              placeholder: title,
-            },
-            description: {
-              path: "page.jobs.component.Header.description",
-              placeholder: "",
-            },
-            img: {
-              path: "page.jobs.component.Header.img",
-            },
+            title: { path: "page.jobs.component.Header.title", placeholder: title },
+            description: { path: "page.jobs.component.Header.description", placeholder: "" },
+            img: { path: "page.jobs.component.Header.img" },
           },
         },
-        {
-          component: "JobsFeed",
-          id: "Jobs",
-        },
+        { component: "JobsFeed", id: "Jobs" },
       ],
     },
   };

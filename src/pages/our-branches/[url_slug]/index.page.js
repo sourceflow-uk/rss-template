@@ -36,10 +36,7 @@ export async function getStaticProps({ params: { url_slug } }) {
           component: "Header",
           props: {
             className: "text-tertiary",
-            title: {
-              path: `page.branch.${url_slug}.component.Header.title`,
-              placeholder: `${branch.name} Branch`,
-            },
+            title: { path: `page.branch.${url_slug}.component.Header.title`, placeholder: `${branch.name} Branch` },
             back: {
               path: "page.branch.component.Header.back",
               placeholder: `Back to branches`,
@@ -48,9 +45,7 @@ export async function getStaticProps({ params: { url_slug } }) {
           },
         },
         { component: "BranchPageContent", props: { ...branch } },
-        {
-          component: "Divider",
-        },
+        { component: "Divider" },
         {
           component: "LatestJobs",
           props: {

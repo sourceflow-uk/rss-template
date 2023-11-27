@@ -15,22 +15,14 @@ export default function CareersAdvicePage({ content }) {
 export async function getStaticProps() {
   return {
     props: {
-      meta: {
-        title: createTitle("Career Advice"),
-      },
+      meta: { title: createTitle("Career Advice") },
       content: [
         {
           component: "BreadcrumbNavigation",
           props: {
             items: [
-              {
-                label: "Jobs",
-                href: getRoute("jobs"),
-              },
-              {
-                label: "Career Advice",
-                href: getRoute("careerAdvice"),
-              },
+              { label: "Jobs", href: getRoute("jobs") },
+              { label: "Career Advice", href: getRoute("careerAdvice") },
             ],
           },
         },
@@ -38,10 +30,7 @@ export async function getStaticProps() {
           component: "Header",
           props: {
             className: "text-tertiary",
-            title: {
-              path: `page.CareerAdvice.component.Header.title`,
-              placeholder: "Career Advice",
-            },
+            title: { path: `page.CareerAdvice.component.Header.title`, placeholder: "Career Advice" },
             description: {
               path: "page.CareerAdvice.component.Header.description",
               placeholder:
@@ -60,13 +49,8 @@ export async function getStaticProps() {
                 href: getRoute("careerAdviceArticle", { url_slugs: [i.url_slug] }),
               })),
               {
-                title: {
-                  path: "page.careerAdvice.component.PromoSection.blog.title",
-                  placeholder: "Our Blogs",
-                },
-                img: {
-                  path: "page.careerAdvice.component.PromoSection.blog.img",
-                },
+                title: { path: "page.careerAdvice.component.PromoSection.blog.title", placeholder: "Our Blogs" },
+                img: { path: "page.careerAdvice.component.PromoSection.blog.img" },
                 description: {
                   path: "page.careerAdvice.component.PromoSection.blog.description",
                   placeholder:
@@ -79,9 +63,7 @@ export async function getStaticProps() {
                   path: "page.careerAdvice.component.PromoSection.branches.title",
                   placeholder: "Your local Blue Arrow branch",
                 },
-                img: {
-                  path: "page.careerAdvice.component.PromoSection.branches.img",
-                },
+                img: { path: "page.careerAdvice.component.PromoSection.branches.img" },
                 description: {
                   path: "page.careerAdvice.component.PromoSection.branches.description",
                   placeholder: "Find and contact your local branch for opportunities.",
@@ -103,9 +85,7 @@ export async function getStaticProps() {
               path: `page.careerAdvice.component.NarrativePanel.description`,
               placeholder: "Learn more about what to consider when looking for a great place to work.",
             },
-            img: {
-              path: "page.careerAdvice.component.NarrativePanel.img",
-            },
+            img: { path: "page.careerAdvice.component.NarrativePanel.img" },
             cta: {
               label: "Find out more",
               href: getRoute("employers"),

@@ -7,15 +7,8 @@ export default function ErrorPage() {
       <BreadcrumbNavigation items={[{ label: "404" }]} />
       <Header
         className="bg-light text-tertiary"
-        back={{
-          path: `page.home.component.Header.back`,
-          placeholder: `Back to Home`,
-          href: getRoute("home"),
-        }}
-        title={{
-          path: `page.error.title`,
-          placeholder: "404 - Page Not Found",
-        }}
+        back={{ path: `page.home.component.Header.back`, placeholder: `Back to Home`, href: getRoute("home") }}
+        title={{ path: `page.error.title`, placeholder: "404 - Page Not Found" }}
       />
     </>
   );
