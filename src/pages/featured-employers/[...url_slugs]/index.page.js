@@ -128,24 +128,27 @@ export async function getStaticProps({ params: { url_slugs } }) {
               },
             }))
           : []),
-        typeof employer !== "undefined" && {
-          component: "LatestJobs",
-          props: {
-            title: {
-              path: `page.${url_slugs.join(".")}.component.LatestJobs.title`,
-              placeholder: `Latest ${employer.name} Jobs`,
-            },
-            items: jobs_helper.fetch({ filter: (i) => JSON.stringify(i).includes(employer.id) }),
-            visibleCount: 4,
-          },
-        },
+        ...(typeof employer !== "undefined"
+          ? [
+              { component: "Divider" },
+              {
+                component: "LatestJobs",
+                props: {
+                  title: {
+                    path: `page.${url_slugs.join(".")}.component.LatestJobs.title`,
+                    placeholder: `Latest ${employer.name} Jobs`,
+                  },
+                  items: jobs_helper.fetch({ employer: employer.id }),
+                  visibleCount: 4,
+                },
+              },
+            ]
+          : []),
         ...(page.parent.id === null
           ? [
               ...(children.length > 0
                 ? [
-                    {
-                      component: "Divider",
-                    },
+                    { component: "Divider" },
                     {
                       component: "PromoSection",
                       props: {
@@ -168,9 +171,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
           ? [
               ...(siblings.length > 0
                 ? [
-                    {
-                      component: "Divider",
-                    },
+                    { component: "Divider" },
                     {
                       component: "PromoSection",
                       props: {

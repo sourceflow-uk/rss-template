@@ -43,6 +43,10 @@
       padding: $spacer * 2 $spacer $spacer;
     }
 
+    a {
+      text-decoration: none;
+    }
+
     h5 {
       min-height: 48px;
       color: var(#{--bs-primary});

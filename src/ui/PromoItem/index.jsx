@@ -25,7 +25,9 @@ export default function PromoItem({ className, title, img, description, featured
         </a>
       </figure>
       <div className={classes.card__body}>
-        <Title title={title} tag="h5" />
+        <a href={href}>
+          <Title title={title} tag="h5" />
+        </a>
         <Description description={description} />
         {cta && <CTA label={cta.label} href={cta.href} variant="white" />}
       </div>

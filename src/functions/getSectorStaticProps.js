@@ -69,7 +69,7 @@ export const getSectorStaticProps = ({ sector_id, pages_helper = null } = {}) =>
   ];
 
   if (pages_helper) {
-    const pages = pages_helper.fetch();
+    const pages = pages_helper.fetch({ parent: null });
 
     content = [
       ...content,

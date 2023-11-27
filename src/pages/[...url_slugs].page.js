@@ -7,6 +7,8 @@ import { createTitle } from "@/functions/createTitle";
 import { getNestedRoutes } from "@/functions/getNestedRoutes";
 import { employer_helper } from "@/helpers/employer_helper";
 import { jobs_helper } from "@/helpers/jobs_helper";
+import { getSectorStaticProps } from "@/functions/getSectorStaticProps";
+import { driving_jobs_pages_helper } from "@/helpers/driving_jobs_pages_helper";
 
 export default function Page({ content }) {
   return (
@@ -19,12 +21,17 @@ export default function Page({ content }) {
 export async function getStaticProps({ params: { url_slugs } }) {
   const pages = getNestedRoutes({ url_slugs, overwrites: { "recruitment-solutions": { href: "#" } } });
   const [_page, prevPage] = [...pages].reverse();
+  const page = simple_pages_helper.find(_page.url_slug);
 
-  let isSector = false;
-  let page = simple_pages_helper.find(_page.url_slug);
   if (!page) {
-    page = sector_helper.find(_page.url_slug);
-    isSector = true;
+    const sector = sector_helper.find(_page.url_slug);
+    if (!sector) {
+      return { notFound: true };
+    }
+
+    return getSectorStaticProps({
+      sector_id: sector.id,
+    });
   }
 
   const sector = page["related_sector"] ? sector_helper.find(page["related_sector"], "title") : null;
@@ -74,137 +81,104 @@ export async function getStaticProps({ params: { url_slugs } }) {
                 },
           },
         },
-        ...(isSector
+        page.video
+          ? {
+              component: "SocialVideo",
+              props: { video_embed_url: page.video },
+            }
+          : null,
+        {
+          component: "RichText",
+          id: "Intro",
+          props: {
+            className: "bg-primary text-white py-4 py-md-5",
+            body: page.intro ?? null,
+          },
+        },
+        Array.isArray(page.grid_buttons) && {
+          component: "GridButtonsGrid",
+          id: "GridButtonsGrid",
+          props: {
+            title: page.grid_buttons_title ?? null,
+            description: page.grid_buttons_description ?? null,
+            items: page.grid_buttons.map((i) => ({
+              title: i.title ?? null,
+              img: i.image ?? null,
+              href: i.link ?? "#",
+            })),
+            md: 4,
+          },
+        },
+        { component: "RichText", props: { body: page.body ?? null } },
+        Array.isArray(page.collapsible_section_items) && {
+          component: "CollapsibleSection",
+          id: "CollapsibleSection",
+          props: {
+            title: page.collapsible_section_title ?? null,
+            description: page.collapsible_section_description ?? null,
+            items: page.collapsible_section_items.map((i) => ({
+              title: i.title ?? null,
+              body: i.body ?? null,
+            })),
+            md: 12,
+          },
+        },
+        ...(Array.isArray(page.narrative_panels)
+          ? page.narrative_panels.map((i, k) => ({
+              component: "NarrativePanel",
+              id: `NarrativePanel-${k}`,
+              props: {
+                className: `py-4 py-md-5 ${k % 2 === 0 ? "bg-white" : "bg-light"}`,
+                title: i.title ?? null,
+                description: i.description ?? null,
+                img: i.image ?? null,
+                video_embed_url: i.video_embed_url ?? null,
+                cta: i["button_link"]
+                  ? {
+                      label: i["button_label"] ?? null,
+                      href: i["button_link"] ?? null,
+                      variant: k % 2 === 0 ? "quaternary" : "primary",
+                    }
+                  : null,
+                reverse: k % 2 === 0,
+              },
+            }))
+          : []),
+        Array.isArray(page.promo_section) && {
+          component: "PromoSection",
+          id: "PromoSection",
+          props: {
+            items: page.promo_section.map((i) => ({
+              title: i.title ?? null,
+              description: i.description ?? null,
+              img: i.image ?? null,
+              href: i.link ?? "#",
+            })),
+          },
+        },
+        ...(jobs && jobs.length > 0
           ? [
               {
-                component: "RichText",
+                component: "LatestJobs",
                 props: {
-                  className: "bg-primary text-white py-4 py-md-5",
-                  body: page.body ?? null,
+                  title: page.related_jobs_title ?? null,
+                  items: jobs,
                 },
               },
-              {
-                component: "JobsFeed",
-                id: "Jobs",
-                props: {
-                  sector: page.id,
-                  changeURLOnFilterChange: false,
-                },
-              },
-              {
-                component: "MiniCarousel",
-                props: {
-                  items: mini_carousel_helper.fetch({
-                    filter: (i) => i.tags.toLowerCase().includes(page.url_slug.toLowerCase()) || i.tags.includes("*"),
-                  }),
-                },
-              },
-              // NOTE:
-              //
-              // If sector pages are added for a section create a new sector page and add sector id to the excluded list below.
-              //
-              // See /drivingjobs folder for example sector page
             ]
-          : [
-              page.video
-                ? {
-                    component: "SocialVideo",
-                    props: { video_embed_url: page.video },
-                  }
-                : null,
-              {
-                component: "RichText",
-                id: "Intro",
-                props: {
-                  className: "bg-primary text-white py-4 py-md-5",
-                  body: page.intro ?? null,
-                },
+          : []),
+        ...(Array.isArray(page.form)
+          ? page.form.map((i, k) => ({
+              component: "Form",
+              id: `Form-${k}`,
+              props: {
+                className: k % 2 === 0 ? "py-4 py-md-5 bg-light" : "py-4 py-md-5 bg-white",
+                title: i.title ?? null,
+                description: i.description ?? null,
+                formId: i.form_id ?? null,
               },
-              Array.isArray(page.grid_buttons) && {
-                component: "GridButtonsGrid",
-                id: "GridButtonsGrid",
-                props: {
-                  title: page.grid_buttons_title ?? null,
-                  description: page.grid_buttons_description ?? null,
-                  items: page.grid_buttons.map((i) => ({
-                    title: i.title ?? null,
-                    img: i.image ?? null,
-                    href: i.link ?? "#",
-                  })),
-                  md: 4,
-                },
-              },
-              { component: "RichText", props: { body: page.body ?? null } },
-              Array.isArray(page.collapsible_section_items) && {
-                component: "CollapsibleSection",
-                id: "CollapsibleSection",
-                props: {
-                  title: page.collapsible_section_title ?? null,
-                  description: page.collapsible_section_description ?? null,
-                  items: page.collapsible_section_items.map((i) => ({
-                    title: i.title ?? null,
-                    body: i.body ?? null,
-                  })),
-                  md: 12,
-                },
-              },
-              ...(Array.isArray(page.narrative_panels)
-                ? page.narrative_panels.map((i, k) => ({
-                    component: "NarrativePanel",
-                    id: `NarrativePanel-${k}`,
-                    props: {
-                      className: `py-4 py-md-5 ${k % 2 === 0 ? "bg-white" : "bg-light"}`,
-                      title: i.title ?? null,
-                      description: i.description ?? null,
-                      img: i.image ?? null,
-                      video_embed_url: i.video_embed_url ?? null,
-                      cta: i["button_link"]
-                        ? {
-                            label: i["button_label"] ?? null,
-                            href: i["button_link"] ?? null,
-                            variant: k % 2 === 0 ? "quaternary" : "primary",
-                          }
-                        : null,
-                      reverse: k % 2 === 0,
-                    },
-                  }))
-                : []),
-              Array.isArray(page.promo_section) && {
-                component: "PromoSection",
-                id: "PromoSection",
-                props: {
-                  items: page.promo_section.map((i) => ({
-                    title: i.title ?? null,
-                    description: i.description ?? null,
-                    img: i.image ?? null,
-                    href: i.link ?? "#",
-                  })),
-                },
-              },
-              ...(jobs && jobs.length > 0
-                ? [
-                    {
-                      component: "LatestJobs",
-                      props: {
-                        title: page.related_jobs_title ?? null,
-                        items: jobs,
-                      },
-                    },
-                  ]
-                : []),
-              ...(Array.isArray(page.form)
-                ? page.form.map((i, k) => ({
-                    component: "Form",
-                    id: `Form-${k}`,
-                    props: {
-                      className: k % 2 === 0 ? "py-4 py-md-5 bg-light" : "py-4 py-md-5 bg-white",
-                      title: i.title ?? null,
-                      description: i.description ?? null,
-                      formId: i.form_id ?? null,
-                    },
-                  }))
-                : []),
-            ]),
+            }))
+          : []),
       ],
     },
   };

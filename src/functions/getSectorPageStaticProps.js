@@ -3,13 +3,14 @@ import { sector_helper } from "@/helpers/sector_helper";
 import { trimText } from "@/functions/trimText";
 import { createTitle } from "@/functions/createTitle";
 import { getNestedRoutes } from "@/functions/getNestedRoutes";
+import { jobs_helper } from "@/helpers/jobs_helper";
 
 export const getSectorPageStaticProps = ({ sector_id, url_slugs, pages_helper }) => {
   const sector = sector_helper.find(sector_id, "id");
   const pages = getNestedRoutes({ url_slugs, routePrefix: `/${sector.url_slug}/` });
   const [_page] = [...pages].reverse();
   const page = pages_helper.find(_page.url_slug);
-  const siblings = pages_helper.fetch({ exclude: [page.id] });
+  const siblings = pages_helper.fetch({ exclude: [page.id], parent: page.parent.id });
 
   return {
     props: {
@@ -43,6 +44,19 @@ export const getSectorPageStaticProps = ({ sector_id, url_slugs, pages_helper })
             body: page.body,
           },
         },
+        { component: "Divider" },
+        {
+          component: "LatestJobs",
+          props: {
+            title: {
+              path: `page.${url_slugs.join(".")}.component.LatestJobs.title`,
+              placeholder: `Latest ${sector.title} Jobs`,
+            },
+            items: jobs_helper.fetch({ sector: sector.id }),
+            visibleCount: 4,
+          },
+        },
+        { component: "Divider" },
         {
           component: "PromoSection",
           props: {
