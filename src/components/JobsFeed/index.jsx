@@ -11,6 +11,8 @@ import { formatDistanceToNowStrict, fromUnixTime } from "date-fns";
 import Branches from "@/../.sourceflow/jobs-Branches.json";
 import JobType from "@/../.sourceflow/jobs-Job Type.json";
 import Sector from "@/../.sourceflow/jobs-Sector.json";
+import Salary from "@/../.sourceflow/jobs-Salary.json";
+import WorkType from "@/../.sourceflow/jobs-Work type.json";
 import { jobs_helper } from "@/helpers/jobs_helper";
 import { employer_helper } from "@/helpers/employer_helper";
 
@@ -26,7 +28,7 @@ export default function JobsFeed({ className, sector, changeURLOnFilterChange })
             },
             urlFilters: {
               mode: "active",
-              jobCategories: [Branches, Sector, JobType],
+              jobCategories: [Branches, Sector, JobType, Salary, WorkType],
               changeURLOnFilterChange: changeURLOnFilterChange,
             },
             searchInput: {
