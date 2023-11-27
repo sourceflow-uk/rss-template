@@ -10,6 +10,7 @@ import * as additionalComponents from "./__components";
 import { jobs_helper } from "@/helpers/jobs_helper";
 import { employer_helper } from "@/helpers/employer_helper";
 import { getNestedRoutes } from "@/functions/getNestedRoutes";
+import { sector_helper } from "@/helpers/sector_helper";
 
 export default function EmployerPage({ content }) {
   return (
@@ -127,19 +128,19 @@ export async function getStaticProps({ params: { url_slugs } }) {
               },
             }))
           : []),
+        typeof employer !== "undefined" && {
+          component: "LatestJobs",
+          props: {
+            title: {
+              path: `page.${url_slugs.join(".")}.component.LatestJobs.title`,
+              placeholder: `Latest ${employer.name} Jobs`,
+            },
+            items: jobs_helper.fetch({ filter: (i) => JSON.stringify(i).includes(employer.id) }),
+            visibleCount: 4,
+          },
+        },
         ...(page.parent.id === null
           ? [
-              typeof employer !== "undefined" && {
-                component: "LatestJobs",
-                props: {
-                  title: {
-                    path: `page.${url_slugs.join(".")}.component.LatestJobs.title`,
-                    placeholder: `Latest ${employer.name} Jobs`,
-                  },
-                  items: jobs_helper.fetch({ filter: (i) => JSON.stringify(i).includes(employer.id) }),
-                  visibleCount: 4,
-                },
-              },
               ...(children.length > 0
                 ? [
                     {
