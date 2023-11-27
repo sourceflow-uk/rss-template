@@ -50,7 +50,7 @@ export async function getStaticProps({ params: { url_slug } }) {
           component: "LatestJobs",
           props: {
             title: null, // `Latest Jobs in ${branch.name}`,
-            items: jobs_helper.filter((i) => JSON.stringify(i).includes(branch.id)),
+            items: jobs_helper.fetch({ branch: branch.id }),
             visibleCount: 4,
           },
         },

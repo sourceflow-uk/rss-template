@@ -2,7 +2,15 @@ import data from "../../.sourceflow/jobs.json";
 import CollectionHelper from "@/helpers/CollectionHelper";
 
 class JobsCollectionHelper extends CollectionHelper {
-  fetch({ limit = null, featured = null, sector = null, employer = null, exclude = null, filter = null } = {}) {
+  fetch({
+    limit = null,
+    featured = null,
+    sector = null,
+    employer = null,
+    branch = null,
+    exclude = null,
+    filter = null,
+  } = {}) {
     let items = this.collection.getItems();
 
     if (filter) {
@@ -15,6 +23,10 @@ class JobsCollectionHelper extends CollectionHelper {
 
     if (employer) {
       items = items.filter((i) => JSON.stringify(i.categories).includes(employer));
+    }
+
+    if (branch) {
+      items = items.filter((i) => JSON.stringify(i.categories).includes(branch));
     }
 
     if (featured) {
