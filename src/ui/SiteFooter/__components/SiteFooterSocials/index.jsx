@@ -14,7 +14,7 @@ export default function SiteFooterSocials({ className }) {
   const youtube = global["_theme.social.youtube"];
 
   return (
-    <Stack className={className} gap={3}>
+    <Stack direction="horizontal" className={className} gap={3}>
       {facebook && (
         <a href={facebook}>
           <Facebook width={25} height={25} />
