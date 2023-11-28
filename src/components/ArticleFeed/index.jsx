@@ -90,7 +90,7 @@ export default function ArticleFeed({
                 title={title}
                 img={image}
                 published_at={publish_date}
-                href={getRoute("blog", { url_slug })}
+                href={getRoute("blogPost", { url_slug })}
               />
             </Col>
           ))}

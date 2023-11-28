@@ -20,6 +20,9 @@
     }
   }
   img {
-    width: 100%;
+    max-width: 100%;
+  }
+  [data-paperturn] {
+    height: 600px;
   }
 }

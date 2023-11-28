@@ -6,12 +6,12 @@ import Play from "@/assets/Play.svg";
 import { CTA, Description, DynamicText, Image, Title, VideoModal } from "@/ui";
 import ArrowLeft from "@/assets/ArrowLeft.svg";
 
-export default function Header({ className, title, img, contain, description, cta, video_embed_url, back }) {
+export default function Header({ className, title, img, contain, description, cta, video_embed_url, back, containerClassName = "mw-xxl" }) {
   return (
     <div className={clsx(className, classes.header, { "has-img": img, contain })}>
       <Image className={classes.header__img} img={img} size="1920x370" alt="Header image" />
       <div className={clsx(classes.header__body, "py-3 p-md-5")}>
-        <Container className="mw-xxl">
+        <Container className={containerClassName}>
           <Row>
             <Col xs={12} md={6}>
               {back && (

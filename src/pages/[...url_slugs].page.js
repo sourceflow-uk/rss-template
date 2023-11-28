@@ -74,6 +74,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
                   placeholder: `Back to Home`,
                   href: getRoute("home"),
                 },
+            containerClassName: "mw-lg",
           },
         },
         page.video ? { component: "SocialVideo", props: { video_embed_url: page.video } } : null,
