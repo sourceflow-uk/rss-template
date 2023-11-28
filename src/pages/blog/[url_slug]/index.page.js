@@ -13,13 +13,17 @@ export default function BlogPostPage({ content }) {
 }
 
 export async function getStaticProps({ params: { url_slug } }) {
-  const blogPost = blog_helper.find(url_slug);
-  const related = blog_helper.fetch({ limit: 3 }); // TODO amend to fetch actual related blogPosts
+  const page = blog_helper.find(url_slug);
+  const related = blog_helper.fetch({
+    limit: 3,
+    filter: (r) =>
+      Array.isArray(page.tags) && Array.isArray(r.tags) ? page.tags.some((t) => r.tags.includes(t)) : false,
+  });
 
   return {
     props: {
       meta: {
-        title: createTitle(blogPost.title, "Blog"),
+        title: createTitle(page.title, "Blog"),
       },
       content: [
         {
@@ -27,11 +31,11 @@ export async function getStaticProps({ params: { url_slug } }) {
           props: {
             items: [
               { label: "Blog", href: getRoute("blog") },
-              { label: blogPost.title, href: getRoute("blogPost", { url_slug }) },
+              { label: page.title, href: getRoute("blogPost", { url_slug }) },
             ],
           },
         },
-        { component: "BlogArticleContent", props: { ...blogPost, related } },
+        { component: "BlogArticleContent", props: { ...page, related } },
       ],
     },
   };
