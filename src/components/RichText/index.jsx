@@ -1,4 +1,4 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Stack } from "react-bootstrap";
 import clsx from "classnames";
 import classes from "./styles.module.scss";
 import { Body, CTA, SidebarNavigation, Title } from "@/ui";
@@ -14,7 +14,7 @@ export default function RichText({ className, title, body, sidebar, ctas }) {
       <Container className="mw-lg">
         <Row>
           <Col xs={12} md={sidebar ? 8 : 12}>
-            { title && <Title title={title} />}
+            {title && <Title title={title} />}
             <Body body={body} />
             {hasCtas && (
               <Stack className="flex-md-row" gap={2}>
