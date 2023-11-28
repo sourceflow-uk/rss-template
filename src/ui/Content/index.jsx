@@ -23,14 +23,14 @@ export default function Content({ items, additionalComponents, demoMode }) {
         {items
           .filter((i) => !!i)
           .map(({ component, id, props }, k) => (
-            <FadeIn
-              from="bottom"
-              positionOffset={-50}
-              triggerOffset={1000}
-              durationInMilliseconds={500}
-              delayInMilliseconds={100}
-              key={k}
-            >
+            <div key={k}>
+              {/*<FadeIn*/}
+              {/*  from="bottom"*/}
+              {/*  positionOffset={-50}*/}
+              {/*  triggerOffset={1000}*/}
+              {/*  durationInMilliseconds={500}*/}
+              {/*  delayInMilliseconds={100}*/}
+              {/*>*/}
               <a id={id ?? component} />
               {(() => {
                 if (typeof component !== "undefined" && component in allowedComponents) {
@@ -39,7 +39,8 @@ export default function Content({ items, additionalComponents, demoMode }) {
                   return <Component {...props} />;
                 }
               })()}
-            </FadeIn>
+              {/*</FadeIn>*/}
+            </div>
           ))}
       </section>
     );
