@@ -28,9 +28,23 @@ export const getSectorPageStaticProps = ({ sector_id, url_slugs, pages_helper })
             className: page.cover_image ? "text-white" : "text-tertiary",
             title: page.name,
             img: page.cover_image ?? null,
+            containerClassName: "mw-lg",
           },
         },
-        { component: "RichText", props: { body: page.body } },
+        {
+          component: "RichText",
+          props: {
+            body: page.body,
+            sidebar: siblings.sort((a, b) => {
+              if(a.name > b.name) return 1;
+              if(a.name < b.name) return -1;
+              return 0;
+            }).map((i) => ({
+              label: i.name,
+              href: getRoute("sectorPage", { sector: sector.url_slug, page: i.url_slug }),
+            })),
+          }
+        },
         { component: "Divider" },
         {
           component: "LatestJobs",
@@ -43,23 +57,23 @@ export const getSectorPageStaticProps = ({ sector_id, url_slugs, pages_helper })
             visibleCount: 4,
           },
         },
-        { component: "Divider" },
-        {
-          component: "PromoSection",
-          props: {
-            title: {
-              path: `page.${sector.url_slug}.component.PromoSection.title`,
-              placeholder: "Also in this section",
-            },
-            items: siblings.map((i) => ({
-              title: i.name,
-              description: trimText(i.body),
-              img: i.cover_image ?? null,
-              href: getRoute("sectorPage", { sector: sector.url_slug, page: i.url_slug }),
-            })),
-            md: 3,
-          },
-        },
+        // { component: "Divider" },
+        // {
+        //   component: "PromoSection",
+        //   props: {
+        //     title: {
+        //       path: `page.${sector.url_slug}.component.PromoSection.title`,
+        //       placeholder: "Also in this section",
+        //     },
+        //     items: siblings.map((i) => ({
+        //       title: i.name,
+        //       description: trimText(i.body),
+        //       img: i.cover_image ?? null,
+        //       href: getRoute("sectorPage", { sector: sector.url_slug, page: i.url_slug }),
+        //     })),
+        //     md: 3,
+        //   },
+        // },
       ],
     },
   };

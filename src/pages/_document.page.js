@@ -46,6 +46,7 @@ export default function Document() {
               });
             });
           `}} />
+        <link rel="icon" type="image/ico" sizes="32x32" href="/favicon.png" />
         <style id="theme">
           {`
             :root {
