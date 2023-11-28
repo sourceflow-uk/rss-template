@@ -17,7 +17,7 @@ export default function QuickJobSearch({ className }) {
   const [sector, setSector] = useState("");
   const [location, setLocation] = useState("");
   const [job_type, setJobType] = useState([]);
-  const [salary, _setSalary] = useState("");
+  const [salary, setSalary] = useState("");
   const [radius, setRadius] = useState("");
 
   const handleSubmit = useCallback(() => {
@@ -38,9 +38,17 @@ export default function QuickJobSearch({ className }) {
       urlFilters = [...urlFilters, ...job_type];
     }
 
+    if (salary) {
+      urlFilters = [...urlFilters, salary];
+    }
+
+    console.log(urlFilters)
+
     if (urlFilters.length > 0) {
       url = `${url}#/${urlFilters.join("/")}`;
     }
+
+    console.log(url)
 
     window.location.href = `${url}/`.toLowerCase();
   }, [query, sector, location, job_type, salary, radius]);
@@ -114,11 +122,11 @@ export default function QuickJobSearch({ className }) {
                       <Col xs={6} md={12} lg={6}>
                         <Form.Group>
                           <Form.Label>Salary</Form.Label>
-                          <Form.Select>
+                          <Form.Select onChange={(e) => setSalary(e.target.value)}>
                             <option value="">Select</option>
-                            {salaries.map(({ title }) => (
-                              <option key={title} value={title}>
-                                {title}
+                            {salaries.map(({ annum }) => (
+                              <option key={annum} value={annum}>
+                                {annum}
                               </option>
                             ))}
                           </Form.Select>
