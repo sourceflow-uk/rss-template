@@ -5,6 +5,10 @@ import { RelatedArticleCard } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
 
 export default function RelatedArticles({ className, title, items }) {
+  if (items.length === 0) {
+    return null;
+  }
+
   return (
     <aside className={clsx(className)}>
       <h3 className="text-tertiary mt-2 mb-4">{title}</h3>
@@ -46,10 +50,10 @@ RelatedArticles.propTypes = {
           label: PropTypes.string,
           href: PropTypes.string,
           variant: PropTypes.string,
-        })
+        }),
       ),
       publish_date: PropTypes.string,
       url_slug: PropTypes.string,
-    })
+    }),
   ),
 };
