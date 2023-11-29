@@ -15,8 +15,6 @@ export default function LogoCarousel({ className, title, items, visibleCount: de
   const lg = useMediaQuery("only screen and (min-width: 992px)");
   const md = useMediaQuery("only screen and (min-width: 768px)");
 
-  console.log(items);
-
   useEffect(() => {
     setVisibleCount(xl ? desktopVisibleCount : lg ? 3 : md ? 2 : 1);
   }, [xl, lg, md, desktopVisibleCount]);

@@ -42,13 +42,9 @@ export default function QuickJobSearch({ className }) {
       urlFilters = [...urlFilters, salary];
     }
 
-    console.log(urlFilters)
-
     if (urlFilters.length > 0) {
       url = `${url}#/${urlFilters.join("/")}`;
     }
-
-    console.log(url)
 
     window.location.href = `${url}/`.toLowerCase();
   }, [query, sector, location, job_type, salary, radius]);
