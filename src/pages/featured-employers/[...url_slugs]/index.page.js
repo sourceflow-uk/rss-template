@@ -127,7 +127,13 @@ export async function getStaticProps({ params: { url_slugs } }) {
                     path: `page.${url_slugs.join(".")}.component.LatestJobs.title`,
                     placeholder: `Latest ${employer.name} Jobs`,
                   },
-                  items: jobs_helper.fetch({ employer: employer.id }),
+                  items: jobs_helper.fetch({
+                    employer: employer.id,
+                    filter: (i) =>
+                      "related_jobs_keyword" in page && page["related_jobs_keyword"].length > 0
+                        ? i.title.toLowerCase().includes(page["related_jobs_keyword"].toLowerCase().trim())
+                        : true,
+                  }),
                   visibleCount: 4,
                 },
               },
