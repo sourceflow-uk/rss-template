@@ -1,7 +1,6 @@
 import clsx from "classnames";
 import PropTypes from "prop-types";
 import classes from "./styles.module.scss";
-import { trimText } from "@/functions/trimText";
 import Location from "@/assets/Location.svg";
 import Contract from "@/assets/Contract.svg";
 import { CTA } from "@/ui";
@@ -14,7 +13,7 @@ export default function JobCard({ className, title, location, salary_package, ca
   return (
     <div className={clsx(className, classes.card, "p-4")}>
       <div className={classes.card__body}>
-        <h3 className="h5 mb-3 flex-grow-1 text-primary">{trimText(title, 35)}</h3>
+        <h3 className="h5 mb-3 flex-grow-1 text-primary">{title}</h3>
         <dl>
           <dt className="visually-hidden">Salary</dt>
           <dd>
