@@ -10,7 +10,7 @@ export const getSectorPageStaticProps = ({ sector_id, url_slugs, pages_helper })
   const pages = getNestedRoutes({ url_slugs, routePrefix: `/${sector.url_slug}/` });
   const [_page] = [...pages].reverse();
   const page = pages_helper.find(_page.url_slug);
-  const siblings = pages_helper.fetch({ exclude: [page.id], parent: page.parent.id });
+  const siblings = pages_helper.fetch({ parent: page.parent.id });
 
   return {
     props: {
@@ -28,22 +28,32 @@ export const getSectorPageStaticProps = ({ sector_id, url_slugs, pages_helper })
             className: page.cover_image ? "text-white" : "text-tertiary",
             title: page.name,
             img: page.cover_image ?? null,
-            containerClassName: "mw-lg",
+            containerClassName: "mw-xxl",
           },
         },
         {
           component: "RichText",
           props: {
+            containerClassName: "mw-xxl",
             body: page.body,
-            sidebar: siblings.sort((a, b) => {
-              if(a.name > b.name) return 1;
-              if(a.name < b.name) return -1;
-              return 0;
-            }).map((i) => ({
-              label: i.name,
-              href: getRoute("sectorPage", { sector: sector.url_slug, page: i.url_slug }),
-            })),
-          }
+            sidebar: [
+              {
+                label: `${sector.title} Jobs`,
+                href: getRoute("sector", { url_slug: sector.url_slug }),
+                children: siblings
+                  .sort((a, b) => {
+                    if (a.name > b.name) return 1;
+                    if (a.name < b.name) return -1;
+                    return 0;
+                  })
+                  .map((i) => ({
+                    label: i.name,
+                    href: getRoute("sectorPage", { sector: sector.url_slug, page: i.url_slug }),
+                    active: i.id === page.id,
+                  })),
+              },
+            ],
+          },
         },
         { component: "Divider" },
         {

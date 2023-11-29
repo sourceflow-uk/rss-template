@@ -18,9 +18,11 @@ export default function SidebarNavigation({ className, title, items }) {
               <Nav.Link href={href}>{label}</Nav.Link>
               {children && (
                 <Nav className={classes.sidebar__subnav}>
-                  {children.map(({ label, href }, k) => (
+                  {children.map(({ label, href, active }, k) => (
                     <Nav.Item key={k}>
-                      <Nav.Link href={href}>{label}</Nav.Link>
+                      <Nav.Link className={clsx({ active })} href={href}>
+                        {label}
+                      </Nav.Link>
                     </Nav.Item>
                   ))}
                 </Nav>

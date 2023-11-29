@@ -29,6 +29,7 @@
         border: 0;
       }
 
+      &[class*="active"],
       &:hover {
         color: var(#{--bs-tertiary});
       }
@@ -44,6 +45,7 @@
       font-weight: $font-weight-base;
       padding: $spacer * 0.5 0 $spacer * 0.5 $spacer * 0.5;
 
+      &[class*="active"],
       &:hover {
         gap: $spacer * 0.5;
 

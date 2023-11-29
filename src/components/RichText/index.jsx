@@ -3,7 +3,7 @@ import clsx from "classnames";
 import classes from "./styles.module.scss";
 import { Body, CTA, SidebarNavigation, Title } from "@/ui";
 
-export default function RichText({ className, title, body, sidebar, ctas }) {
+export default function RichText({ className, containerClassName, title, body, sidebar, ctas }) {
   const hasCtas = ctas && ctas.map((i) => i.label).join("").length === 0;
 
   if (!body) {
@@ -11,7 +11,7 @@ export default function RichText({ className, title, body, sidebar, ctas }) {
   }
   return (
     <div className={clsx(className, classes.text)}>
-      <Container className="mw-lg">
+      <Container className={containerClassName}>
         <Row>
           <Col xs={12} md={sidebar ? 8 : 12}>
             {title && <Title title={title} />}
@@ -26,7 +26,7 @@ export default function RichText({ className, title, body, sidebar, ctas }) {
           </Col>
           {sidebar && (
             <Col xs={12} md={4}>
-              <SidebarNavigation items={sidebar} />
+              <SidebarNavigation title="In this section" items={sidebar} />
             </Col>
           )}
         </Row>
@@ -37,5 +37,6 @@ export default function RichText({ className, title, body, sidebar, ctas }) {
 
 RichText.defaultProps = {
   className: "py-4 py-md-5",
+  containerClassName: "mw-lg",
   body: null,
 };
