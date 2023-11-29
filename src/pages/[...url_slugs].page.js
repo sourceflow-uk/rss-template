@@ -21,29 +21,30 @@ export async function getStaticProps({ params: { url_slugs } }) {
   const pages = getNestedRoutes({ url_slugs, overwrites: { "recruitment-solutions": { href: "#" } } });
   const [_page, prevPage] = [...pages].reverse();
   const page = simple_pages_helper.find(_page.url_slug);
+  const sector = sector_helper.find(_page.url_slug);
 
-  if (!page) {
-    const sector = sector_helper.find(_page.url_slug);
-    if (!sector) {
-      return { notFound: true };
-    }
-
+  if (sector) {
     return getSectorStaticProps({
       sector_id: sector.id,
+      pages: page ? simple_pages_helper.fetch({ parent: page.id }) : null,
     });
+  }
+
+  if (!page) {
+    return { notFound: true };
   }
 
   const logos = logo_carousel_helper.fetch({
     filter: (i) => i.tags.toLowerCase().includes(page.url_slug) || i.tags.includes("*"),
   });
 
-  const sector = page["related_sector"] ? sector_helper.find(page["related_sector"], "title") : null;
-  const employer = page["related_employer"] ? employer_helper.find(page["related_employer"], "name") : null;
+  const related_sector = page["related_sector"] ? sector_helper.find(page["related_sector"], "title") : null;
+  const related_employer = page["related_employer"] ? employer_helper.find(page["related_employer"], "name") : null;
   const jobs =
-    sector || employer
+    related_sector || related_employer
       ? jobs_helper.fetch({
-          sector: sector ? sector.id : null,
-          employer: employer ? employer.id : null,
+          sector: related_sector ? related_sector.id : null,
+          employer: related_employer ? related_employer.id : null,
           filter: (i) =>
             "related_jobs_keyword" in page && page["related_jobs_keyword"]
               ? i.title.toLowerCase().includes(page["related_jobs_keyword"].toLowerCase().trim())

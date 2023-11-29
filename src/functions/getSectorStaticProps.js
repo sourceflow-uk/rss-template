@@ -4,7 +4,7 @@ import { trimText } from "@/functions/trimText";
 import { sector_helper } from "@/helpers/sector_helper";
 import { createTitle } from "@/functions/createTitle";
 
-export const getSectorStaticProps = ({ sector_id, pages_helper = null } = {}) => {
+export const getSectorStaticProps = ({ sector_id, pages_helper = null, pages = null } = {}) => {
   const sector = sector_helper.find(sector_id, "id");
 
   let content = [
@@ -50,8 +50,25 @@ export const getSectorStaticProps = ({ sector_id, pages_helper = null } = {}) =>
     },
   ];
 
-  if (pages_helper) {
-    const pages = pages_helper.fetch({ parent: null });
+  if (pages) {
+    content = [
+      ...content,
+      {
+        component: "PromoSection",
+        props: {
+          title: { path: `page.${sector.url_slug}.component.PromoSection.title`, placeholder: "Also in this section" },
+          items: pages.map((i) => ({
+            title: i.title ?? null,
+            description: trimText(i.body),
+            img: i.cover_image ?? null,
+            href: getRoute("sectorPage", { sector: sector.url_slug, page: i.url_slug }),
+          })),
+          md: 3,
+        },
+      },
+    ];
+  } else if (pages_helper) {
+    pages = pages_helper.fetch({ parent: null });
 
     content = [
       ...content,
