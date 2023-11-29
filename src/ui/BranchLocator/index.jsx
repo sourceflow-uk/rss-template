@@ -2,7 +2,7 @@ import clsx from "classnames";
 import PropTypes from "prop-types";
 import classes from "./styles.module.scss";
 import { Button, Form } from "react-bootstrap";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { branch_helper } from "@/helpers/branch_helper";
 import { getRoute } from "@/getters/getRoute";
 
@@ -16,12 +16,18 @@ export default function BranchLocator({ className, title, setAddressFunc }) {
       window.location.href = getRoute("branch", { url_slug: branch.url_slug });
     }
 
-    if (searchVal && setAddressFunc){
-      setAddressFunc(searchVal)
+    if (searchVal && setAddressFunc) {
+      setAddressFunc(searchVal);
     }
   }, [branch, searchVal]);
 
+  useEffect(() => {
+    const result = branches.find((i) => i.name.toLowerCase().includes(searchVal.toLowerCase().trim()));
 
+    if (result) {
+      setBranch(result);
+    }
+  }, [searchVal]);
 
   return (
     <aside className={clsx(className, classes.locator)}>
@@ -34,13 +40,13 @@ export default function BranchLocator({ className, title, setAddressFunc }) {
         </svg>
         {title}
       </h3>
-      <Form onSubmit={(e) => ( e.preventDefault() )}>
+      <Form onSubmit={(e) => e.preventDefault()}>
         <Form.Group className="mb-3">
           <Form.Label>Enter town</Form.Label>
           <Form.Control
             onChange={(e) => {
               if (e.target.value.length > 0) {
-                setSearchVal(e.target.value)
+                setSearchVal(e.target.value);
               } else {
                 setSearchVal("");
               }
@@ -62,7 +68,13 @@ export default function BranchLocator({ className, title, setAddressFunc }) {
           </Form.Select>
         </Form.Group>
         <Form.Group>
-          <Button type="button" className="w-100" variant="secondary" disabled={!branch && !searchVal} onClick={handleSearchClick}>
+          <Button
+            type="button"
+            className="w-100"
+            variant="secondary"
+            disabled={!branch && !searchVal}
+            onClick={handleSearchClick}
+          >
             Search
           </Button>
         </Form.Group>
