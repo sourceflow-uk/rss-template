@@ -42,6 +42,7 @@ export async function getStaticProps({ params: { url_slug } }) {
               placeholder: `Back to branches`,
               href: getRoute("branches"),
             },
+            img: branch.image,
           },
         },
         { component: "BranchPageContent", props: { ...branch } },
