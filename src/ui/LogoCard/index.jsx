@@ -12,9 +12,10 @@ export default function LogoCard({ className, logo, name, href }) {
 }
 
 LogoCard.defaultProps = {
+  className: "p-3",
   name: "",
   logo: "",
-  href: "",
+  href: null,
 };
 
 LogoCard.propTypes = {
