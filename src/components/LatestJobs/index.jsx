@@ -26,17 +26,17 @@ export default function LatestJobs({ className, title, button, items: _items, vi
   }, [sectors, filters]);
 
   useEffect(() => {
-    if(sectorFilter){
-      setComputedItems(items.filter((i) => JSON.stringify(i).includes(sectorFilter)));
+    if (sectorFilter && filters) {
+      setComputedItems(items.filter((i) => JSON.stringify(i).includes(sectorFilter)).slice(0, visibleCount));
     } else {
-      setComputedItems(items)
+      setComputedItems(items);
     }
-  }, [sectorFilter, items, filters]);
+  }, [sectorFilter, items, filters, visibleCount]);
 
   return (
     <div className={clsx(className, classes.jobs)}>
       <Container className="mw-xxl">
-        { (title || filters) && (
+        {(title || filters) && (
           <Stack className="flex-md-row justify-content-between mb-4">
             <Title title={title} className="mb-md-0 text-center text-md-start" />
             {filters && (
@@ -58,7 +58,7 @@ export default function LatestJobs({ className, title, button, items: _items, vi
           </Stack>
         )}
         <Carousel
-          id='jobs'
+          id="jobs"
           controls={computedItems.length > visibleCount}
           indicators={false}
           prevIcon={<ChevronLeft width="14" height="25" />}
