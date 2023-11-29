@@ -7,6 +7,7 @@ import classes from "./styles.module.scss";
 import { useLoadMore } from "@/hooks/useLoadMore";
 import { useEffect, useState } from "react";
 import { useOptionFilter } from "@/hooks/useOptionFilter";
+import { getArticleCardImage } from "@/getters/getArticleCardImage";
 
 export default function ArticleFeed({
   className,
@@ -14,6 +15,7 @@ export default function ArticleFeed({
   showSearchField,
   showCategoryFilter,
   showTagFilter,
+  articleType = 'blogPost',
 }) {
   const [items, setItems, loadMore, page, pages] = useLoadMore(_rawItems);
   const [categories, categoryFilter, setCategoryFilter] = useOptionFilter(_rawItems, "category", setItems);
@@ -83,17 +85,18 @@ export default function ArticleFeed({
           </Stack>
         )}
         <Row>
-          {items.map(({ title, image, publish_date, url_slug }, k) => (
-            <Col key={k} xs={12} md={4} className="mb-4">
-              <BlogFeedCard
-                className="h-100"
-                title={title}
-                img={image}
-                published_at={publish_date}
-                href={getRoute("blogPost", { url_slug })}
-              />
-            </Col>
-          ))}
+          {items.map((item, k) => {
+            const { title, image, publish_date, url_slug } = item;
+            return (<Col key={k} xs={12} md={4} className="mb-4">
+                      <BlogFeedCard
+                        className="h-100"
+                        title={title}
+                        img={getArticleCardImage(item, articleType)}
+                        published_at={publish_date}
+                        href={getRoute(articleType, { url_slug })}
+                      />
+                    </Col>)}
+          )}
         </Row>
         {page < pages && (
           <Stack className={clsx(classes.feed__footer)}>

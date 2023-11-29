@@ -44,6 +44,7 @@ export async function getStaticProps() {
             showSearchField: false,
             showCategoryFilter: true,
             showTagFilter: false,
+            articleType: "caseStudy",
           },
         },
       ],
