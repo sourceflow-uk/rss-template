@@ -27,7 +27,7 @@ export const getSectorPageStaticProps = ({ sector_id, url_slugs, pages_helper })
           props: {
             className: page.cover_image ? "text-white" : "text-tertiary",
             title: page.name,
-            img: page.cover_image ?? null,
+            img: (page.cover_image || page.image) ?? null,
             containerClassName: "mw-xxl",
           },
         },
