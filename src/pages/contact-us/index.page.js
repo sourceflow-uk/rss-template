@@ -27,11 +27,7 @@ export async function getStaticProps() {
           props: {
             className: "text-tertiary",
             title: { path: "page.contact.component.Header.title", placeholder: "Get in touch" },
-            description: {
-              path: "page.contact.component.Header.description",
-              placeholder:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            },
+            description: { path: "page.contact.component.Header.description" },
           },
         },
         { component: "ContactPageContent" },
