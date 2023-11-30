@@ -6,7 +6,7 @@ import { Image } from "@/ui";
 export default function LogoCard({ className, logo, name, href }) {
   return (
     <a className={clsx(className, classes.card)} href={href}>
-      <Image className="mw-100" img={logo} size="228x" alt={name} title={name} />
+      <Image className="mw-100 h-100" img={logo} size="228x" alt={name} title={name} />
     </a>
   );
 }
