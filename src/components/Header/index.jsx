@@ -6,7 +6,17 @@ import Play from "@/assets/Play.svg";
 import { CTA, Description, DynamicText, Image, Title, VideoModal } from "@/ui";
 import ArrowLeft from "@/assets/ArrowLeft.svg";
 
-export default function Header({ className, title, img, contain, description, cta, video_embed_url, back, containerClassName = "mw-xxl" }) {
+export default function Header({
+  className,
+  title,
+  img,
+  contain,
+  description,
+  cta,
+  video_embed_url,
+  back,
+  containerClassName = "mw-xxl",
+}) {
   return (
     <div className={clsx(className, classes.header, { "has-img": img, contain })}>
       <Image className={classes.header__img} img={img} size="1920x370" alt="Header image" />
@@ -41,6 +51,7 @@ export default function Header({ className, title, img, contain, description, ct
 }
 
 Header.defaultProps = {
+  className: "bg-light text-dark",
   title: null,
   img: null,
   contain: false,

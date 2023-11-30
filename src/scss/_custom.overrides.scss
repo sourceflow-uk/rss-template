@@ -107,7 +107,7 @@ p {
 .text {
   &-white {
     a {
-      color: $white !important;
+      color: $white;
     }
     svg {
       fill: $white;
@@ -115,9 +115,48 @@ p {
     }
   }
   &-dark {
+    a {
+      color: $dark;
+    }
     svg {
       fill: $dark;
       stroke: $dark;
+    }
+  }
+  &-primary {
+    a {
+      color: var(#{--bs-primary});
+    }
+    svg {
+      fill: var(#{--bs-primary});
+      stroke: var(#{--bs-primary});
+    }
+  }
+  &-secondary {
+    a {
+      color: var(#{--bs-secondary});
+    }
+    svg {
+      fill: var(#{--bs-secondary});
+      stroke: var(#{--bs-secondary});
+    }
+  }
+  &-tertiary {
+    a {
+      color: var(#{--bs-tertiary});
+    }
+    svg {
+      fill: var(#{--bs-tertiary});
+      stroke: var(#{--bs-tertiary});
+    }
+  }
+  &-quaternary {
+    a {
+      color: var(#{--bs-quaternary});
+    }
+    svg {
+      fill: var(#{--bs-quaternary});
+      stroke: var(#{--bs-quaternary});
     }
   }
 }
