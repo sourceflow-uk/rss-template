@@ -16,7 +16,7 @@ export const getSectorPageStaticProps = ({ sector_id, url_slugs, pages_helper })
     sector: sector.id,
     filter: (i) => {
       if (!("related_jobs_keyword" in page && page["related_jobs_keyword"])) {
-        return false;
+        return true;
       }
 
       const search = `${i.title} ${i.location}`.toLowerCase();
