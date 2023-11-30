@@ -19,6 +19,10 @@
   }
 
   :global {
+    .formio-component-pageName {
+      display: none;
+    }
+
     .formio-form {
       .form-control {
         border: 1px solid $gray-600;
