@@ -164,7 +164,6 @@ export async function getStaticProps({ params: { url_slugs } }) {
           : []),
         ...(logos.length > 0
           ? [
-              { component: "Divider" },
               {
                 component: "LogoCarousel",
                 props: { title: { path: `page.${page.url_slug}.component.LogoCarousel.title` }, items: logos },
