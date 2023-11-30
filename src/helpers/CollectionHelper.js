@@ -6,11 +6,30 @@ export default class CollectionHelper {
     this.collection = new BaseCollection(data, "en");
   }
 
-  find(value, key = "url_slug", includes = false) {
-    if (includes) {
-      return this.collection.getItems().find((i) => value.toLowerCase().includes(i[key].toLowerCase().trim()));
+  nestedFind(values, key = "url_slug") {
+    const [value, ...rest] = values.reverse();
+    const pages = this.filter((i) => i[key] === value);
+
+    // if only 1 result return it
+    if (pages.length === 1) {
+      return pages[0];
     }
 
+    // if no parent find the result with no parent
+    if (rest.length === 0) {
+      return pages.find((i) => i.parent.id === null);
+    }
+
+    // find parent and return item with matching parent
+    const parent = this.nestedFind(rest.reverse(), key);
+    if (parent) {
+      return pages.find((p) => p.parent.id === parent.id);
+    }
+
+    return null;
+  }
+
+  find(value, key = "url_slug") {
     return this.collection.getItems().find((i) => i[key] === value);
   }
 

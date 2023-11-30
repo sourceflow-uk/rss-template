@@ -20,7 +20,7 @@ export default function Page({ content }) {
 export async function getStaticProps({ params: { url_slugs } }) {
   const pages = getNestedRoutes({ url_slugs, overwrites: { "recruitment-solutions": { href: "#" } } });
   const [_page, prevPage] = [...pages].reverse();
-  const page = simple_pages_helper.find(_page.url_slug);
+  const page = simple_pages_helper.nestedFind(url_slugs);
   const sector = sector_helper.find(_page.url_slug);
 
   if (sector) {
@@ -80,7 +80,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
                   placeholder: `Back to Home`,
                   href: getRoute("home"),
                 },
-            containerClassName: "mw-lg",
+            containerClassName: "mw-xxl",
           },
         },
         page.video ? { component: "SocialVideo", props: { video_embed_url: page.video } } : null,
