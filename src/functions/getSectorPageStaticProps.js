@@ -14,10 +14,16 @@ export const getSectorPageStaticProps = ({ sector_id, url_slugs, pages_helper })
 
   const jobs = jobs_helper.fetch({
     sector: sector.id,
-    filter: (i) =>
-      "related_jobs_keyword" in page && page["related_jobs_keyword"]
-        ? `${i.title} ${i.location}`.toLowerCase().includes(page["related_jobs_keyword"].toLowerCase().trim())
-        : true,
+    filter: (i) => {
+      if (!("related_jobs_keyword" in page && page["related_jobs_keyword"])) {
+        return false;
+      }
+
+      const search = `${i.title} ${i.location}`.toLowerCase();
+      const terms = page["related_jobs_keyword"].toLowerCase().split(",");
+
+      return terms.some((t) => search.includes(t.trim()));
+    },
   });
 
   return {
