@@ -21,13 +21,13 @@ export default function BranchLocator({ className, title, setAddressFunc }) {
     }
   }, [branch, searchVal]);
 
-  useEffect(() => {
-    const result = branches.find((i) => i.name.toLowerCase().includes(searchVal.toLowerCase().trim()));
+  // useEffect(() => {
+  //   const result = branches.find((i) => i.name.toLowerCase().includes(searchVal.toLowerCase().trim()));
 
-    if (result) {
-      setBranch(result);
-    }
-  }, [searchVal]);
+  //   if (result) {
+  //     setBranch(result);
+  //   }
+  // }, [searchVal]);
 
   return (
     <aside className={clsx(className, classes.locator)}>
@@ -40,7 +40,10 @@ export default function BranchLocator({ className, title, setAddressFunc }) {
         </svg>
         {title}
       </h3>
-      <Form onSubmit={(e) => e.preventDefault()}>
+      <Form
+        onSubmit={(e) => e.preventDefault()}
+        onKeyPress={(e) => { e.key === 'Enter' && handleSearchClick(); }}
+      >
         <Form.Group className="mb-3">
           <Form.Label>Enter town</Form.Label>
           <Form.Control
