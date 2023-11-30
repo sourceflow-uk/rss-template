@@ -5,32 +5,23 @@ import { hexToRgb } from "@/functions/hexToRgb";
 
 export default function Document() {
   const global = getGlobal();
-  const gtag = global["_theme.google.gtag"];
 
   return (
     <Html lang="en">
       <Head>
-        {gtag && (
-          <Script id="gtm" src={`https://www.googletagmanager.com/gtag/js?id=${gtag}`} strategy="beforeInteractive" />
-        )}
-        {gtag && (
-          <Script id="gtm_script" strategy="beforeInteractive">
-            {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${gtag}');
-              `}
-          </Script>
-        )}
+        <Script id="gtm" strategy="beforeInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W9BK8R');`}
+        </Script>
         <script
           id="fpp"
           type="text/javascript"
           src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js"
-          strategy="beforeInteractive"
         />
-        <script id="fpp_script" type="text/javascript" strategy="beforeInteractive" dangerouslySetInnerHTML= {{ __html:
-          `
+        <script
+          id="fpp_script"
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `
             document.addEventListener('DOMContentLoaded', function () {
               cookieconsent.run({
                   "notice_banner_type": "simple",
@@ -45,7 +36,9 @@ export default function Document() {
                   "website_privacy_policy_url":"https://www.rssglobal.com/cookie-policy/"
               });
             });
-          `}} />
+          `,
+          }}
+        />
         <link rel="icon" type="image/ico" sizes="32x32" href="/favicon.png" />
         <style id="theme">
           {`
@@ -87,6 +80,14 @@ export default function Document() {
         </style>
       </Head>
       <body>
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-W9BK8R"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <Main />
         <NextScript />
       </body>
