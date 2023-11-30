@@ -93,11 +93,11 @@
     align-items: center;
     gap: $spacer * 0.5;
     text-decoration: none;
-    color: var(#{--bs-tertiary});
+    //color: var(#{--bs-tertiary});
     transition: $transition-base;
 
     svg {
-      stroke: var(#{--bs-tertiary});
+      //stroke: var(#{--bs-tertiary});
       transition: $transition-base;
     }
 

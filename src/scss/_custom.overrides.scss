@@ -111,11 +111,13 @@ p {
     }
     svg {
       fill: $white;
+      stroke: $white;
     }
   }
   &-dark {
     svg {
       fill: $dark;
+      stroke: $dark;
     }
   }
 }
