@@ -15,7 +15,7 @@ export default function ArticleFeed({
   showSearchField,
   showCategoryFilter,
   showTagFilter,
-  articleType = 'blogPost',
+  articleType,
 }) {
   const [items, setItems, loadMore, page, pages] = useLoadMore(_rawItems);
   const [categories, categoryFilter, setCategoryFilter] = useOptionFilter(_rawItems, "category", setItems);
@@ -87,16 +87,18 @@ export default function ArticleFeed({
         <Row>
           {items.map((item, k) => {
             const { title, image, publish_date, url_slug } = item;
-            return (<Col key={k} xs={12} md={4} className="mb-4">
-                      <BlogFeedCard
-                        className="h-100"
-                        title={title}
-                        img={getArticleCardImage(item, articleType)}
-                        published_at={publish_date}
-                        href={getRoute(articleType, { url_slug })}
-                      />
-                    </Col>)}
-          )}
+            return (
+              <Col key={k} xs={12} md={4} className="mb-4">
+                <BlogFeedCard
+                  className="h-100"
+                  title={title}
+                  img={getArticleCardImage(item, articleType)}
+                  published_at={publish_date}
+                  href={getRoute(articleType, { url_slug })}
+                />
+              </Col>
+            );
+          })}
         </Row>
         {page < pages && (
           <Stack className={clsx(classes.feed__footer)}>
@@ -115,6 +117,7 @@ ArticleFeed.defaultProps = {
   showCategoryFilter: false,
   showTagFilter: false,
   showSearchField: false,
+  articleType: "blogPost",
 };
 
 ArticleFeed.propTypes = {

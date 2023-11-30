@@ -50,6 +50,7 @@ export async function getStaticProps() {
             showSearchField: false,
             showCategoryFilter: false,
             showTagFilter: false,
+            articleType: "whitepapersPage",
           },
         },
       ],
