@@ -49,7 +49,7 @@ export default function LogoCarousel({ className, title, items, visibleCount: de
 LogoCarousel.defaultProps = {
   className: "py-4 py-md-5",
   title: null,
-  visibleCount: 5,
+  visibleCount: 4,
 };
 
 LogoCarousel.propTypes = {
