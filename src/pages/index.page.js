@@ -22,7 +22,8 @@ export async function getStaticProps({}) {
         {
           component: "Hero",
           props: {
-            img: { path: "page.home.component.Hero.img" },
+            // img: { path: "page.home.component.Hero.img" },
+            img: "https://cdn.sourceflow.co.uk/__gallery/e815594b-fe07-4dac-a6f1-7aa18b5158de",
             title: { path: "page.home.component.Hero.title", placeholder: "Flexible Work" },
             subtitle: { path: "page.home.component.Hero.subtitle", placeholder: "That’s All About <i>You</i>" },
           },
@@ -82,7 +83,7 @@ export async function getStaticProps({}) {
             title: { path: "page.home.component.LogoCarousel.title", placeholder: "" },
             items: logo_carousel_helper.fetch({
               filter: (i) => i.tags.toLowerCase().includes("home") || i.tags.includes("*"),
-            }),
+            })
           },
         },
         { component: "Spacer" },

@@ -8,7 +8,11 @@ export default function Image({ className, img, size, alt }) {
   }
 
   if (typeof img === "string") {
-    return <SourceFlowImage className={className} src={img} size={size} alt={alt} />;
+    if(img.includes("__gallery")){
+      return <img src={img} className={className} alt={alt} />
+    } else {
+      return <SourceFlowImage className={className} src={img} size={size} alt={alt} />;
+    }
   }
 
   if (typeof img === "object") {

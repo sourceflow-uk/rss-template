@@ -8,7 +8,7 @@ export default function Hero({ className, img, title, subtitle }) {
   return (
     <div className={clsx(className, classes.hero)}>
       <figure className={classes.hero__img}>
-        <Image img={img} size="1920x542" alt="Hero image" />
+        <Image img={img} size="1920x700" alt="Hero image" />
       </figure>
       <div className={classes.hero__content}>
         <Container>
