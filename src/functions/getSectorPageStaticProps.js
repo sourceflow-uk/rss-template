@@ -12,6 +12,14 @@ export const getSectorPageStaticProps = ({ sector_id, url_slugs, pages_helper })
   const page = pages_helper.find(_page.url_slug);
   const siblings = pages_helper.fetch({ parent: page.parent.id });
 
+  const jobs = jobs_helper.fetch({
+    sector: sector.id,
+    filter: (i) =>
+      "related_jobs_keyword" in page && page["related_jobs_keyword"]
+        ? `${i.title} ${i.location}`.toLowerCase().includes(page["related_jobs_keyword"].toLowerCase().trim())
+        : true,
+  });
+
   return {
     props: {
       meta: { title: createTitle(page.name, `${sector.title} Jobs`) },
@@ -63,7 +71,7 @@ export const getSectorPageStaticProps = ({ sector_id, url_slugs, pages_helper })
               path: `page.${url_slugs.join(".")}.component.LatestJobs.title`,
               placeholder: `Latest ${sector.title} Jobs`,
             },
-            items: jobs_helper.fetch({ sector: sector.id }),
+            items: jobs,
             visibleCount: 4,
           },
         },
