@@ -159,6 +159,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
                 title: i.title ?? null,
                 description: i.description ?? null,
                 formId: i.form_id ?? null,
+                redirectUrl: i.redirect_url ?? null,
               },
             }))
           : []),
