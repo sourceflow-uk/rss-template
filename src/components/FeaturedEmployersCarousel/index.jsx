@@ -35,11 +35,11 @@ export default function FeaturedEmployersCarousel({ className, title, visibleCou
           {chunk(items, visibleCount).map((items, k) => (
             <Carousel.Item key={k}>
               <Row>
-                {items.map(({ card_image, name, url_slug }, k) => (
+                {items.map(({ card_image, title, url_slug }, k) => (
                   <Col key={k} className="py-3">
                     <LogoCard
                       logo={card_image}
-                      name={name}
+                      name={title}
                       href={getRoute("employerPage", { url_slugs: [url_slug] })}
                     />
                   </Col>
