@@ -3,6 +3,7 @@ import clsx from "classnames";
 import { Col, Container, Row } from "react-bootstrap";
 import { SidebarNavigation } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
+import classes from "./styles.module.scss";
 
 export default function EmployerPageArticleContent({
   className,
@@ -15,7 +16,7 @@ export default function EmployerPageArticleContent({
   parent,
 }) {
   return (
-    <div className={clsx(className)}>
+    <div className={clsx(className, classes.content)}>
       <Container className="mw-xxl">
         <Row>
           <Col xs={12} md={8}>
