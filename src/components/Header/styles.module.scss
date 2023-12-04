@@ -12,8 +12,8 @@
     overflow: hidden;
     justify-content: center;
 
-    @include media-breakpoint-up(md) {
-      height: 300px;
+    @include media-breakpoint-down(md) {
+      min-height: 0px;
     }
 
     @include media-breakpoint-up(xl) {
