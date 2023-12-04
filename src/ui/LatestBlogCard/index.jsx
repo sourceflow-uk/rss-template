@@ -12,7 +12,7 @@ export default function LatestBlogCard({ className, title, description, img, pub
         <Image img={img} size="373x220" alt={title} />
       </figure>
       <div className={classes.card__body}>
-        <h4>{trimText(title, 50)}</h4>
+        <h5>{trimText(title, 50)}</h5>
         <time>{published_at && format(new Date(published_at), "dd/MM/yyyy")}</time>
         <p>{trimText(description, 180)}</p>
       </div>

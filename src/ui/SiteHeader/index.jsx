@@ -15,7 +15,7 @@ export default function SiteHeader({ className }) {
     <Navbar fixed="top" collapseOnSelect expand="lg" className={clsx(className, classes.header)}>
       <Container className="p-0">
         <Navbar.Brand className={clsx(classes.header__brand, "me-auto px-2 py-0")} href={getRoute("home")}>
-          <Image img={{ path: "_theme.company.logo" }} size="174x54" alt={company_name} />
+          <Image img={{ path: "_theme.company.logo" }} size="120x56" alt={company_name} />
         </Navbar.Brand>
         <Navbar.Toggle className="me-2" aria-controls="responsive-navbar-nav">
           <div>

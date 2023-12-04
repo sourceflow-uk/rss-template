@@ -24,7 +24,7 @@ export default function SiteHeaderNav({ className }) {
               <Nav.Link href={href} target={target}>
                 {label}
               </Nav.Link>
-              <Dropdown.Toggle variant={false}>
+              <Dropdown.Toggle variant={false} aria-label={`${label} menu` }>
                 <ChevronDown onClick={() => setShow(k)} />
               </Dropdown.Toggle>
             </Nav.Item>

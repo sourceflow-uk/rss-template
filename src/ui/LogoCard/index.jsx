@@ -5,7 +5,7 @@ import { Image } from "@/ui";
 
 export default function LogoCard({ className, logo, name, href }) {
   return (
-    <a className={clsx(className, classes.card)} href={href}>
+    <a className={clsx(className, classes.card)} href={href} aria-label={name}>
       <Image className="mw-100 h-100" img={logo} size="228x" alt={name} title={name} />
     </a>
   );

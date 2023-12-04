@@ -12,9 +12,10 @@
 
   &__brand {
     img {
-      width: 174px;
-      height: 54px;
-      object-fit: contain;
+      width: 120px;
+      height: 56px;
+      object-fit: scale-down;
+    
     }
   }
 
