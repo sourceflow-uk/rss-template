@@ -40,6 +40,13 @@ export default function Document() {
           `,
           }}
         />
+
+        <script type="text/javascript" src="https://cdn-ukwest.onetrust.com/consent/46f87f51-ab3c-42b9-98e3-cf5afa5c5335/OtAutoBlock.js" />
+        <script src="https://cdn-ukwest.onetrust.com/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="46f87f51-ab3c-42b9-98e3-cf5afa5c5335" />
+        <script type="text/javascript">
+          function OptanonWrapper() { }
+        </script>
+
         <link rel="icon" type="image/ico" sizes="32x32" href="/favicon.png" />
         <style id="theme">
           {`
