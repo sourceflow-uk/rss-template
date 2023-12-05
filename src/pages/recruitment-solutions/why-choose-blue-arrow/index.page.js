@@ -38,8 +38,13 @@ export async function getStaticProps() {
           props: {
             className: "text-tertiary",
             title: { path: `page.${url_slug}.component.Header.title`, placeholder: title },
-            description: { path: `page.${url_slug}.component.Header.description` },
             img: { path: `page.${url_slug}.component.Header.img` },
+          },
+        },
+        {
+          component: "RichText",
+          props: {
+            body: { path: `page.${url_slug}.component.Header.description` },
           },
         },
         {
