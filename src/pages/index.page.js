@@ -5,6 +5,7 @@ import { trimText } from "@/functions/trimText";
 import { createTitle } from "@/functions/createTitle";
 import { mini_carousel_helper } from "@/helpers/mini_carousel_helper";
 import { logo_carousel_helper } from "@/helpers/logo_carousel_helper";
+import { jobs_helper } from "@/helpers/jobs_helper";
 
 export default function Page({ content }) {
   return (
@@ -68,6 +69,7 @@ export async function getStaticProps({}) {
           props: {
             title: { path: "page.home.component.LatestJobs.title", placeholder: "Latest Jobs" },
             visibleCount: 4,
+            items: jobs_helper.fetch(),
             filters: true,
           },
         },
@@ -83,7 +85,7 @@ export async function getStaticProps({}) {
             title: { path: "page.home.component.LogoCarousel.title", placeholder: "" },
             items: logo_carousel_helper.fetch({
               filter: (i) => i.tags.toLowerCase().includes("home") || i.tags.includes("*"),
-            })
+            }),
           },
         },
         { component: "Spacer" },

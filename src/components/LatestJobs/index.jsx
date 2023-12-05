@@ -7,14 +7,10 @@ import ChevronRight from "@/assets/ChevronRight.svg";
 import ChevronLeft from "@/assets/ChevronLeft.svg";
 import { JobCard, Title } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
-import { jobs_helper } from "@/helpers/jobs_helper";
 import { sector_helper } from "@/helpers/sector_helper";
 import { useEffect, useState } from "react";
 
-export default function LatestJobs({ className, title, button, items: _items, visibleCount, sector, filters }) {
-  const [items] = useState(
-    _items ? _items : jobs_helper.fetch({ filter: (i) => (sector ? JSON.stringify(i).includes(sector) : true) }),
-  );
+export default function LatestJobs({ className, title, button, items, visibleCount, filters }) {
   const [sectors] = useState(sector_helper.fetch({ filter: (i) => i.is_carousel_filter === true }));
   const [sectorFilter, setSector] = useState("");
   const [computedItems, setComputedItems] = useState([]);
@@ -57,25 +53,29 @@ export default function LatestJobs({ className, title, button, items: _items, vi
             )}
           </Stack>
         )}
-        <Carousel
-          id="jobs"
-          controls={computedItems.length > visibleCount}
-          indicators={false}
-          prevIcon={<ChevronLeft width="14" height="25" />}
-          nextIcon={<ChevronRight width="14" height="25" />}
-        >
-          {chunk(computedItems, visibleCount).map((items, k) => (
-            <Carousel.Item key={k}>
-              <Row>
-                {items.map((job, k) => (
-                  <Col key={k} xs={12} md={12 / visibleCount} className="mb-4">
-                    <JobCard className="bg-light h-100 " {...job} />
-                  </Col>
-                ))}
-              </Row>
-            </Carousel.Item>
-          ))}
-        </Carousel>
+        {computedItems.length > 0 ? (
+          <Carousel
+            id="jobs"
+            controls={computedItems.length > visibleCount}
+            indicators={false}
+            prevIcon={<ChevronLeft width="14" height="25" />}
+            nextIcon={<ChevronRight width="14" height="25" />}
+          >
+            {chunk(computedItems, visibleCount).map((items, k) => (
+              <Carousel.Item key={k}>
+                <Row>
+                  {items.map((job, k) => (
+                    <Col key={k} xs={12} md={12 / visibleCount} className="mb-4">
+                      <JobCard className="bg-light h-100 " {...job} />
+                    </Col>
+                  ))}
+                </Row>
+              </Carousel.Item>
+            ))}
+          </Carousel>
+        ) : (
+          <span>Sorry there are no live jobs at the moment.</span>
+        )}
         <div className={classes.jobs__footer}>
           {button && (
             <a className={classes.jobs__link} href={button.href}>
