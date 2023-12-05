@@ -48,6 +48,12 @@ export async function getStaticProps() {
           },
         },
         {
+          component: "SocialVideo",
+          props: {
+            video_embed_url: "https://www.youtube.com/embed/AMaViKlm-hw",
+          },
+        },
+        {
           component: "GridButtonsGrid",
           props: {
             title: {
