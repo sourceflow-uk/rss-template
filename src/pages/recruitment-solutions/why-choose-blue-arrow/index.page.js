@@ -16,7 +16,6 @@ export async function getStaticProps() {
   const title = "Why choose Blue Arrow?";
   const url_slug = "why-choose-blue-arrow";
   const pages = simple_pages_helper.fetch({ parent: "9dc7694d-93b5-4ddd-a464-405f77d71cb1" });
-
   const logos = logo_carousel_helper.fetch({
     filter: (i) => i.tags.toLowerCase().includes(url_slug) || i.tags.includes("*"),
   });
@@ -40,6 +39,7 @@ export async function getStaticProps() {
             className: "text-tertiary",
             title: { path: `page.${url_slug}.component.Header.title`, placeholder: title },
             description: { path: `page.${url_slug}.component.Header.description` },
+            img: { path: `page.${url_slug}.component.Header.img` },
           },
         },
         {
