@@ -18,6 +18,8 @@ export default function Page({ content }) {
 }
 
 export async function getStaticProps({ params: { url_slugs } }) {
+  console.log(url_slugs);
+
   const pages = getNestedRoutes({
     url_slugs,
     overwrites: { "recruitment-solutions": { href: "/recruitment-solutions/why-choose-blue-arrow/" } },
@@ -67,8 +69,8 @@ export async function getStaticProps({ params: { url_slugs } }) {
             className: page.header_classes
               ? page.header_classes
               : page.cover_image
-              ? "bg-tertiary text-white"
-              : "bg-light text-tertiary",
+                ? "bg-tertiary text-white"
+                : "bg-light text-tertiary",
             title: page.title,
             description: page.description ?? null,
             img: page.cover_image ?? null,
@@ -184,9 +186,9 @@ export async function getStaticPaths() {
     paths: [
       ...simple_pages_helper.toNestedPaths({
         exclude: [
-          "9dc7694d-93b5-4ddd-a464-405f77d71cb1",
+          "9dc7694d-93b5-4ddd-a464-405f77d71cb1", // why-choose-blue-arrow
           "5baeed81-34de-4673-b0f3-2405a5682c22", // contact-us
-          "5867167d-704a-4155-8b6d-7df842ef40f1", //
+          "5867167d-704a-4155-8b6d-7df842ef40f1", // warehouse-jobs
           "6cbbc5e3-5dcd-44a4-ba81-136d3f90ae0d", // featured-employers
           "3ac0b752-94d4-49ee-b17a-c45aac2c5eda", // industry-insights
           "ccf8d981-4a1d-46f9-8c3a-0e4c0807e9f6", // whitepapers
