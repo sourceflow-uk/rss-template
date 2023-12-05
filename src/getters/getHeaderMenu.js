@@ -16,6 +16,10 @@ export const getHeaderMenu = (locale = "en") => {
         { label: "Office Jobs", href: getRoute("/officejobs") },
         { label: "Retail Jobs", href: getRoute("/retailjobs") },
         { label: "Warehouse Jobs", href: getRoute("/warehousejobs") },
+        {
+          label: "Why Choose Blue Arrow?",
+          href: getRoute("/enhancing-your-everyday/great-place-to-work/why-choose-blue-arrow/"),
+        },
         { label: "Great Places To Work", href: getRoute("employers") },
         { label: "Career Advice", href: getRoute("careerAdvice") },
       ],
@@ -87,9 +91,7 @@ export const getHeaderMenu = (locale = "en") => {
     {
       label: "Contact Us",
       href: getRoute("contact"),
-      children: [
-        { label: "Our Branches", href: getRoute("branches") },
-      ]
+      children: [{ label: "Our Branches", href: getRoute("branches") }],
     },
   ];
 
