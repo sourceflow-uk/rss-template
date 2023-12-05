@@ -1,7 +1,9 @@
 @import "src/scss/module";
 
 .description {
-  &:has([data-sourceflow-path]:empty) {
+  &:has([data-sourceflow-path]:empty),
+  &:has([data-sourceflow-path] span:only-child:empty),
+  {
     display: none;
   }
 }

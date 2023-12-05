@@ -1,7 +1,8 @@
 @import "src/scss/module";
 
 .title {
-  &:has([data-sourceflow-path]:empty) {
+  &:has([data-sourceflow-path]:empty),
+  &:has([data-sourceflow-path] span:only-child:empty), {
     display: none;
   }
 }
