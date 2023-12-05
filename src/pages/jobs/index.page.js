@@ -1,7 +1,5 @@
 import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
-import { generateImage } from "@/faker/generateImage";
-import { generateDescription } from "@/faker/generateDescription";
 import { createTitle } from "@/functions/createTitle";
 
 export default function JobsPage({ content }) {

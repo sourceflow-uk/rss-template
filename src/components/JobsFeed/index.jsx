@@ -3,7 +3,7 @@ import ArrowRight from "@/assets/ArrowRight.svg";
 import JobSearch from "@sourceflow-uk/job-search";
 import PropTypes from "prop-types";
 import { Container, FormCheck, Stack } from "react-bootstrap";
-import { CTA, Image } from "@/ui";
+import { CTA } from "@/ui";
 import classes from "./styles.module.scss";
 import clsx from "classnames";
 import { formatDistanceToNowStrict, fromUnixTime } from "date-fns";
