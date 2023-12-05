@@ -35,7 +35,7 @@ export async function getStaticProps() {
         },
         {
           component: "Form",
-          props: { formId: "7789ee90-960b-421f-b084-fefda252f9de" },
+          props: { form_id: "7789ee90-960b-421f-b084-fefda252f9de" },
         },
       ],
     },

@@ -3,8 +3,8 @@ import clsx from "classnames";
 import { Description, Form as FormComponent, Title } from "@/ui";
 import { Container } from "react-bootstrap";
 
-export default function Form({ className, title, description, formClassName, formId, redirect_url }) {
-  if (!formId) {
+export default function Form({ className, title, description, formClassName, form_id, redirect_url }) {
+  if (!form_id) {
     return null;
   }
 
@@ -15,7 +15,7 @@ export default function Form({ className, title, description, formClassName, for
           <Title title={title} />
           <Description description={description} />
           <FormComponent
-            formId={formId}
+            formId={form_id}
             onSubmitDone={() => {
               if (typeof window !== "undefined") {
                 window.location.href = redirect_url ?? `/submission-complete`;

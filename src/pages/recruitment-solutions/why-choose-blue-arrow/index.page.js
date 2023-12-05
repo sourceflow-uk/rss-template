@@ -88,7 +88,7 @@ export async function getStaticProps() {
           props: {
             className: "bg-light py-4 py-md-5",
             title: { path: `page.${url_slug}.component.Form.title`, placeholder: "Request more information" },
-            formId: "98b1af95-4745-46ac-b426-edad7bd527d2",
+            form_id: "98b1af95-4745-46ac-b426-edad7bd527d2",
           },
         },
         ...(logos.length > 0

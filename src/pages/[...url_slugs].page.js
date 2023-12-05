@@ -158,8 +158,8 @@ export async function getStaticProps({ params: { url_slugs } }) {
                 className: k % 2 === 0 ? "py-4 py-md-5 bg-light" : "py-4 py-md-5 bg-white",
                 title: i.title ?? null,
                 description: i.description ?? null,
-                formId: i.form_id ?? null,
-                redirectUrl: i.redirect_url ?? null,
+                form_id: i.form_id ?? null,
+                redirect_url: i.redirect_url ?? null,
               },
             }))
           : []),
