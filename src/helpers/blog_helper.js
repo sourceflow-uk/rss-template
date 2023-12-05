@@ -4,9 +4,7 @@ import { sortByDate } from "@/functions/sortByDate";
 
 class BlogCollectionHelper extends CollectionHelper {
   fetch({ limit = null, featured = null, parent = false, exclude = null, filter = null } = {}) {
-    let items = this.collection.getItems();
-
-    sortByDate(items, "publish_date");
+    let items = sortByDate(this.collection.getItems(), "publish_date");
 
     if (filter) {
       items = items.filter(filter);
