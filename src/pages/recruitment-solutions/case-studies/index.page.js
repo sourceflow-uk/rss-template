@@ -24,7 +24,7 @@ export async function getStaticProps() {
           component: "BreadcrumbNavigation",
           props: {
             items: [
-              { label: "Recruitment Solutions", href: "#" },
+              { label: "Recruitment Solutions", href: "/recruitment-solutions/why-choose-blue-arrow/" },
               { label: title, href: getRoute("caseStudies") },
             ],
           },
