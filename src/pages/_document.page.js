@@ -60,6 +60,7 @@ export default function Document() {
             }
           `}
         </style>
+        <style>{ `div#reciteme-button { bottom: 65px;}` }</style>
       </Head>
       <body>
         <noscript>
