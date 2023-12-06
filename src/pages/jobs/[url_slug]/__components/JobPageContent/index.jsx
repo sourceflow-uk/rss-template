@@ -11,6 +11,7 @@ import { getGlobal } from "@/getters/getGlobal";
 import { formatDistanceToNowStrict } from "date-fns";
 import { RelatedJobs } from "@/components";
 import { jobs_helper } from "@/helpers/jobs_helper";
+import { branch_helper } from "@/helpers/branch_helper";
 
 export default function JobPageContent({
   className,
@@ -26,6 +27,10 @@ export default function JobPageContent({
 }) {
   const job_types = jobs_helper.getCategoryValues("275d8990-bd9e-4f79-a0e2-d81bb734c855", { categories });
   const sectors = jobs_helper.getCategoryValues("3186657c-e89c-4a6f-9157-35eb7fe0b379", { categories });
+  const branches = jobs_helper.getCategoryValues("33b21b47-15e3-40a2-bc7b-32019e94c7ba", { categories });
+
+  const branch = branch_helper.find(branches[0]?.id, "id")
+
   const global = getGlobal();
 
   return (
@@ -108,14 +113,16 @@ export default function JobPageContent({
           <Col xs={12} md={3}>
             <Stack gap={4}>
               <SocialShare title="Share this job" />
-              <Card>
-                <Card.Header>
-                  <h3>Have a Question?</h3>
-                </Card.Header>
-                <Card.Body>
-                  <Phone number={global["_theme.company.phone"]} />
-                </Card.Body>
-              </Card>
+              { branch &&
+                <Card>
+                  <Card.Header>
+                    <h3>Have a Question?</h3>
+                  </Card.Header>
+                  <Card.Body>
+                    <Phone number={branch.phone} />
+                  </Card.Body>
+                </Card>
+              }
               <RelatedJobs items={related} />
             </Stack>
           </Col>
