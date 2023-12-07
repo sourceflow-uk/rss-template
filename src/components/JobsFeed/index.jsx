@@ -44,6 +44,29 @@ export default function JobsFeed({ className, sector, changeURLOnFilterChange })
                 "1df83e15-03f4-4ce7-9f8d-9b20d0ea1538": true,
                 "3186657c-e89c-4a6f-9157-35eb7fe0b379": [sector],
               },
+              categorySort: {
+                Branches: { key: "name", direction: "asc" },
+                Sector: { key: "name", direction: "asc" },
+                Salary: { key: "name", direction: "asc" },
+                "Work type": function (a, b) {
+                  if (a.name < b.name) {
+                    return -1;
+                  } else if (a.name > b.name) {
+                    return 1;
+                  } else {
+                    return 0;
+                  }
+                },
+                "Job Type": function (a, b) {
+                  if (a.name < b.name) {
+                    return -1;
+                  } else if (a.name > b.name) {
+                    return 1;
+                  } else {
+                    return 0;
+                  }
+                },
+              },
             },
             searchResultsOptions: {
               resultNewTab: false,
