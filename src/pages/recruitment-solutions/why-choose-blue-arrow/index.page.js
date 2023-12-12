@@ -2,7 +2,6 @@ import { Content } from "@/ui";
 import { getRoute } from "@/getters/getRoute";
 import { createTitle } from "@/functions/createTitle";
 import { simple_pages_helper } from "@/helpers/simple_pages_helper";
-import { logo_carousel_helper } from "@/helpers/logo_carousel_helper";
 
 export default function ProductsPage({ content }) {
   return (
@@ -16,9 +15,6 @@ export async function getStaticProps() {
   const title = "Why choose Blue Arrow?";
   const url_slug = "why-choose-blue-arrow";
   const pages = simple_pages_helper.fetch({ parent: "9dc7694d-93b5-4ddd-a464-405f77d71cb1" });
-  const logos = logo_carousel_helper.fetch({
-    filter: (i) => i.tags.toLowerCase().includes(url_slug) || i.tags.includes("*"),
-  });
 
   return {
     props: {
@@ -102,15 +98,6 @@ export async function getStaticProps() {
             form_id: "98b1af95-4745-46ac-b426-edad7bd527d2",
           },
         },
-        ...(logos.length > 0
-          ? [
-              { component: "Divider" },
-              {
-                component: "LogoCarousel",
-                props: { title: { path: `page.${url_slug}.component.LogoCarousel.title` }, items: logos },
-              },
-            ]
-          : []),
       ],
     },
   };

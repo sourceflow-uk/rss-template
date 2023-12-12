@@ -19,6 +19,10 @@ export default function LogoCarousel({ className, title, items, visibleCount: de
     setVisibleCount(xl ? desktopVisibleCount : lg ? 3 : md ? 2 : 1);
   }, [xl, lg, md, desktopVisibleCount]);
 
+  if (items.length === 0) {
+    return null;
+  }
+
   return (
     <div className={clsx(className, classes.logos)}>
       <Container className="mw-xxl">

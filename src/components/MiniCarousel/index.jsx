@@ -7,6 +7,10 @@ import ChevronRight from "@/assets/ChevronRight.svg";
 import { MiniCarouselCard, Title } from "@/ui";
 
 export default function MiniCarousel({ className, title, items }) {
+  if (items.length === 0) {
+    return null;
+  }
+
   return (
     <div className={clsx(className, classes.mini)}>
       <Container className="mw-xxl">

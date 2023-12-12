@@ -4,7 +4,6 @@ import { getRoute } from "@/getters/getRoute";
 import { trimText } from "@/functions/trimText";
 import { createTitle } from "@/functions/createTitle";
 import { mini_carousel_helper } from "@/helpers/mini_carousel_helper";
-import { logo_carousel_helper } from "@/helpers/logo_carousel_helper";
 import { jobs_helper } from "@/helpers/jobs_helper";
 
 export default function Page({ content }) {
@@ -79,16 +78,6 @@ export async function getStaticProps({}) {
           props: { title: { path: "page.home.component.LatestBlogs.title", placeholder: "Latest Blogs" } },
         },
         { component: "Divider" },
-        {
-          component: "LogoCarousel",
-          props: {
-            title: { path: "page.home.component.LogoCarousel.title", placeholder: "" },
-            items: logo_carousel_helper.fetch({
-              filter: (i) => i.tags.toLowerCase().includes("home") || i.tags.includes("*"),
-            }),
-          },
-        },
-        { component: "Spacer" },
       ],
     },
   };

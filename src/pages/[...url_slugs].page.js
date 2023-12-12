@@ -7,7 +7,6 @@ import { getNestedRoutes } from "@/functions/getNestedRoutes";
 import { employer_helper } from "@/helpers/employer_helper";
 import { jobs_helper } from "@/helpers/jobs_helper";
 import { getSectorStaticProps } from "@/functions/getSectorStaticProps";
-import { logo_carousel_helper } from "@/helpers/logo_carousel_helper";
 
 export default function Page({ content }) {
   return (
@@ -18,8 +17,6 @@ export default function Page({ content }) {
 }
 
 export async function getStaticProps({ params: { url_slugs } }) {
-  console.log(url_slugs);
-
   const pages = getNestedRoutes({
     url_slugs,
     overwrites: { "recruitment-solutions": { href: "/recruitment-solutions/why-choose-blue-arrow/" } },
@@ -38,10 +35,6 @@ export async function getStaticProps({ params: { url_slugs } }) {
   if (!page) {
     return { notFound: true };
   }
-
-  const logos = logo_carousel_helper.fetch({
-    filter: (i) => i.tags.toLowerCase().includes(page.url_slug) || i.tags.includes("*"),
-  });
 
   const related_sector = page["related_sector"] ? sector_helper.find(page["related_sector"], "title") : null;
   const related_employer = page["related_employer"] ? employer_helper.find(page["related_employer"], "name") : null;
@@ -167,14 +160,6 @@ export async function getStaticProps({ params: { url_slugs } }) {
                 redirect_url: i.redirect_url ?? null,
               },
             }))
-          : []),
-        ...(logos.length > 0
-          ? [
-              {
-                component: "LogoCarousel",
-                props: { title: { path: `page.${page.url_slug}.component.LogoCarousel.title` }, items: logos },
-              },
-            ]
           : []),
       ],
     },
