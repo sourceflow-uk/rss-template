@@ -6,6 +6,20 @@ export default class CollectionHelper {
     this.collection = new BaseCollection(data, "en");
   }
 
+  pluck(key, find) {
+    const items = this.find(find.value, find.key);
+
+    if (!items || items.length === 0) {
+      return null;
+    }
+
+    if (Array.isArray(items)) {
+      return items.map((i) => i[key]);
+    }
+
+    return [items[key]];
+  }
+
   nestedFind(values, key = "url_slug") {
     const [value, ...rest] = values.reverse();
     const pages = this.filter((i) => i[key] === value);
