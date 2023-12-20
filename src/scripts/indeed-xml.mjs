@@ -29,12 +29,28 @@ const indeedFeed = `<?xml version="1.0" encoding="utf-8"?>
     ${jobs
       .map((job) => {
         const cleanLocation = job.location?.replace(", United Kingdom", "");
+        const jobType = job.categories.find(c => c.name == "Job Type")?.values?.[0]?.name?.toLowerCase();
+        let cleanJobType = "";
+
+        switch(jobType){
+        case 'permanent':
+          cleanJobType = 'fulltime';
+          break;
+        case 'temporary':
+          cleanJobType = 'parttime';
+          break;
+        case 'contract':
+          cleanJobType = 'parttime';
+          break;
+        }
+
         return (
           // Modify this to add the needed data if not already supported
           `<job>
                 <title><![CDATA[${job.title}]]></title>
                 <date><![CDATA[${job.created_at}]]></date>
                 <referencenumber><![CDATA[${job.external_reference}]]></referencenumber>
+                <requisitionid><![CDATA[${job.external_reference}]]></requisitionid>
                 <url>
                     <![CDATA[${`${domain}/jobs/${job.url_slug}?source=Indeed`}]]>
                 </url>
@@ -50,6 +66,7 @@ const indeedFeed = `<?xml version="1.0" encoding="utf-8"?>
                 </description>
                 <salary><![CDATA[${job.salary_package} per year]]></salary>
                 <expirationdate><![CDATA[${job.expires_at}]]></expirationdate>
+                <jobtype><![CDATA[${cleanJobType}]]></jobtype>
             </job>`
         );
       })
