@@ -61,16 +61,28 @@ export default function Document() {
           `}
         </style>
         <style>{ `div#reciteme-button { bottom: 65px;}` }</style>
+
+        <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=G-CC07K8S7WD`}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-CC07K8S7WD'); 
+          `,
+            }}
+          />
       </Head>
       <body>
-        <noscript>
+        {/* <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-W9BK8R"
             height="0"
             width="0"
             style={{ display: "none", visibility: "hidden" }}
           />
-        </noscript>
+        </noscript> */}
         <Main />
         <NextScript />
       </body>
