@@ -76,6 +76,7 @@ export const getFooterMenu = (locale = "en") => {
         { label: "Data Access Request", href: getRoute("/data-access-request") },
         { label: "EDI Statement", href: "https://www.rssglobal.com/edi_statement/", target: "_blank" },
         { label: "Whistleblowing Policy", href: "https://www.rssglobal.com/whistleblowing-policy/", target: "_blank" },
+        { label: "Supplier Prompt Payment Plan", href: getRoute("/supplier-prompt-payment-plan/") },
       ],
     },
   ];
