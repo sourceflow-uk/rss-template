@@ -30,19 +30,19 @@ const indeedFeed = `<?xml version="1.0" encoding="utf-8"?>
       .map((job) => {
         const cleanLocation = job.location?.replace(", United Kingdom", "");
         const jobType = job.categories.find(c => c.name == "Job Type")?.values?.[0]?.name?.toLowerCase();
-        let cleanJobType = "";
+        let cleanJobType = "fulltime";
 
-        switch(jobType){
-        case 'permanent':
-          cleanJobType = 'fulltime';
-          break;
-        case 'temporary':
-          cleanJobType = 'parttime';
-          break;
-        case 'contract':
-          cleanJobType = 'parttime';
-          break;
-        }
+        // switch(jobType){
+        // case 'permanent':
+        //   cleanJobType = 'fulltime';
+        //   break;
+        // case 'temporary':
+        //   cleanJobType = 'parttime';
+        //   break;
+        // case 'contract':
+        //   cleanJobType = 'parttime';
+        //   break;
+        // }
 
         return (
           // Modify this to add the needed data if not already supported
