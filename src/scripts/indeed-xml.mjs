@@ -29,8 +29,12 @@ const indeedFeed = `<?xml version="1.0" encoding="utf-8"?>
     ${jobs
       .map((job) => {
         const cleanLocation = job.location?.replace(", United Kingdom", "");
-        const jobType = job.categories.find(c => c.name == "Job Type")?.values?.[0]?.name?.toLowerCase();
+        const jobType = job.categories.find(c => c.name == "Full/Part Time")?.values?.[0]?.name?.toLowerCase();
         let cleanJobType = "fulltime";
+
+        if(jobType == "part time"){
+          cleanJobType = "parttime";
+        }
 
         // switch(jobType){
         // case 'permanent':
