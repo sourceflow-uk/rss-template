@@ -7,7 +7,7 @@ export default function CollapsibleSectionItem({ active, title, body, onClick })
   return (
     <article className={clsx(classes.item, active && classes["item--active"])}>
       <header onClick={onClick} className="py-3">
-        <Title tag="h4" title={title} />
+        <Title tag="h2" title={title} className="m-2"/>
         <div className={classes.item__toggle}>
           <span />
           <span />

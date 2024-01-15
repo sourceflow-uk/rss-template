@@ -37,6 +37,6 @@ export default function RichText({ className, containerClassName, title, body, s
 
 RichText.defaultProps = {
   className: "py-4 py-md-5",
-  containerClassName: "mw-lg",
+  containerClassName: "mw-xl",
   body: null,
 };

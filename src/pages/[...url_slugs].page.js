@@ -100,7 +100,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
             md: 4,
           },
         },
-        { component: "RichText", props: { body: page.body ?? null } },
+      
         Array.isArray(page.collapsible_section_items) && {
           component: "CollapsibleSection",
           props: {
@@ -113,6 +113,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
             md: 12,
           },
         },
+        { component: "RichText", props: { body: page.body ?? null } },
         ...(Array.isArray(page.narrative_panels)
           ? page.narrative_panels.map((i, k) => ({
               component: "NarrativePanel",
