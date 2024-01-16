@@ -49,7 +49,7 @@ export async function getStaticProps() {
               description: `${i.description}`,
               img: i.card_image ?? null,
               href: getRoute("employerPage", { url_slugs: [i.url_slug] }),
-              featured: i.featured,
+              featured: i.featured ?? false,
               cta: { label: "See available jobs", href: getRoute("employerPage", { url_slugs: [i.url_slug] }) },
             })),
           },

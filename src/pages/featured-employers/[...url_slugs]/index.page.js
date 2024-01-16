@@ -52,8 +52,8 @@ export async function getStaticProps({ params: { url_slugs } }) {
             className: page.header_classes
               ? page.header_classes
               : page.cover_image
-              ? "bg-tertiary text-white"
-              : "bg-light text-tertiary",
+                ? "bg-tertiary text-white"
+                : "bg-light text-tertiary",
             title: page.title,
             description: page.description ?? null,
             img: page.cover_image ?? null,
@@ -70,7 +70,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
                 },
           },
         },
-        ...(page.parent.id === null
+        ...(page.parent?.id === null
           ? [{ component: "RichText", props: { className: "bg-primary text-white py-5", body: page.body ?? null } }]
           : [
               {
@@ -117,7 +117,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
               },
             }))
           : []),
-        ...(typeof employer !== "undefined"
+        ...(typeof employer !== "undefined" && employer
           ? [
               { component: "Divider" },
               {
@@ -125,7 +125,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
                 props: {
                   title: {
                     path: `page.${url_slugs.join(".")}.component.LatestJobs.title`,
-                    placeholder: `Latest ${employer.name} Jobs`,
+                    placeholder: `Latest ${employer?.name} Jobs`,
                   },
                   items: jobs_helper.fetch({
                     employer: employer.id,
@@ -139,7 +139,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
               },
             ]
           : []),
-        ...(page.parent.id === null
+        ...(page.parent?.id === null
           ? [
               ...(children.length > 0
                 ? [
@@ -163,31 +163,31 @@ export async function getStaticProps({ params: { url_slugs } }) {
                 : []),
             ]
           : !children
-          ? [
-              ...(siblings.length > 0
-                ? [
-                    { component: "Divider" },
-                    {
-                      component: "PromoSection",
-                      props: {
-                        title: {
-                          path: `page.${url_slugs.join(".")}.component.PromoSection.title`,
-                          placeholder: `Also in this section`,
+            ? [
+                ...(siblings.length > 0
+                  ? [
+                      { component: "Divider" },
+                      {
+                        component: "PromoSection",
+                        props: {
+                          title: {
+                            path: `page.${url_slugs.join(".")}.component.PromoSection.title`,
+                            placeholder: `Also in this section`,
+                          },
+                          items: siblings.map((i) => ({
+                            title: i.title ?? null,
+                            img: i.card_image ?? null,
+                            description: trimText(i.body),
+                            href: getRoute("employerPage", {
+                              url_slugs: [...url_slugs.filter((i) => i !== page.url_slug), i.url_slug],
+                            }),
+                          })),
                         },
-                        items: siblings.map((i) => ({
-                          title: i.title ?? null,
-                          img: i.card_image ?? null,
-                          description: trimText(i.body),
-                          href: getRoute("employerPage", {
-                            url_slugs: [...url_slugs.filter((i) => i !== page.url_slug), i.url_slug],
-                          }),
-                        })),
                       },
-                    },
-                  ]
-                : []),
-            ]
-          : []),
+                    ]
+                  : []),
+              ]
+            : []),
       ],
     },
   };
