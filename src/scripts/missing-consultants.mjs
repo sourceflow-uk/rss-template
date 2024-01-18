@@ -14,7 +14,7 @@ const rows = jobs.map((job) => {
         const nameFragment = /^(.*)\.\d+\.\d+\@/.exec(external_application_email)[1]
         const consultant_helper = (new BaseCollection(consultantData, "en")).getItems();
         // console.log(consultant_helper)
-        const consultant = consultant_helper.find(i => i['name'].toLowerCase() == nameFragment.split('.').join(' ').toLowerCase())
+        const consultant = consultant_helper.find(i => i['name'].toLowerCase().replace(/\s+/g, '') == nameFragment.split('.').join('').toLowerCase())
 
         if(consultant){
           // not interested if we have found a consultant

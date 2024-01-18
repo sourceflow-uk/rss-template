@@ -34,7 +34,7 @@ export default function JobPageContent({
   const branch = branch_helper.find(branches[0]?.id, "id")
 
   const nameFragment = /^(.*)\.\d+\.\d+\@/.exec(external_application_email)[1]
-  const consultant = consultant_helper.filter((c) => c.name.toLowerCase() == nameFragment.split('.').join(' ').toLowerCase())[0]
+  const consultant = consultant_helper.filter((c) => c.name.toLowerCase().replace(/\s+/g, '') == nameFragment.split('.').join('').toLowerCase())[0]
 
 
   const global = getGlobal();
