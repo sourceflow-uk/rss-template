@@ -12,9 +12,20 @@ const rows = jobs.map((job) => {
         const external_application_email = job.external_application_email
 
         const nameFragment = /^(.*)\.\d+\.\d+\@/.exec(external_application_email)[1]
+        const sanitisedNameFragment = nameFragment.split('.').join('').toLowerCase()
+
         const consultant_helper = (new BaseCollection(consultantData, "en")).getItems();
         // console.log(consultant_helper)
-        const consultant = consultant_helper.find(i => i['name'].toLowerCase().replace(/\s+/g, '') == nameFragment.split('.').join('').toLowerCase())
+        let consultant = consultant_helper.find(i => i['name'].toLowerCase().replace(/\s+/g, '') == sanitisedNameFragment)
+
+        if(!consultant){
+          consultant = consultant_helper.find(i => {
+            const nameparts = i['name'].split(' ')
+            const shortname = `${nameparts[0][0]}${nameparts.slice(1).join('')}`.toLowerCase()
+
+            return shortname == sanitisedNameFragment
+          })
+        }
 
         if(consultant){
           // not interested if we have found a consultant
