@@ -42,3 +42,5 @@ yarn-error.log*
 .sourceflow
 /public/sitemap*
 /public/indeed-jobs.xml
+/public/missing-consultants.csv
+
