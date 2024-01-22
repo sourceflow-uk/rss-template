@@ -4,7 +4,7 @@
   "homepage": "https://sourceflow-uk.github.io/rss-template",
   "scripts": {
     "build": "next build && next-sitemap && npm run build-indeed && next export",
-    "build-indeed": "node ./src/scripts/indeed-xml.mjs",
+    "build-indeed": "node ./src/scripts/indeed-xml.mjs && node ./src/scripts/missing-consultants.mjs",
     "dev": "next dev",
     "dev-reset": "npx sourceflow reset && next dev"
   },
