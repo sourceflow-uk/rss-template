@@ -73,6 +73,8 @@ export default function Document() {
           `,
             }}
           />
+
+        <script async type="text/javascript" src={`https://bot.leadoo.com/bot/dynamic.js?company=cd329f11`} />
       </Head>
       <body>
         <Main />
