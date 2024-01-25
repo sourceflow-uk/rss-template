@@ -31,7 +31,7 @@ export const getHeaderMenu = (locale = "en") => {
         { label: "Why choose Blue Arrow?", href: getRoute("/recruitment-solutions/why-choose-blue-arrow") },
         { label: "Case Studies", href: getRoute("/recruitment-solutions/case-studies") },
         { label: "Labour Market Insights", href: getRoute("/recruitment-solutions/industry-insights") },
-        { label: "Client Portal", href: getRoute("/already-a-client") },
+        { label: "Client Portal", href: getRoute("/recruitment-solutions/client-portal") },
         { label: "Workforce Planning", href: getRoute("/recruitment-solutions/workforce-insights/workforce-planning") },
         {
           label: "Improving Productivity",
