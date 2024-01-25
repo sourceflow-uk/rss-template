@@ -40,7 +40,7 @@ export default function JobPage({ job, content }) {
         employment_type={employment_type}
         site_name={global["_theme.company.name"]}
         site_domain_link={global["_theme.company.domain"]}
-        site_google_logo_link={global["_theme.company.logo"]}
+        site_google_logo_link={"https://cdn.sourceflow.co.uk/8zwqr8r5l73cstbidhd4ur2k26cs"}
       />
       <Content items={content} additionalComponents={additionalComponents} />
     </>
