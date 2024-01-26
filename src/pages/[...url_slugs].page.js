@@ -7,6 +7,7 @@ import { getNestedRoutes } from "@/functions/getNestedRoutes";
 import { employer_helper } from "@/helpers/employer_helper";
 import { jobs_helper } from "@/helpers/jobs_helper";
 import { getSectorStaticProps } from "@/functions/getSectorStaticProps";
+import { getGlobal } from "@/getters/getGlobal";
 
 export default function Page({ content }) {
   return (
@@ -100,7 +101,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
             md: 4,
           },
         },
-      
+
         Array.isArray(page.collapsible_section_items) && {
           component: "CollapsibleSection",
           props: {
@@ -168,24 +169,15 @@ export async function getStaticProps({ params: { url_slugs } }) {
 }
 
 export async function getStaticPaths() {
+  const global = getGlobal();
+
   return {
     paths: [
       ...simple_pages_helper.toNestedPaths({
-        exclude: [
-          "9dc7694d-93b5-4ddd-a464-405f77d71cb1", // why-choose-blue-arrow
-          "5baeed81-34de-4673-b0f3-2405a5682c22", // contact-us
-          "5867167d-704a-4155-8b6d-7df842ef40f1", // warehouse-jobs
-          "6cbbc5e3-5dcd-44a4-ba81-136d3f90ae0d", // featured-employers
-          "3ac0b752-94d4-49ee-b17a-c45aac2c5eda", // industry-insights
-          "ccf8d981-4a1d-46f9-8c3a-0e4c0807e9f6", // whitepapers
-        ],
+        exclude: global["_theme.simplePagesExcludeList"].split(",").map((i) => i.trim()),
       }),
       ...sector_helper.toNestedPaths({
-        exclude: [
-          "42ee49b6-cfc2-4b42-a5b5-cf9a17009a6f",
-          "741e7908-0c11-4a62-91c1-dd23b02c8cd7",
-          "d5e71b93-2910-4cbf-84d4-a140d12a6d64",
-        ],
+        exclude: global["_theme.sectorPagesExcludeList"].split(",").map((i) => i.trim()),
       }),
     ],
     fallback: false,
