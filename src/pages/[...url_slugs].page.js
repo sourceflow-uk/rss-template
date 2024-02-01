@@ -101,7 +101,6 @@ export async function getStaticProps({ params: { url_slugs } }) {
             md: 4,
           },
         },
-
         Array.isArray(page.collapsible_section_items) && {
           component: "CollapsibleSection",
           props: {
@@ -115,6 +114,18 @@ export async function getStaticProps({ params: { url_slugs } }) {
           },
         },
         { component: "RichText", props: { body: page.body ?? null } },
+        Array.isArray(page.collapsible_section_2_items) && {
+          component: "CollapsibleSection",
+          props: {
+            title: page.collapsible_section_2_title ?? null,
+            description: page.collapsible_section_2_description ?? null,
+            items: page.collapsible_section_2_items.map((i) => ({
+              title: i.title ?? null,
+              body: i.body ?? null,
+            })),
+            md: 12,
+          },
+        },
         ...(Array.isArray(page.narrative_panels)
           ? page.narrative_panels.map((i, k) => ({
               component: "NarrativePanel",
@@ -136,6 +147,7 @@ export async function getStaticProps({ params: { url_slugs } }) {
               },
             }))
           : []),
+        { component: "RichText", props: { body: page.narrative_panels_footer ?? null } },
         Array.isArray(page.promo_section) && {
           component: "PromoSection",
           props: {
