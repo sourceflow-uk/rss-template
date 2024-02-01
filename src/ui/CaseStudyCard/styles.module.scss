@@ -14,10 +14,12 @@
 
   &__img {
     @include img-overlay__img;
+    filter: grayscale(100);
   }
 
   &:hover &__img {
     scale: 1.05;
+    filter: grayscale(0);
   }
 
   &__body {
