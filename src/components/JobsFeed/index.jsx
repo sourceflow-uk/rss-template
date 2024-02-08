@@ -72,6 +72,7 @@ export default function JobsFeed({ className, sector, changeURLOnFilterChange })
               resultNewTab: false,
               resultCategories: {
                 Salary: false,
+                Branches: false,
               },
               resultLinks: ({ href, label, target, job }) => {
                 let logo = null;
