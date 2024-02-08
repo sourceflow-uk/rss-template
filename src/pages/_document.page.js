@@ -74,7 +74,7 @@ export default function Document() {
             }}
           />
 
-<script async type="text/javascript" src={`https://bot.leadoo.com/bot/dynamic.js?company=cd329f11`} />
+<script type="text/javascript" async src='https://bot.leadoo.com/bot/dynamic.js?company=cd329f11'></script>
 
       </Head>
       <body>
