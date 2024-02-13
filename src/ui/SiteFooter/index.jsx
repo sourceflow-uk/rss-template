@@ -27,7 +27,14 @@ export default function SiteFooter({ className }) {
         <Stack className="flex-lg-row justify-content-between align-items-center" gap={3}>
           <SiteFooterDetails className={clsx(classes.footer__details, "flex-lg-row")} />
           <a className={classes.footer__brand} href={getRoute("home")}>
-            <Image img={{ path: "_theme.company.logo.white" }} size="260x44" alt={company_name} />
+            <Image
+              img={{
+                path: "_theme.company.logo.white",
+                src: "https://cdn.sourceflow.co.uk/__gallery/2b02d081-6ca7-472d-8236-f09c24440439",
+              }}
+              size="260x44"
+              alt={company_name}
+            />
           </a>
         </Stack>
         <SiteFooterCopyright className={clsx(classes.footer__copyright, "flex-lg-row mt-5 small")} />

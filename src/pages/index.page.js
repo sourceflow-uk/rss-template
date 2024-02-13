@@ -22,8 +22,8 @@ export async function getStaticProps({}) {
         {
           component: "Hero",
           props: {
-            // img: { path: "page.home.component.Hero.img" },
-            img: "https://cdn.sourceflow.co.uk/__gallery/variant/1314x542/__gallery/e815594b-fe07-4dac-a6f1-7aa18b5158de",
+            img1: { path: "page.home.component.Hero.img.1", src: "/assets/home/hero/1.jpg" },
+            img2: { path: "page.home.component.Hero.img.2", src: "/assets/home/hero/2.jpg" },
             title: { path: "page.home.component.Hero.title", placeholder: "Flexible Work" },
             subtitle: { path: "page.home.component.Hero.subtitle", placeholder: "That’s All About <i>You</i>" },
           },

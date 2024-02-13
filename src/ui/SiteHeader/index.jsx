@@ -15,7 +15,14 @@ export default function SiteHeader({ className }) {
     <Navbar fixed="top" collapseOnSelect expand="lg" className={clsx(className, classes.header)}>
       <Container className="p-0">
         <Navbar.Brand className={clsx(classes.header__brand, "me-auto px-2 py-0")} href={getRoute("home")}>
-          <Image img={{ path: "_theme.company.logo" }} size="240x112" alt={company_name} />
+          <Image
+            img={{
+              path: "_theme.company.logo",
+              src: "https://cdn.sourceflow.co.uk/__gallery/6381cc00-fd48-47b5-89cd-5ebb8cafa450",
+            }}
+            size="240x112"
+            alt={company_name}
+          />
         </Navbar.Brand>
         <Navbar.Toggle className="me-2" aria-controls="responsive-navbar-nav">
           <div>

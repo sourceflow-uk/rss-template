@@ -5,7 +5,6 @@
   color: $white;
   text-align: center;
   margin-bottom: -20%;
-  z-index: -1;
 
   @include media-breakpoint-up(md) {
     margin-bottom: -7.5%;
@@ -22,6 +21,7 @@
     left: 0;
     width: 100%;
     height: 100%;
+    text-shadow: 0 0 2rem rgba(0, 0, 0, 1);
 
     @include media-breakpoint-up(lg) {
       height: 70%;
@@ -40,6 +40,7 @@
     }
 
     h2 {
+
       @include media-breakpoint-up(md) {
         font-size: 33px;
       }
@@ -56,29 +57,14 @@
   }
 
   &__img {
-    position: relative;
-    padding-top: 100%;
-    
+    clip-path: polygon(100% 0, 100% 75%, 50% 100%, 0 75%, 0 0);
 
     @include media-breakpoint-up(md) {
-      // padding-top: calc(685 / 1920 * 100%);
-      padding-top: 542px;
-      display: flex;
-      justify-content: center;
+      clip-path: polygon(100% 0, 100% 60%, 50% 100%, 0 60%, 0 0);
     }
 
     img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      // width: 100%;
-      // left: calc(50% - 960px);
-      height: 100%;
-      max-height: 542px;
-      object-fit: cover;
-      @include media-breakpoint-up(md) {
-        left: initial;
-      }
+      width: 100%;
     }
   }
 }

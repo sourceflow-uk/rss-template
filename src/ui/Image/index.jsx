@@ -8,21 +8,20 @@ export default function Image({ className, img, size, alt }) {
   }
 
   if (typeof img === "string") {
-    if(img.includes("__gallery")){
-      return <img src={img} className={className} alt={alt} />
-    } else {
-      return <SourceFlowImage className={className} src={img} size={size} alt={alt} />;
-    }
+    return <SourceFlowImage className={className} src={img} size={size} alt={alt} />;
   }
 
   if (typeof img === "object") {
-    if ("path" in img) {
-      return <SourceFlowImage className={className} path={img.path} size={size} imagesMetaData={imagesMetaData} />;
-    }
-
-    if ("src" in img && img.src) {
-      return <SourceFlowImage className={className} src={img.src} alt={img.alt ?? "tbd"} size={size} />;
-    }
+    return (
+      <SourceFlowImage
+        className={className}
+        path={img.path}
+        src={img.src}
+        alt={img.alt ?? alt}
+        size={size}
+        imagesMetaData={imagesMetaData}
+      />
+    );
   }
 
   return null;
