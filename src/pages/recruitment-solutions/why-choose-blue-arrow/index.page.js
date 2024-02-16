@@ -30,11 +30,14 @@ export async function getStaticProps() {
           },
         },
         {
-          component: "Header",
+          component: "HeaderSideImage",
           props: {
-            className: "text-tertiary",
+            className: "text-tertiary bg-light",
             title: { path: `page.${url_slug}.component.Header.title`, placeholder: title },
-            img: { path: `page.${url_slug}.component.Header.img` },
+            img: {
+              path: `page.${url_slug}.component.HeaderSideImage.img`,
+              src: "/assets/why-choose-blue-arrow/banner.png",
+            },
           },
         },
         {

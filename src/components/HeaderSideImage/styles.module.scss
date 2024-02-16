@@ -1,0 +1,58 @@
+@import "src/scss/module";
+
+.header {
+
+  img {
+    width: 100vw;
+
+    @include media-breakpoint-up(md) {
+      width: 50vw;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  &__back {
+    display: flex;
+    align-items: center;
+    gap: $spacer * 0.5;
+    text-decoration: none;
+    transition: $transition-base;
+
+    svg {
+      transition: $transition-base;
+    }
+
+    &:hover {
+      color: var(#{--bs-quaternary});
+      gap: $spacer;
+
+      svg {
+        stroke: var(#{--bs-quaternary});
+      }
+    }
+  }
+
+  &__body {
+    p {
+    }
+
+    a[role="button"] {
+    }
+  }
+
+  &__video {
+    position: relative;
+    z-index: 3;
+
+    svg {
+      fill: $card-text-color;
+    }
+  }
+}

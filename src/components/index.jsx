@@ -16,6 +16,7 @@ export const FeatureTabsList = lazy(() => import("./FeatureTabsList"));
 export const Form = lazy(() => import("./Form"));
 export const GridButtonsGrid = lazy(() => import("./GridButtonsGrid"));
 export const Header = lazy(() => import("./Header"));
+export const HeaderSideImage = lazy(() => import("./HeaderSideImage"));
 export const Hero = lazy(() => import("./Hero"));
 export const HeroCarousel = lazy(() => import("./HeroCarousel"));
 export const HorizontalListings = lazy(() => import("./HorizontalListings"));
