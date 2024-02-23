@@ -17,7 +17,16 @@ export default function Content({ items, additionalComponents }) {
   };
 
   if (logoItems.length > 0) {
-    items = [...items, { component: "LogoCarousel", props: { items: logoItems } }];
+    items = [
+      ...items,
+      {
+        component: "LogoCarousel",
+        props: {
+          items: logoItems,
+          title: { path: "component.logoCarousel.title", placeholder: "Our Partners" },
+        },
+      },
+    ];
   }
 
   return (
