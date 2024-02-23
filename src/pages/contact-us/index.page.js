@@ -30,8 +30,8 @@ export async function getStaticProps() {
             description: { path: "page.contact.component.Header.description" },
           },
         },
-        { component: "ContactPageContent" },
         { component: "ContactPageForm" },
+        { component: "ContactPageContent" },
       ],
     },
   };

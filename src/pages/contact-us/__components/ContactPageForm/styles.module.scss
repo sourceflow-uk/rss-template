@@ -1,0 +1,20 @@
+@import "src/scss/module";
+
+.form {
+
+  iframe {
+    height: 878px;
+
+    @media screen and (min-width: 516px) {
+      height: 1066px;
+    }
+
+    @media screen and (min-width: 672px) {
+      height: 822px;
+    }
+
+    @media screen and (min-width: 1230px) {
+      height: 593px;
+    }
+  }
+}
