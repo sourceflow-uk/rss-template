@@ -1,0 +1,22 @@
+@import "src/scss/module";
+
+.back {
+  display: flex;
+  align-items: center;
+  gap: $spacer * 0.5;
+  text-decoration: none;
+  transition: $transition-base;
+
+  svg {
+    transition: $transition-base;
+  }
+
+  &:hover {
+    color: var(#{--bs-quaternary});
+    gap: $spacer;
+
+    svg {
+      stroke: var(#{--bs-quaternary});
+    }
+  }
+}

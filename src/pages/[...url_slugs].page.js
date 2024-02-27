@@ -60,26 +60,12 @@ export async function getStaticProps({ params: { url_slugs } }) {
         {
           component: "Header",
           props: {
-            className: page.header_classes
-              ? page.header_classes
-              : page.cover_image
-                ? "bg-tertiary text-white"
-                : "bg-light text-tertiary",
-            title: page.title,
-            description: page.description ?? null,
-            img: page.cover_image ?? null,
-            back: prevPage
-              ? {
-                  path: `page.${prevPage.url_slug}.component.Header.back`,
-                  placeholder: `Back to ${prevPage.label}`,
-                  href: prevPage.href,
-                }
-              : {
-                  path: `page.home.component.Header.back`,
-                  placeholder: `Back to Home`,
-                  href: getRoute("home"),
-                },
-            containerClassName: "mw-xxl",
+            page,
+            back: {
+              path: `page.${prevPage ? prevPage.url_slug : "home"}.component.Header.back`,
+              placeholder: `Back to ${prevPage ? prevPage.label : "Home"} `,
+              href: prevPage ? prevPage.href : getRoute("home"),
+            },
           },
         },
         page.video ? { component: "SocialVideo", props: { video_embed_url: page.video } } : null,
